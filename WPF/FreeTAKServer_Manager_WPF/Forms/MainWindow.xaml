@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FreeTAKServer_Manager_WPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="583.333" Width="591.334" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="favicon.png" Loaded="Window_Loaded" Closing="Window_Closing">
+        Title="FreeTAKServer Manager" Height="583.333" Width="591.334" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="favicon.png" Loaded="Window_Loaded" Closing="Window_Closing">
     <Window.Resources>
         <Color x:Key="Color1">#FF1E1E25</Color>
         <Color x:Key="Color2">White</Color>

@@ -69,8 +69,8 @@ namespace FreeTAKServer_Manager_WPF
                 Checkportsserver_button.IsEnabled = false;
                 Installserver_button.IsEnabled = false;
                 CreateFolder();
-                //PythonInstalled();
-                //LoadPropertys();
+                PythonInstalled();
+                LoadPropertys();
                 Logger.WriteLine(" *** Ini Complete [MainForm] ***");
                 Richtextbox.AppendText("[" + DateTime.Now.ToString() + "] : Ini Complete" + "\r");
             }

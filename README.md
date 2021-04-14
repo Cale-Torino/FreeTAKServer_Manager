@@ -25,7 +25,7 @@ N.B the application has been created with the microsoft Visual Studio 2019 Commu
 ## App File Structure
 
 ```
-FreeTAKServer_Manager root folder
+FreeTAKServer_Manager WinForms root folder
 │   FreeTAKServer_Manager.exe
 │   config.py
 │   MainConfig.py
@@ -113,7 +113,7 @@ Test API page fill in your token and test the API locally or send a custom reque
 ## App File Structure
 
 ```
-FreeTAKServer_Manager root folder
+FreeTAKServer_Manager WPF root folder
 │   FreeTAKServer_Manager_WPF.exe
 │   config.py
 │   MainConfig.py

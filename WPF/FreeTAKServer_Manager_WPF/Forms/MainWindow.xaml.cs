@@ -269,13 +269,9 @@ namespace FreeTAKServer_Manager_WPF
 
         private void Startserver_button_Click(object sender, RoutedEventArgs e)
         {
-
+            StartServer();
         }
 
-        private void login_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
         private bool clickedOnce = true;
         private void Setdirserver_button_Click(object sender, RoutedEventArgs e)
         {
@@ -506,7 +502,7 @@ namespace FreeTAKServer_Manager_WPF
 
         private void Stopserver_button_Click(object sender, RoutedEventArgs e)
         {
-
+            StopServer();
         }
 
         private void Editconfigserver_button_Click(object sender, RoutedEventArgs e)

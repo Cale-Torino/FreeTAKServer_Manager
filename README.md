@@ -39,9 +39,11 @@ FreeTAKServer_Manager root folder
 ## App Behaviour
 
 
-The app is built on the `.NET Framework 4.7.2` & is a WinForms C# application.
+The app is built on the `.NET Framework 4.7.2` & is a `WinForms` C# application.
 
 The `app.manifest` allows the app to be dpiAware.
+
+The app must run with admin privileges for the cmd commands to work correctly.
 
 supported OS's
 
@@ -108,7 +110,76 @@ Test API page fill in your token and test the API locally or send a custom reque
 
 # WPF Section
 
-TODO...
+## App File Structure
+
+```
+FreeTAKServer_Manager root folder
+│   FreeTAKServer_Manager_WPF.exe
+│   config.py
+│   MainConfig.py
+│   ReadMe.txt
+│   requirements.txt
+│
+└───Logs
+    │   FreeTAKServer_Manager_WPF_2021-14-4--20-32-10.log
+```
+
+## App Behaviour
+
+
+The app is built on the `.NET Framework 4.7.2` & is a `WPF` (Windows Presentation Foundation) C# application.
+
+The app must run with admin privileges for the cmd commands to work correctly.
+
+supported OS's are Windows vista - Windows 10.
+
+Windows native classes
+- The app makes use of the windows `Registry` to check for the python path and to allow start on startup.
+
+- The app will use the `Process` class to send commands to the commandline.
+
+- The app will use the `MailMessage` class to send emails to the details specified.
+
+- The `File` class will be used for read/write functions.
+
+- The `HttpClient` class will be used for testing the API.
+
+Custom classes
+- `CMD_Class.cs` handles all the calls to `cmd.exe`.
+
+- `CMD_PID_Class.cs` gets or sets the Server and ServerUI PID in public variables.
+
+- `EmailVarClass.cs` gets or sets the public Email variables.
+
+- `LoggerClass.cs` logs events such as errors or results to a file.
+
+- `EncryptionClass.cs` to encrypt the password for the email function.
+
+## Screenshots
+
+### MainForm
+
+Breif MainForm controls explained.
+
+[<img src="img/mainform_wpf.jpg" width="500"/>](img/mainform.jpg)
+
+### About
+
+credits, links to github and my tutorial site.
+
+[<img src="img/about_wpf.jpg" width="500"/>](img/about.jpg)
+
+### Test API
+
+Test API page fill in your token and test the API locally or send a custom request.
+
+[<img src="img/testapi_wpf.jpg" width="500"/>](img/testapi.jpg)
+
+# TODO
+
+- Reduce code.
+- Improve methods
+- Move functions to .dll files to clean up exe code.
 
 
 > FreeTAKTeam https://github.com/FreeTAKTeam

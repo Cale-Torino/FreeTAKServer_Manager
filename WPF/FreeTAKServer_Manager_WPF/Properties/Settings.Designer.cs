@@ -37,6 +37,7 @@ namespace FreeTAKServer_Manager_WPF.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool email_checkstate {
             get {
                 return ((bool)(this["email_checkstate"]));
@@ -48,6 +49,7 @@ namespace FreeTAKServer_Manager_WPF.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool StartupServer_checkstate {
             get {
                 return ((bool)(this["StartupServer_checkstate"]));

@@ -1,0 +1,179 @@
+﻿<Window x:Name="Main_window" x:Class="FreeTAKServer_Manager_WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FreeTAKServer_Manager_WPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="583.333" Width="591.334" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="favicon.png" Loaded="Window_Loaded" Closing="Window_Closing">
+    <Window.Resources>
+        <Color x:Key="Color1">#FF1E1E25</Color>
+        <Color x:Key="Color2">White</Color>
+        <Color x:Key="Color3">White</Color>
+        <Color x:Key="Color4">White</Color>
+        <Color x:Key="Color5">Black</Color>
+        <Color x:Key="Color6">White</Color>
+        <Color x:Key="Color7">White</Color>
+        <Color x:Key="Color8">White</Color>
+        <Color x:Key="Color9">White</Color>
+        <Color x:Key="Color10">#FF1E1E25</Color>
+        <Color x:Key="Color11">Black</Color>
+        <Color x:Key="Color12">White</Color>
+        <Color x:Key="Color13">#00FF001C</Color>
+        <Color x:Key="Color14">White</Color>
+
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#27293D"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#252526"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#1E1E25"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#3F3F46"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#686868"/>
+        <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Window.Resources>
+    <Grid x:Name="MainWindow1" Background="#FF1E1E25" Margin="0,0,-5.333,0.333">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <Menu x:Name="menu_strip" IsMainMenu="True" Height="20" VerticalAlignment="Top" Margin="0,0,1,0" AllowDrop="True">
+            <MenuItem x:Name="about_menuitem" Header="_About" Click="about_menuitem_Click">
+                <MenuItem.Icon>
+                    <Image Height="12">
+                        <Image.Source>
+                            <BitmapImage  UriSource="/Resources/info.png" />
+                        </Image.Source>
+                    </Image>
+                </MenuItem.Icon>
+            </MenuItem>
+            <MenuItem x:Name="email_menuitem" Header="_Email Setup" Click="email_setup_menuitem_Click">
+                <MenuItem.Icon>
+                    <Image Height="12">
+                        <Image.Source>
+                            <BitmapImage  UriSource="/Resources/mail.png" />
+                        </Image.Source>
+                    </Image>
+                </MenuItem.Icon>
+            </MenuItem>
+            <MenuItem x:Name="email_settings_menuitem" Header="_Read Me" Click="read_me_menuitem_Click">
+                <MenuItem.Icon>
+                    <Image Height="12">
+                        <Image.Source>
+                            <BitmapImage  UriSource="/Resources/text.png" />
+                        </Image.Source>
+                    </Image>
+                </MenuItem.Icon>
+            </MenuItem>
+            <MenuItem x:Name="exit_menuitem" Header="_Test API" Click="Test_API_menuitem_Click">
+                <MenuItem.Icon>
+                    <Image Height="12">
+                        <Image.Source>
+                            <BitmapImage  UriSource="/Resources/api.png" />
+                        </Image.Source>
+                    </Image>
+                </MenuItem.Icon>
+            </MenuItem>
+        </Menu>
+
+        <StatusBar Margin="3,0,1,3" Height="22" VerticalAlignment="Bottom">
+            <StatusBarItem>
+                <TextBlock x:Name="lblCursorPosition" />
+            </StatusBarItem>
+            <Separator Grid.Column="1" />
+            <StatusBarItem Grid.Column="2">
+                <ProgressBar x:Name="progressbar" Value="1" Width="90" Height="16" />
+            </StatusBarItem>
+            <Separator Grid.Column="3" />
+            <StatusBarItem Grid.Column="4">
+                <TextBlock x:Name="status_lable" Text="Ready" />
+            </StatusBarItem>
+        </StatusBar>
+        <GroupBox x:Name="groupbox" Header="Logs" HorizontalAlignment="Left" Height="278" Margin="26,220,0,0" VerticalAlignment="Top" Width="538">
+            <GroupBox.Foreground>
+                <SolidColorBrush Color="{DynamicResource Color2}"/>
+            </GroupBox.Foreground>
+            <RichTextBox x:Name="Richtextbox" HorizontalAlignment="Left" Height="234" Margin="10,10,0,0" VerticalAlignment="Top" Width="504" Block.LineHeight="2">
+                <RichTextBox.Background>
+                    <SolidColorBrush Color="{DynamicResource Color5}"/>
+                </RichTextBox.Background>
+                <RichTextBox.Foreground>
+                    <SolidColorBrush Color="{DynamicResource Color4}"/>
+                </RichTextBox.Foreground>
+                <FlowDocument/>
+            </RichTextBox>
+        </GroupBox>
+        <GroupBox Header="Controls" HorizontalAlignment="Left" Height="175" Margin="26,40,0,0" VerticalAlignment="Top" Width="538">
+            <GroupBox.Foreground>
+                <SolidColorBrush Color="{DynamicResource Color3}"/>
+            </GroupBox.Foreground>
+            <Canvas>
+                <TextBox x:Name="Pythondir_textBox" Height="26" MaxLines="1" TextWrapping="NoWrap" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Width="276" Canvas.Left="113" Canvas.Top="74" Cursor="IBeam"/>
+                <CheckBox x:Name="Email_checkBox" Content="Send Email Alert If Server Is not Running" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" Click="Email_checkBox_click" Canvas.Left="113" Canvas.Top="105" Cursor="Hand"/>
+                <Label Content="Python Install dir :" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="10" Canvas.Top="74">
+                    <Label.Foreground>
+                        <SolidColorBrush Color="{DynamicResource Color7}"/>
+                    </Label.Foreground>
+                </Label>
+                <Button x:Name="Startserver_button" Style="{StaticResource ButtonStyle}" BorderBrush="White" Background="Transparent" Foreground="White" BorderThickness="2" Content="Start Server" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" Canvas.Left="10" Canvas.Top="10" Height="27" Click="Startserver_button_Click" Cursor="Hand"/>
+                <Button x:Name="Stopserver_button" Style="{StaticResource ButtonStyle}" BorderBrush="White" Background="Transparent" Foreground="White" BorderThickness="2" Content="Stop Server" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" Canvas.Left="138" Canvas.Top="10" Height="27" Click="Stopserver_button_Click" Cursor="Hand"/>
+                <Button x:Name="Restartserver_button" Style="{StaticResource ButtonStyle}" BorderBrush="White" Background="Transparent" Foreground="White" BorderThickness="2" Content="Restart Server" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" Canvas.Left="266" Canvas.Top="10" Height="27" Click="Restartserver_button_Click" Cursor="Hand"/>
+                <Button x:Name="Uninstallserver_button" Style="{StaticResource ButtonStyle}" BorderBrush="White" Background="Transparent" Foreground="White" BorderThickness="2" Content="Uninstall Server" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" Canvas.Left="394" Canvas.Top="10" Height="27" Click="Uninstallserver_button_Click" Cursor="Hand"/>
+                <Button x:Name="Editmainconfigserver_button" Style="{StaticResource ButtonStyle}" BorderBrush="White" Background="Transparent" Foreground="White" BorderThickness="2" Content="Edit MainConfig.py" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" Canvas.Left="10" Canvas.Top="42" Height="27" Click="Editmainconfigserver_button_Click" Cursor="Hand"/>
+                <Button x:Name="Editconfigserver_button" Style="{StaticResource ButtonStyle}" BorderBrush="White" Background="Transparent" Foreground="White" BorderThickness="2" Content="Edit config.py" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" Canvas.Left="138" Canvas.Top="42" Height="27" Click="Editconfigserver_button_Click" Cursor="Hand"/>
+                <Button x:Name="Checkportsserver_button" Style="{StaticResource ButtonStyle}" BorderBrush="White" Background="Transparent" Foreground="White" BorderThickness="2" Content="Check Ports" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" Canvas.Left="266" Canvas.Top="42" Height="27" Click="Checkportsserver_button_Click" Cursor="Hand"/>
+                <Button x:Name="Installserver_button" Style="{StaticResource ButtonStyle}" BorderBrush="White" Background="Transparent" Foreground="White" BorderThickness="2" Content="Install Server" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" Canvas.Left="394" Canvas.Top="42" Height="27" Click="Installserver_button_Click" Cursor="Hand"/>
+                <Button x:Name="Setdirserver_button" Style="{StaticResource ButtonStyle}" BorderBrush="White" Background="Transparent" Foreground="White" BorderThickness="2" Content="Get Dir" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" Canvas.Left="394" Canvas.Top="73" Height="27" Click="Setdirserver_button_Click" Cursor="Hand"/>
+                <CheckBox x:Name="Startserver_checkBox" Content="Start Server On Computer Startup" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" Click="Startserver_Checkbox_Click" Canvas.Left="113" Canvas.Top="126" Cursor="Hand"/>
+            </Canvas>
+        </GroupBox>
+
+    </Grid>
+</Window>

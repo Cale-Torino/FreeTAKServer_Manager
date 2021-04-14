@@ -1,0 +1,29 @@
+﻿<Window x:Class="FreeTAKServer_Manager_WPF.ReadMeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FreeTAKServer_Manager_WPF"
+        mc:Ignorable="d"
+        Title="Read Me" Height="438.485" Width="531.515" WindowStartupLocation="CenterScreen" Topmost="True" Icon="favicon.png" WindowStyle="ToolWindow" ResizeMode="NoResize" Loaded="Window_Loaded">
+    <Window.Background>
+        <SolidColorBrush Color="{DynamicResource Color1}"/>
+    </Window.Background>
+    <Window.Resources>
+        <Color x:Key="Color1">#FF27293D</Color>
+        <Color x:Key="Color2">Black</Color>
+        <Color x:Key="Color3">White</Color>
+    </Window.Resources>
+    <Grid>
+        <RichTextBox x:Name="Richtextbox" HorizontalAlignment="Left" Height="391" Margin="10,10,0,0" VerticalAlignment="Top" Width="506" Cursor="IBeam" AutomationProperties.HelpText="Read Me" IsInactiveSelectionHighlightEnabled="True" Block.LineHeight="2">
+            <RichTextBox.Foreground>
+                <SolidColorBrush Color="{DynamicResource Color3}"/>
+            </RichTextBox.Foreground>
+            <RichTextBox.Background>
+                <SolidColorBrush Color="{DynamicResource Color2}"/>
+            </RichTextBox.Background>
+            <FlowDocument/>
+        </RichTextBox>
+
+    </Grid>
+</Window>

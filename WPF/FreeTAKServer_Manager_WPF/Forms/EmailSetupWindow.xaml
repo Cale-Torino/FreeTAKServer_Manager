@@ -1,0 +1,128 @@
+﻿<Window x:Class="FreeTAKServer_Manager_WPF.EmailSetupWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FreeTAKServer_Manager_WPF"
+        mc:Ignorable="d"
+        Title="Email Setup" Height="342.727" Width="417.576" WindowStartupLocation="CenterScreen" Topmost="True" ResizeMode="NoResize" WindowStyle="ToolWindow" Icon="favicon.png" Loaded="Window_Loaded">
+    <Window.Background>
+        <SolidColorBrush Color="{DynamicResource Color1}"/>
+    </Window.Background>
+    <Window.Resources>
+        <Color x:Key="Color1">#FF27293D</Color>
+        <Color x:Key="Color2">White</Color>
+
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#1E1E25"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#252526"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#1E1E25"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#3F3F46"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#686868"/>
+        <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+    </Window.Resources>
+    <Grid>
+        <GroupBox Header="Email Setup" HorizontalAlignment="Left" Height="296" Margin="10,10,0,0" VerticalAlignment="Top" Width="392">
+            <GroupBox.Foreground>
+                <SolidColorBrush Color="{DynamicResource Color2}"/>
+            </GroupBox.Foreground>
+            <Canvas Margin="0,0,-2,-3.333">
+                <TextBox x:Name="Smtp_textBox" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Height="26" MaxLines="1" TextWrapping="NoWrap" Width="251" Canvas.Left="104" Canvas.Top="10" Cursor="IBeam"/>
+                <TextBox x:Name="From_textBox" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Height="26" MaxLines="1" TextWrapping="NoWrap" Width="251" Canvas.Left="104" Canvas.Top="41" Cursor="IBeam"/>
+                <TextBox x:Name="To_textBox" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Height="26" MaxLines="1" TextWrapping="NoWrap" Width="251" Canvas.Left="104" Canvas.Top="72" Cursor="IBeam"/>
+                <TextBox x:Name="Subject_textBox" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Height="26" MaxLines="1" TextWrapping="NoWrap" Width="251" Canvas.Left="104" Canvas.Top="103" Cursor="IBeam"/>
+                <TextBox x:Name="Body_textBox" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Height="26" MaxLines="1" TextWrapping="NoWrap" Width="251" Canvas.Left="104" Canvas.Top="134" Cursor="IBeam"/>
+                <TextBox x:Name="Username_textBox" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Height="26" MaxLines="1" TextWrapping="NoWrap" Width="251" Canvas.Left="104" Canvas.Top="165" Cursor="IBeam"/>
+                <TextBox x:Name="Password_textBox" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Height="26" MaxLines="1" TextWrapping="NoWrap" Width="251" Canvas.Left="104" Canvas.Top="196" Cursor="IBeam"/>
+                <Button x:Name="Test_button" Style="{StaticResource ButtonStyle}" BorderBrush="White" Background="Transparent" Foreground="White" BorderThickness="2" Content="Test" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" Canvas.Left="104" Canvas.Top="227" Height="27" Click="Test_button_click" Cursor="Hand"/>
+                <Button x:Name="Savesettings_button" Style="{StaticResource ButtonStyle}" BorderBrush="White" Background="Transparent" Foreground="White" BorderThickness="2" Content="Edit Settings" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" Canvas.Left="232" Canvas.Top="227" Height="27" Click="Savesettings_button_click" Cursor="Hand"/>
+                <Label Content="SMTP :" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="53" Canvas.Top="10">
+                    <Label.Foreground>
+                        <SolidColorBrush Color="{DynamicResource Color2}"/>
+                    </Label.Foreground>
+                </Label>
+                <Label Content="FROM :" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="50" Canvas.Top="41">
+                    <Label.Foreground>
+                        <SolidColorBrush Color="{DynamicResource Color2}"/>
+                    </Label.Foreground>
+                </Label>
+                <Label Content="TO :" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="68" Canvas.Top="72">
+                    <Label.Foreground>
+                        <SolidColorBrush Color="{DynamicResource Color2}"/>
+                    </Label.Foreground>
+                </Label>
+                <Label Content="SUBJECT :" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="38" Canvas.Top="103">
+                    <Label.Foreground>
+                        <SolidColorBrush Color="{DynamicResource Color2}"/>
+                    </Label.Foreground>
+                </Label>
+                <Label Content="BODY :" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="52" Canvas.Top="134">
+                    <Label.Foreground>
+                        <SolidColorBrush Color="{DynamicResource Color2}"/>
+                    </Label.Foreground>
+                </Label>
+                <Label Content="USERNAME :" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="21" Canvas.Top="165">
+                    <Label.Foreground>
+                        <SolidColorBrush Color="{DynamicResource Color2}"/>
+                    </Label.Foreground>
+                </Label>
+                <Label Content="PASSWORD :" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="21" Canvas.Top="196">
+                    <Label.Foreground>
+                        <SolidColorBrush Color="{DynamicResource Color2}"/>
+                    </Label.Foreground>
+                </Label>
+            </Canvas>
+        </GroupBox>
+
+
+    </Grid>
+</Window>

@@ -1,0 +1,46 @@
+﻿<Window x:Name="About_window" x:Class="FreeTAKServer_Manager_WPF.AboutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FreeTAKServer_Manager_WPF"
+        mc:Ignorable="d"
+        Title="About" Height="412.424" Width="364.242" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" Icon="favicon.png" Topmost="True" ResizeMode="NoResize" WindowStyle="ToolWindow">
+    <Window.Background>
+        <SolidColorBrush Color="{DynamicResource Color1}"/>
+    </Window.Background>
+    <Window.Resources>
+        <Color x:Key="Color1">#FF27293D</Color>
+        <Color x:Key="Color2">White</Color>
+    </Window.Resources>
+    <Grid>
+        <Image x:Name="Imagebox" HorizontalAlignment="Left" Height="205" Margin="96,10,0,0" VerticalAlignment="Top" Width="171" Source="/FreeTAKServer_Manager_WPF;component/Resources/FreeTakServer3.png" AutomationProperties.HelpText="Logo" Stretch="Fill"/>
+        <Label x:Name="FreeTAKTeamG"  Margin="122,220,-17,99.667" RenderTransformOrigin="0.703,0.6">
+            <Hyperlink    NavigateUri= "https://github.com/FreeTAKTeam"    Hyperlink.RequestNavigate= "Hyperlink_RequestNavigate">
+                <TextBlock Text="https://github.com/FreeTAKTeam" Height="27" RenderTransformOrigin="0.5,0.5" />
+            </Hyperlink>
+        </Label>
+        <Label x:Name="techradG"  Margin="122,243,-17,99.667" RenderTransformOrigin="0.703,0.6">
+            <Hyperlink    NavigateUri= "https://tutorials.techrad.co.za"    Hyperlink.RequestNavigate= "Hyperlink_RequestNavigate">
+                <TextBlock Text="https://tutorials.techrad.co.za" Height="27" RenderTransformOrigin="0.5,0.5" />
+            </Hyperlink>
+        </Label>
+        <Label Content="Version 1.0.0.1" HorizontalAlignment="Left" Margin="137,197,0,0" VerticalAlignment="Top">
+            <Label.Foreground>
+                <SolidColorBrush Color="{DynamicResource Color2}"/>
+            </Label.Foreground>
+        </Label>
+        <Label Content="FreeTAKTeam :" HorizontalAlignment="Left" Margin="35,220,0,0" VerticalAlignment="Top">
+            <Label.Foreground>
+                <SolidColorBrush Color="{DynamicResource Color2}"/>
+            </Label.Foreground>
+        </Label>
+        <Label Content="Techrad Tutorials :" HorizontalAlignment="Left" Margin="16,243,0,0" VerticalAlignment="Top">
+            <Label.Foreground>
+                <SolidColorBrush Color="{DynamicResource Color2}"/>
+            </Label.Foreground>
+        </Label>
+
+
+    </Grid>
+</Window>

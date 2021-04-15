@@ -53,6 +53,7 @@ namespace FreeTAKServer_Manager
             // Test_button
             // 
             this.Test_button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Test_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(37)))));
             this.Test_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Test_button.ForeColor = System.Drawing.Color.White;
             this.Test_button.Location = new System.Drawing.Point(151, 257);
@@ -206,6 +207,7 @@ namespace FreeTAKServer_Manager
             // Savesettings_button
             // 
             this.Savesettings_button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Savesettings_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(37)))));
             this.Savesettings_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Savesettings_button.ForeColor = System.Drawing.Color.White;
             this.Savesettings_button.Location = new System.Drawing.Point(314, 257);

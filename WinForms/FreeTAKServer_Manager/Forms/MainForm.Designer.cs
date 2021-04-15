@@ -142,6 +142,7 @@ namespace FreeTAKServer_Manager
             // Setdir_button
             // 
             this.Setdir_button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Setdir_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(41)))), ((int)(((byte)(61)))));
             this.Setdir_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Setdir_button.ForeColor = System.Drawing.Color.White;
             this.Setdir_button.Location = new System.Drawing.Point(511, 120);
@@ -171,6 +172,7 @@ namespace FreeTAKServer_Manager
             // Installserver_button
             // 
             this.Installserver_button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Installserver_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(41)))), ((int)(((byte)(61)))));
             this.Installserver_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Installserver_button.ForeColor = System.Drawing.Color.White;
             this.Installserver_button.Location = new System.Drawing.Point(511, 65);
@@ -184,6 +186,7 @@ namespace FreeTAKServer_Manager
             // Checkports_button
             // 
             this.Checkports_button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Checkports_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(41)))), ((int)(((byte)(61)))));
             this.Checkports_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Checkports_button.ForeColor = System.Drawing.Color.White;
             this.Checkports_button.Location = new System.Drawing.Point(348, 65);
@@ -197,6 +200,7 @@ namespace FreeTAKServer_Manager
             // Editconfig_button
             // 
             this.Editconfig_button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Editconfig_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(41)))), ((int)(((byte)(61)))));
             this.Editconfig_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Editconfig_button.ForeColor = System.Drawing.Color.White;
             this.Editconfig_button.Location = new System.Drawing.Point(185, 65);
@@ -210,6 +214,7 @@ namespace FreeTAKServer_Manager
             // Editmainconfig_button
             // 
             this.Editmainconfig_button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Editmainconfig_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(41)))), ((int)(((byte)(61)))));
             this.Editmainconfig_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Editmainconfig_button.ForeColor = System.Drawing.Color.White;
             this.Editmainconfig_button.Location = new System.Drawing.Point(22, 65);
@@ -223,6 +228,7 @@ namespace FreeTAKServer_Manager
             // Uninstallserver_button
             // 
             this.Uninstallserver_button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Uninstallserver_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(41)))), ((int)(((byte)(61)))));
             this.Uninstallserver_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Uninstallserver_button.ForeColor = System.Drawing.Color.White;
             this.Uninstallserver_button.Location = new System.Drawing.Point(511, 25);
@@ -236,6 +242,7 @@ namespace FreeTAKServer_Manager
             // Restartserver_button
             // 
             this.Restartserver_button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Restartserver_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(41)))), ((int)(((byte)(61)))));
             this.Restartserver_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Restartserver_button.ForeColor = System.Drawing.Color.White;
             this.Restartserver_button.Location = new System.Drawing.Point(348, 25);
@@ -249,6 +256,7 @@ namespace FreeTAKServer_Manager
             // Stopserver_button
             // 
             this.Stopserver_button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Stopserver_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(41)))), ((int)(((byte)(61)))));
             this.Stopserver_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Stopserver_button.ForeColor = System.Drawing.Color.White;
             this.Stopserver_button.Location = new System.Drawing.Point(185, 25);
@@ -262,6 +270,7 @@ namespace FreeTAKServer_Manager
             // Startserver_button
             // 
             this.Startserver_button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Startserver_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(41)))), ((int)(((byte)(61)))));
             this.Startserver_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Startserver_button.ForeColor = System.Drawing.Color.White;
             this.Startserver_button.Location = new System.Drawing.Point(22, 25);
@@ -274,7 +283,6 @@ namespace FreeTAKServer_Manager
             // 
             // menuStrip1
             // 
-            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutToolStripMenuItem,
@@ -283,7 +291,7 @@ namespace FreeTAKServer_Manager
             this.testAPIToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(749, 36);
+            this.menuStrip1.Size = new System.Drawing.Size(749, 33);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -291,7 +299,7 @@ namespace FreeTAKServer_Manager
             // 
             this.aboutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("aboutToolStripMenuItem.Image")));
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(102, 32);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(102, 29);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -299,7 +307,7 @@ namespace FreeTAKServer_Manager
             // 
             this.emailSetupToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("emailSetupToolStripMenuItem.Image")));
             this.emailSetupToolStripMenuItem.Name = "emailSetupToolStripMenuItem";
-            this.emailSetupToolStripMenuItem.Size = new System.Drawing.Size(145, 32);
+            this.emailSetupToolStripMenuItem.Size = new System.Drawing.Size(145, 29);
             this.emailSetupToolStripMenuItem.Text = "Email Setup";
             this.emailSetupToolStripMenuItem.Click += new System.EventHandler(this.emailSetupToolStripMenuItem_Click);
             // 
@@ -307,7 +315,7 @@ namespace FreeTAKServer_Manager
             // 
             this.readMeToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("readMeToolStripMenuItem.Image")));
             this.readMeToolStripMenuItem.Name = "readMeToolStripMenuItem";
-            this.readMeToolStripMenuItem.Size = new System.Drawing.Size(116, 32);
+            this.readMeToolStripMenuItem.Size = new System.Drawing.Size(116, 29);
             this.readMeToolStripMenuItem.Text = "ReadMe";
             this.readMeToolStripMenuItem.Click += new System.EventHandler(this.readMeToolStripMenuItem_Click);
             // 
@@ -315,7 +323,7 @@ namespace FreeTAKServer_Manager
             // 
             this.testAPIToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("testAPIToolStripMenuItem.Image")));
             this.testAPIToolStripMenuItem.Name = "testAPIToolStripMenuItem";
-            this.testAPIToolStripMenuItem.Size = new System.Drawing.Size(114, 32);
+            this.testAPIToolStripMenuItem.Size = new System.Drawing.Size(114, 29);
             this.testAPIToolStripMenuItem.Text = "Test API";
             this.testAPIToolStripMenuItem.Click += new System.EventHandler(this.testAPIToolStripMenuItem_Click);
             // 

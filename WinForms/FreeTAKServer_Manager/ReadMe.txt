@@ -52,3 +52,18 @@ TODO
 - Improve methods
 - Move functions to .dll files to clean up exe code.
 
+PORTS
+
+UI GUI: 5000
+
+API: 19023
+
+COT TCP: 8087
+
+COT SSL: 8089
+
+Federation: 9000
+
+HTTP DP: 8080
+
+SSL DP: 8443

@@ -5,16 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FreeTAKServer_Manager_WPF"
         mc:Ignorable="d"
-        Title="Test API" Height="442.727" Width="516.364" Icon="/FreeTAKServer_Manager_WPF;component/favicon.ico" ResizeMode="NoResize" WindowStyle="ToolWindow" WindowStartupLocation="CenterScreen" Topmost="True" Loaded="Window_Loaded">
-    <Window.Background>
-        <SolidColorBrush Color="{DynamicResource Color1}"/>
-    </Window.Background>
+        Title="Test API" Height="442.727" Width="516.364" Icon="/FreeTAKServer_Manager_WPF;component/favicon.ico" ResizeMode="NoResize" WindowStyle="ToolWindow" WindowStartupLocation="CenterScreen" Topmost="True" Loaded="Window_Loaded" Background="#FF27293D">
     <Window.Resources>
-        <Color x:Key="Color1">#FF27293D</Color>
-        <Color x:Key="Color2">White</Color>
-        <Color x:Key="Color3">White</Color>
-        <Color x:Key="Color4">Black</Color>
-
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
                 <Setter.Value>
@@ -73,35 +65,19 @@
 
     </Window.Resources>
     <Grid>
-        <GroupBox Header="Controls" HorizontalAlignment="Left" Height="143" Margin="10,10,0,0" VerticalAlignment="Top" Width="491">
-            <GroupBox.Foreground>
-                <SolidColorBrush Color="{DynamicResource Color2}"/>
-            </GroupBox.Foreground>
+        <GroupBox Header="Controls" HorizontalAlignment="Left" Height="143" Margin="10,10,0,0" VerticalAlignment="Top" Width="491" Foreground="White">
             <Canvas>
                 <TextBox x:Name="Customtest_textBox" HorizontalAlignment="Left" Height="26" TextWrapping="Wrap" VerticalAlignment="Top" Width="367" Canvas.Left="102" Canvas.Top="42" Cursor="IBeam"/>
                 <TextBox x:Name="Token_textBox" HorizontalAlignment="Left" Height="26" TextWrapping="Wrap" VerticalAlignment="Top" Width="367" Canvas.Left="102" Canvas.Top="73" Cursor="IBeam"/>
                 <Button x:Name="LocalTest_button" Style="{StaticResource ButtonStyle}" BorderBrush="White" Background="Transparent" Foreground="White" BorderThickness="2" Content="Local Test" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" Canvas.Left="10" Canvas.Top="10" Height="27" Click="LocalTest_button_Click" Cursor="Hand"/>
                 <Button x:Name="Customtest_button" Style="{StaticResource ButtonStyle}" BorderBrush="White" Background="Transparent" Foreground="White" BorderThickness="2" Content="Custom Test" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" Canvas.Left="138" Canvas.Top="10" Height="27" Click="Customtest_button_Click" Cursor="Hand"/>
-                <Label Content="Custom Url :" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="22" Canvas.Top="42">
-                    <Label.Foreground>
-                        <SolidColorBrush Color="{DynamicResource Color2}"/>
-                    </Label.Foreground>
+                <Label Content="Custom Url :" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="22" Canvas.Top="42" Foreground="White">
                 </Label>
-                <Label Content="Token :" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="50" Canvas.Top="73">
-                    <Label.Foreground>
-                        <SolidColorBrush Color="{DynamicResource Color2}"/>
-                    </Label.Foreground>
+                <Label Content="Token :" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="50" Canvas.Top="73" Foreground="White">
                 </Label>
             </Canvas>
         </GroupBox>
-        <RichTextBox x:Name="Richtextbox" HorizontalAlignment="Left" Height="247" Margin="10,158,0,0" VerticalAlignment="Top" Width="491" Block.LineHeight="2">
-            <RichTextBox.Background>
-                <SolidColorBrush Color="{DynamicResource Color4}"/>
-            </RichTextBox.Background>
-            <RichTextBox.Foreground>
-                <SolidColorBrush Color="{DynamicResource Color3}"/>
-            </RichTextBox.Foreground>
-            <FlowDocument/>
+        <RichTextBox x:Name="Richtextbox" IsReadOnly="True" HorizontalAlignment="Left" Height="247" Margin="10,158,0,0" VerticalAlignment="Top" Width="491" Block.LineHeight="2" AutomationProperties.HelpText="Result Textbox" IsReadOnlyCaretVisible="True" Background="Black" Foreground="White">
         </RichTextBox>
 
     </Grid>

@@ -7,20 +7,6 @@
         mc:Ignorable="d"
         Title="FreeTAKServer Manager" Height="583.333" Width="591.334" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="favicon.png" Loaded="Window_Loaded" Closing="Window_Closing">
     <Window.Resources>
-        <Color x:Key="Color1">#FF1E1E25</Color>
-        <Color x:Key="Color2">White</Color>
-        <Color x:Key="Color3">White</Color>
-        <Color x:Key="Color4">White</Color>
-        <Color x:Key="Color5">Black</Color>
-        <Color x:Key="Color6">White</Color>
-        <Color x:Key="Color7">White</Color>
-        <Color x:Key="Color8">White</Color>
-        <Color x:Key="Color9">White</Color>
-        <Color x:Key="Color10">#FF1E1E25</Color>
-        <Color x:Key="Color11">Black</Color>
-        <Color x:Key="Color12">White</Color>
-        <Color x:Key="Color13">#00FF001C</Color>
-        <Color x:Key="Color14">White</Color>
 
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
@@ -136,31 +122,15 @@
                 <TextBlock x:Name="status_lable" Text="Ready" />
             </StatusBarItem>
         </StatusBar>
-        <GroupBox x:Name="groupbox" Header="Logs" HorizontalAlignment="Left" Height="278" Margin="26,220,0,0" VerticalAlignment="Top" Width="538">
-            <GroupBox.Foreground>
-                <SolidColorBrush Color="{DynamicResource Color2}"/>
-            </GroupBox.Foreground>
-            <RichTextBox x:Name="Richtextbox" HorizontalAlignment="Left" Height="234" Margin="10,10,0,0" VerticalAlignment="Top" Width="504" Block.LineHeight="2">
-                <RichTextBox.Background>
-                    <SolidColorBrush Color="{DynamicResource Color5}"/>
-                </RichTextBox.Background>
-                <RichTextBox.Foreground>
-                    <SolidColorBrush Color="{DynamicResource Color4}"/>
-                </RichTextBox.Foreground>
-                <FlowDocument/>
+        <GroupBox x:Name="groupbox" Header="Logs" HorizontalAlignment="Left" Height="278" Margin="26,220,0,0" VerticalAlignment="Top" Width="538" Foreground="White">
+            <RichTextBox x:Name="Richtextbox" IsReadOnly="True" HorizontalAlignment="Left" Height="234" Margin="10,10,0,0" VerticalAlignment="Top" Width="504" Block.LineHeight="2" Background="Black" Foreground="White">
             </RichTextBox>
         </GroupBox>
-        <GroupBox Header="Controls" HorizontalAlignment="Left" Height="175" Margin="26,40,0,0" VerticalAlignment="Top" Width="538">
-            <GroupBox.Foreground>
-                <SolidColorBrush Color="{DynamicResource Color3}"/>
-            </GroupBox.Foreground>
+        <GroupBox Header="Controls" HorizontalAlignment="Left" Height="175" Margin="26,40,0,0" VerticalAlignment="Top" Width="538" Foreground="White">
             <Canvas>
                 <TextBox x:Name="Pythondir_textBox" Height="26" MaxLines="1" TextWrapping="NoWrap" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Width="276" Canvas.Left="113" Canvas.Top="74" Cursor="IBeam"/>
                 <CheckBox x:Name="Email_checkBox" Content="Send Email Alert If Server Is not Running" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" Click="Email_checkBox_click" Canvas.Left="113" Canvas.Top="105" Cursor="Hand"/>
-                <Label Content="Python Install dir :" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="10" Canvas.Top="74">
-                    <Label.Foreground>
-                        <SolidColorBrush Color="{DynamicResource Color7}"/>
-                    </Label.Foreground>
+                <Label Content="Python Install dir :" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="10" Canvas.Top="74" Foreground="White">
                 </Label>
                 <Button x:Name="Startserver_button" Style="{StaticResource ButtonStyle}" BorderBrush="White" Background="Transparent" Foreground="White" BorderThickness="2" Content="Start Server" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" Canvas.Left="10" Canvas.Top="10" Height="27" Click="Startserver_button_Click" Cursor="Hand"/>
                 <Button x:Name="Stopserver_button" Style="{StaticResource ButtonStyle}" BorderBrush="White" Background="Transparent" Foreground="White" BorderThickness="2" Content="Stop Server" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" Canvas.Left="138" Canvas.Top="10" Height="27" Click="Stopserver_button_Click" Cursor="Hand"/>

@@ -32,6 +32,7 @@ namespace FreeTAKServer_Manager_WPF
         }
         private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
         {
+            //Opens link to the specified in the xamal code
             Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
             e.Handled = true;
         }

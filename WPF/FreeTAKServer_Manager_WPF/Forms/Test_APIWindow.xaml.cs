@@ -28,6 +28,7 @@ namespace FreeTAKServer_Manager_WPF
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            //Set Textbox text
             Customtest_textBox.Text = "http://127.0.0.1:19023/manageAPI/getHelp";
             Token_textBox.Text = "token";
         }
@@ -37,23 +38,25 @@ namespace FreeTAKServer_Manager_WPF
             Richtextbox.Document.Blocks.Clear();
             using (HttpClient client = new HttpClient())
             {
-                client.DefaultRequestHeaders.Add("Authorization", "Bearer token");
+                //Add Default Request Headers
+                client.DefaultRequestHeaders.Add("Authorization", "Bearer " + Token_textBox.Text);
                 try
                 {
-                    using (HttpResponseMessage response = await client.GetAsync(new Uri("http://127.0.0.1:19023/manageAPI/getHelp")))
+                    using (HttpResponseMessage response = await client.GetAsync(new Uri(Customtest_textBox.Text)))
                     {
                         using (HttpContent content = response.Content)
                         {
-                            string result = await content.ReadAsStringAsync();
-                            string reasonPhrase = response.ReasonPhrase;
-                            Richtextbox.AppendText(result + Environment.NewLine);
-                            Richtextbox.AppendText(reasonPhrase + Environment.NewLine);
+                            //Read the result and display in Textbox
+                            string result = await content.ReadAsStringAsync();//Result string JSON
+                            string reasonPhrase = response.ReasonPhrase;//Reason OK, FAIL etc.
+                            Richtextbox.AppendText(result + "\r");
+                            Richtextbox.AppendText(reasonPhrase + "\r");
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "Could not test API", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(ex.Message, "Could not custom test API", MessageBoxButton.OK, MessageBoxImage.Error);
                     Logger.WriteLine(" *** Error:" + ex.Message + " [MainForm] ***");
                     return;
                 }
@@ -65,23 +68,25 @@ namespace FreeTAKServer_Manager_WPF
             Richtextbox.Document.Blocks.Clear();
             using (HttpClient client = new HttpClient())
             {
-                client.DefaultRequestHeaders.Add("Authorization", "Bearer " + Token_textBox.Text);
+                //Add Default Request Headers
+                client.DefaultRequestHeaders.Add("Authorization", "Bearer token");
                 try
                 {
-                    using (HttpResponseMessage response = await client.GetAsync(new Uri(Customtest_textBox.Text)))
+                    using (HttpResponseMessage response = await client.GetAsync(new Uri("http://127.0.0.1:19023/manageAPI/getHelp")))
                     {
                         using (HttpContent content = response.Content)
                         {
-                            string result = await content.ReadAsStringAsync();
-                            string reasonPhrase = response.ReasonPhrase;
-                            Richtextbox.AppendText(result + Environment.NewLine);
-                            Richtextbox.AppendText(reasonPhrase + Environment.NewLine);
+                            //Read the result and display in Textbox
+                            string result = await content.ReadAsStringAsync();//Result string JSON
+                            string reasonPhrase = response.ReasonPhrase;//Reason OK, FAIL etc.
+                            Richtextbox.AppendText(result + "\r");
+                            Richtextbox.AppendText(reasonPhrase + "\r");
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "Could not custom test API", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(ex.Message, "Could not test API", MessageBoxButton.OK, MessageBoxImage.Error);
                     Logger.WriteLine(" *** Error:" + ex.Message + " [MainForm] ***");
                     return;
                 }

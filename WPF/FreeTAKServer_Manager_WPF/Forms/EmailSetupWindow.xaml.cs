@@ -30,6 +30,7 @@ namespace FreeTAKServer_Manager_WPF
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            //Set textboxes to IsEnabled = false
             Smtp_textBox.IsEnabled = false;
             From_textBox.IsEnabled = false;
             To_textBox.IsEnabled = false;
@@ -39,10 +40,11 @@ namespace FreeTAKServer_Manager_WPF
             Password_textBox.IsEnabled = false;
             if (Properties.Settings.Default.emailPass != string.Empty)
             {
-                //Decrypt
+                //Decrypt email password stored in config file
                 SecureString password = EncryptionClass.DecryptString(Properties.Settings.Default.emailPass);
                 Password_textBox.Text = EncryptionClass.ToInsecureString(password);
             }
+            //Write saved propertie vars to textboxes
             Smtp_textBox.Text = Properties.Settings.Default.emailSmtp;
             From_textBox.Text = Properties.Settings.Default.emailFrom;
             To_textBox.Text = Properties.Settings.Default.emailTo;
@@ -57,14 +59,14 @@ namespace FreeTAKServer_Manager_WPF
                 MailMessage mail = new MailMessage();
                 SmtpClient SmtpServer = new SmtpClient(Smtp_textBox.Text);
 
-                mail.From = new MailAddress(From_textBox.Text);
-                mail.To.Add(To_textBox.Text);
-                mail.Subject = Subject_textBox.Text;
-                mail.Body = Body_textBox.Text;
+                mail.From = new MailAddress(From_textBox.Text);//From address
+                mail.To.Add(To_textBox.Text);//To address
+                mail.Subject = Subject_textBox.Text;//Subject
+                mail.Body = Body_textBox.Text;//Body of email
 
-                SmtpServer.Port = 587;
-                SmtpServer.Credentials = new NetworkCredential(Username_textBox.Text, Password_textBox.Text);
-                SmtpServer.EnableSsl = true;
+                SmtpServer.Port = 587;//SMTP port
+                SmtpServer.Credentials = new NetworkCredential(Username_textBox.Text, Password_textBox.Text);//Credentials, password and username
+                SmtpServer.EnableSsl = true;//SSL
 
                 SmtpServer.Send(mail);
                 MessageBox.Show("Normal mail Sent", "Mail Status", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -78,15 +80,17 @@ namespace FreeTAKServer_Manager_WPF
         }
         private void Test_button_click(object sender, RoutedEventArgs e)
         {
+            //Calls SendEmail() function
             SendEmail();
         }
-        private bool clickedOnce = true;
+        private bool clickedOnce = true;//global var
         private void Savesettings_button_click(object sender, RoutedEventArgs e)
         {
             if (clickedOnce == true)
             {
                 try
                 {
+                    //Set textboxes to IsEnabled = true
                     clickedOnce = false;
                     Smtp_textBox.IsEnabled = true;
                     From_textBox.IsEnabled = true;
@@ -95,11 +99,12 @@ namespace FreeTAKServer_Manager_WPF
                     Body_textBox.IsEnabled = true;
                     Username_textBox.IsEnabled = true;
                     Password_textBox.IsEnabled = true;
-                    Savesettings_button.Content = "Save Settings";
+                    Savesettings_button.Content = "Save Settings";//Change button text
                     Logger.WriteLine(" *** Editing email settings [EmailSetup_Form] ***");
                 }
                 catch (Exception ex)
                 {
+                    //Set textboxes to IsEnabled = false
                     clickedOnce = true;
                     Smtp_textBox.IsEnabled = false;
                     From_textBox.IsEnabled = false;
@@ -110,22 +115,24 @@ namespace FreeTAKServer_Manager_WPF
                     Password_textBox.IsEnabled = false;
                     MessageBox.Show(ex.Message, "", MessageBoxButton.OK, MessageBoxImage.Error);
                     Logger.WriteLine(" *** Error:" + ex.Message + " [EmailSetup_Form] ***");
-                    Savesettings_button.Content = "Edit Settings";
+                    Savesettings_button.Content = "Edit Settings";//Change button text
                     return;
                 }
             }
             else
             {
                 clickedOnce = true;
-                //Encrypt
+                //Encrypt password for storage
                 Properties.Settings.Default.emailPass = EncryptionClass.EncryptString(EncryptionClass.ToSecureString(Password_textBox.Text));
+                //Set property vars and save them to config file
                 Properties.Settings.Default.emailSmtp = Smtp_textBox.Text;
                 Properties.Settings.Default.emailFrom = From_textBox.Text;
                 Properties.Settings.Default.emailTo = To_textBox.Text;
                 Properties.Settings.Default.emailSubject = Subject_textBox.Text;
                 Properties.Settings.Default.emailBody = Body_textBox.Text;
                 Properties.Settings.Default.emailUsername = Username_textBox.Text;
-                Properties.Settings.Default.Save();
+                Properties.Settings.Default.Save();//Set properties
+                //Set textboxes to IsEnabled = false
                 Smtp_textBox.IsEnabled = false;
                 From_textBox.IsEnabled = false;
                 To_textBox.IsEnabled = false;
@@ -133,7 +140,7 @@ namespace FreeTAKServer_Manager_WPF
                 Body_textBox.IsEnabled = false;
                 Username_textBox.IsEnabled = false;
                 Password_textBox.IsEnabled = false;
-                Savesettings_button.Content = "Edit Settings";
+                Savesettings_button.Content = "Edit Settings";//Change button text
                 Logger.WriteLine(" *** Saved email settings [EmailSetup_Form] ***");
             }
         }

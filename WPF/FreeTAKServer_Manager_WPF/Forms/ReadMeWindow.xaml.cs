@@ -31,6 +31,7 @@ namespace FreeTAKServer_Manager_WPF
             Logger.WriteLine(" *** Notes Form Show Success [NotesForm] *** ");
             try
             {
+                //Clear Richtextbox and add the content of ReadMe.txt
                 Richtextbox.Document.Blocks.Clear();
                 Richtextbox.AppendText(File.ReadAllText("ReadMe.txt"));
             }

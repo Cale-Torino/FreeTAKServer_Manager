@@ -48,6 +48,11 @@ C# Windows Presentation Foundation
 * Send email alerts checkbox optimized.
 * Code works with WPF (small modifications)
 
+- Bugs
+* Fixed bug where copying text would turn text black (looking transparent Richtextbox)
+* Fixed bug where Test API buttons were mismatched
+
+
 
 TODO
 - Reduce code.

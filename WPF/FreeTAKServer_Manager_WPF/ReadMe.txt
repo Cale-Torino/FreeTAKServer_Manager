@@ -46,17 +46,18 @@ C# Windows Presentation Foundation
 * All child forms changed to the FixedToolWindow boarder style.
 * Start on startup checkbox optimized.
 * Send email alerts checkbox optimized.
-* Code works with WPF (small modifications)
+* Code works with WPF (small modifications).
+* Added comments.
 
 - Bugs
-* Fixed bug where copying text would turn text black (looking transparent Richtextbox)
-* Fixed bug where Test API buttons were mismatched
+* Fixed bug where copying text would turn text black (looking transparent Richtextbox).
+* Fixed bug where Test API buttons were mismatched.
 
 
 
 TODO
 - Reduce code.
-- Improve methods
+- Improve methods.
 - Move functions to .dll files to clean up exe code.
 
 PORTS

@@ -21,6 +21,7 @@ namespace FreeTAKServer_Manager
 
         private void Test_API_Form_Load(object sender, EventArgs e)
         {
+            //Set Textbox text
             Customtest_textBox.Text = "http://127.0.0.1:19023/manageAPI/getHelp";
             Token_textBox.Text = "token";
         }
@@ -30,6 +31,7 @@ namespace FreeTAKServer_Manager
             Memo_richTextBox.Clear();
             using (HttpClient client = new HttpClient())
             {
+                //Add Default Request Headers
                 client.DefaultRequestHeaders.Add("Authorization", "Bearer token");
                 try
                 {
@@ -37,8 +39,9 @@ namespace FreeTAKServer_Manager
                     {
                         using (HttpContent content = response.Content)
                         {
-                            string result = await content.ReadAsStringAsync();
-                            string reasonPhrase = response.ReasonPhrase;
+                            //Read the result and display in Textbox
+                            string result = await content.ReadAsStringAsync();//Result string JSON
+                            string reasonPhrase = response.ReasonPhrase;//Reason OK, FAIL etc.
                             Memo_richTextBox.AppendText(result + Environment.NewLine);
                             Memo_richTextBox.AppendText(reasonPhrase + Environment.NewLine);
                         }
@@ -58,6 +61,7 @@ namespace FreeTAKServer_Manager
             Memo_richTextBox.Clear();
             using (HttpClient client = new HttpClient())
             {
+                //Add Default Request Headers
                 client.DefaultRequestHeaders.Add("Authorization", "Bearer " + Token_textBox.Text);
                 try
                 {
@@ -65,8 +69,9 @@ namespace FreeTAKServer_Manager
                     {
                         using (HttpContent content = response.Content)
                         {
-                            string result = await content.ReadAsStringAsync();
-                            string reasonPhrase = response.ReasonPhrase;
+                            //Read the result and display in Textbox
+                            string result = await content.ReadAsStringAsync();//Result string JSON
+                            string reasonPhrase = response.ReasonPhrase;//Reason OK, FAIL etc.
                             Memo_richTextBox.AppendText(result + Environment.NewLine);
                             Memo_richTextBox.AppendText(reasonPhrase + Environment.NewLine);
                         }

@@ -17,6 +17,8 @@ namespace FreeTAKServer_Manager
             Logger.WriteLine(" *** Notes Form Show Success [NotesForm] *** ");
             try
             {
+                //Clear Richtextbox and add the content of ReadMe.txt
+                ReadMe_richTextBox.Clear();
                 ReadMe_richTextBox.Text = File.ReadAllText("ReadMe.txt");
             }
             catch (Exception ex)

@@ -44,6 +44,7 @@ C# WinForms
 * All child forms changed to the FixedToolWindow boarder style.
 * Start on startup checkbox optimized.
 * Send email alerts checkbox optimized.
+* Added comments.
 
 
 TODO

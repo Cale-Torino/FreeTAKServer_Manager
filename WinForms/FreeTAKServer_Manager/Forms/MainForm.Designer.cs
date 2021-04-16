@@ -120,6 +120,7 @@ namespace FreeTAKServer_Manager
             // Startserver_checkBox
             // 
             this.Startserver_checkBox.AutoSize = true;
+            this.Startserver_checkBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Startserver_checkBox.Location = new System.Drawing.Point(157, 183);
             this.Startserver_checkBox.Name = "Startserver_checkBox";
             this.Startserver_checkBox.Size = new System.Drawing.Size(276, 24);
@@ -131,6 +132,7 @@ namespace FreeTAKServer_Manager
             // Email_checkBox
             // 
             this.Email_checkBox.AutoSize = true;
+            this.Email_checkBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Email_checkBox.Location = new System.Drawing.Point(157, 153);
             this.Email_checkBox.Name = "Email_checkBox";
             this.Email_checkBox.Size = new System.Drawing.Size(325, 24);

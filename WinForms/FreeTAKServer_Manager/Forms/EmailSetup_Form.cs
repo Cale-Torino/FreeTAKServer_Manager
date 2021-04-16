@@ -16,6 +16,7 @@ namespace FreeTAKServer_Manager
 
         private void EmailSetup_Form_Load(object sender, EventArgs e)
         {
+            //Set textboxes to IsEnabled = false
             Smtp_textBox.Enabled = false;
             From_textBox.Enabled = false;
             To_textBox.Enabled = false;
@@ -25,10 +26,11 @@ namespace FreeTAKServer_Manager
             Password_textBox.Enabled = false;
             if (Properties.Settings.Default.emailPass != string.Empty)
             {
-                //Decrypt
+                ////Decrypt email password stored in config file
                 SecureString password = EncryptionClass.DecryptString(Properties.Settings.Default.emailPass);
                 Password_textBox.Text = EncryptionClass.ToInsecureString(password);
             }
+            //Write saved propertie vars to textboxes
             Smtp_textBox.Text = Properties.Settings.Default.emailSmtp;
             From_textBox.Text = Properties.Settings.Default.emailFrom;
             To_textBox.Text = Properties.Settings.Default.emailTo;
@@ -44,14 +46,14 @@ namespace FreeTAKServer_Manager
                     MailMessage mail = new MailMessage();
                     SmtpClient SmtpServer = new SmtpClient(Smtp_textBox.Text);
 
-                    mail.From = new MailAddress(From_textBox.Text);
-                    mail.To.Add(To_textBox.Text);
-                    mail.Subject = Subject_textBox.Text;
-                    mail.Body = Body_textBox.Text;
+                    mail.From = new MailAddress(From_textBox.Text);//From address
+                    mail.To.Add(To_textBox.Text);//To address
+                    mail.Subject = Subject_textBox.Text;//Subject
+                    mail.Body = Body_textBox.Text;//Body of email
 
-                    SmtpServer.Port = 587;
-                    SmtpServer.Credentials = new NetworkCredential(Username_textBox.Text, Password_textBox.Text);
-                    SmtpServer.EnableSsl = true;
+                    SmtpServer.Port = 587;//SMTP port
+                    SmtpServer.Credentials = new NetworkCredential(Username_textBox.Text, Password_textBox.Text);//Credentials, password and username
+                    SmtpServer.EnableSsl = true;//SSL
 
                     SmtpServer.Send(mail);
                     MessageBox.Show("Normal mail Sent", "Mail Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -66,6 +68,7 @@ namespace FreeTAKServer_Manager
 
         private void Test_button_Click(object sender, EventArgs e)
         {
+            //Calls SendEmail() function
             SendEmail();
         }
 
@@ -82,7 +85,7 @@ namespace FreeTAKServer_Manager
                     Body_textBox.Enabled = true;
                     Username_textBox.Enabled = true;
                     Password_textBox.Enabled = true;
-                    Savesettings_button.Text = "Save Settings";
+                    Savesettings_button.Text = "Save Settings";//Change button text
                     Logger.WriteLine(" *** Editing email settings [EmailSetup_Form] ***");
                 }
                 catch (Exception ex)
@@ -96,21 +99,23 @@ namespace FreeTAKServer_Manager
                     Password_textBox.Enabled = false;
                     MessageBox.Show(ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     Logger.WriteLine(" *** Error:" + ex.Message + " [EmailSetup_Form] ***");
-                    Savesettings_button.Text = "Edit Settings";
+                    Savesettings_button.Text = "Edit Settings";//Change button text
                     return;
                 }
             }
             else
             {
-                //Encrypt
+                //Encrypt password for storage
                 Properties.Settings.Default.emailPass = EncryptionClass.EncryptString(EncryptionClass.ToSecureString(Password_textBox.Text));
+                //Set property vars and save them to config file
                 Properties.Settings.Default.emailSmtp = Smtp_textBox.Text;
                 Properties.Settings.Default.emailFrom = From_textBox.Text;
                 Properties.Settings.Default.emailTo = To_textBox.Text;
                 Properties.Settings.Default.emailSubject = Subject_textBox.Text;
                 Properties.Settings.Default.emailBody = Body_textBox.Text;
                 Properties.Settings.Default.emailUsername = Username_textBox.Text;
-                Properties.Settings.Default.Save();
+                Properties.Settings.Default.Save();//Set properties
+                //Set textboxes to IsEnabled = false
                 Smtp_textBox.Enabled = false;
                 From_textBox.Enabled = false;
                 To_textBox.Enabled = false;
@@ -118,7 +123,7 @@ namespace FreeTAKServer_Manager
                 Body_textBox.Enabled = false;
                 Username_textBox.Enabled = false;
                 Password_textBox.Enabled = false;
-                Savesettings_button.Text = "Edit Settings";
+                Savesettings_button.Text = "Edit Settings";//Change button text
                 Logger.WriteLine(" *** Saved email settings [EmailSetup_Form] ***");
             }
         }

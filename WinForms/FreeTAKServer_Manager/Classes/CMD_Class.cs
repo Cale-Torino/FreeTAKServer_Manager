@@ -14,6 +14,7 @@ namespace FreeTAKServer_Manager
             {
                 try
                 {
+                    //Kill the cmd process and close the window
                     Process p = Process.GetProcessById(PID);
                     if (p.MainWindowHandle != IntPtr.Zero)
                     {
@@ -38,15 +39,17 @@ namespace FreeTAKServer_Manager
             {
                 try
                 {
+                    //Method to start cmd (for server) in the specified dir and run a command.
+                    //Runs as admin to avoid conflicts.
                     var p = new ProcessStartInfo();
-                    p.UseShellExecute = true;
+                    p.UseShellExecute = true;//use the OS shell
                     p.WorkingDirectory = CMD_workingdir;//C:\Windows\System32
-                    p.FileName = @"C:\Windows\System32\cmd.exe";
+                    p.FileName = @"C:\Windows\System32\cmd.exe";//find cmd location
                     p.Verb = "runas";//run as admin
-                    p.Arguments = CMD_command;
-                    p.WindowStyle = ProcessWindowStyle.Normal;
-                    Process _Process = Process.Start(p);
-                    return _Process.Id;
+                    p.Arguments = CMD_command;//set your cmd command
+                    p.WindowStyle = ProcessWindowStyle.Normal;//show the window `Normal` or `Hidden` to hide.
+                    Process _Process = Process.Start(p);//Initiate the process
+                    return _Process.Id;//Return PID
                 }
                 catch (Exception ex)
                 {
@@ -58,6 +61,8 @@ namespace FreeTAKServer_Manager
             {
                 try
                 {
+                    //Method to start cmd in the specified dir and run a command.
+                    //Does not need admin priv
                     var p = new ProcessStartInfo();
                     p.UseShellExecute = true;
                     p.WorkingDirectory = CMD_workingdir;//C:\Windows\System32

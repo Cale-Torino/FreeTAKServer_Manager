@@ -1,3 +1,6 @@
+#
+# Windows version. Paths changed to traverse the windows directory.
+#
 import os
 
 currentPath = os.path.dirname(os.path.abspath(__file__))

@@ -1,3 +1,6 @@
+#
+# Windows version. Paths changed to traverse the windows directory.
+#
 # -*- encoding: utf-8 -*-
 """
 License: MIT

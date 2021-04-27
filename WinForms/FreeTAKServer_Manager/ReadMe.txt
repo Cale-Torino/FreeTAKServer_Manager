@@ -48,10 +48,12 @@ C# WinForms
 
 
 TODO
+- Add comments to all forms.
 - WPF version of FreeTAKServer_Manager.exe.
 - Reduce code.
 - Improve methods
 - Move functions to .dll files to clean up exe code.
+- Add telegram bot API testing.
 
 PORTS
 

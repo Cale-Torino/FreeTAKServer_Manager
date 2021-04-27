@@ -181,7 +181,6 @@ Test API page fill in your token and test the API locally or send a custom reque
 - Improve methods
 - Move functions to .dll files to clean up exe code.
 
-
 > FreeTAKTeam https://github.com/FreeTAKTeam
 
 > Checkout my tutorials https://tutorials.techrad.co.za/2021/04/13/freetakserver-manager

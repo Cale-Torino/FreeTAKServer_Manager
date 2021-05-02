@@ -1,7 +1,7 @@
 ﻿
 namespace FreeTAKServer_Manager
 {
-    partial class Test_API_Form
+    partial class FreeTAKServer_API_Form
     {
         /// <summary>
         /// Required designer variable.
@@ -29,8 +29,7 @@ namespace FreeTAKServer_Manager
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Test_API_Form));
-            this.Memo_richTextBox = new System.Windows.Forms.RichTextBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FreeTAKServer_API_Form));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -38,18 +37,9 @@ namespace FreeTAKServer_Manager
             this.Customtest_textBox = new System.Windows.Forms.TextBox();
             this.Custom_button = new System.Windows.Forms.Button();
             this.Test_button = new System.Windows.Forms.Button();
+            this.Memo_richTextBox = new System.Windows.Forms.RichTextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // Memo_richTextBox
-            // 
-            this.Memo_richTextBox.BackColor = System.Drawing.Color.Black;
-            this.Memo_richTextBox.ForeColor = System.Drawing.Color.White;
-            this.Memo_richTextBox.Location = new System.Drawing.Point(12, 171);
-            this.Memo_richTextBox.Name = "Memo_richTextBox";
-            this.Memo_richTextBox.Size = new System.Drawing.Size(861, 395);
-            this.Memo_richTextBox.TabIndex = 0;
-            this.Memo_richTextBox.Text = "";
             // 
             // groupBox1
             // 
@@ -60,10 +50,10 @@ namespace FreeTAKServer_Manager
             this.groupBox1.Controls.Add(this.Custom_button);
             this.groupBox1.Controls.Add(this.Test_button);
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(15, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(861, 153);
-            this.groupBox1.TabIndex = 1;
+            this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Controls";
             // 
@@ -127,20 +117,30 @@ namespace FreeTAKServer_Manager
             this.Test_button.UseVisualStyleBackColor = true;
             this.Test_button.Click += new System.EventHandler(this.Test_button_Click);
             // 
-            // Test_API_Form
+            // Memo_richTextBox
+            // 
+            this.Memo_richTextBox.BackColor = System.Drawing.Color.Black;
+            this.Memo_richTextBox.ForeColor = System.Drawing.Color.White;
+            this.Memo_richTextBox.Location = new System.Drawing.Point(15, 171);
+            this.Memo_richTextBox.Name = "Memo_richTextBox";
+            this.Memo_richTextBox.Size = new System.Drawing.Size(861, 395);
+            this.Memo_richTextBox.TabIndex = 2;
+            this.Memo_richTextBox.Text = "";
+            // 
+            // FreeTAKServer_API_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(41)))), ((int)(((byte)(61)))));
-            this.ClientSize = new System.Drawing.Size(885, 578);
+            this.ClientSize = new System.Drawing.Size(890, 583);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.Memo_richTextBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Test_API_Form";
+            this.Name = "FreeTAKServer_API_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Test API";
-            this.Load += new System.EventHandler(this.Test_API_Form_Load);
+            this.Text = "FreeTAKServer API";
+            this.Load += new System.EventHandler(this.FreeTAKServer_API_Form_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -149,13 +149,13 @@ namespace FreeTAKServer_Manager
 
         #endregion
 
-        private System.Windows.Forms.RichTextBox Memo_richTextBox;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button Test_button;
-        private System.Windows.Forms.TextBox Customtest_textBox;
-        private System.Windows.Forms.Button Custom_button;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox Token_textBox;
+        private System.Windows.Forms.TextBox Customtest_textBox;
+        private System.Windows.Forms.Button Custom_button;
+        private System.Windows.Forms.Button Test_button;
+        private System.Windows.Forms.RichTextBox Memo_richTextBox;
     }
 }

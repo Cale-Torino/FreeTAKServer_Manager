@@ -5,18 +5,11 @@ using static FreeTAKServer_Manager.LoggerClass;
 
 namespace FreeTAKServer_Manager
 {
-    public partial class Test_API_Form : Form
+    public partial class FreeTAKServer_API_Form : Form
     {
-        public Test_API_Form()
+        public FreeTAKServer_API_Form()
         {
             InitializeComponent();
-        }
-
-        private void Test_API_Form_Load(object sender, EventArgs e)
-        {
-            //Set Textbox text
-            Customtest_textBox.Text = "http://127.0.0.1:19023/manageAPI/getHelp";
-            Token_textBox.Text = "token";
         }
 
         private async void Test_button_Click(object sender, EventArgs e)
@@ -77,6 +70,13 @@ namespace FreeTAKServer_Manager
                     return;
                 }
             }
+        }
+
+        private void FreeTAKServer_API_Form_Load(object sender, EventArgs e)
+        {
+            //Set Textbox text
+            Customtest_textBox.Text = "http://127.0.0.1:19023/manageAPI/getHelp";
+            Token_textBox.Text = "token";
         }
     }
 }

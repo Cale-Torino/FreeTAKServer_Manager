@@ -1,8 +1,10 @@
 # FreeTAKServer Manager For Windows Computers
 
-Just a quick C# working example of a FreeTAKServer Manager application for the Windows OS.
+**FreeTAKServer Manager** an application for the `Windows OS` which allows the *installation*, *start*, *stop* and *uninstallation* of the FreeTAKServer all in a dedicated GUI.
 
-WinForms & WPF versions are supported.
+More features (*such as: FTS API testing, easy config file access and Telegram BOT API testing etc.*) are constantly being added to improve the FTS windows experience.
+
+C# WinForms & WPF versions are supported.
 
 ---
 

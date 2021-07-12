@@ -1,0 +1,12 @@
+CoTServicePort: 8087
+SSLCoTServicePort: 8089
+DataPackageServiceDefaultIP: 'a.b.c.d'
+UserConnectionIP: 'a.b.c.d'
+APIPort: 19023
+FederationPort: 9000
+APIIP: 'a.b.c.d'
+SaveCoTToDB: True
+DBFilePath: '/opt/fts/FTSDataBase.db'
+MainPath: '/usr/local/lib/python3.8/dist-packages/FreeTAKServer'
+CertsPath: '/opt/fts/certs'
+

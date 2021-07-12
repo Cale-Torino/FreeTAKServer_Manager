@@ -1,8 +1,10 @@
 # FreeTAKServer Manager For Windows Computers
 
-Just a quick C# working example of a FreeTAKServer Manager application for the Windows OS.
+**FreeTAKServer Manager** an application for the `Windows OS` which allows the *installation*, *start*, *stop* and *uninstallation* of the FreeTAKServer all in a dedicated GUI.
 
-WinForms & WPF versions are supported.
+More features (*such as: FTS API testing, easy config file access and Telegram BOT API testing etc.*) are constantly being added to improve the FTS windows experience.
+
+C# WinForms & WPF versions are supported.
 
 ---
 
@@ -89,6 +91,25 @@ Breif MainForm controls explained.
 
 [<img src="img/mainform.jpg" width="500"/>](img/mainform.jpg)
 
+1. *About* form, showing more information and credits.
+2. *Email Setup* form, allows the user to set their email details.
+3. *ReadMe* form, shows the release history of the app.
+4. *Test API* form, lets the user test the APIs used in the FreeTAKServer.
+5. *Start Server* button, starts the server/UI & opens `http://127.0.0.1:5000` in the default web browser.
+6. *Stop Server* button, stops the server and UI.
+7. *Restart Server* button, restarts the server.
+8. *Uninstall Server* button, uninstalles the server & UI also deletes the `FTSDataBase.db` file.
+9. *Edit MainConfig.py* button, allows the user to quickely open the `MainConfig.py` file with the default text editor.
+10. *Edit Config.py* button, allows the user to quickely open the `Config.py` file with the default text editor.
+11. *Check Ports* button, opens a portforward checking website `https://www.yougetsignal.com/tools/open-ports/`.
+12. *Install Server* button, install the server/UI and edits the config files to use windows paths.
+13. *Get Dir* button, try to automatically get the Python directory if it fails the app will ask for manual input.
+14. *Send Email Alert If Server Is Not Running* checkbox, if pinging the server fails an email will be sent.
+15. *Start Server On Computer Startup* checkbox, start the server and UI on startup.
+16. *Logs* richtextbox, displays events and errors.
+17.  *Status* statusStrip, shows the progress of any event.
+
+
 ### About
 
 credits, links to github and my tutorial site.
@@ -162,6 +183,24 @@ Custom classes
 Breif MainForm controls explained.
 
 [<img src="img/mainform_wpf.jpg" width="500"/>](img/mainform.jpg)
+
+1. *About* form, showing more information and credits.
+2. *Email Setup* form, allows the user to set their email details.
+3. *ReadMe* form, shows the release history of the app.
+4. *Test API* form, lets the user test the APIs used in the FreeTAKServer.
+5. *Start Server* button, starts the server/UI & opens `http://127.0.0.1:5000` in the default web browser.
+6. *Stop Server* button, stops the server and UI.
+7. *Restart Server* button, restarts the server.
+8. *Uninstall Server* button, uninstalles the server & UI also deletes the `FTSDataBase.db` file.
+9. *Edit MainConfig.py* button, allows the user to quickely open the `MainConfig.py` file with the default text editor.
+10. *Edit Config.py* button, allows the user to quickely open the `Config.py` file with the default text editor.
+11. *Check Ports* button, opens a portforward checking website `https://www.yougetsignal.com/tools/open-ports/`.
+12. *Install Server* button, install the server/UI and edits the config files to use windows paths.
+13. *Get Dir* button, try to automatically get the Python directory if it fails the app will ask for manual input.
+14. *Send Email Alert If Server Is Not Running* checkbox, if pinging the server fails an email will be sent.
+15. *Start Server On Computer Startup* checkbox, start the server and UI on startup.
+16. *Logs* richtextbox, displays events and errors.
+17.  *Status* statusStrip, shows the progress of any event.
 
 ### About
 

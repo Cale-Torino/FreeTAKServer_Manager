@@ -453,12 +453,6 @@ namespace FreeTAKServer_Manager
             Form f = new ReadMe_Form();
             f.ShowDialog();
         }
-        private void testAPIToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //Open the test API form
-            Form f = new Test_API_Form();
-            f.ShowDialog();
-        }
         private static bool IsSoftwareInstalled(string softwareName)
         {
             //Check if a certain software is installed in the registry
@@ -733,6 +727,20 @@ namespace FreeTAKServer_Manager
                 MessageBox.Show(ex.Message, "Send email alert error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+        }
+
+        private void freeTAKServerAPIToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Open the test API form
+            Form f = new FreeTAKServer_API_Form();
+            f.ShowDialog();
+        }
+
+        private void telegramAPIToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Open the test API form
+            Form f = new TelegramAPIForm();
+            f.ShowDialog();
         }
     }
 }

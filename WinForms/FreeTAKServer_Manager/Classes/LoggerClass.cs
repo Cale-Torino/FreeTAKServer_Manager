@@ -9,7 +9,7 @@ namespace FreeTAKServer_Manager
         public static class Logger
         {
             //Create logfile log. file
-            private static string LogFile = Application.StartupPath + "\\Logs\\FreeTAKServer_Manager_" + DateTime.Now.ToString("yyyy-dd-M--HH-mm-ss") + ".log";
+            private static string LogFile = Application.StartupPath + @"\Logs\FreeTAKServer_Manager_" + DateTime.Now.ToString("yyyy-dd-M--HH-mm-ss") + ".log";
 
             public static void WriteLine(string txt)
             {

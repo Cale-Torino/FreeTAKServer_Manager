@@ -27,4 +27,4 @@ C# Winforms
  [ Version:  V1.0.0.2 ]
  [ Date: 02nd September 2021 ]
 
-* Added `pip install FreeTAKServer-UI==1.8.1` only
+* Added `pip install FreeTAKServer-UI==1.7.5` only

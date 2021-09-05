@@ -14,10 +14,10 @@ class Config(object):
     SECRET_KEY = 'key'
 
     # This will connect to the FTS db
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + 'F:\\python\\Lib\\site-packages\\FreeTAKServer\\FTSServer-UI.db'
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + '</text>Lib\\site-packages\\FreeTAKServer\\FTSServer-UI.db'
 
     # certificates path
-    certpath = "F:\\python\\Lib\\site-packages\\FreeTAKServer\\certs\\"
+    certpath = "</text>Lib\\site-packages\\FreeTAKServer\\certs\\"
 
     # crt file path
     crtfilepath = f"{certpath}pubserver.pem"
@@ -26,13 +26,13 @@ class Config(object):
     keyfilepath = f"{certpath}pubserver.key.unencrypted"
 
     # this IP will be used to connect with the FTS API
-    IP = '10.0.0.60'
+    IP = '127.0.0.1'
 
     # Port the  UI uses to communicate with the API
     PORT = '19023'
 
     # the public IP your server is exposing
-    APPIP = '10.0.0.60'
+    APPIP = '127.0.0.1'
 
     # webmap IP
     WEBMAPIP = "127.0.0.1"

@@ -1,6 +1,6 @@
 ### FreeTAKServer Manager
 
-The FreeTAKServer Manager  specific for FTS version `1.7.5`
+The FreeTAKServer Manager  specific for FTS version `1.8.1`
 
 Make sure you have a clean Python install.
 
@@ -27,4 +27,4 @@ C# Winforms
  [ Version:  V1.0.0.2 ]
  [ Date: 02nd September 2021 ]
 
-* Added `pip install FreeTAKServer-UI==1.7.5` only
+* Added `pip install FreeTAKServer-UI==1.8.1` only

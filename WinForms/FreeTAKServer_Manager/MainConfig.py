@@ -13,7 +13,7 @@ class MainConfig:
 
 
     #
-    AlternateConfig = str(os.environ.get('FTS_CONFIG_PATH', 'F:\\python\\Lib\\site-packages\\FreeTAKServer\\FTSConfig.yaml'))
+    AlternateConfig = str(os.environ.get('FTS_CONFIG_PATH', '</text>Lib\\site-packages\\FreeTAKServer\\FTSConfig.yaml'))
 
     #python_version = 'python3.8'
 
@@ -51,7 +51,7 @@ class MainConfig:
         if "MainPath" in yamlConfig.keys():
             MainPath = str(Path(yamlConfig["MainPath"]))
         else:
-            MainPath = str(Path(fr'F:\\python\\Lib\\site-packages\\FreeTAKServer'))
+            MainPath = str(Path(fr'</text>Lib\\site-packages\\FreeTAKServer'))
 
         if "CertsPath" in yamlConfig.keys():
             certsPath = os.environ.get('FTS_CERTS_PATH', yamlConfig["CertsPath"])
@@ -64,11 +64,11 @@ class MainConfig:
 
         SSLCoTServicePort = int(os.environ.get('FTS_SSLCOT_PORT', 8089))
 
-        # this needs to be changed for private data packages to work
-        DataPackageServiceDefaultIP = str(os.environ.get('FTS_DP_ADDRESS', "0.0.0.0"))
+        # this needs to be changed for private data packages to work #  0.0.0.0
+        DataPackageServiceDefaultIP = str(os.environ.get('FTS_DP_ADDRESS', "127.0.0.1"))
 
-        # User Connection package IP needs to be set to the IP which is used when creating the connection in your tak device
-        UserConnectionIP = str(os.environ.get('FTS_USER_ADDRESS', "0.0.0.0"))
+        # User Connection package IP needs to be set to the IP which is used when creating the connection in your tak device #0.0.0.0
+        UserConnectionIP = str(os.environ.get('FTS_USER_ADDRESS', "127.0.0.1"))
 
         # api port
         APIPort = os.environ.get('FTS_API_PORT', 19023)
@@ -83,14 +83,15 @@ class MainConfig:
         SaveCoTToDB = bool(os.environ.get('FTS_COT_TO_DB', True))
 
         # this should be set before startup
-        DBFilePath = str(os.environ.get('FTS_DB_PATH', r'F:\\python\\Lib\\site-packages\\FreeTAKServer\\FTSDataBase.db'))
+        DBFilePath = str(os.environ.get('FTS_DB_PATH', r'</text>Lib\\site-packages\\FreeTAKServer\\FTSDataBase.db'))
 
-        MainPath = str(Path(fr'F:\\python\\Lib\\site-packages\\FreeTAKServer'))
+        MainPath = str(Path(fr'</text>Lib\\site-packages\\FreeTAKServer'))
 
         certsPath = os.environ.get('FTS_CERTS_PATH', fr'{MainPath}\\certs')
 
     # the version information of the server (recommended to leave as default)
-    version = 'FreeTAKServer-1.8.1 RC 1 Public'
+    #version = 'FreeTAKServer-1.8.1 RC 1 Public'
+    version = 'v1.8.1'
 
     # number of milliseconds to wait between each iteration of main loop
     # decreasing will increase CPU usage and server performance

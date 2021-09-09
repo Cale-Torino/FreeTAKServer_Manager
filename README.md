@@ -8,7 +8,7 @@ C# WinForms & WPF versions are supported.
 
 ---
 
-The FreeTAKServer Manager C# application was created to make using the current `v1.7` of FreeTAKServer more user friendly.
+The FreeTAKServer Manager C# application was created to make using the current `v1.x.x` of FreeTAKServer more user friendly.
 
 FreeTAKServer Manager has the ability to Start, Stop, Restart, Install and Uninstall the FreeTAKServer & FreeTAKServer-UI.
 

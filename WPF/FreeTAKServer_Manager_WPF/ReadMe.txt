@@ -1,10 +1,12 @@
 ### FreeTAKServer Manager
 
-The FreeTAKServer Manager  specific for FTS version `1.7.5`
+The FreeTAKServer Manager  specific for FTS version `1.8.1`
 
 Make sure you have a clean Python install.
 
 Make sure your python environment variable path is clean. 
+
+Delete __init__.py 0kb in Your_Python_Path\Lib\site-packages\FreeTAKServer-UI
 
 FreeTAKServer Manager has the ability to:
 * Start
@@ -27,4 +29,4 @@ C# Winforms
  [ Version:  V1.0.0.2 ]
  [ Date: 02nd September 2021 ]
 
-* Added `pip install FreeTAKServer-UI==1.7.5` only
+* Added `pip install FreeTAKServer-UI==1.8.1` only

@@ -6,6 +6,8 @@ Make sure you have a clean Python install.
 
 Make sure your python environment variable path is clean. 
 
+Delete __init__.py 0kb in Your_Python_Path\Lib\site-packages\FreeTAKServer-UI
+
 FreeTAKServer Manager has the ability to:
 * Start
 * Stop

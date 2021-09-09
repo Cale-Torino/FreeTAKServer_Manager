@@ -9,7 +9,7 @@ namespace FreeTAKServer_Manager_WPF
         public static class Logger
         {
             //Create logfile log. file
-            private static string LogFile = AppDomain.CurrentDomain.BaseDirectory + "\\Logs\\FreeTAKServer_Manager_WPF_" + DateTime.Now.ToString("yyyy-dd-M--HH-mm-ss") + ".log";
+            private static string LogFile = AppDomain.CurrentDomain.BaseDirectory + @"\Logs\FreeTAKServer_Manager_WPF_" + DateTime.Now.ToString("yyyy-dd-M--HH-mm-ss") + ".log";
 
             public static void WriteLine(string txt)
             {

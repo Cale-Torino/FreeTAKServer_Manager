@@ -25,7 +25,7 @@
                 <TextBlock Text="https://tutorials.techrad.co.za" Height="27" RenderTransformOrigin="0.5,0.5" />
             </Hyperlink>
         </Label>
-        <Label Content="Version 1.0.0.2" HorizontalAlignment="Left" Margin="137,197,0,0" VerticalAlignment="Top">
+        <Label x:Name="labelversion" Content="Version 1.0.0.0" HorizontalAlignment="Left" Margin="137,197,0,0" VerticalAlignment="Top">
             <Label.Foreground>
                 <SolidColorBrush Color="{DynamicResource Color2}"/>
             </Label.Foreground>

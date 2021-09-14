@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Reflection;
 using System.Windows;
 using System.Windows.Navigation;
 
@@ -15,8 +16,8 @@ namespace FreeTAKServer_Manager_WPF
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-
+        {            
+            labelversion.Content = "Version " + Assembly.GetExecutingAssembly().GetName().Version.ToString();
         }
         private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
         {

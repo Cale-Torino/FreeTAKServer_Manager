@@ -440,7 +440,7 @@ namespace FreeTAKServer_Manager
                     // /c pip install -r requirements.txt&&python -m pip install FreeTAKServer[ui]
                     // /c pip install -r requirements.txt&&python -m pip install FreeTAKServer[ui]==1.8.1
                     // /c pip python -m pip install FreeTAKServer[ui]==1.7.5
-                    int _Install = CMD_Instance.SendCMDCommandNormal("/c pip install -r requirements.txt&&python -m pip install FreeTAKServer[ui]==1.8.1", Application.StartupPath);
+                    int _Install = CMD_Instance.SendCMDCommandNormal("/c pip install -r requirements.txt&&python -m pip install FreeTAKServer[ui]==1.9.1", Application.StartupPath);
                     File.Copy(Application.StartupPath+ @"\config.py", Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer-UI\config.py", true);
                     File.Copy(Application.StartupPath+ @"\MainConfig.py", Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer\controllers\configuration\MainConfig.py", true);
                     replaceText();

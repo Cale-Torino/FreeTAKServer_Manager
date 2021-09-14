@@ -24,7 +24,7 @@ namespace FreeTAKServer_Manager
 
         private void About_Form_Load(object sender, EventArgs e)
         {
-
+            label2.Text = "Version " + Application.ProductVersion;
         }
     }
 }

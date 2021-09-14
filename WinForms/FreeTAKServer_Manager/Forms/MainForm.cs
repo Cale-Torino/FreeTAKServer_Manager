@@ -213,9 +213,16 @@ namespace FreeTAKServer_Manager
                 FileInfo file = new FileInfo(nullkb_init);
                 if (Directory.Exists(Path.GetDirectoryName(nullkb_init)))
                 {
-                    if (file.Length <= 0)
+                    try
                     {
-                        File.Delete(nullkb_init);
+                        if (file.Length <= 0)
+                        {
+                            File.Delete(nullkb_init);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        //do nothing
                     }
                 }
                 //Start the server via sending a cmd command

@@ -1,0 +1,13 @@
+[9/14/2021 8:24:28 PM] :  *** Application Start [MainForm] ***
+[9/14/2021 8:24:28 PM] :  *** CreateDirectory Success [MainForm] ***
+[9/14/2021 8:24:28 PM] :  *** Python Installed [MainForm] ***
+[9/14/2021 8:24:28 PM] :  *** Ini Complete [MainForm] ***
+[9/14/2021 8:24:33 PM] :  *** Uninstall Server PID=21364 [MainForm] ***
+[9/14/2021 8:24:36 PM] :  *** Auto Get Python Path Success [MainForm] ***
+[9/14/2021 8:24:38 PM] :  *** Python Path Save Success. Path=C:\Software\python\ [MainForm] ***
+[9/14/2021 8:24:43 PM] :  *** Install Server PID=13940 [MainForm] ***
+[9/14/2021 8:24:49 PM] :  *** Start Server PID=7092, Start UI PID=12424 [MainForm] ***
+[9/14/2021 8:34:06 PM] :  *** Kill Server PID=7092,  Kill UI PID=12424[MainForm] ***
+[9/14/2021 8:34:36 PM] :  *** Server is already installed  [MainForm] ***
+[9/14/2021 8:34:49 PM] :  *** Kill Server PID=7092,  Kill UI PID=12424[MainForm] ***
+[9/14/2021 8:34:49 PM] :  *** Application Closed [MainForm] ***

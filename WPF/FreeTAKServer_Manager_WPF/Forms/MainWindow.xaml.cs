@@ -200,9 +200,16 @@ namespace FreeTAKServer_Manager_WPF
                 FileInfo file = new FileInfo(nullkb_init);
                 if (Directory.Exists(Path.GetDirectoryName(nullkb_init)))
                 {
-                    if (file.Length <= 0)
+                    try
                     {
-                        File.Delete(nullkb_init);
+                        if (file.Length <= 0)
+                        {
+                            File.Delete(nullkb_init);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        //do nothing
                     }
                 }
                 int _ServerPID = CMD_Instance.CMDStartServer("/k python -m FreeTAKServer.controllers.services.FTS", @"C:\Windows\System32");

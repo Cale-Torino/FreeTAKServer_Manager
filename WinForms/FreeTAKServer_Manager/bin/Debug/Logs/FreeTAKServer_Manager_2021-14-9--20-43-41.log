@@ -1,0 +1,9 @@
+[9/14/2021 8:43:41 PM] :  *** Application Start [MainForm] ***
+[9/14/2021 8:43:41 PM] :  *** CreateDirectory Success [MainForm] ***
+[9/14/2021 8:43:41 PM] :  *** Python Installed [MainForm] ***
+[9/14/2021 8:43:41 PM] :  *** Ini Complete [MainForm] ***
+[9/14/2021 8:43:44 PM] :  *** Start Server PID=11524, Start UI PID=13924 [MainForm] ***
+[9/14/2021 8:44:27 PM] :  *** Kill Server PID=11524,  Kill UI PID=13924[MainForm] ***
+[9/14/2021 8:44:29 PM] :  *** Start Server PID=13404, Start UI PID=9236 [MainForm] ***
+[9/14/2021 8:46:29 PM] :  *** Kill Server PID=13404,  Kill UI PID=9236[MainForm] ***
+[9/14/2021 8:46:29 PM] :  *** Application Closed [MainForm] ***

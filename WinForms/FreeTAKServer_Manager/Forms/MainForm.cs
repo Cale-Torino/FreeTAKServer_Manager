@@ -209,7 +209,7 @@ namespace FreeTAKServer_Manager
             string nullkb_init = Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer-UI\__init__.py";
             if (Directory.Exists(Path.GetDirectoryName(configfile)) && Directory.Exists(Path.GetDirectoryName(MainConfigfile)))
             {
-                //del 0kb file
+                //del 0kb file if it exists
                 FileInfo file = new FileInfo(nullkb_init);
                 if (Directory.Exists(Path.GetDirectoryName(nullkb_init)))
                 {
@@ -220,7 +220,7 @@ namespace FreeTAKServer_Manager
                             File.Delete(nullkb_init);
                         }
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         //do nothing
                     }

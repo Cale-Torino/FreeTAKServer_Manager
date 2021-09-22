@@ -1,6 +1,4 @@
 ﻿using System.Reflection;
-using System.Resources;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Windows;
 
@@ -12,7 +10,7 @@ using System.Windows;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("C.A Torino")]
 [assembly: AssemblyProduct("FreeTAKServer_Manager_WPF")]
-[assembly: AssemblyCopyright("Copyright ©  2021")]
+[assembly: AssemblyCopyright("Free on GitHub ©  2021, C.A Torino")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

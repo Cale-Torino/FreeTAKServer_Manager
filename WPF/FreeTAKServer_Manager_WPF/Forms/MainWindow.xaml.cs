@@ -188,6 +188,29 @@ namespace FreeTAKServer_Manager_WPF
             }
         }
 
+        private void DirChecks()
+        {
+            //create logs folder, no need to check if it exists
+            Directory.CreateDirectory(Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer\controllers\logs");
+            string nullkb_init = Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer-UI\__init__.py";
+            //del 0kb file if it exists
+            FileInfo file = new FileInfo(nullkb_init);
+            if (Directory.Exists(Path.GetDirectoryName(nullkb_init)))
+            {
+                try
+                {
+                    if (file.Length <= 0)
+                    {
+                        File.Delete(nullkb_init);
+                    }
+                }
+                catch (Exception)
+                {
+                    //do nothing
+                }
+            }
+        }
+
         private void StartServer()
         {
             //Start the server by sending a cmd command
@@ -196,22 +219,7 @@ namespace FreeTAKServer_Manager_WPF
             string nullkb_init = Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer-UI\__init__.py";
             if (Directory.Exists(Path.GetDirectoryName(configfile)) && Directory.Exists(Path.GetDirectoryName(MainConfigfile)))
             {
-                //del 0kb file if it exists
-                FileInfo file = new FileInfo(nullkb_init);
-                if (Directory.Exists(Path.GetDirectoryName(nullkb_init)))
-                {
-                    try
-                    {
-                        if (file.Length <= 0)
-                        {
-                            File.Delete(nullkb_init);
-                        }
-                    }
-                    catch (Exception)
-                    {
-                        //do nothing
-                    }
-                }
+                DirChecks();
                 int _ServerPID = CMD_Instance.CMDStartServer("/k python -m FreeTAKServer.controllers.services.FTS", @"C:\Windows\System32");
                 System.Threading.Thread.Sleep(1000);
                 int _UIPID = CMD_Instance.CMDStartServer("/k cd " + Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer-UI&&set FLASK_APP=run.py&&Flask run --host=0.0.0.0", Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer-UI");
@@ -367,7 +375,7 @@ namespace FreeTAKServer_Manager_WPF
                 {
                     ForceCursor = true;
                     Cursor = Cursors.Wait;
-                    int _Install = CMD_Instance.SendCMDCommandNormal("/c pip install -r requirements.txt&&python -m pip install FreeTAKServer[ui]==1.9.1", AppDomain.CurrentDomain.BaseDirectory);
+                    int _Install = CMD_Instance.SendCMDCommandNormal("/c pip install -r requirements.txt&&python -m pip install FreeTAKServer[ui]==1.9.1.5", AppDomain.CurrentDomain.BaseDirectory);
                     File.Copy(AppDomain.CurrentDomain.BaseDirectory + @"\config.py", Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer-UI\config.py", true);
                     File.Copy(AppDomain.CurrentDomain.BaseDirectory + @"\MainConfig.py", Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer\controllers\configuration\MainConfig.py", true);
                     replaceText();
@@ -375,6 +383,7 @@ namespace FreeTAKServer_Manager_WPF
                     Richtextbox.AppendText("[" + DateTime.Now.ToString() + "] : Install Server PID=" + _Install + Environment.NewLine);
                     ForceCursor = true;
                     Cursor = Cursors.Arrow;
+                    PythonInstalled();
                     MessageBox.Show("Server has been installed", "", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 catch (Exception ex)

@@ -1,5 +1,4 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
@@ -10,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("C.A Torino")]
 [assembly: AssemblyProduct("FreeTAKServer_Manager")]
-[assembly: AssemblyCopyright("Copyright ©  2021")]
+[assembly: AssemblyCopyright("Free on GitHub ©  2021, C.A Torino")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

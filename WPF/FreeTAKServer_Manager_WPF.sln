@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.31112.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreeTAKServer_Manager_WPF", "FreeTAKServer_Manager_WPF\FreeTAKServer_Manager_WPF.csproj", "{BF3BDCBA-4E6A-4DEC-A02A-6DC1081C79FD}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "FreeTAKServer_Manager_WPF_Installer", "FreeTAKServer_Manager_WPF_Installer\FreeTAKServer_Manager_WPF_Installer.vdproj", "{DC1DC106-AB3A-40EB-942E-1E4516901EF9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{BF3BDCBA-4E6A-4DEC-A02A-6DC1081C79FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF3BDCBA-4E6A-4DEC-A02A-6DC1081C79FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF3BDCBA-4E6A-4DEC-A02A-6DC1081C79FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC1DC106-AB3A-40EB-942E-1E4516901EF9}.Debug|Any CPU.ActiveCfg = Debug
+		{DC1DC106-AB3A-40EB-942E-1E4516901EF9}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

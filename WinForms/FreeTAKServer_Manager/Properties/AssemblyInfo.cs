@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("FreeTAKServer_Manager")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("C.A Torino")]
+[assembly: AssemblyCompany("FreeTAKServer")]
 [assembly: AssemblyProduct("FreeTAKServer_Manager")]
 [assembly: AssemblyCopyright("Free on GitHub ©  2021, C.A Torino")]
 [assembly: AssemblyTrademark("")]

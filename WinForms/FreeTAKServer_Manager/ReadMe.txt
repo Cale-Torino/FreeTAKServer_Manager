@@ -33,3 +33,9 @@ C# Winforms
 * Added dedicated directory check for 0kb `__init__.py` file and `logs` folder
 * Check that Python installed now runs after the server is installed as well as on form load
 * General bug fixes
+
+# ToDo
+
+* Add .yaml file with config & button
+* Update installer and add .msi file to release
+* cmd yaml file FreeTAKServer/controllers/configuration_wizard.py

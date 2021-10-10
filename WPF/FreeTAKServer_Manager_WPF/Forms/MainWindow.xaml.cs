@@ -161,21 +161,27 @@ namespace FreeTAKServer_Manager_WPF
             try
             {
                 //Replace the text `</text>` with the formatted Python path for windows in both config files
+                string YamlConfigfile = Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer\FTSConfig.yaml";
                 string configfile = Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer-UI\config.py";
                 string MainConfigfile = Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer\controllers\configuration\\MainConfig.py";
-                if (Directory.Exists(Path.GetDirectoryName(configfile)) && Directory.Exists(Path.GetDirectoryName(MainConfigfile)))
+                if (Directory.Exists(Path.GetDirectoryName(configfile)) && Directory.Exists(Path.GetDirectoryName(MainConfigfile)) && Directory.Exists(Path.GetDirectoryName(YamlConfigfile)))
                 {
-                    string _configfile = File.ReadAllText(configfile, Encoding.UTF8);
-                    string _MainConfigfile = File.ReadAllText(MainConfigfile, Encoding.UTF8);
+                    string _configfile = File.ReadAllText(configfile, Encoding.UTF8);//Read config.py file text
+                    string _MainConfigfile = File.ReadAllText(MainConfigfile, Encoding.UTF8);//Read MainConfig.py file text
+                    string _YamlConfigfile = File.ReadAllText(YamlConfigfile, Encoding.UTF8);//Read FTSConfig.yaml file text
                     string PythonPath = Properties.Settings.Default.Pythondir.Replace(@"\", @"\\");
 
-                    _MainConfigfile = _MainConfigfile.Replace("</text>", PythonPath);
+                    _MainConfigfile = _MainConfigfile.Replace("</text>", PythonPath);// Replace `</text>` with the directory
                     _MainConfigfile = Regex.Replace(_MainConfigfile, @"\<ref.*?\</ref\>", "");
-                    File.WriteAllText(MainConfigfile, _MainConfigfile);
+                    File.WriteAllText(MainConfigfile, _MainConfigfile);//Write all to file
 
-                    _configfile = _configfile.Replace("</text>", PythonPath);
+                    _configfile = _configfile.Replace("</text>", PythonPath);// Replace `</text>` with the directory
                     _configfile = Regex.Replace(_configfile, @"\<ref.*?\</ref\>", "");
-                    File.WriteAllText(configfile, _configfile);
+                    File.WriteAllText(configfile, _configfile);//Write all to file
+
+                    _YamlConfigfile = _YamlConfigfile.Replace("</text>", PythonPath);// Replace `</text>` with the directory
+                    _YamlConfigfile = Regex.Replace(_YamlConfigfile, @"\<ref.*?\</ref\>", "");
+                    File.WriteAllText(YamlConfigfile, _YamlConfigfile);//Write all to file
                 }
 
             }
@@ -363,7 +369,8 @@ namespace FreeTAKServer_Manager_WPF
             //Install the server by sending install commands via the cmd
             string configfile = Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer-UI\config.py";
             string MainConfigfile = Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer\controllers\configuration\MainConfig.py";
-            if (Directory.Exists(Path.GetDirectoryName(configfile)) && Directory.Exists(Path.GetDirectoryName(MainConfigfile)))
+            string YamlConfigfile = Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer\FTSConfig.yaml";
+            if (Directory.Exists(Path.GetDirectoryName(configfile)) && Directory.Exists(Path.GetDirectoryName(MainConfigfile)) && Directory.Exists(Path.GetDirectoryName(YamlConfigfile)))
             {
                 MessageBox.Show("Server is already installed", "", MessageBoxButton.OK, MessageBoxImage.Information);
                 Logger.WriteLine(" *** Server is already installed  [MainForm] ***");

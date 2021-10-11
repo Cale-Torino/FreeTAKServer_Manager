@@ -21,13 +21,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_0E104BED5ECA479894D07F8E2CCE7C6D"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_191FC5FD89944EB3801ACF9991A533AD"
+        "MsmKey" = "8:_16C8E948CBAA4B21A1B9178A12BAA6BF"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -39,13 +33,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_8053BFE2BA164CE4B07A2BA63F8225CA"
+        "MsmKey" = "8:_3FD3A3A7636F464AAA87CD555679F8B0"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_80B93CB9E3BC4E6B9E40977593966925"
+        "MsmKey" = "8:_6B058EC32F3F43B19D7EC9C2CB7B940C"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -63,19 +57,19 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_A55B49E58E5C4A5C923209B69077A9BB"
+        "MsmKey" = "8:_C062EABC92204F2E8225B296D515E4CC"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_BFA1CDE06B2E44569F1692BDCC18CAF9"
+        "MsmKey" = "8:_DC0F6ECDBCCC49DFBC449AE275000E00"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_C7D71AE659F64BB396B2F8C661DB8179"
+        "MsmKey" = "8:_E528103C3546437893416F0760BCE978"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -83,12 +77,6 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_86BE953D90AE44DEA05AE96963D5ABB2"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_C7D71AE659F64BB396B2F8C661DB8179"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -218,30 +206,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0E104BED5ECA479894D07F8E2CCE7C6D"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_16C8E948CBAA4B21A1B9178A12BAA6BF"
             {
             "SourcePath" = "8:..\\FreeTAKServer_Manager\\bin\\Release\\System.Security.Cryptography.ProtectedData.xml"
             "TargetName" = "8:System.Security.Cryptography.ProtectedData.xml"
-            "Tag" = "8:"
-            "Folder" = "8:_119ED17FC8994949941C09B45AED2136"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_191FC5FD89944EB3801ACF9991A533AD"
-            {
-            "SourcePath" = "8:..\\FreeTAKServer_Manager\\bin\\Release\\config.py"
-            "TargetName" = "8:config.py"
             "Tag" = "8:"
             "Folder" = "8:_119ED17FC8994949941C09B45AED2136"
             "Condition" = "8:"
@@ -289,10 +257,10 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8053BFE2BA164CE4B07A2BA63F8225CA"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3FD3A3A7636F464AAA87CD555679F8B0"
             {
-            "SourcePath" = "8:..\\FreeTAKServer_Manager\\bin\\Release\\MainConfig.py"
-            "TargetName" = "8:MainConfig.py"
+            "SourcePath" = "8:..\\FreeTAKServer_Manager\\bin\\Release\\FTSConfig.yaml"
+            "TargetName" = "8:FTSConfig.yaml"
             "Tag" = "8:"
             "Folder" = "8:_119ED17FC8994949941C09B45AED2136"
             "Condition" = "8:"
@@ -309,10 +277,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_80B93CB9E3BC4E6B9E40977593966925"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6B058EC32F3F43B19D7EC9C2CB7B940C"
             {
-            "SourcePath" = "8:..\\FreeTAKServer_Manager\\bin\\Release\\requirements.txt"
-            "TargetName" = "8:requirements.txt"
+            "SourcePath" = "8:..\\FreeTAKServer_Manager\\bin\\Release\\ReadMe.txt"
+            "TargetName" = "8:ReadMe.txt"
             "Tag" = "8:"
             "Folder" = "8:_119ED17FC8994949941C09B45AED2136"
             "Condition" = "8:"
@@ -360,10 +328,10 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A55B49E58E5C4A5C923209B69077A9BB"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C062EABC92204F2E8225B296D515E4CC"
             {
-            "SourcePath" = "8:..\\FreeTAKServer_Manager\\bin\\Release\\ReadMe.txt"
-            "TargetName" = "8:ReadMe.txt"
+            "SourcePath" = "8:..\\FreeTAKServer_Manager\\bin\\Release\\requirements.txt"
+            "TargetName" = "8:requirements.txt"
             "Tag" = "8:"
             "Folder" = "8:_119ED17FC8994949941C09B45AED2136"
             "Condition" = "8:"
@@ -380,10 +348,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BFA1CDE06B2E44569F1692BDCC18CAF9"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DC0F6ECDBCCC49DFBC449AE275000E00"
             {
-            "SourcePath" = "8:..\\FreeTAKServer_Manager\\bin\\Release\\FreeTAKServer_Manager.exe.config"
-            "TargetName" = "8:FreeTAKServer_Manager.exe.config"
+            "SourcePath" = "8:..\\FreeTAKServer_Manager\\bin\\Release\\MainConfig.py"
+            "TargetName" = "8:MainConfig.py"
             "Tag" = "8:"
             "Folder" = "8:_119ED17FC8994949941C09B45AED2136"
             "Condition" = "8:"
@@ -400,21 +368,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_C7D71AE659F64BB396B2F8C661DB8179"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E528103C3546437893416F0760BCE978"
             {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:System.Security.Cryptography.ProtectedData, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_C7D71AE659F64BB396B2F8C661DB8179"
-                    {
-                    "Name" = "8:System.Security.Cryptography.ProtectedData.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:..\\FreeTAKServer_Manager\\bin\\Release\\System.Security.Cryptography.ProtectedData.dll"
-            "TargetName" = "8:"
+            "SourcePath" = "8:..\\FreeTAKServer_Manager\\bin\\Release\\config.py"
+            "TargetName" = "8:config.py"
             "Tag" = "8:"
             "Folder" = "8:_119ED17FC8994949941C09B45AED2136"
             "Condition" = "8:"
@@ -498,16 +455,16 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:FreeTAKServer Manager"
-        "ProductCode" = "8:{C7B4AB0C-94F9-4BD1-A3C7-2A8DFBF65D31}"
-        "PackageCode" = "8:{35466685-4678-47E9-AA2B-57DB3AC808C0}"
+        "ProductCode" = "8:{20E68172-881E-4ED1-B105-9814276839E6}"
+        "PackageCode" = "8:{BE3785A9-2DC4-49D8-8701-3E62CE5A7DF6}"
         "UpgradeCode" = "8:{7AF0034E-A232-4EE2-BC57-30AC7F9C652F}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.3"
-        "Manufacturer" = "8:FreeTAKServer Manager"
+        "ProductVersion" = "8:1.0.4"
+        "Manufacturer" = "8:FreeTAKServer Manager GitHub"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
         "Title" = "8:FreeTAKServer Manager Installer"
@@ -515,8 +472,8 @@
         "ARPCONTACT" = "8:FreeTAKServer Manager"
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
-        "ARPURLINFOABOUT" = "8:"
-        "ARPPRODUCTICON" = "8:"
+        "ARPURLINFOABOUT" = "8:https://github.com/Cale-Torino/FreeTAKServer_Manager"
+        "ARPPRODUCTICON" = "8:_05990F69B9294D5DAD7CB2AB38F22BB0"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"

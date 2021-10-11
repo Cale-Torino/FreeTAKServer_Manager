@@ -22,6 +22,25 @@ N.B the application has been created with the microsoft Visual Studio 2019 Commu
 
 [<img src="img/heading.jpg" width="500"/>](img/heading.jpg)
 
+If you would like to use the `.yaml` file please type `yes` in the cmd console.
+
+Note: You will have to setup additional parameters as shown in the image below.
+
+* Examples
+    * The yaml config path: `C:\YOUR_PATH\python\Lib\site-packages\FreeTAKServer\FTSConfig.yaml`
+    * IP: `0.0.0.0`
+    * Database type: `SQLite`
+    * Database path: `C:\\YOUR_PATH\python\Lib\site-packages\FreeTAKServer\FreeTAKServer.db`
+    * Preferred main_path: `C:\YOUR_PATH\python\Lib\site-packages\FreeTAKServer\FreeTAKServer.db`
+    * Preferred log file path: `C:\YOUR_PATH\python\Lib\site-packages\FreeTAKServer\Logs`
+
+[<img src="img/yamlconfig.jpg" width="500"/>](img/yamlconfig.jpg)
+
+If you do not want to use the `.yaml` file type `no` in the cmd console.
+
+[<img src="img/Yamlnotused.jpg" width="500"/>](img/Yamlnotused.jpg)
+
+
 # WinForms Section
 
 ## App File Structure

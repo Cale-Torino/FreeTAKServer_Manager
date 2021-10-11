@@ -123,6 +123,7 @@ namespace FreeTAKServer_Manager
             this.Memo_richTextBox.ForeColor = System.Drawing.Color.White;
             this.Memo_richTextBox.Location = new System.Drawing.Point(15, 171);
             this.Memo_richTextBox.Name = "Memo_richTextBox";
+            this.Memo_richTextBox.ReadOnly = true;
             this.Memo_richTextBox.Size = new System.Drawing.Size(861, 395);
             this.Memo_richTextBox.TabIndex = 2;
             this.Memo_richTextBox.Text = "";

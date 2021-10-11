@@ -6,9 +6,9 @@ using System.Windows;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("FreeTAKServer_Manager_WPF")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("A Windows FreeTakServer Installer/Uninstaller GUI written in C# for the Windows OS")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("C.A Torino")]
+[assembly: AssemblyCompany("FreeTAKServer")]
 [assembly: AssemblyProduct("FreeTAKServer_Manager_WPF")]
 [assembly: AssemblyCopyright("Free on GitHub ©  2021, C.A Torino")]
 [assembly: AssemblyTrademark("")]
@@ -49,5 +49,5 @@ using System.Windows;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.3")]
-[assembly: AssemblyFileVersion("1.0.0.3")]
+[assembly: AssemblyVersion("1.0.0.4")]
+[assembly: AssemblyFileVersion("1.0.0.4")]

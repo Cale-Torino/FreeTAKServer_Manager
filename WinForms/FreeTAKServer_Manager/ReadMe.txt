@@ -26,16 +26,11 @@ C# Winforms
 
 # Release Notes
 
- [ Version:  V1.0.0.3 ]
- [ Date: 22nd September 2021 ]
+ [ Version:  V1.0.0.4 ]
+ [ Date: 11th October 2021 ]
 
-* Added `pip install FreeTAKServer-UI==1.9.1.5` only
-* Added dedicated directory check for 0kb `__init__.py` file and `logs` folder
+* Added installer
+* Added .msi file to release
+* Added .yaml file `FreeTAKServer/controllers/configuration_wizard.py`
 * Check that Python installed now runs after the server is installed as well as on form load
 * General bug fixes
-
-# ToDo
-
-* Add .yaml file with config & button
-* Update installer and add .msi file to release
-* cmd yaml file FreeTAKServer/controllers/configuration_wizard.py

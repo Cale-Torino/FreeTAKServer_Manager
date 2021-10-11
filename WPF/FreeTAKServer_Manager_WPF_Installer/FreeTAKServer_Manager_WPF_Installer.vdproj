@@ -15,7 +15,19 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_10F7500111CC457BAC97DD5036213AA3"
+        "MsmKey" = "8:_06A3FF9744B64D4097560CDB5C431F78"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_1BBC68A078D7487AB79C7ECC1A0C8F51"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_20EF170DDB7844B0B0D35C4D913A4B03"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -27,13 +39,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_5D78B7F66AA34B3CA618A2E47C108817"
+        "MsmKey" = "8:_753211CC74CD4FA381F83DC8C49E66DD"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_9C56AB13A80D444EB0D7EC5FBBD8E52B"
+        "MsmKey" = "8:_7C7CCD4845B84BFD81A333596887280D"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -45,32 +57,20 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_C402D1C4B904404AB64FB00DBD1EBF65"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_D1ED3A70058744A9859E9E57B08AE71F"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_FC7128194C0A4D68B2CF979DBA0C066E"
-        "OwnerKey" = "8:_UNDEFINED"
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_57FE05C9068D4F758973AFC12FF0B32D"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_9F452097411C9D8C8432CA13921CD281"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_57FE05C9068D4F758973AFC12FF0B32D"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -98,6 +98,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
         "Release"
@@ -122,6 +130,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
     }
@@ -152,10 +168,10 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_10F7500111CC457BAC97DD5036213AA3"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_06A3FF9744B64D4097560CDB5C431F78"
             {
-            "SourcePath" = "8:..\\FreeTAKServer_Manager_WPF\\bin\\Release\\requirements.txt"
-            "TargetName" = "8:requirements.txt"
+            "SourcePath" = "8:..\\FreeTAKServer_Manager_WPF\\bin\\Release\\ReadMe.txt"
+            "TargetName" = "8:ReadMe.txt"
             "Tag" = "8:"
             "Folder" = "8:_8729444DB287433B810FCFB0E105972C"
             "Condition" = "8:"
@@ -172,7 +188,7 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5D78B7F66AA34B3CA618A2E47C108817"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1BBC68A078D7487AB79C7ECC1A0C8F51"
             {
             "SourcePath" = "8:..\\FreeTAKServer_Manager_WPF\\bin\\Release\\config.py"
             "TargetName" = "8:config.py"
@@ -192,10 +208,50 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9C56AB13A80D444EB0D7EC5FBBD8E52B"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_20EF170DDB7844B0B0D35C4D913A4B03"
             {
-            "SourcePath" = "8:..\\FreeTAKServer_Manager_WPF\\bin\\Release\\FreeTAKServer_Manager_WPF.exe.config"
-            "TargetName" = "8:FreeTAKServer_Manager_WPF.exe.config"
+            "SourcePath" = "8:..\\FreeTAKServer_Manager_WPF\\bin\\Release\\FTSConfig.yaml"
+            "TargetName" = "8:FTSConfig.yaml"
+            "Tag" = "8:"
+            "Folder" = "8:_8729444DB287433B810FCFB0E105972C"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_753211CC74CD4FA381F83DC8C49E66DD"
+            {
+            "SourcePath" = "8:..\\FreeTAKServer_Manager_WPF\\bin\\Release\\MainConfig.py"
+            "TargetName" = "8:MainConfig.py"
+            "Tag" = "8:"
+            "Folder" = "8:_8729444DB287433B810FCFB0E105972C"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7C7CCD4845B84BFD81A333596887280D"
+            {
+            "SourcePath" = "8:..\\FreeTAKServer_Manager_WPF\\bin\\Release\\requirements.txt"
+            "TargetName" = "8:requirements.txt"
             "Tag" = "8:"
             "Folder" = "8:_8729444DB287433B810FCFB0E105972C"
             "Condition" = "8:"
@@ -243,50 +299,10 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C402D1C4B904404AB64FB00DBD1EBF65"
-            {
-            "SourcePath" = "8:..\\FreeTAKServer_Manager_WPF\\bin\\Release\\ReadMe.txt"
-            "TargetName" = "8:ReadMe.txt"
-            "Tag" = "8:"
-            "Folder" = "8:_8729444DB287433B810FCFB0E105972C"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D1ED3A70058744A9859E9E57B08AE71F"
             {
             "SourcePath" = "8:..\\FreeTAKServer_Manager_WPF\\img\\favicon.ico"
             "TargetName" = "8:favicon.ico"
-            "Tag" = "8:"
-            "Folder" = "8:_8729444DB287433B810FCFB0E105972C"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_FC7128194C0A4D68B2CF979DBA0C066E"
-            {
-            "SourcePath" = "8:..\\FreeTAKServer_Manager_WPF\\bin\\Release\\MainConfig.py"
-            "TargetName" = "8:MainConfig.py"
             "Tag" = "8:"
             "Folder" = "8:_8729444DB287433B810FCFB0E105972C"
             "Condition" = "8:"
@@ -370,16 +386,16 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:FreeTAKServer Manager WPF Installer"
-        "ProductCode" = "8:{9CC6EEB1-04B3-4D8E-BCE6-7C13C2A3DE6D}"
-        "PackageCode" = "8:{7A7362A9-CC2F-4829-AA7E-C20C8FB9DB0C}"
+        "ProductCode" = "8:{85CAE88D-70F9-46E4-A1BD-FB0CB4C194B9}"
+        "PackageCode" = "8:{4259E6CD-B3A6-43D4-9FAB-860E11DEEDBE}"
         "UpgradeCode" = "8:{639D9906-B40D-4E6A-B026-B37B974242D5}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.3"
-        "Manufacturer" = "8:FreeTAKServer Manager WPF"
+        "ProductVersion" = "8:1.0.4"
+        "Manufacturer" = "8:FreeTAKServer Manager WPF GitHub"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
         "Title" = "8:FreeTAKServer Manager WPF Installer"
@@ -387,8 +403,8 @@
         "ARPCONTACT" = "8:FreeTAKServer Manager WPF"
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
-        "ARPURLINFOABOUT" = "8:"
-        "ARPPRODUCTICON" = "8:"
+        "ARPURLINFOABOUT" = "8:https://github.com/Cale-Torino/FreeTAKServer_Manager"
+        "ARPPRODUCTICON" = "8:_D1ED3A70058744A9859E9E57B08AE71F"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"

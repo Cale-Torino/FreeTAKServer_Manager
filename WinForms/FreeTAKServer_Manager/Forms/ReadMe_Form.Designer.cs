@@ -39,6 +39,7 @@ namespace FreeTAKServer_Manager
             this.ReadMe_richTextBox.ForeColor = System.Drawing.Color.White;
             this.ReadMe_richTextBox.Location = new System.Drawing.Point(12, 12);
             this.ReadMe_richTextBox.Name = "ReadMe_richTextBox";
+            this.ReadMe_richTextBox.ReadOnly = true;
             this.ReadMe_richTextBox.Size = new System.Drawing.Size(742, 473);
             this.ReadMe_richTextBox.TabIndex = 0;
             this.ReadMe_richTextBox.Text = "";

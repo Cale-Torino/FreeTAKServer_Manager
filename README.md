@@ -20,6 +20,8 @@ Remove all previous Python environment variables (if you have them) because they
 
 N.B the application has been created with the microsoft Visual Studio 2019 Community IDE. (https://visualstudio.microsoft.com/vs/)
 
+https://dotnet.microsoft.com/download/visual-studio-sdks
+
 [<img src="img/heading.jpg" width="500"/>](img/heading.jpg)
 
 If you would like to use the `.yaml` file please type `yes` in the cmd console.

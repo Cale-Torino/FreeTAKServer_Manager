@@ -32,7 +32,7 @@ Note: You will have to setup additional parameters as shown in the image below.
     * The yaml config path: `C:\YOUR_PATH\python\Lib\site-packages\FreeTAKServer\FTSConfig.yaml`
     * IP: `0.0.0.0`
     * Database type: `SQLite`
-    * Database path: `C:\\YOUR_PATH\python\Lib\site-packages\FreeTAKServer\FreeTAKServer.db`
+    * Database path: `C:\YOUR_PATH\python\Lib\site-packages\FreeTAKServer\FreeTAKServer.db`
     * Preferred main_path: `C:\YOUR_PATH\python\Lib\site-packages\FreeTAKServer\FreeTAKServer.db`
     * Preferred log file path: `C:\YOUR_PATH\python\Lib\site-packages\FreeTAKServer\Logs`
 

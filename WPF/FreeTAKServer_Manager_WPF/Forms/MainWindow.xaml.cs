@@ -87,20 +87,11 @@ namespace FreeTAKServer_Manager_WPF
         {
             try
             {
-                //Check if the Python directory is installed
-                bool isinstalled = IsSoftwareInstalled("Python");
-                if (isinstalled)
-                {
-                    status_lable.Text = "Python IS installed :)";
-                    Logger.WriteLine(" *** Python Installed [MainForm] ***");
-                    Richtextbox.AppendText("[" + DateTime.Now.ToString() + "] : Python Installed" + Environment.NewLine);
-                }
-                else
-                {
-                    status_lable.Text = "Python NOT installed :( ";
-                    Logger.WriteLine(" *** Python Not Installed. Error [MainForm] ***");
-                    Richtextbox.AppendText("[" + DateTime.Now.ToString() + "] : Python Not Installed. Error! " + Environment.NewLine);
-                }
+                //Check if Python is installed
+                //bool isinstalled = IsSoftwareInstalled("Python");//Call the method
+                string pythonversion = PythonVersion();
+                Logger.WriteLine($" *** Python check result: {pythonversion} [MainForm] ***");
+                Richtextbox.AppendText("[" + DateTime.Now.ToString() + $"] : Python check result: {pythonversion}");
             }
             catch (Exception ex)
             {
@@ -382,7 +373,7 @@ namespace FreeTAKServer_Manager_WPF
                 {
                     ForceCursor = true;
                     Cursor = Cursors.Wait;
-                    int _Install = CMD_Instance.SendCMDCommandNormal("/c pip install -r requirements.txt&&python -m pip install FreeTAKServer[ui]==1.9.1.5", AppDomain.CurrentDomain.BaseDirectory);
+                    int _Install = CMD_Instance.SendCMDCommandNormal("/c pip install -r requirements.txt&&python -m pip install FreeTAKServer[ui]==1.9.6.1", AppDomain.CurrentDomain.BaseDirectory);
                     File.Copy(AppDomain.CurrentDomain.BaseDirectory + @"\FTSConfig.yaml", Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer\FTSConfig.yaml", true);
                     File.Copy(AppDomain.CurrentDomain.BaseDirectory + @"\config.py", Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer-UI\config.py", true);
                     File.Copy(AppDomain.CurrentDomain.BaseDirectory + @"\MainConfig.py", Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer\controllers\configuration\MainConfig.py", true);
@@ -402,6 +393,27 @@ namespace FreeTAKServer_Manager_WPF
                     Logger.WriteLine(" *** Error:" + ex.Message + " [MainForm] ***");
                     Richtextbox.AppendText("[" + DateTime.Now.ToString() + "] : Error:" + ex.Message + Environment.NewLine);
                     return;
+                }
+            }
+        }
+
+        private string PythonVersion()
+        {
+            //string result = "";
+            ProcessStartInfo pycheck = new ProcessStartInfo
+            {
+                FileName = @"python.exe",
+                Arguments = "--version",
+                UseShellExecute = false,
+                RedirectStandardOutput = true,
+                CreateNoWindow = true
+            };
+            using (Process process = Process.Start(pycheck))
+            {
+                using (StreamReader reader = process.StandardOutput)
+                {
+                    string result = reader.ReadToEnd();
+                    return result;
                 }
             }
         }

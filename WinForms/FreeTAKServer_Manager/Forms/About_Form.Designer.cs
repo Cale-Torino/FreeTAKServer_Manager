@@ -36,6 +36,7 @@ namespace FreeTAKServer_Manager
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.Checkforupdate_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -103,12 +104,27 @@ namespace FreeTAKServer_Manager
             this.label3.TabIndex = 5;
             this.label3.Text = "Techrad Tutorials :";
             // 
+            // Checkforupdate_button
+            // 
+            this.Checkforupdate_button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Checkforupdate_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(41)))), ((int)(((byte)(61)))));
+            this.Checkforupdate_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Checkforupdate_button.ForeColor = System.Drawing.Color.White;
+            this.Checkforupdate_button.Location = new System.Drawing.Point(12, 517);
+            this.Checkforupdate_button.Name = "Checkforupdate_button";
+            this.Checkforupdate_button.Size = new System.Drawing.Size(440, 34);
+            this.Checkforupdate_button.TabIndex = 6;
+            this.Checkforupdate_button.Text = "Check For Update";
+            this.Checkforupdate_button.UseVisualStyleBackColor = true;
+            this.Checkforupdate_button.Click += new System.EventHandler(this.Checkforupdate_button_Click);
+            // 
             // About_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(41)))), ((int)(((byte)(61)))));
             this.ClientSize = new System.Drawing.Size(464, 563);
+            this.Controls.Add(this.Checkforupdate_button);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -137,5 +153,6 @@ namespace FreeTAKServer_Manager
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button Checkforupdate_button;
     }
 }

@@ -26,5 +26,11 @@ namespace FreeTAKServer_Manager
         {
             label2.Text = "Version " + Application.ProductVersion;
         }
+
+        private void Checkforupdate_button_Click(object sender, EventArgs e)
+        {
+            //Checks for a new version of the app via GUP 
+
+        }
     }
 }

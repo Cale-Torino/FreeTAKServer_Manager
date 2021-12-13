@@ -25,5 +25,11 @@ namespace FreeTAKServer_Manager_WPF
             Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
             e.Handled = true;
         }
+
+        private void Checkforupdate_button_Click(object sender, RoutedEventArgs e)
+        {
+            //Checks for a new version of the app via GUP
+
+        }
     }
 }

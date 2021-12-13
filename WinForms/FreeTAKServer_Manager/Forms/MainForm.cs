@@ -57,20 +57,11 @@ namespace FreeTAKServer_Manager
         {
             try
             {
-                //Check if Python is installed 
-                bool isinstalled = IsSoftwareInstalled("Python");//Call the method
-                if (isinstalled == true)
-                {
-                    toolStripStatusLabel1.Text = "Python IS installed :)";
-                    Logger.WriteLine(" *** Python Installed [MainForm] ***");
-                    Logs_richTextBox.AppendText("[" + DateTime.Now.ToString() + "] : Python Installed" + Environment.NewLine);
-                }
-                else
-                {
-                    toolStripStatusLabel1.Text = "Python NOT installed :( ";
-                    Logger.WriteLine(" *** Python Not Installed. Error [MainForm] ***");
-                    Logs_richTextBox.AppendText("[" + DateTime.Now.ToString() + "] : Python Not Installed. Error! " + Environment.NewLine);
-                }
+                //Check if Python is installed
+                //bool isinstalled = IsSoftwareInstalled("Python");//Call the method
+                string pythonversion = PythonVersion();
+                Logger.WriteLine($" *** Python check result: {pythonversion} [MainForm] ***");
+                Logs_richTextBox.AppendText("[" + DateTime.Now.ToString() + $"] : Python check result: {pythonversion}");
             }
             catch (Exception ex)
             {
@@ -457,11 +448,12 @@ namespace FreeTAKServer_Manager
             {
                 try
                 {
+                    PythonInstalled();
                     Cursor.Current = Cursors.WaitCursor;
                     // /c pip install -r requirements.txt&&python -m pip install FreeTAKServer[ui]
                     // /c pip install -r requirements.txt&&python -m pip install FreeTAKServer[ui]==1.8.1
                     // /c pip python -m pip install FreeTAKServer[ui]==1.7.5
-                    int _Install = CMD_Instance.SendCMDCommandNormal("/c pip install -r requirements.txt&&python -m pip install FreeTAKServer[ui]==1.9.1.5", Application.StartupPath);
+                    int _Install = CMD_Instance.SendCMDCommandNormal("/c pip install -r requirements.txt&&python -m pip install FreeTAKServer[ui]==1.9.6.1", Application.StartupPath);
                     File.Copy(Application.StartupPath + @"\FTSConfig.yaml", Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer\FTSConfig.yaml", true);
                     File.Copy(Application.StartupPath+ @"\config.py", Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer-UI\config.py", true);
                     File.Copy(Application.StartupPath+ @"\MainConfig.py", Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer\controllers\configuration\MainConfig.py", true);
@@ -469,7 +461,6 @@ namespace FreeTAKServer_Manager
                     Logger.WriteLine(" *** Install Server PID=" + _Install + " [MainForm] ***");
                     Logs_richTextBox.AppendText("[" + DateTime.Now.ToString() + "] : Install Server PID=" + _Install + Environment.NewLine);
                     Cursor.Current = Cursors.Default;
-                    PythonInstalled();
                     MessageBox.Show("Server has been installed", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
@@ -503,6 +494,26 @@ namespace FreeTAKServer_Manager
             //Open the read me form
             Form f = new ReadMe_Form();
             f.ShowDialog();
+        }
+        private string PythonVersion()
+        {
+            //string result = "";
+            ProcessStartInfo pycheck = new ProcessStartInfo
+            {
+                FileName = @"python.exe",
+                Arguments = "--version",
+                UseShellExecute = false,
+                RedirectStandardOutput = true,
+                CreateNoWindow = true
+            };
+            using (Process process = Process.Start(pycheck))
+            {
+                using (StreamReader reader = process.StandardOutput)
+                {
+                    string result = reader.ReadToEnd();
+                    return result;
+                }
+            }
         }
         private static bool IsSoftwareInstalled(string softwareName)
         {

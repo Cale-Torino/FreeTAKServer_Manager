@@ -1,6 +1,6 @@
 ### FreeTAKServer Manager
 
-The FreeTAKServer Manager  specific for FTS version `1.9.6.1`
+The FreeTAKServer Manager  specific for FTS version `1.9.7`
 
 Make sure you have a clean Python install.
 

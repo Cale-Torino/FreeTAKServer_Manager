@@ -11,7 +11,7 @@ class MainConfig:
     """
 
     # the version information of the server (recommended to leave as default)
-    version = 'FreeTAKServer-1.9.6 Public'
+    version = 'FreeTAKServer-1.9.7 Public'
     #
     yaml_path = str(os.environ.get('FTS_CONFIG_PATH', '</text>Lib\\site-packages\\FreeTAKServer\\FTSConfig.yaml'))
 
@@ -121,13 +121,13 @@ class MainConfig:
         if yamlConfig.get("System"):
             MainLoopDelay = int(os.environ.get('FTS_MAINLOOP_DELAY', yamlConfig["System"].get("FTS_MAINLOOP_DELAY", 1)))
             # set to None if you don't want a message sent
-            ConnectionMessage = str(os.environ.get("FTS_CONNECTION_MESSAGE", yamlConfig["System"].get("FTS_CONNECTION_MESSAGE", f'Welcome to FreeTAKServer {version}. The Parrot is not dead. It’s just resting')))
+            ConnectionMessage = str(os.environ.get("FTS_CONNECTION_MESSAGE", yamlConfig["System"].get("FTS_CONNECTION_MESSAGE", f'Welcome to the Windows FreeTAKServer {version}. The Parrot is not dead. It’s just resting')))
             DataBaseType = str(os.environ.get("FTS_DATABASE_TYPE", yamlConfig["System"].get("FTS_DATABASE_TYPE", "SQLite")))
             OptimizeAPI = bool(os.environ.get("FTS_OPTIMIZE_API", yamlConfig["System"].get("FTS_OPTIMIZE_API", True)))
 
         else:
             MainLoopDelay = int(os.environ.get('FTS_MAINLOOP_DELAY',  1))
-            ConnectionMessage = str(os.environ.get("FTS_CONNECTION_MESSAGE", f'Welcome to FreeTAKServer {version}. The Parrot is not dead. It’s just resting'))
+            ConnectionMessage = str(os.environ.get("FTS_CONNECTION_MESSAGE", f'Welcome to the Windows FreeTAKServer {version}. The Parrot is not dead. It’s just resting'))
             DataBaseType = str(os.environ.get("FTS_DATABASE_TYPE", "SQLite"))
             OptimizeAPI = bool(os.environ.get("FTS_OPTIMIZE_API", True))
 
@@ -188,7 +188,7 @@ class MainConfig:
 
             ExCheckFilePath = str(os.environ.get('FTS_EXCHECK_TEMPLATE_PATH', yamlConfig["FileSystem"].get("FTS_EXCHECK_TEMPLATE_PATH", Path(fr'{MainPath}\\ExCheck\\template'))))
 
-            ExCheckChecklistFilePath = str(os.environ.get("FTS_EXCHECK_CHECKLIST_PATH", yamlConfig["FileSystem"].get("FTS_EXCHECK_CHECKLIST_PATH", Path(fr'{MainPath}\\ExCheck\\checklist'))))
+            ExCheckChecklistFilePath = str(os.environ.get("FTS_EXCHECK_CHECKLIST_PATH", yamlConfig["FileSystem"].get("FTS_EXCHECK_CHECKLIST_PATH", Path(fr'{MainPath}\\ExCheck/checklist'))))
 
             DataPackageFilePath = str(os.environ.get("FTS_DATAPACKAGE_PATH", yamlConfig["FileSystem"].get("FTS_DATAPACKAGE_PATH", Path(fr'{MainPath}\\FreeTAKServerDataPackageFolder'))))
 

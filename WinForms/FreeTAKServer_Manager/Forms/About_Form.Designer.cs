@@ -37,6 +37,7 @@ namespace FreeTAKServer_Manager
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.Checkforupdate_button = new System.Windows.Forms.Button();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -118,6 +119,11 @@ namespace FreeTAKServer_Manager
             this.Checkforupdate_button.UseVisualStyleBackColor = true;
             this.Checkforupdate_button.Click += new System.EventHandler(this.Checkforupdate_button_Click);
             // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
+            // 
             // About_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -154,5 +160,6 @@ namespace FreeTAKServer_Manager
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button Checkforupdate_button;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

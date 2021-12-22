@@ -21,6 +21,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_129D8B7ADD964D698E932C9329122A8C"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_1BBC68A078D7487AB79C7ECC1A0C8F51"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -33,7 +39,19 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_4037D16A2D3644A0B0A28D5109131298"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_57FE05C9068D4F758973AFC12FF0B32D"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_5C09F4A590A64CE8BF0B8EF2FF396DE7"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -51,8 +69,20 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_9095182B11AB4FD1BB6196389A7ADA53"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_9F452097411C9D8C8432CA13921CD281"
         "OwnerKey" = "8:_57FE05C9068D4F758973AFC12FF0B32D"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_CBC2301C12CA4A9A99D75D0D1403F7BE"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -188,6 +218,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_129D8B7ADD964D698E932C9329122A8C"
+            {
+            "SourcePath" = "8:..\\FreeTAKServer_Manager_WPF\\bin\\Release\\Updater\\gup.xml"
+            "TargetName" = "8:gup.xml"
+            "Tag" = "8:"
+            "Folder" = "8:_F10746287BC0491FB82757CF16C68AFE"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1BBC68A078D7487AB79C7ECC1A0C8F51"
             {
             "SourcePath" = "8:..\\FreeTAKServer_Manager_WPF\\bin\\Release\\config.py"
@@ -214,6 +264,46 @@
             "TargetName" = "8:FTSConfig.yaml"
             "Tag" = "8:"
             "Folder" = "8:_8729444DB287433B810FCFB0E105972C"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4037D16A2D3644A0B0A28D5109131298"
+            {
+            "SourcePath" = "8:..\\FreeTAKServer_Manager_WPF\\bin\\Release\\Updater\\LICENSE"
+            "TargetName" = "8:LICENSE"
+            "Tag" = "8:"
+            "Folder" = "8:_F10746287BC0491FB82757CF16C68AFE"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5C09F4A590A64CE8BF0B8EF2FF396DE7"
+            {
+            "SourcePath" = "8:..\\FreeTAKServer_Manager_WPF\\bin\\Release\\Updater\\updater.ico"
+            "TargetName" = "8:updater.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_F10746287BC0491FB82757CF16C68AFE"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -268,6 +358,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9095182B11AB4FD1BB6196389A7ADA53"
+            {
+            "SourcePath" = "8:..\\FreeTAKServer_Manager_WPF\\bin\\Release\\Updater\\GUP.exe"
+            "TargetName" = "8:GUP.exe"
+            "Tag" = "8:"
+            "Folder" = "8:_F10746287BC0491FB82757CF16C68AFE"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_9F452097411C9D8C8432CA13921CD281"
             {
             "AssemblyRegister" = "3:1"
@@ -297,6 +407,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CBC2301C12CA4A9A99D75D0D1403F7BE"
+            {
+            "SourcePath" = "8:..\\FreeTAKServer_Manager_WPF\\bin\\Release\\Updater\\libcurl.dll"
+            "TargetName" = "8:libcurl.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_F10746287BC0491FB82757CF16C68AFE"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D1ED3A70058744A9859E9E57B08AE71F"
@@ -357,6 +487,17 @@
             "Property" = "8:TARGETDIR"
                 "Folders"
                 {
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_F10746287BC0491FB82757CF16C68AFE"
+                    {
+                    "Name" = "8:Updater"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_9437A0C4B0D54C54B9DE3DB140F56D30"
+                        "Folders"
+                        {
+                        }
+                    }
                 }
             }
             "{1525181F-901A-416C-8A58-119130FE478E}:_A42EC0B1E875451B98959C08D3C3658D"

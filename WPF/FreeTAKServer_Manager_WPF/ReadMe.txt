@@ -29,7 +29,7 @@ C# Winforms
 # Release Notes
 
  [ Version:  V1.0.0.5 ]
- [ Date: 13th December 2021 ]
+ [ Date: 22nd December 2021 ]
 
 * Added GUP updater
 * Check python version before anything `python --version`

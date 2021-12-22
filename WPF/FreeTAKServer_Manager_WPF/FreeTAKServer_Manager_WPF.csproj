@@ -68,6 +68,7 @@
     <Compile Include="Forms\Test_APIWindow.xaml.cs">
       <DependentUpon>Test_APIWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Classes\RunUpdateExeClass.cs" />
     <Page Include="Forms\AboutWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -129,6 +130,9 @@
     <None Include="FTSConfig.yaml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Updater\LICENSE">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -139,6 +143,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Resource Include="Updater\updater.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Resources\api.png" />
     <Content Include="config.py">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -149,6 +156,15 @@
     <Resource Include="Resources\info.png" />
     <Resource Include="Resources\mail.png" />
     <Resource Include="Resources\FreeTakServer3.png" />
+    <Content Include="Updater\GUP.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Updater\gup.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Content Include="Updater\libcurl.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="MainConfig.py">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

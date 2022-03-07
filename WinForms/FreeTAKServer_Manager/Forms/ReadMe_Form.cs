@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Windows.Forms;
-using static FreeTAKServer_Manager.LoggerClass;
 
 namespace FreeTAKServer_Manager
 {
@@ -14,7 +13,7 @@ namespace FreeTAKServer_Manager
 
         private void ReadMe_Form_Load(object sender, EventArgs e)
         {
-            Logger.WriteLine(" *** Notes Form Show Success [NotesForm] *** ");
+            LoggerClass.WriteLine(" *** Notes Form Show Success [NotesForm] *** ");
             try
             {
                 //Clear Richtextbox and add the content of ReadMe.txt

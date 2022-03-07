@@ -344,7 +344,7 @@ namespace FreeTAKServer_Manager
             // 
             this.freeTAKServerAPIToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("freeTAKServerAPIToolStripMenuItem.Image")));
             this.freeTAKServerAPIToolStripMenuItem.Name = "freeTAKServerAPIToolStripMenuItem";
-            this.freeTAKServerAPIToolStripMenuItem.Size = new System.Drawing.Size(258, 34);
+            this.freeTAKServerAPIToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.freeTAKServerAPIToolStripMenuItem.Text = "FreeTAKServer API";
             this.freeTAKServerAPIToolStripMenuItem.Click += new System.EventHandler(this.freeTAKServerAPIToolStripMenuItem_Click);
             // 
@@ -352,7 +352,7 @@ namespace FreeTAKServer_Manager
             // 
             this.telegramAPIToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("telegramAPIToolStripMenuItem.Image")));
             this.telegramAPIToolStripMenuItem.Name = "telegramAPIToolStripMenuItem";
-            this.telegramAPIToolStripMenuItem.Size = new System.Drawing.Size(258, 34);
+            this.telegramAPIToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.telegramAPIToolStripMenuItem.Text = "Telegram API";
             this.telegramAPIToolStripMenuItem.Click += new System.EventHandler(this.telegramAPIToolStripMenuItem_Click);
             // 
@@ -391,10 +391,13 @@ namespace FreeTAKServer_Manager
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(770, 662);
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(770, 662);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FreeTAKServer Manager";

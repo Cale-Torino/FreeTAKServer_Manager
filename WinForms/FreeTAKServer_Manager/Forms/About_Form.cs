@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Net.Http;
 using System.Windows.Forms;
-using static FreeTAKServer_Manager.LoggerClass;
 
 namespace FreeTAKServer_Manager
 {
@@ -37,12 +36,12 @@ namespace FreeTAKServer_Manager
                 {
                     backgroundWorker1.RunWorkerAsync();
                 }
-                Logger.WriteLine(" *** Ran UpdateExe:" + Environment.NewLine + " [About_Form] ***");
+                LoggerClass.WriteLine(" *** Ran UpdateExe:" + Environment.NewLine + " [About_Form] ***");
            }
            catch (Exception ex)
            {
              MessageBox.Show(ex.Message, "Could not check for update", MessageBoxButtons.OK, MessageBoxIcon.Error);
-             Logger.WriteLine(" *** Error:" + ex.Message + " [About_Form] ***");
+                LoggerClass.WriteLine(" *** Error:" + ex.Message + " [About_Form] ***");
              return;
            }
         }
@@ -75,8 +74,8 @@ namespace FreeTAKServer_Manager
                             //Read the result and display in Textbox
                             string result = await content.ReadAsStringAsync();//Result string JSON
                             string reasonPhrase = response.ReasonPhrase;//Reason OK, FAIL etc.
-                            Logger.WriteLine(" *** result:" + result + " [About_Form] ***");
-                            Logger.WriteLine(" *** reasonPhrase:" + reasonPhrase + " [About_Form] ***");
+                            LoggerClass.WriteLine(" *** result:" + result + " [About_Form] ***");
+                            LoggerClass.WriteLine(" *** reasonPhrase:" + reasonPhrase + " [About_Form] ***");
                             MessageBox.Show(result, "Updater", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             return;
                         }
@@ -85,7 +84,7 @@ namespace FreeTAKServer_Manager
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Could not test API", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    Logger.WriteLine(" *** Error:" + ex.Message + " [MainForm] ***");
+                    LoggerClass.WriteLine(" *** Error:" + ex.Message + " [MainForm] ***");
                     return;
                 }
             }

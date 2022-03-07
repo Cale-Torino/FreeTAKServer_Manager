@@ -6,7 +6,7 @@ namespace FreeTAKServer_Manager
 {
 
 
-    class CMD_Class
+    public static class CMD_Class
     {
         public static class CMD_Instance
         {

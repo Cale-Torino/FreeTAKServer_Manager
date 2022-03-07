@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Net.Http;
 using System.Windows.Forms;
-using static FreeTAKServer_Manager.LoggerClass;
 
 namespace FreeTAKServer_Manager
 {
@@ -36,7 +35,7 @@ namespace FreeTAKServer_Manager
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Could not test API", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    Logger.WriteLine(" *** Error:" + ex.Message + " [MainForm] ***");
+                    LoggerClass.WriteLine(" *** Error:" + ex.Message + " [MainForm] ***");
                     return;
                 }
             }
@@ -66,7 +65,7 @@ namespace FreeTAKServer_Manager
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Could not custom test API", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    Logger.WriteLine(" *** Error:" + ex.Message + " [MainForm] ***");
+                    LoggerClass.WriteLine(" *** Error:" + ex.Message + " [MainForm] ***");
                     return;
                 }
             }

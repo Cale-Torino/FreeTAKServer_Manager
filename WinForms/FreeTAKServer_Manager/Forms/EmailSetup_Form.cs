@@ -3,7 +3,6 @@ using System.Net;
 using System.Net.Mail;
 using System.Security;
 using System.Windows.Forms;
-using static FreeTAKServer_Manager.LoggerClass;
 
 namespace FreeTAKServer_Manager
 {
@@ -57,12 +56,12 @@ namespace FreeTAKServer_Manager
 
                     SmtpServer.Send(mail);
                     MessageBox.Show("Normal mail Sent", "Mail Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Logger.WriteLine(" *** Auto Get Python Path Error. Attempting Manual Path Entry [MainForm] ***");
+                LoggerClass.WriteLine(" *** Auto Get Python Path Error. Attempting Manual Path Entry [MainForm] ***");
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Email could not be tested", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Logger.WriteLine(" *** Error:" + ex.Message + " [EmailSetup_Form] ***");
+                LoggerClass.WriteLine(" *** Error:" + ex.Message + " [EmailSetup_Form] ***");
             }
         }
 
@@ -86,7 +85,7 @@ namespace FreeTAKServer_Manager
                     Username_textBox.Enabled = true;
                     Password_textBox.Enabled = true;
                     Savesettings_button.Text = "Save Settings";//Change button text
-                    Logger.WriteLine(" *** Editing email settings [EmailSetup_Form] ***");
+                    LoggerClass.WriteLine(" *** Editing email settings [EmailSetup_Form] ***");
                 }
                 catch (Exception ex)
                 {
@@ -98,7 +97,7 @@ namespace FreeTAKServer_Manager
                     Username_textBox.Enabled = false;
                     Password_textBox.Enabled = false;
                     MessageBox.Show(ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    Logger.WriteLine(" *** Error:" + ex.Message + " [EmailSetup_Form] ***");
+                    LoggerClass.WriteLine(" *** Error:" + ex.Message + " [EmailSetup_Form] ***");
                     Savesettings_button.Text = "Edit Settings";//Change button text
                     return;
                 }
@@ -124,7 +123,7 @@ namespace FreeTAKServer_Manager
                 Username_textBox.Enabled = false;
                 Password_textBox.Enabled = false;
                 Savesettings_button.Text = "Edit Settings";//Change button text
-                Logger.WriteLine(" *** Saved email settings [EmailSetup_Form] ***");
+                LoggerClass.WriteLine(" *** Saved email settings [EmailSetup_Form] ***");
             }
         }
     }

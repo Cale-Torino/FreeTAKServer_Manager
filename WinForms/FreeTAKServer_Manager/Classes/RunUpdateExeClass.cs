@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace FreeTAKServer_Manager
 {
-    class RunUpdateExeClass
+    public static class RunUpdateExeClass
     {
         public static void RunExeActions()
         {

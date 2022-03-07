@@ -61,7 +61,7 @@ namespace FreeTAKServer_Manager
 
         private async void backgroundWorker1_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
         {
-            string version = "1.005";
+            string version = "1.006";
             using (HttpClient client = new HttpClient())
             {
                 //Add Default Request Headers

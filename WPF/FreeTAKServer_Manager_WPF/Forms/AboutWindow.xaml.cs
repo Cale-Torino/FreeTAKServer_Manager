@@ -3,10 +3,8 @@ using System.Reflection;
 using System.Windows;
 using System.Windows.Navigation;
 using System.ComponentModel;
-using static FreeTAKServer_Manager_WPF.LoggerClass;
 using System;
 using System.Net.Http;
-using System.Windows.Threading;
 
 namespace FreeTAKServer_Manager_WPF
 {
@@ -30,7 +28,7 @@ namespace FreeTAKServer_Manager_WPF
         }
         private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
         {
-            //Opens link to the specified in the xamal code
+            //Opens link to the specified in the xaml code
             Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
             e.Handled = true;
         }
@@ -44,12 +42,12 @@ namespace FreeTAKServer_Manager_WPF
                 {
                     worker.RunWorkerAsync();
                 }
-                Logger.WriteLine(" *** Ran UpdateExe:" + Environment.NewLine + " [About_Form] ***");
+                LoggerClass.WriteLine(" *** Ran UpdateExe:" + Environment.NewLine + " [About_Form] ***");
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Could not check for update", MessageBoxButton.OK, MessageBoxImage.Error);
-                Logger.WriteLine(" *** Error:" + ex.Message + " [About_Form] ***");
+                LoggerClass.WriteLine(" *** Error:" + ex.Message + " [About_Form] ***");
                 return;
             }
         }
@@ -69,11 +67,10 @@ namespace FreeTAKServer_Manager_WPF
             }
         }
 
-        private async void worker_RunWorkerCompleted(object sender,
-                                                   RunWorkerCompletedEventArgs e)
+        private async void worker_RunWorkerCompleted(object sender,RunWorkerCompletedEventArgs e)
         {
             //update ui once worker complete his work
-            string version = "1.005";
+            string version = "1.006";
             using (HttpClient client = new HttpClient())
             {
                 //Add Default Request Headers
@@ -86,8 +83,8 @@ namespace FreeTAKServer_Manager_WPF
                             //Read the result and display in Textbox
                             string result = await content.ReadAsStringAsync();//Result string JSON
                             string reasonPhrase = response.ReasonPhrase;//Reason OK, FAIL etc.
-                            Logger.WriteLine(" *** result:" + result + " [About_Form] ***");
-                            Logger.WriteLine(" *** reasonPhrase:" + reasonPhrase + " [About_Form] ***");
+                            LoggerClass.WriteLine(" *** result:" + result + " [About_Form] ***");
+                            LoggerClass.WriteLine(" *** reasonPhrase:" + reasonPhrase + " [About_Form] ***");
                             MessageBox.Show(result, "Updater", MessageBoxButton.OK, MessageBoxImage.Information);
                             return;
                         }
@@ -96,7 +93,7 @@ namespace FreeTAKServer_Manager_WPF
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Could not test API", MessageBoxButton.OK, MessageBoxImage.Error);
-                    Logger.WriteLine(" *** Error:" + ex.Message + " [MainForm] ***");
+                    LoggerClass.WriteLine(" *** Error:" + ex.Message + " [MainForm] ***");
                     return;
                 }
             }

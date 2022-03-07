@@ -5,7 +5,7 @@ using System.Text;
 
 namespace FreeTAKServer_Manager_WPF
 {
-    class EncryptionClass
+    public static class EncryptionClass
     {
         static byte[] entropy = Encoding.Unicode.GetBytes("15021375505qpwoeirutyalskdjfhgmznxbcv");//salt
 

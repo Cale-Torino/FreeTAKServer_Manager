@@ -4,7 +4,7 @@ using System.Windows;
 
 namespace FreeTAKServer_Manager_WPF
 {
-    class RunUpdateExeClass
+    public static class RunUpdateExeClass
     {
         public static void RunExeActions()
         {

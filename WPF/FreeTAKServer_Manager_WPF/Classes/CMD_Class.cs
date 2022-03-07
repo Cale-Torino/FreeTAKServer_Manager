@@ -4,10 +4,8 @@ using System.Windows;
 
 namespace FreeTAKServer_Manager_WPF
 {
-    class CMD_Class
+    public static class CMD_Class
     {
-        public static class CMD_Instance
-        {
             public static void PIDkill(int PID)
             {
                 try
@@ -77,10 +75,5 @@ namespace FreeTAKServer_Manager_WPF
                     return 1;
                 }
             }
-
-
-        }
-
-
     }
 }

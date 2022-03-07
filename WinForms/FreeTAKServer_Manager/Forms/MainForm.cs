@@ -520,19 +520,6 @@ namespace FreeTAKServer_Manager
                 }
             }
         }
-        private static bool IsSoftwareInstalled(string softwareName)
-        {
-            //Check if a certain software is installed in the registry
-            var key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall") ?? Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall");
-            if (key == null)
-            { 
-                return false; 
-            } 
-            return key.GetSubKeyNames()
-                .Select(keyName => key.OpenSubKey(keyName))
-                .Select(subkey => subkey.GetValue("DisplayName") as string)
-                .Any(displayName => displayName != null && displayName.Contains(softwareName));
-        }
 
         string GetPythonPath()
         {

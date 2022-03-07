@@ -143,9 +143,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Resource Include="Updater\updater.ico">
+    <Content Include="Updater\updater.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
+    </Content>
     <Resource Include="Resources\api.png" />
     <Content Include="config.py">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -159,9 +159,9 @@
     <Content Include="Updater\GUP.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Resource Include="Updater\gup.xml">
+    <Content Include="Updater\gup.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
+    </Content>
     <Content Include="Updater\libcurl.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

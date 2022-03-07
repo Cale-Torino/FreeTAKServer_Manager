@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Windows;
-using static FreeTAKServer_Manager_WPF.LoggerClass;
 
 namespace FreeTAKServer_Manager_WPF
 {
@@ -17,7 +16,7 @@ namespace FreeTAKServer_Manager_WPF
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            Logger.WriteLine(" *** Notes Form Show Success [NotesForm] *** ");
+            LoggerClass.WriteLine(" *** Notes Form Show Success [NotesForm] *** ");
             try
             {
                 //Clear Richtextbox and add the content of ReadMe.txt

@@ -3,7 +3,6 @@ using System.Net;
 using System.Net.Mail;
 using System.Security;
 using System.Windows;
-using static FreeTAKServer_Manager_WPF.LoggerClass;
 
 namespace FreeTAKServer_Manager_WPF
 {
@@ -59,12 +58,12 @@ namespace FreeTAKServer_Manager_WPF
 
                 SmtpServer.Send(mail);
                 MessageBox.Show("Normal mail Sent", "Mail Status", MessageBoxButton.OK, MessageBoxImage.Information);
-                Logger.WriteLine(" *** Auto Get Python Path Error. Attempting Manual Path Entry [MainForm] ***");
+                LoggerClass.WriteLine(" *** Auto Get Python Path Error. Attempting Manual Path Entry [MainForm] ***");
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Email could not be tested", MessageBoxButton.OK, MessageBoxImage.Error);
-                Logger.WriteLine(" *** Error:" + ex.Message + " [EmailSetup_Form] ***");
+                LoggerClass.WriteLine(" *** Error:" + ex.Message + " [EmailSetup_Form] ***");
             }
         }
         private void Test_button_click(object sender, RoutedEventArgs e)
@@ -89,7 +88,7 @@ namespace FreeTAKServer_Manager_WPF
                     Username_textBox.IsEnabled = true;
                     Password_textBox.IsEnabled = true;
                     Savesettings_button.Content = "Save Settings";//Change button text
-                    Logger.WriteLine(" *** Editing email settings [EmailSetup_Form] ***");
+                    LoggerClass.WriteLine(" *** Editing email settings [EmailSetup_Form] ***");
                 }
                 catch (Exception ex)
                 {
@@ -103,7 +102,7 @@ namespace FreeTAKServer_Manager_WPF
                     Username_textBox.IsEnabled = false;
                     Password_textBox.IsEnabled = false;
                     MessageBox.Show(ex.Message, "", MessageBoxButton.OK, MessageBoxImage.Error);
-                    Logger.WriteLine(" *** Error:" + ex.Message + " [EmailSetup_Form] ***");
+                    LoggerClass.WriteLine(" *** Error:" + ex.Message + " [EmailSetup_Form] ***");
                     Savesettings_button.Content = "Edit Settings";//Change button text
                     return;
                 }
@@ -130,7 +129,7 @@ namespace FreeTAKServer_Manager_WPF
                 Username_textBox.IsEnabled = false;
                 Password_textBox.IsEnabled = false;
                 Savesettings_button.Content = "Edit Settings";//Change button text
-                Logger.WriteLine(" *** Saved email settings [EmailSetup_Form] ***");
+                LoggerClass.WriteLine(" *** Saved email settings [EmailSetup_Form] ***");
             }
         }
     }

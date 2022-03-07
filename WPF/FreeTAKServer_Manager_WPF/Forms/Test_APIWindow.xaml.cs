@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Net.Http;
 using System.Windows;
-using static FreeTAKServer_Manager_WPF.LoggerClass;
 
 namespace FreeTAKServer_Manager_WPF
 {
@@ -46,7 +45,7 @@ namespace FreeTAKServer_Manager_WPF
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Could not custom test API", MessageBoxButton.OK, MessageBoxImage.Error);
-                    Logger.WriteLine(" *** Error:" + ex.Message + " [MainForm] ***");
+                    LoggerClass.WriteLine(" *** Error:" + ex.Message + " [MainForm] ***");
                     return;
                 }
             }
@@ -76,7 +75,7 @@ namespace FreeTAKServer_Manager_WPF
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Could not test API", MessageBoxButton.OK, MessageBoxImage.Error);
-                    Logger.WriteLine(" *** Error:" + ex.Message + " [MainForm] ***");
+                    LoggerClass.WriteLine(" *** Error:" + ex.Message + " [MainForm] ***");
                     return;
                 }
             }

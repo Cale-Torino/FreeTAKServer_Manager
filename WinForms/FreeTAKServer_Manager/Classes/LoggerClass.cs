@@ -8,7 +8,7 @@ namespace FreeTAKServer_Manager
     {
 
             //Create logfile log. file
-            private static string LogFile = Application.StartupPath + @"\Logs\FreeTAKServer_Manager_" + DateTime.Now.ToString("yyyy-dd-M--HH-mm-ss") + ".log";
+            private static readonly string LogFile = AppDomain.CurrentDomain.BaseDirectory + @"Logs\" + AppDomain.CurrentDomain.FriendlyName + "_" + DateTime.Now.ToString("yyyy-dd-M--HH-mm-ss") + ".log";
 
             public static void WriteLine(string txt)
             {

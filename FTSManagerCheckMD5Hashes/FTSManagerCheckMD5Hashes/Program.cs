@@ -4,13 +4,12 @@ namespace FTSManagerCheckMD5Hashes
 {
     internal class Program
     {
-        protected private static readonly string FreeTAKServer_Manager = "74992c411d07d22c7d6e73daef0ed457";
-        protected private static readonly string FreeTAKServer_Manager_WPF = "74992c411d07d22c7d6e73daef0ed457";
-        protected private static readonly string Cryptographydll = "74992c411d07d22c7d6e73daef0ed457";
-        protected private static readonly string Cryptographyxml = "74992c411d07d22c7d6e73daef0ed457";
-        protected private static readonly string GUPexe = "74992c411d07d22c7d6e73daef0ed457";
-        protected private static readonly string GUPxml = "74992c411d07d22c7d6e73daef0ed457";
-        protected private static readonly string Libcurldll = "74992c411d07d22c7d6e73daef0ed457";
+        protected private static readonly string FreeTAKServer_Manager = "9a5d24245a6aa392de88448abed62204";
+        protected private static readonly string FreeTAKServer_Manager_WPF = "440028381e2c79898ab08c531bddbbf4";
+        protected private static readonly string GUPexe = "9ab985908d9fe9a2d536b5fd23974287";
+        protected private static readonly string GUPxmlWPF = "9f1ee248cfc342b8f5442e031f8b985a";
+        //protected private static readonly string GUPxmlWinForms = "4238c89b048797a24726df050f1eb86c";
+        protected private static readonly string Libcurldll = "11f4a27b9612987255757dbb96d6f420";
         static void Main(string[] args)
         {            
             Console.WriteLine("----------------------------------------------");
@@ -18,19 +17,10 @@ namespace FTSManagerCheckMD5Hashes
             Console.WriteLine("----------------------------------------------");
             GetHashClass.CheckFileHash(AppDomain.CurrentDomain.BaseDirectory, "FreeTAKServer_Manager.exe", FreeTAKServer_Manager);
             GetHashClass.CheckFileHash(AppDomain.CurrentDomain.BaseDirectory, "FreeTAKServer_Manager_WPF.exe", FreeTAKServer_Manager_WPF);
-            GetHashClass.CheckFileHash(AppDomain.CurrentDomain.BaseDirectory, "System.Security.Cryptography.ProtectedData.dll", Cryptographydll);
-            GetHashClass.CheckFileHash(AppDomain.CurrentDomain.BaseDirectory, "System.Security.Cryptography.ProtectedData.xml", Cryptographyxml);
             GetHashClass.CheckFileHash($"{AppDomain.CurrentDomain.BaseDirectory}\\Updater", "GUP.exe", GUPexe);
-            GetHashClass.CheckFileHash($"{AppDomain.CurrentDomain.BaseDirectory}\\Updater", "gup.xml", GUPxml);
+            //GetHashClass.CheckFileHash($"{AppDomain.CurrentDomain.BaseDirectory}\\Updater", "gup.xml", GUPxmlWinForms);
+            GetHashClass.CheckFileHash($"{AppDomain.CurrentDomain.BaseDirectory}\\Updater", "gup.xml", GUPxmlWPF);
             GetHashClass.CheckFileHash($"{AppDomain.CurrentDomain.BaseDirectory}\\Updater", "libcurl.dll", Libcurldll);
-            /*GetHashClass.CheckFile(AppDomain.CurrentDomain.BaseDirectory, "FreeTAKServer_Manager.exe");
-            GetHashClass.CheckFile(AppDomain.CurrentDomain.BaseDirectory, "FreeTAKServer_Manager_WPF.exe");
-            GetHashClass.CheckFile(AppDomain.CurrentDomain.BaseDirectory, "System.Security.Cryptography.ProtectedData.dll");
-            GetHashClass.CheckFile(AppDomain.CurrentDomain.BaseDirectory, "System.Security.Cryptography.ProtectedData.xml");
-            GetHashClass.CheckFile($"{AppDomain.CurrentDomain.BaseDirectory}\\Updater", "GUP.exe");
-            GetHashClass.CheckFile($"{AppDomain.CurrentDomain.BaseDirectory}\\Updater", "gup.xml");
-            GetHashClass.CheckFile($"{AppDomain.CurrentDomain.BaseDirectory}\\Updater", "libcurl.dll");*/
-            //GetHashClass.GetAllFiles(AppDomain.CurrentDomain.BaseDirectory);
             Console.WriteLine("----------------------------------------------");
             Console.WriteLine("MD5 list complete");
             Console.ReadLine();

@@ -27,12 +27,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_16C8E948CBAA4B21A1B9178A12BAA6BF"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_19B28D1B7171414F94632779671FE69C"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -93,6 +87,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_CDEA8248B3E14552AF9EA9835082CBBB"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_DC0F6ECDBCCC49DFBC449AE275000E00"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -107,6 +107,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_86BE953D90AE44DEA05AE96963D5ABB2"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_CDEA8248B3E14552AF9EA9835082CBBB"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -240,26 +246,6 @@
             {
             "SourcePath" = "8:..\\FreeTAKServer_Manager\\img\\favicon.ico"
             "TargetName" = "8:favicon.ico"
-            "Tag" = "8:"
-            "Folder" = "8:_119ED17FC8994949941C09B45AED2136"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_16C8E948CBAA4B21A1B9178A12BAA6BF"
-            {
-            "SourcePath" = "8:..\\FreeTAKServer_Manager\\bin\\Release\\System.Security.Cryptography.ProtectedData.xml"
-            "TargetName" = "8:System.Security.Cryptography.ProtectedData.xml"
             "Tag" = "8:"
             "Folder" = "8:_119ED17FC8994949941C09B45AED2136"
             "Condition" = "8:"
@@ -478,6 +464,37 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_CDEA8248B3E14552AF9EA9835082CBBB"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:FTSManagerCheckMD5Hashes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_CDEA8248B3E14552AF9EA9835082CBBB"
+                    {
+                    "Name" = "8:FTSManagerCheckMD5Hashes.exe"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\FreeTAKServer_Manager\\bin\\Release\\FTSManagerCheckMD5Hashes.exe"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_119ED17FC8994949941C09B45AED2136"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DC0F6ECDBCCC49DFBC449AE275000E00"
             {
             "SourcePath" = "8:..\\FreeTAKServer_Manager\\bin\\Release\\MainConfig.py"
@@ -596,15 +613,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:FreeTAKServer Manager"
-        "ProductCode" = "8:{20E68172-881E-4ED1-B105-9814276839E6}"
-        "PackageCode" = "8:{BE3785A9-2DC4-49D8-8701-3E62CE5A7DF6}"
+        "ProductCode" = "8:{A0A6EBFD-171E-4FB2-8B50-21B7E7DF32AD}"
+        "PackageCode" = "8:{D4106AE6-87C5-48CB-BDC2-1308D54B53D4}"
         "UpgradeCode" = "8:{7AF0034E-A232-4EE2-BC57-30AC7F9C652F}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.4"
+        "ProductVersion" = "8:1.0.5"
         "Manufacturer" = "8:FreeTAKServer Manager GitHub"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"

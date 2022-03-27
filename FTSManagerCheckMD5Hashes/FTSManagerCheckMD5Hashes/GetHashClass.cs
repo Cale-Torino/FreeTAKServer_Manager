@@ -62,7 +62,7 @@ namespace FTSManagerCheckMD5Hashes
                 }
             }
         }
-        private static readonly string LogFile = Path.GetDirectoryName(typeof(Program).Assembly.Location) + @"\filelist_"+ DateTime.Now.ToString("yyyy-dd-M--HH-mm-ss") + ".md5.txt";
+        private static readonly string LogFile = AppDomain.CurrentDomain.BaseDirectory + @"filelist_"+ DateTime.Now.ToString("yyyy-dd-M--HH-mm-ss") + ".md5.txt";
         public static int WriteLine(string t)
         {
             try

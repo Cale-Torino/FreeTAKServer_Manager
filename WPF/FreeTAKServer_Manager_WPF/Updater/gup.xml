@@ -22,7 +22,7 @@
 	It's the current version of your program. WinGup will add "?version=versionNumber" at the end of InfoUrl.
 	This parameter will be ignored if you pass directly your version number to WinGup via command line "-v".
 	-->
-	<Version>1.006</Version>
+	<Version>1.007</Version>
 	
 	<!-- optional.
 	It could be whatever you want.

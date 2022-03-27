@@ -34,6 +34,10 @@ class MainConfig:
 
         OptimizeAPI = True
 
+        DataReceptionBuffer = int(os.environ.get('FTS_DATA_RECEPTION_BUFFER', 1024))
+
+        MaxReceptionTime = int(os.environ.get('FTS_MAX_RECEPTION_TIME', 4))
+
         MainLoopDelay = int(os.environ.get('FTS_MAINLOOP_DELAY', 100))
 
         # this is the port to which clients will connect
@@ -127,6 +131,8 @@ class MainConfig:
             DataBaseType = str(os.environ.get("FTS_DATABASE_TYPE", yamlConfig["System"].get("FTS_DATABASE_TYPE", "SQLite")))
             OptimizeAPI = bool(os.environ.get("FTS_OPTIMIZE_API", yamlConfig["System"].get("FTS_OPTIMIZE_API", True)))
             SecretKey = str(os.environ.get('FTS_SECRET_KEY', yamlConfig["System"].get("FTS_SECRET_KEY", 'vnkdjnfjknfl1232#')))
+            DataReceptionBuffer = int(os.environ.get('FTS_DATA_RECEPTION_BUFFER', yamlConfig["System"].get("FTS_DATA_RECEPTION_BUFFER", 1024)))
+            MaxReceptionTime = int(os.environ.get('FTS_MAX_RECEPTION_TIME', yamlConfig["System"].get("FTS_MAX_RECEPTION_TIME", 4)))
 
         else:
             MainLoopDelay = int(os.environ.get('FTS_MAINLOOP_DELAY',  1))

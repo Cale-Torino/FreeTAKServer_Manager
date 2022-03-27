@@ -400,7 +400,7 @@
             "SharedLegacy" = "11:FALSE"
             "PackageAs" = "3:1"
             "Register" = "3:1"
-            "Exclude" = "11:FALSE"
+            "Exclude" = "11:TRUE"
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
@@ -614,7 +614,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:FreeTAKServer Manager"
         "ProductCode" = "8:{A0A6EBFD-171E-4FB2-8B50-21B7E7DF32AD}"
-        "PackageCode" = "8:{D4106AE6-87C5-48CB-BDC2-1308D54B53D4}"
+        "PackageCode" = "8:{59D3DD51-45C4-4DC9-94A3-E4372C148FB5}"
         "UpgradeCode" = "8:{7AF0034E-A232-4EE2-BC57-30AC7F9C652F}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"

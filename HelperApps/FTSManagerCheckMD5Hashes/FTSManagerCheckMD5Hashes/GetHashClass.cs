@@ -16,15 +16,18 @@ namespace FTSManagerCheckMD5Hashes
                 {
                     FileInfo fi = new FileInfo(file);
                     string data = $" => {Path.GetFileName(file)} | {CalculateMD5(file)} MATCH | {fi.Length / 1024} kb | {fi.Length} bytes";
+                    Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine(data);
+                    Console.ResetColor();
                     WriteLine(data);
                 }
                 else
                 {
                     FileInfo fi = new FileInfo(file);
                     string data = $" => {Path.GetFileName(file)} | {CalculateMD5(file)} ERROR | {fi.Length / 1024} kb | {fi.Length} bytes";
-                    Console.WriteLine("Warning!!!");
+                    Console.ForegroundColor = ConsoleColor.Magenta;
                     Console.WriteLine(data);
+                    Console.ResetColor();
                     WriteLine(data);
                 }
             }

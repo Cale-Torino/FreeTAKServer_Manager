@@ -32,11 +32,11 @@ namespace FreeTAKServer_Manager
         {
            try
            {
-                if (!backgroundWorker1.IsBusy)
+                using (Form f = new UpdateForm())
                 {
-                    backgroundWorker1.RunWorkerAsync();
+                    f.ShowDialog();
                 }
-                LoggerClass.WriteLine(" *** Ran UpdateExe:" + Environment.NewLine + " [About_Form] ***");
+                LoggerClass.WriteLine(" *** Ran Update:" + Environment.NewLine + " [About_Form] ***");
            }
            catch (Exception ex)
            {
@@ -44,50 +44,6 @@ namespace FreeTAKServer_Manager
                 LoggerClass.WriteLine(" *** Error:" + ex.Message + " [About_Form] ***");
              return;
            }
-        }
-
-        private void backgroundWorker1_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
-        {
-            try
-            {
-                Invoke(new MethodInvoker(() => RunUpdateExeClass.RunExeActions()));
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString(), "Run Update Exe Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-        }
-
-        private async void backgroundWorker1_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
-        {
-            string version = "1.006";
-            using (HttpClient client = new HttpClient())
-            {
-                //Add Default Request Headers
-                try
-                {
-                    using (HttpResponseMessage response = await client.GetAsync(new Uri($"https://techrad.co.za/ATAK/FreeTAKServer_Manager/Winforms/getDownLoadUrl.php?version={version}")))
-                    {
-                        using (HttpContent content = response.Content)
-                        {
-                            //Read the result and display in Textbox
-                            string result = await content.ReadAsStringAsync();//Result string JSON
-                            string reasonPhrase = response.ReasonPhrase;//Reason OK, FAIL etc.
-                            LoggerClass.WriteLine(" *** result:" + result + " [About_Form] ***");
-                            LoggerClass.WriteLine(" *** reasonPhrase:" + reasonPhrase + " [About_Form] ***");
-                            MessageBox.Show(result, "Updater", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            return;
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "Could not test API", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    LoggerClass.WriteLine(" *** Error:" + ex.Message + " [MainForm] ***");
-                    return;
-                }
-            }
         }
     }
 }

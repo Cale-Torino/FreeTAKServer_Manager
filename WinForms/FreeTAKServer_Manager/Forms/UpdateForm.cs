@@ -51,7 +51,7 @@ namespace FreeTAKServer_Manager
                 int nAppMinor = fileVersionInfo.FileMinorPart;
                 int nAppBuild = fileVersionInfo.FileBuildPart;
 
-                if (nMajor >= nAppMajor)
+                if (nMajor > nAppMajor || nMinor > nAppMinor || nBuild > nAppBuild)
                 {
                     //|| nMinor > nAppMinor
                     DialogResult result = MessageBox.Show($"Found update:\nversion: {nMajor}.{nMinor}.{nBuild}\nWould you like to download the update?", "Update Checker", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
@@ -63,6 +63,16 @@ namespace FreeTAKServer_Manager
                     else if (result == DialogResult.No)
                     {
                         //code for No
+                        Close();
+                    }
+                }
+                else 
+                {
+                    //|| nMinor > nAppMinor
+                    DialogResult result = MessageBox.Show($"You already have the latest version.\nversion: {nMajor}.{nMinor}.{nBuild}\n", "Update Checker", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    if (result == DialogResult.OK)
+                    {
+                        //code for ok
                         Close();
                     }
                 }
@@ -83,7 +93,7 @@ namespace FreeTAKServer_Manager
                     WebClient wc = new WebClient();
                     wc.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressChanged);
                     wc.DownloadFileCompleted += new AsyncCompletedEventHandler(DownloadFileCallback);
-                    wc.DownloadFileAsync(new Uri(strPath), @"Updates\ZPS_Server_Manager.zip");
+                    wc.DownloadFileAsync(new Uri(strPath), @"Updates\FreeTAKServer_Manager_Installer.msi");
                 });
                 thread.Start();
             }
@@ -117,8 +127,9 @@ namespace FreeTAKServer_Manager
             {
                 //code for Yes
                 //Run bat file in temp folder [deletes old app and installs newly downloaded app]
-                ZipFile.ExtractToDirectory($@"{AppDomain.CurrentDomain.BaseDirectory}Updates\ZPS_Server_Manager.zip", $@"{AppDomain.CurrentDomain.BaseDirectory}");
-                ProcessClass.RunProcess("ZPS_Server_Manager.exe");
+                //ZipFile.ExtractToDirectory($@"{AppDomain.CurrentDomain.BaseDirectory}Updates\FreeTAKServer_Manager_Installer.zip", $@"{AppDomain.CurrentDomain.BaseDirectory}");
+                //ProcessClass.RunProcess("FreeTAKServer_Manager.exe");
+                ProcessClass.RunProcess($@"{AppDomain.CurrentDomain.BaseDirectory}Updates\FreeTAKServer_Manager_Installer.msi");
                 Application.Exit();
             }
             else if (result == DialogResult.No)

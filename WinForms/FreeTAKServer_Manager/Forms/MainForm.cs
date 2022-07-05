@@ -124,6 +124,7 @@ namespace FreeTAKServer_Manager
                 //Create the folders used by the app
                 string path = Application.StartupPath;
                 Directory.CreateDirectory(path + @"\Logs");
+                Directory.CreateDirectory(path + @"\Updates");
                 LoggerClass.WriteLine(" *** Application Start [MainForm] ***");
                 Logs_richTextBox.AppendText("[" + DateTime.Now.ToString() + "] : Application Start" + Environment.NewLine);
                 LoggerClass.WriteLine(" *** CreateDirectory Success [MainForm] ***");

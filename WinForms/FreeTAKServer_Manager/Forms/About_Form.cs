@@ -35,6 +35,7 @@ namespace FreeTAKServer_Manager
                 using (Form f = new UpdateForm())
                 {
                     f.ShowDialog();
+                    f.Activate();
                 }
                 LoggerClass.WriteLine(" *** Ran Update:" + Environment.NewLine + " [About_Form] ***");
            }

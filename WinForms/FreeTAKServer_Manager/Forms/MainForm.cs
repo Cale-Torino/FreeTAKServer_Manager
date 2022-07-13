@@ -481,6 +481,7 @@ namespace FreeTAKServer_Manager
             using (Form f = new About_Form())
             {
                 f.ShowDialog();
+                f.Activate();
             }
         }
 
@@ -490,6 +491,7 @@ namespace FreeTAKServer_Manager
             using (Form f = new EmailSetup_Form())
             {
                 f.ShowDialog();
+                f.Activate();
             }
         }
 
@@ -499,6 +501,7 @@ namespace FreeTAKServer_Manager
             using (Form f = new ReadMe_Form())
             {
                 f.ShowDialog();
+                f.Activate();
             }
         }
         private string PythonVersion()
@@ -790,6 +793,7 @@ namespace FreeTAKServer_Manager
             using (Form f = new FreeTAKServer_API_Form())
             {
                 f.ShowDialog();
+                f.Activate();
             }
         }
 
@@ -799,6 +803,7 @@ namespace FreeTAKServer_Manager
             using (Form f = new TelegramAPIForm())
             {
                 f.ShowDialog();
+                f.Activate();
             }
         }
     }

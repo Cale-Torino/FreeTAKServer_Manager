@@ -265,6 +265,7 @@ namespace FreeTAKServer_Manager_WPF
             //About window open
             AboutWindow w = new AboutWindow();
             w.ShowDialog();
+            w.Activate();
         }
 
         private void email_setup_menuitem_Click(object sender, RoutedEventArgs e)
@@ -273,6 +274,7 @@ namespace FreeTAKServer_Manager_WPF
             EmailSetupWindow w = new EmailSetupWindow();
             Owner = Owner;
             w.ShowDialog();
+            w.Activate();
         }
 
         private void read_me_menuitem_Click(object sender, RoutedEventArgs e)
@@ -281,6 +283,7 @@ namespace FreeTAKServer_Manager_WPF
             ReadMeWindow w = new ReadMeWindow();
             Owner = Owner;
             w.ShowDialog();
+            w.Activate();
         }
 
         private void Test_API_menuitem_Click(object sender, RoutedEventArgs e)
@@ -289,6 +292,7 @@ namespace FreeTAKServer_Manager_WPF
             Test_APIWindow w = new Test_APIWindow();
             Owner = Owner;
             w.ShowDialog();
+            w.Activate();
         }
 
         private void Startserver_button_Click(object sender, RoutedEventArgs e)

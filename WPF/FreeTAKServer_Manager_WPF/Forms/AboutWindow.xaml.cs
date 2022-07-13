@@ -13,13 +13,9 @@ namespace FreeTAKServer_Manager_WPF
     /// </summary>
     public partial class AboutWindow : Window
     {
-        private readonly BackgroundWorker worker = new BackgroundWorker();
-
         public AboutWindow()
         {
             InitializeComponent();
-            worker.DoWork += worker_DoWork;
-            worker.RunWorkerCompleted += worker_RunWorkerCompleted;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -38,11 +34,13 @@ namespace FreeTAKServer_Manager_WPF
             //Checks for a new version of the app via GUP
             try
             {
-                if (!worker.IsBusy)
+                UpdateWindow w = new UpdateWindow
                 {
-                    worker.RunWorkerAsync();
-                }
-                LoggerClass.WriteLine(" *** Ran UpdateExe:" + Environment.NewLine + " [About_Form] ***");
+                    Topmost = true
+                };
+                w.ShowDialog();
+                w.Activate();
+                LoggerClass.WriteLine(" *** Ran Update:" + Environment.NewLine + " [About_Form] ***");
             }
             catch (Exception ex)
             {
@@ -52,51 +50,6 @@ namespace FreeTAKServer_Manager_WPF
             }
         }
 
-        private void worker_DoWork(object sender, DoWorkEventArgs e)
-        {
-            // run all background tasks here
-            try
-            {
-                //Dispatcher.Invoke(DispatcherPriority.Normal, new Action(() => { RunUpdateExeClass.RunExeActions(); }));
-                RunUpdateExeClass.RunExeActions();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString(), "Run Update Exe Error!", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-        }
 
-        private async void worker_RunWorkerCompleted(object sender,RunWorkerCompletedEventArgs e)
-        {
-            //update ui once worker complete his work
-            string version = "1.006";
-            using (HttpClient client = new HttpClient())
-            {
-                //Add Default Request Headers
-                try
-                {
-                    using (HttpResponseMessage response = await client.GetAsync(new Uri($"https://techrad.co.za/ATAK/FreeTAKServer_Manager/WPF/getDownLoadUrl.php?version={version}")))
-                    {
-                        using (HttpContent content = response.Content)
-                        {
-                            //Read the result and display in Textbox
-                            string result = await content.ReadAsStringAsync();//Result string JSON
-                            string reasonPhrase = response.ReasonPhrase;//Reason OK, FAIL etc.
-                            LoggerClass.WriteLine(" *** result:" + result + " [About_Form] ***");
-                            LoggerClass.WriteLine(" *** reasonPhrase:" + reasonPhrase + " [About_Form] ***");
-                            MessageBox.Show(result, "Updater", MessageBoxButton.OK, MessageBoxImage.Information);
-                            return;
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "Could not test API", MessageBoxButton.OK, MessageBoxImage.Error);
-                    LoggerClass.WriteLine(" *** Error:" + ex.Message + " [MainForm] ***");
-                    return;
-                }
-            }
-        }
     }
 }

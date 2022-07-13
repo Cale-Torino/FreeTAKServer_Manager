@@ -288,6 +288,7 @@ namespace FreeTAKServer_Manager
             // menuStrip1
             // 
             this.menuStrip1.BackColor = System.Drawing.Color.Gainsboro;
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutToolStripMenuItem,
@@ -343,7 +344,7 @@ namespace FreeTAKServer_Manager
             // 
             this.freeTAKServerAPIToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("freeTAKServerAPIToolStripMenuItem.Image")));
             this.freeTAKServerAPIToolStripMenuItem.Name = "freeTAKServerAPIToolStripMenuItem";
-            this.freeTAKServerAPIToolStripMenuItem.Size = new System.Drawing.Size(258, 34);
+            this.freeTAKServerAPIToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.freeTAKServerAPIToolStripMenuItem.Text = "FreeTAKServer API";
             this.freeTAKServerAPIToolStripMenuItem.Click += new System.EventHandler(this.freeTAKServerAPIToolStripMenuItem_Click);
             // 
@@ -351,7 +352,7 @@ namespace FreeTAKServer_Manager
             // 
             this.telegramAPIToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("telegramAPIToolStripMenuItem.Image")));
             this.telegramAPIToolStripMenuItem.Name = "telegramAPIToolStripMenuItem";
-            this.telegramAPIToolStripMenuItem.Size = new System.Drawing.Size(258, 34);
+            this.telegramAPIToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.telegramAPIToolStripMenuItem.Text = "Telegram API";
             this.telegramAPIToolStripMenuItem.Click += new System.EventHandler(this.telegramAPIToolStripMenuItem_Click);
             // 

@@ -68,7 +68,10 @@
     <Compile Include="Forms\Test_APIWindow.xaml.cs">
       <DependentUpon>Test_APIWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Classes\RunUpdateExeClass.cs" />
+    <Compile Include="Forms\UpdateWindow.xaml.cs">
+      <DependentUpon>UpdateWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\UpdateChecker\UpdateCheckerClass.cs" />
     <Page Include="Forms\AboutWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -106,9 +109,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Forms\UpdateWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\LoggerClass.cs" />
+    <Compile Include="Classes\Logs\LoggerClass.cs" />
+    <Compile Include="ProcessClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -127,7 +135,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.manifest" />
-    <None Include="FTSConfig.yaml">
+    <None Include="YamlScripts\FTSConfig.yaml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Updater\LICENSE">
@@ -143,11 +151,15 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Resource Include="Classes\UpdateChecker\CurrentVersion.xml" />
+    <Content Include="Licenses\CPOL.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Updater\updater.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Resource Include="Resources\api.png" />
-    <Content Include="config.py">
+    <Content Include="PythonScripts\config.py">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Resource Include="Resources\text.png" />
@@ -165,13 +177,13 @@
     <Content Include="Updater\libcurl.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="MainConfig.py">
+    <Content Include="PythonScripts\MainConfig.py">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="ReadMe.txt">
+    <Content Include="TextFiles\ReadMe.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="requirements.txt">
+    <Content Include="TextFiles\requirements.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

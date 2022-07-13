@@ -9,17 +9,17 @@ namespace MoveFTSMFilestToGitHubReleaseFolder
 {
     public static class MoveClass
     {
-        public static void CreateFolders()
+        public static void CreateFolders(string version)
         {
-            Directory.CreateDirectory(AppDomain.CurrentDomain.BaseDirectory + @"FreeTAKServer_Manager_Version_1.0.0.X\Installer\WinForms\");
-            Directory.CreateDirectory(AppDomain.CurrentDomain.BaseDirectory + @"FreeTAKServer_Manager_Version_1.0.0.X\Installer\WPF\");
-            Directory.CreateDirectory(AppDomain.CurrentDomain.BaseDirectory + @"FreeTAKServer_Manager_Version_1.0.0.X\Portable\WinForms\");
-            Directory.CreateDirectory(AppDomain.CurrentDomain.BaseDirectory + @"FreeTAKServer_Manager_Version_1.0.0.X\Portable\WPF\");
+            Directory.CreateDirectory(AppDomain.CurrentDomain.BaseDirectory + $@"FreeTAKServer_Manager_Version_{version}\Installer\WinForms\");
+            Directory.CreateDirectory(AppDomain.CurrentDomain.BaseDirectory + $@"FreeTAKServer_Manager_Version_{version}\Installer\WPF\");
+            Directory.CreateDirectory(AppDomain.CurrentDomain.BaseDirectory + $@"FreeTAKServer_Manager_Version_{version}\Portable\WinForms\");
+            Directory.CreateDirectory(AppDomain.CurrentDomain.BaseDirectory + $@"FreeTAKServer_Manager_Version_{version}\Portable\WPF\");
         }
-        public static void GetWinWPFFiles()
+        public static void GetWinWPFFiles(string version)
         {
             string path = AppDomain.CurrentDomain.BaseDirectory + @"WPF\FreeTAKServer_Manager_WPF\bin\Release\";
-            string copyto = AppDomain.CurrentDomain.BaseDirectory + @"FreeTAKServer_Manager_Version_1.0.0.X\Portable\WPF\";
+            string copyto = AppDomain.CurrentDomain.BaseDirectory + $@"FreeTAKServer_Manager_Version_{version}\Portable\WPF\";
             string[] filez = Directory.GetFiles(path);
             foreach (string file in filez)
             {               
@@ -28,10 +28,10 @@ namespace MoveFTSMFilestToGitHubReleaseFolder
                 Console.WriteLine($"Copied {Path.GetFileName(file)} | {fi.Length / 1024} kb {fi.Length} bytes");
             }
         }
-        public static void GetWinFormsFiles()
+        public static void GetWinFormsFiles(string version)
         {
             string path = AppDomain.CurrentDomain.BaseDirectory + @"WinForms\FreeTAKServer_Manager\bin\Release\";
-            string copyto = AppDomain.CurrentDomain.BaseDirectory + @"FreeTAKServer_Manager_Version_1.0.0.X\Portable\WinForms\";
+            string copyto = AppDomain.CurrentDomain.BaseDirectory + $@"FreeTAKServer_Manager_Version_{version}\Portable\WinForms\";
             string[] filez = Directory.GetFiles(path);
             foreach (string file in filez)
             {
@@ -44,10 +44,10 @@ namespace MoveFTSMFilestToGitHubReleaseFolder
                 File.Delete($"{copyto}FreeTAKServer_Manager.pdb");
             }
         }
-        public static void GetWinWPFInstallers()
+        public static void GetWinWPFInstallers(string version)
         {
             string path = AppDomain.CurrentDomain.BaseDirectory + @"WPF\FreeTAKServer_Manager_WPF_Installer\Release\";
-            string copyto = AppDomain.CurrentDomain.BaseDirectory + @"FreeTAKServer_Manager_Version_1.0.0.X\Installer\WinForms\";
+            string copyto = AppDomain.CurrentDomain.BaseDirectory + $@"FreeTAKServer_Manager_Version_{version}\Installer\WinForms\";
             string[] filez = Directory.GetFiles(path);
             foreach (string file in filez)
             {
@@ -60,10 +60,10 @@ namespace MoveFTSMFilestToGitHubReleaseFolder
                 File.Delete($"{copyto}setup.exe");
             }
         }
-        public static void GetWinFormsInstaller()
+        public static void GetWinFormsInstaller(string version)
         {
             string path = AppDomain.CurrentDomain.BaseDirectory + @"WinForms\FreeTAKServer_Manager_Installer\Release\";
-            string copyto = AppDomain.CurrentDomain.BaseDirectory + @"FreeTAKServer_Manager_Version_1.0.0.X\Installer\WinForms\";
+            string copyto = AppDomain.CurrentDomain.BaseDirectory + $@"FreeTAKServer_Manager_Version_{version}\Installer\WinForms\";
             string[] filez = Directory.GetFiles(path);
             foreach (string file in filez)
             {

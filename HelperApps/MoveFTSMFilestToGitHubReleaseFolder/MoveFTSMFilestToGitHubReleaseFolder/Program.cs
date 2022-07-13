@@ -11,6 +11,7 @@ namespace MoveFTSMFilestToGitHubReleaseFolder
     {
         static void Main(string[] args)
         {
+            //1.0.0.X
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine(AppDomain.CurrentDomain.BaseDirectory);
             Console.WriteLine(AppDomain.CurrentDomain.FriendlyName);
@@ -23,11 +24,12 @@ namespace MoveFTSMFilestToGitHubReleaseFolder
 
         public static void Callmethods()
         {
-            MoveClass.CreateFolders();
-            MoveClass.GetWinFormsFiles();
-            MoveClass.GetWinWPFFiles();
-            MoveClass.GetWinFormsInstaller();
-            MoveClass.GetWinWPFInstallers();
+            string version = "1.0.0.X";
+            MoveClass.CreateFolders(version);
+            MoveClass.GetWinFormsFiles(version);
+            MoveClass.GetWinWPFFiles(version);
+            MoveClass.GetWinFormsInstaller(version);
+            MoveClass.GetWinWPFInstallers(version);
         }
     }
 }

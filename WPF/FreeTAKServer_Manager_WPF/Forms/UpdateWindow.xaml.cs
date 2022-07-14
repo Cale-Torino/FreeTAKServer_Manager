@@ -53,7 +53,7 @@ namespace FreeTAKServer_Manager_WPF
         {
             try
             {
-                UpdateCheckerClass oCheckClient = new UpdateCheckerClass("https://raw.githubusercontent.com/Cale-Torino/FreeTAKServer_Manager/main/WinForms/FreeTAKServer_Manager/Classes/UpdateChecker/CurrentVersion.xml");
+                UpdateCheckerClass oCheckClient = new UpdateCheckerClass("https://raw.githubusercontent.com/Cale-Torino/FreeTAKServer_Manager/main/WPF/FreeTAKServer_Manager_WPF/Classes/UpdateChecker/CurrentVersion.xml");
                 int nMajor = oCheckClient.GetVersion(enVerion.EMajor);
                 int nMinor = oCheckClient.GetVersion(enVerion.EMinor);
                 int nBuild = oCheckClient.GetVersion(enVerion.EBuild);

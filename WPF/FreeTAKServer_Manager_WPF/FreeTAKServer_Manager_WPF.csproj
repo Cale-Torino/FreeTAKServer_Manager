@@ -116,7 +116,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Logs\LoggerClass.cs" />
-    <Compile Include="ProcessClass.cs" />
+    <Compile Include="Classes\ProcessClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -138,9 +138,6 @@
     <None Include="YamlScripts\FTSConfig.yaml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Updater\LICENSE">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -155,9 +152,6 @@
     <Content Include="Licenses\CPOL.htm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Updater\updater.ico">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Resource Include="Resources\api.png" />
     <Content Include="PythonScripts\config.py">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -168,15 +162,6 @@
     <Resource Include="Resources\info.png" />
     <Resource Include="Resources\mail.png" />
     <Resource Include="Resources\FreeTakServer3.png" />
-    <Content Include="Updater\GUP.exe">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Updater\gup.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Updater\libcurl.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="PythonScripts\MainConfig.py">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

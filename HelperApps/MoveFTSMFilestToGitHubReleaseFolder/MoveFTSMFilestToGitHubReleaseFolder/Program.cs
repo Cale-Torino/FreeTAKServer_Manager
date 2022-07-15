@@ -11,20 +11,35 @@ namespace MoveFTSMFilestToGitHubReleaseFolder
     {
         static void Main(string[] args)
         {
-            //1.0.0.X
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine(AppDomain.CurrentDomain.BaseDirectory);
             Console.WriteLine(AppDomain.CurrentDomain.FriendlyName);
+            Console.WriteLine($"Parameter count = {args.Length}");
+            for (int i = 0; i < args.Length; i++)
+            {
+                Console.WriteLine($"Arg[{i}] = [{args[i]}]");
+            }
             Console.WriteLine("----------------------------------------------");
-            Callmethods();
-            Console.WriteLine("Copy Files Complete");
-            Console.Beep();
-            Console.ReadKey();
+            if (args.Length > 0) 
+            {
+                Callmethods(args[0]);
+                Console.WriteLine("Copy Files Complete");
+                Console.Beep();
+                Console.ReadKey();
+            } 
+            else 
+            {
+                Console.ForegroundColor=ConsoleColor.Red;
+                Console.WriteLine("Copy Files Failed Please Add The Version Arg E.G: -1.0.0.7");
+                Console.Beep();
+                Console.ReadKey();
+            }
+
         }
 
-        public static void Callmethods()
+        public static void Callmethods(string version)
         {
-            string version = "1.0.0.X";
+            //string version = "1.0.0.X";
             MoveClass.CreateFolders(version);
             MoveClass.GetWinFormsFiles(version);
             MoveClass.GetWinWPFFiles(version);

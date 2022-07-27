@@ -40,11 +40,12 @@ namespace MoveFTSMFilestToGitHubReleaseFolder
         public static void Callmethods(string version)
         {
             //string version = "1.0.0.X";
-            MoveClass.CreateFolders(version);
-            MoveClass.GetWinFormsFiles(version);
-            MoveClass.GetWinWPFFiles(version);
-            MoveClass.GetWinFormsInstaller(version);
-            MoveClass.GetWinWPFInstallers(version);
+            MoveClass mc = new MoveClass();
+            mc.CreateFolders(version);
+            mc.GetWinFormsFiles(version);
+            mc.GetWinWPFFiles(version);
+            mc.GetWinFormsInstaller(version);
+            mc.GetWinWPFInstallers(version);
         }
     }
 }

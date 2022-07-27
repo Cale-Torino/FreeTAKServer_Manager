@@ -34,11 +34,12 @@ namespace DelBinObjFolders
         {
             if (arg == "-Run")
             {
-                //DelClass.ListAllFolders($@"{AppDomain.CurrentDomain.BaseDirectory}");
-                DelClass.DelAllFilesAndFolder($@"{AppDomain.CurrentDomain.BaseDirectory}WinForms\FreeTAKServer_Manager\bin\");
-                DelClass.DelAllFilesAndFolder($@"{AppDomain.CurrentDomain.BaseDirectory}WinForms\FreeTAKServer_Manager\obj\");
-                DelClass.DelAllFilesAndFolder($@"{AppDomain.CurrentDomain.BaseDirectory}WPF\FreeTAKServer_Manager_WPF\bin\");
-                DelClass.DelAllFilesAndFolder($@"{AppDomain.CurrentDomain.BaseDirectory}WPF\FreeTAKServer_Manager_WPF\obj\");
+                DelClass del = new DelClass();
+                //del.ListAllFolders($@"{AppDomain.CurrentDomain.BaseDirectory}");
+                del.DelAllFilesAndFolder($@"{AppDomain.CurrentDomain.BaseDirectory}WinForms\FreeTAKServer_Manager\bin\");
+                del.DelAllFilesAndFolder($@"{AppDomain.CurrentDomain.BaseDirectory}WinForms\FreeTAKServer_Manager\obj\");
+                del.DelAllFilesAndFolder($@"{AppDomain.CurrentDomain.BaseDirectory}WPF\FreeTAKServer_Manager_WPF\bin\");
+                del.DelAllFilesAndFolder($@"{AppDomain.CurrentDomain.BaseDirectory}WPF\FreeTAKServer_Manager_WPF\obj\");
             }
             else 
             {

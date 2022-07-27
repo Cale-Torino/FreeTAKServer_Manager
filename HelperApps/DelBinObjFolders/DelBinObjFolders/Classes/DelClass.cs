@@ -5,7 +5,7 @@ namespace DelBinObjFolders
 {
     internal class DelClass
     {
-        public static void DelAllFilesAndFolder(string path)
+        internal void DelAllFilesAndFolder(string path)
         {
             if (Directory.Exists(path))
             {
@@ -28,7 +28,7 @@ namespace DelBinObjFolders
             }
         }
 
-        public static void ListAllFolders(string basepath)
+        internal void ListAllFolders(string basepath)
         {
             string[] folders = Directory.GetDirectories(basepath, "*", SearchOption.AllDirectories);
             foreach (string folder in folders)
@@ -37,7 +37,7 @@ namespace DelBinObjFolders
             }
         }
 
-        public static void GoUp2Dir()
+        internal void GoUp2Dir()
         {
             string result = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, @"..\..\"));
             //var upTwoDir = new DirectoryInfo(Directory.GetCurrentDirectory());

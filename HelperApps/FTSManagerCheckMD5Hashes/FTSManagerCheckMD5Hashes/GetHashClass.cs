@@ -4,9 +4,9 @@ using System.Security.Cryptography;
 
 namespace FTSManagerCheckMD5Hashes
 {
-    public static class GetHashClass
+    internal class GetHashClass
     {
-        public static void CheckFileHash(string rootpath, string filename, string hash)
+        internal void CheckFileHash(string rootpath, string filename, string hash)
         {
             string[] files = Directory.GetFiles(rootpath, filename);
 
@@ -32,7 +32,7 @@ namespace FTSManagerCheckMD5Hashes
                 }
             }
         }
-        public static void CheckFile(string rootpath, string filename)
+        internal void CheckFile(string rootpath, string filename)
         {
             string[] files = Directory.GetFiles(rootpath, filename);
 
@@ -44,7 +44,7 @@ namespace FTSManagerCheckMD5Hashes
                 WriteLine(data);
             }
         }
-        public static void GetAllFiles(string rootpath)
+        internal void GetAllFiles(string rootpath)
         {
             string[] files = Directory.GetFiles(rootpath, "*", SearchOption.AllDirectories);//Do not run on large directories!!
             foreach (string file in files)
@@ -55,7 +55,7 @@ namespace FTSManagerCheckMD5Hashes
                 WriteLine(data);
             }
         }
-        public static string CalculateMD5(string filename)
+        internal string CalculateMD5(string filename)
         {
             using (var md5 = MD5.Create())
             {
@@ -66,7 +66,7 @@ namespace FTSManagerCheckMD5Hashes
             }
         }
         private static readonly string LogFile = AppDomain.CurrentDomain.BaseDirectory + @"filelist_"+ DateTime.Now.ToString("yyyy-dd-M--HH-mm-ss") + ".md5.txt";
-        public static int WriteLine(string t)
+        internal int WriteLine(string t)
         {
             try
             {

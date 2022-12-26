@@ -18,7 +18,7 @@ namespace FreeTAKServer_Manager
             {
                 //Clear Richtextbox and add the content of ReadMe.txt
                 ReadMe_richTextBox.Clear();
-                using (var sr = new StreamReader("ReadMe.txt"))
+                using (var sr = new StreamReader("TextFiles\\ReadMe.txt"))
                 {
                     ReadMe_richTextBox.Text = sr.ReadToEnd();
                 }

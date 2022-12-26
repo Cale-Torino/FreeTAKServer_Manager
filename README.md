@@ -26,6 +26,8 @@ https://dotnet.microsoft.com/download/visual-studio-sdks
 
 If you would like to use the `.yaml` file please type `yes` in the cmd console.
 
+Default username and password: u=`admin` p=`password`.
+
 Note: You will have to setup additional parameters as shown in the image below.
 
 * Examples

@@ -14,7 +14,7 @@ class Config(object):
     SECRET_KEY = 'key'
 
     # This will connect to the FTS db
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + '</text>Lib\\site-packages\\FreeTAKServer\\FTSDataBase-UI.db'
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + '</text>Lib\\site-packages\\FreeTAKServer\\FTSServer-UI.db'
 
     # certificates path
     certpath = "</text>Lib\\site-packages\\FreeTAKServer\\certs\\"

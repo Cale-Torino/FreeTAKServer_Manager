@@ -1,0 +1,12 @@
+MainConfig
+C:\Software\python\Lib\site-packages\FreeTAKServer\controllers\configuration\MainConfig.py
+
+config
+C:\Software\python\Lib\site-packages\FreeTAKServer-UI\config.py
+
+create logs folder
+C:\Software\python\Lib\site-packages\FreeTAKServer\controllers\logs
+
+make sure SQLALCHEMY_DATABASE_URI is called FTSDataBase-UI.db
+
+make sure DBFilePath is called FTSDataBase.db

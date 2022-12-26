@@ -11,13 +11,13 @@ class MainConfig:
     """
 
     # the version information of the server (recommended to leave as default)
-    version = 'FreeTAKServer-1.9.8 Public'
+    version = 'FreeTAKServer-1.9.9.6 Public'
     #
     yaml_path = str(os.environ.get('FTS_CONFIG_PATH', '</text>Lib\\site-packages\\FreeTAKServer\\FTSConfig.yaml'))
 
-    #python_version = 'python3.8'
+    # python_version = 'python3.8'
 
-    #userpath = '/usr/local/lib/'
+    userpath = '</text>Lib'
 
     try:
         import socket
@@ -113,7 +113,7 @@ class MainConfig:
         CRLFile = str(os.environ.get('FTS_CRLDIR', fr"{certsPath}\\FTS_CRL.json"))
 
         # set to None if you don't want a message sent
-        ConnectionMessage = f'Welcome to the Windows FreeTAKServer {version}. The Parrot is not dead. It’s just resting'
+        ConnectionMessage = f'Welcome to FreeTAKServer {version}. The Parrot is not dead. It’s just resting'
 
         DataBaseType = str("SQLite")
 
@@ -127,7 +127,7 @@ class MainConfig:
         if yamlConfig.get("System"):
             MainLoopDelay = int(os.environ.get('FTS_MAINLOOP_DELAY', yamlConfig["System"].get("FTS_MAINLOOP_DELAY", 1)))
             # set to None if you don't want a message sent
-            ConnectionMessage = str(os.environ.get("FTS_CONNECTION_MESSAGE", yamlConfig["System"].get("FTS_CONNECTION_MESSAGE", f'Welcome to the Windows FreeTAKServer {version}. The Parrot is not dead. It’s just resting')))
+            ConnectionMessage = str(os.environ.get("FTS_CONNECTION_MESSAGE", yamlConfig["System"].get("FTS_CONNECTION_MESSAGE", f'Welcome to FreeTAKServer {version}. The Parrot is not dead. It’s just resting')))
             DataBaseType = str(os.environ.get("FTS_DATABASE_TYPE", yamlConfig["System"].get("FTS_DATABASE_TYPE", "SQLite")))
             OptimizeAPI = bool(os.environ.get("FTS_OPTIMIZE_API", yamlConfig["System"].get("FTS_OPTIMIZE_API", True)))
             SecretKey = str(os.environ.get('FTS_SECRET_KEY', yamlConfig["System"].get("FTS_SECRET_KEY", 'vnkdjnfjknfl1232#')))
@@ -136,7 +136,7 @@ class MainConfig:
 
         else:
             MainLoopDelay = int(os.environ.get('FTS_MAINLOOP_DELAY',  1))
-            ConnectionMessage = str(os.environ.get("FTS_CONNECTION_MESSAGE", f'Welcome to the Windows FreeTAKServer {version}. The Parrot is not dead. It’s just resting'))
+            ConnectionMessage = str(os.environ.get("FTS_CONNECTION_MESSAGE", f'Welcome to FreeTAKServer {version}. The Parrot is not dead. It’s just resting'))
             DataBaseType = str(os.environ.get("FTS_DATABASE_TYPE", "SQLite"))
             OptimizeAPI = bool(os.environ.get("FTS_OPTIMIZE_API", True))
 
@@ -189,7 +189,7 @@ class MainConfig:
             # whether or not to save CoT's to the DB
             SaveCoTToDB = bool(os.environ.get('FTS_COT_TO_DB', yamlConfig["FileSystem"].get("FTS_COT_TO_DB")))
 
-            MainPath = str(os.environ.get("FTS_MAINPATH", yamlConfig["FileSystem"].get("FTS_MAINPATH", Path(fr'</text>Lib\\site-packages\\FreeTAKServer'))))
+            MainPath = str(os.environ.get("FTS_MAINPATH", yamlConfig["FileSystem"].get("FTS_MAINPATH", Path(fr'{userpath}\\site-packages\\FreeTAKServer'))))
 
             certsPath = str(os.environ.get('FTS_CERTS_PATH', yamlConfig["FileSystem"].get("FTS_CERTS_PATH", fr'{MainPath}\\certs')))
 
@@ -197,7 +197,7 @@ class MainConfig:
 
             ExCheckFilePath = str(os.environ.get('FTS_EXCHECK_TEMPLATE_PATH', yamlConfig["FileSystem"].get("FTS_EXCHECK_TEMPLATE_PATH", Path(fr'{MainPath}\\ExCheck\\template'))))
 
-            ExCheckChecklistFilePath = str(os.environ.get("FTS_EXCHECK_CHECKLIST_PATH", yamlConfig["FileSystem"].get("FTS_EXCHECK_CHECKLIST_PATH", Path(fr'{MainPath}\\ExCheck/checklist'))))
+            ExCheckChecklistFilePath = str(os.environ.get("FTS_EXCHECK_CHECKLIST_PATH", yamlConfig["FileSystem"].get("FTS_EXCHECK_CHECKLIST_PATH", Path(fr'{MainPath}\\ExCheck\\checklist'))))
 
             DataPackageFilePath = str(os.environ.get("FTS_DATAPACKAGE_PATH", yamlConfig["FileSystem"].get("FTS_DATAPACKAGE_PATH", Path(fr'{MainPath}\\FreeTAKServerDataPackageFolder'))))
 
@@ -211,7 +211,7 @@ class MainConfig:
             DBFilePath = str(os.environ.get('FTS_DB_PATH', r'</text>Lib\\site-packages\\FreeTAKServer\\FTSDataBase.db'))
 
             MainPath = str(
-                os.environ.get("FTS_MAINPATH", Path(fr'</text>Lib\\site-packages\\FreeTAKServer')))
+                os.environ.get("FTS_MAINPATH", Path(fr'{userpath}\\site-packages\\FreeTAKServer')))
 
             certsPath = str(os.environ.get('FTS_CERTS_PATH', fr'{MainPath}\\certs'))
 

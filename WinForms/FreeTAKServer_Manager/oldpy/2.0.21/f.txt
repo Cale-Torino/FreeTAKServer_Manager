@@ -1,0 +1,5 @@
+
+C:\Software\python\Lib\site-packages\FreeTAKServer\core\configuration\MainConfig.py
+
+C:\Software\python\Lib\site-packages\FreeTAKServer-UI\config.py
+

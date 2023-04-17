@@ -152,13 +152,13 @@ namespace FreeTAKServer_Manager_WPF
                 //Replace the text `</text>` with the formatted Python path for windows in both config files
                 string YamlConfigfile = Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer\FTSConfig.yaml";
                 string configfile = Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer-UI\config.py";
-                string MainConfigfile = Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer\controllers\configuration\\MainConfig.py";
+                string MainConfigfile = Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer\core\configuration\MainConfig.py";
                 if (Directory.Exists(Path.GetDirectoryName(configfile)) && Directory.Exists(Path.GetDirectoryName(MainConfigfile)) && Directory.Exists(Path.GetDirectoryName(YamlConfigfile)))
                 {
                     string _configfile = File.ReadAllText(configfile, Encoding.UTF8);//Read config.py file text
                     string _MainConfigfile = File.ReadAllText(MainConfigfile, Encoding.UTF8);//Read MainConfig.py file text
                     string _YamlConfigfile = File.ReadAllText(YamlConfigfile, Encoding.UTF8);//Read FTSConfig.yaml file text
-                    string PythonPath = Properties.Settings.Default.Pythondir.Replace(@"\", @"\\");
+                    string PythonPath = Properties.Settings.Default.Pythondir.Replace(@"\", @"\\");//Replace directory `\` with `\\`
 
                     _MainConfigfile = _MainConfigfile.Replace("</text>", PythonPath);// Replace `</text>` with the directory
                     _MainConfigfile = Regex.Replace(_MainConfigfile, @"\<ref.*?\</ref\>", "");
@@ -210,7 +210,7 @@ namespace FreeTAKServer_Manager_WPF
         {
             //Start the server by sending a cmd command
             string configfile = Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer-UI\config.py";
-            string MainConfigfile = Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer\controllers\configuration\MainConfig.py";
+            string MainConfigfile = Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer\core\configuration\MainConfig.py";
             string nullkb_init = Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer-UI\__init__.py";
             if (Directory.Exists(Path.GetDirectoryName(configfile)) && Directory.Exists(Path.GetDirectoryName(MainConfigfile)))
             {
@@ -237,7 +237,7 @@ namespace FreeTAKServer_Manager_WPF
         {
             //Stop the server by sending a cmd command
             string configfile = Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer-UI\config.py";
-            string MainConfigfile = Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer\controllers\configuration\MainConfig.py";
+            string MainConfigfile = Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer\core\configuration\MainConfig.py";
             if (Directory.Exists(Path.GetDirectoryName(configfile)) && Directory.Exists(Path.GetDirectoryName(MainConfigfile)))
             {
                 if (CMD_PID_Class._ServerPIDVar != 0)
@@ -361,7 +361,7 @@ namespace FreeTAKServer_Manager_WPF
         {
             //Install the server by sending install commands via the cmd
             string configfile = Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer-UI\config.py";
-            string MainConfigfile = Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer\controllers\configuration\MainConfig.py";
+            string MainConfigfile = Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer\core\configuration\MainConfig.py";
             string YamlConfigfile = Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer\FTSConfig.yaml";
             if (Directory.Exists(Path.GetDirectoryName(configfile)) && Directory.Exists(Path.GetDirectoryName(MainConfigfile)) && Directory.Exists(Path.GetDirectoryName(YamlConfigfile)))
             {
@@ -375,10 +375,10 @@ namespace FreeTAKServer_Manager_WPF
                 {
                     ForceCursor = true;
                     Cursor = Cursors.Wait;
-                    int _Install = CMD_Class.SendCMDCommandNormal("/c pip install -r TextFiles\\requirements.txt&&python -m pip install FreeTAKServer[ui]==1.9.9.6", AppDomain.CurrentDomain.BaseDirectory);
+                    int _Install = CMD_Class.SendCMDCommandNormal("/c pip install -r TextFiles\\requirements.txt&&python -m pip install FreeTAKServer[ui]==2.0.21", AppDomain.CurrentDomain.BaseDirectory);
                     File.Copy(AppDomain.CurrentDomain.BaseDirectory + @"\YamlScripts\FTSConfig.yaml", Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer\FTSConfig.yaml", true);
                     File.Copy(AppDomain.CurrentDomain.BaseDirectory + @"\PythonScripts\config.py", Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer-UI\config.py", true);
-                    File.Copy(AppDomain.CurrentDomain.BaseDirectory + @"\PythonScripts\MainConfig.py", Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer\controllers\configuration\MainConfig.py", true);
+                    File.Copy(AppDomain.CurrentDomain.BaseDirectory + @"\PythonScripts\MainConfig.py", Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer\core\configuration\MainConfig.py", true);
                     replaceText();
                     LoggerClass.WriteLine(" *** Install Server PID=" + _Install + " [MainForm] ***");
                     Richtextbox.AppendText("[" + DateTime.Now.ToString() + "] : Install Server PID=" + _Install + Environment.NewLine);
@@ -457,7 +457,7 @@ namespace FreeTAKServer_Manager_WPF
             //Stop the server and uninstall via cmd commands and delete FTSDataBase.db
             StopServer();
             string configfile = Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer-UI\config.py";
-            string MainConfigfile = Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer\controllers\configuration\MainConfig.py";
+            string MainConfigfile = Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer\core\configuration\MainConfig.py";
             if (Directory.Exists(Path.GetDirectoryName(configfile)) && Directory.Exists(Path.GetDirectoryName(MainConfigfile)))
             {
                 string Pythonpath = Properties.Settings.Default.Pythondir;
@@ -515,7 +515,7 @@ namespace FreeTAKServer_Manager_WPF
         {
             //Kill the cmd PIDs and start the server again via cmd
             string configfile = Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer-UI\config.py";
-            string MainConfigfile = Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer\controllers\configuration\MainConfig.py";
+            string MainConfigfile = Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer\core\configuration\MainConfig.py";
             if (Directory.Exists(Path.GetDirectoryName(configfile)) && Directory.Exists(Path.GetDirectoryName(MainConfigfile)))
             {
                 if (CMD_PID_Class._ServerPIDVar != 0)
@@ -583,7 +583,7 @@ namespace FreeTAKServer_Manager_WPF
             //Open the MainConfig.py file with the default file editor for that file type
             try
             {
-                var f = Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer\controllers\configuration\MainConfig.py";
+                var f = Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer\core\configuration\MainConfig.py";
                 var p = new Process();
                 p.StartInfo = new ProcessStartInfo()
                 {

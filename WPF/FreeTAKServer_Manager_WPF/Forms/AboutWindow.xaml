@@ -69,7 +69,7 @@
         </Style>
     </Window.Resources>
     <Grid>
-        <Image x:Name="Imagebox" HorizontalAlignment="Left" Height="205" Margin="96,10,0,0" VerticalAlignment="Top" Width="171" Source="/FreeTAKServer_Manager_WPF;component/Resources/FreeTakServer3.png" AutomationProperties.HelpText="Logo" Stretch="Fill"/>
+        <Image x:Name="Imagebox" HorizontalAlignment="Center" Height="164" Margin="0,10,0,0" VerticalAlignment="Top" Width="171" Source="/Forms/FTS_Logo.png" AutomationProperties.HelpText="Logo" Stretch="Fill"/>
         <Label x:Name="FreeTAKTeamG"  Margin="122,220,-17,99.667" RenderTransformOrigin="0.703,0.6">
             <Hyperlink    NavigateUri= "https://github.com/FreeTAKTeam"    Hyperlink.RequestNavigate= "Hyperlink_RequestNavigate">
                 <TextBlock Text="https://github.com/FreeTAKTeam" Height="27" RenderTransformOrigin="0.5,0.5" />

@@ -1,8 +1,20 @@
 import os
+import sys
+import re
 import yaml
 currentPath = os.path.dirname(os.path.abspath(__file__))
-from pathlib import Path
 
+from pathlib import Path
+from uuid import uuid4
+
+# the version information of the server (recommended to leave as default)
+
+FTS_VERSION = "FreeTAKServer-2.0.21"
+API_VERSION = "3.0"
+ROOTPATH = ""
+MAINPATH = Path(__file__).parent.parent.parent
+#PERSISTENCE_PATH = r'C:\\Software\\python\\Lib\\site-packages\\FreeTAKServer'
+PERSISTENCE_PATH = r'</text>Lib\\site-packages\\FreeTAKServer'
 
 class MainConfig:
     """
@@ -10,300 +22,469 @@ class MainConfig:
     should need to be changed
     """
 
-    # the version information of the server (recommended to leave as default)
-    version = 'FreeTAKServer-1.9.9.6 Public'
-    #
-    yaml_path = str(os.environ.get('FTS_CONFIG_PATH', '</text>Lib\\site-packages\\FreeTAKServer\\FTSConfig.yaml'))
-
-    # python_version = 'python3.8'
-
-    userpath = '</text>Lib'
+    _instance = None
+    _values = {}
 
     try:
         import socket
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         s.connect(("8.8.8.8", 80))
-        ip = s.getsockname()[0]
+        _ip = s.getsockname()[0]
         s.close()
     except:
-        ip = "0.0.0.0"
+        _ip = "0.0.0.0"
 
-    if not os.path.exists(yaml_path):
+    # create the persistence path if it doesn't exist
+    if not os.path.exists(PERSISTENCE_PATH):
+        try:
+            os.mkdir(PERSISTENCE_PATH)
+        except Exception as e:
+            print(f"failed to create the fts persistence directory at {PERSISTENCE_PATH} with error: {e}")
+            sys.exit(1)
+    
+    _node_id = str(uuid4())
 
-        SecretKey = str(os.environ.get('FTS_SECRET_KEY', 'vnkdjnfjknfl1232#'))
-
-        OptimizeAPI = True
-
-        DataReceptionBuffer = int(os.environ.get('FTS_DATA_RECEPTION_BUFFER', 1024))
-
-        MaxReceptionTime = int(os.environ.get('FTS_MAX_RECEPTION_TIME', 4))
-
-        MainLoopDelay = int(os.environ.get('FTS_MAINLOOP_DELAY', 100))
-
-        # this is the port to which clients will connect
-        CoTServicePort = int(os.environ.get('FTS_COT_PORT', 8087))
-
-        SSLCoTServicePort = int(os.environ.get('FTS_SSLCOT_PORT', 8089))
-
-        # this needs to be changed for private data packages to work
-        DataPackageServiceDefaultIP = str(os.environ.get('FTS_DP_ADDRESS', ip))
-
-        # User Connection package IP needs to be set to the IP which is used when creating the connection in your tak device
-        UserConnectionIP = str(os.environ.get('FTS_USER_ADDRESS', ip))
-
-        # api port
-        APIPort = os.environ.get('FTS_API_PORT', 19023)
-
-        # Federation port
-        FederationPort = os.environ.get('FTS_FED_PORT', 9000)
-
-        # api IP
-        APIIP = os.environ.get('FTS_API_ADDRESS', '0.0.0.0')
-
-        # whether or not to save CoT's to the DB
-        SaveCoTToDB = bool(os.environ.get('FTS_COT_TO_DB', True))
-
-        # this should be set before startup
-        DBFilePath = str(os.environ.get('FTS_DB_PATH', r'</text>Lib\\site-packages\\FreeTAKServer\\FTSDataBase.db'))
-
-        MainPath = str(os.environ.get("FTS_MAINPATH", Path(fr'</text>Lib\\site-packages\\FreeTAKServer')))
-
-        certsPath = str(os.environ.get('FTS_CERTS_PATH', fr'{MainPath}\\certs'))
-
-        ExCheckMainPath = str(os.environ.get('FTS_EXCHECK_PATH', Path(fr'{MainPath}\\ExCheck')))
-
-        ExCheckFilePath = str(os.environ.get('FTS_EXCHECK_TEMPLATE_PATH', Path(fr'{MainPath}\\ExCheck\\template')))
-
-        ExCheckChecklistFilePath = str(
-            os.environ.get("FTS_EXCHECK_CHECKLIST_PATH", Path(fr'{MainPath}\\ExCheck\\checklist')))
-
-        DataPackageFilePath = str(
-            os.environ.get("FTS_DATAPACKAGE_PATH", Path(fr'{MainPath}\\FreeTAKServerDataPackageFolder')))
-
-        LogFilePath = str(os.environ.get("FTS_LOGFILE_PATH", Path(fr"{MainPath}\\Logs")))
-
-        federationKeyPassword = str(os.environ.get('FTS_FED_PASSWORD', 'defaultpass'))
-
-        keyDir = str(os.environ.get("FTS_SERVER_KEYDIR", Path(fr'{certsPath}\\server.key')))
-
-        pemDir = str(os.environ.get("FTS_SERVER_PEMDIR", Path(fr'{certsPath}\\server.pem')))  # or crt
-
-        testPem = str(os.environ.get("FTS_TESTCLIENT_PEMDIR", pemDir))
-
-        testKey = str(os.environ.get("FTS_TESTCLIENT_KEYDIR", keyDir))
-
-        unencryptedKey = str(os.environ.get("FTS_UNENCRYPTED_KEYDIR", Path(fr'{certsPath}\\server.key.unencrypted')))
-
-        p12Dir = str(os.environ.get("FTS_SERVER_P12DIR", Path(fr'{certsPath}\\server.p12')))
-
-        CA = str(os.environ.get("FTS_CADIR", Path(fr'{certsPath}\\ca.pem')))
-
-        CAkey = str(os.environ.get("FTS_CAKEYDIR", Path(fr'{certsPath}\\ca.key')))
-
-        federationCert = str(os.environ.get("FTS_FEDERATION_CERTDIR", Path(fr'{certsPath}\\server.pem')))
-
-        federationKey = str(os.environ.get("FTS_FEDERATION_KEYDIR", Path(fr'{certsPath}\\server.key')))
-
-        federationKeyPassword = str(os.environ.get("FTS_FEDERATION_KEYPASS", 'defaultpass'))
-
-        password = str(os.environ.get('FTS_CLIENT_CERT_PASSWORD', 'supersecret'))
-
-        websocketkey = str(os.environ.get('FTS_WEBSOCKET_KEY', "YourWebsocketKey"))
-
-        CRLFile = str(os.environ.get('FTS_CRLDIR', fr"{certsPath}\\FTS_CRL.json"))
-
-        # set to None if you don't want a message sent
-        ConnectionMessage = f'Welcome to FreeTAKServer {version}. The Parrot is not dead. It’s just resting'
-
-        DataBaseType = str("SQLite")
-
-    else:
-        content = open(yaml_path).read()
-        yamlConfig = yaml.safe_load(content)
-
+    # All available config vars should be defined here
+    #   currently only 'default', 'type' and 'readonly' are recognized
+    _defaults = {
+        "version": {"default": FTS_VERSION, "type": str, "readonly": True},
+        "APIVersion": {"default": API_VERSION, "type": str, "readonly": True},
+        "SecretKey": {"default": "vnkdjnfjknfl1232#", "type": str},
+        "nodeID": {"default": f"FreeTAKServer-{_node_id}", "type": str},
+        "OptimizeAPI": {"default": True, "type": bool},
+        "DataReceptionBuffer": {"default": 1024, "type": int},
+        "MaxReceptionTime": {"default": 4, "type": int},
+        "UserPersistencePath": {
+            "default": Path("</text>Lib\\site-packages\\FreeTAKServer\\user_persistence.txt"),
+            "type": str,
+        },
         # number of milliseconds to wait between each iteration of main loop
         # decreasing will increase CPU usage and server performance
         # increasing will decrease CPU usage and server performance
-        if yamlConfig.get("System"):
-            MainLoopDelay = int(os.environ.get('FTS_MAINLOOP_DELAY', yamlConfig["System"].get("FTS_MAINLOOP_DELAY", 1)))
-            # set to None if you don't want a message sent
-            ConnectionMessage = str(os.environ.get("FTS_CONNECTION_MESSAGE", yamlConfig["System"].get("FTS_CONNECTION_MESSAGE", f'Welcome to FreeTAKServer {version}. The Parrot is not dead. It’s just resting')))
-            DataBaseType = str(os.environ.get("FTS_DATABASE_TYPE", yamlConfig["System"].get("FTS_DATABASE_TYPE", "SQLite")))
-            OptimizeAPI = bool(os.environ.get("FTS_OPTIMIZE_API", yamlConfig["System"].get("FTS_OPTIMIZE_API", True)))
-            SecretKey = str(os.environ.get('FTS_SECRET_KEY', yamlConfig["System"].get("FTS_SECRET_KEY", 'vnkdjnfjknfl1232#')))
-            DataReceptionBuffer = int(os.environ.get('FTS_DATA_RECEPTION_BUFFER', yamlConfig["System"].get("FTS_DATA_RECEPTION_BUFFER", 1024)))
-            MaxReceptionTime = int(os.environ.get('FTS_MAX_RECEPTION_TIME', yamlConfig["System"].get("FTS_MAX_RECEPTION_TIME", 4)))
+        "MainLoopDelay": {"default": 100, "type": int},
+        # this is the port to which clients will connect
+        "CoTServicePort": {"default": 8087, "type": int},
+        "SSLCoTServicePort": {"default": 8089, "type": int},
+        # this needs to be changed for private data packages to work
+        "DataPackageServiceDefaultIP": {"default": _ip, "type": str},
+        # User Connection package IP needs to be set to the IP which is
+        # used when creating the connection in your tak device
+        "UserConnectionIP": {"default": _ip, "type": str},
+        # api port
+        "APIPort": {"default": 19023, "type": int},
+        # Federation port
+        "FederationPort": {"default": 9000, "type": int},
+        # api IP
+        "APIIP": {"default": "0.0.0.0", "type": str},
+        # IP for CLI to access
+        "CLIIP": {"default": "127.0.0.1", "type": str},
+        "AllowCLIIPs": {"default": ["127.0.0.1"], "type": list},
+        # whether or not to save CoT's to the DB
+        "SaveCoTToDB": {"default": True, "type": bool},
+        # this should be set before startup
+        "DBFilePath": {"default": f"{PERSISTENCE_PATH}\\FTSDataBase.db", "type": str},
+        "MainPath": {"default": Path(MAINPATH), "type": str},
+        "certsPath": {"default": Path(rf"{PERSISTENCE_PATH}\\certs"), "type": str},
+        "ExCheckMainPath": {"default": Path(rf"{PERSISTENCE_PATH}\\ExCheck"), "type": str},
+        "ExCheckFilePath": {
+            "default": Path(rf"{PERSISTENCE_PATH}\\ExCheck\\template"),
+            "type": str,
+        },
+        "ExCheckChecklistFilePath": {
+            "default": Path(rf"{PERSISTENCE_PATH}\\ExCheck\\checklist"),
+            "type": str,
+        },
+        "DataPackageFilePath": {
+            "default": Path(rf"{PERSISTENCE_PATH}\\FreeTAKServerDataPackageFolder"),
+            "type": str,
+        },
+        "LogFilePath": {"default": Path(rf"{PERSISTENCE_PATH}\\Logs"), "type": str},
+        "federationKeyPassword": {"default": "defaultpass", "type": str},
+        "keyDir": {"default": Path(rf"{PERSISTENCE_PATH}\\certs\\server.key"), "type": str},
+        "pemDir": {"default": Path(rf"{PERSISTENCE_PATH}\\certs\\server.pem"), "type": str},
+        "testPem": {"default": Path(rf"{PERSISTENCE_PATH}\\certs\\server.key"), "type": str},
+        "testKey": {"default": Path(rf"{PERSISTENCE_PATH}\\certs\\server.pem"), "type": str},
+        "unencryptedKey": {
+            "default": Path(rf"{PERSISTENCE_PATH}\\certs\\server.key.unencrypted"),
+            "type": str,
+        },
+        "p12Dir": {"default": Path(rf"{PERSISTENCE_PATH}\\certs\\server.p12"), "type": str},
+        "CA": {"default": Path(rf"{PERSISTENCE_PATH}\\certs\\ca.pem"), "type": str},
+        "CAkey": {"default": Path(rf"{PERSISTENCE_PATH}\\certs\\ca.key"), "type": str},
+        "federationCert": {
+            "default": Path(rf"{PERSISTENCE_PATH}\\certs\\server.pem"),
+            "type": str,
+        },
+        "federationKey": {
+            "default": Path(rf"{PERSISTENCE_PATH}\\certs\\server.key"),
+            "type": str,
+        },
+        "password": {"default": "supersecret", "type": str},
+        "websocketkey": {"default": "YourWebsocketKey", "type": str},
+        "CRLFile": {"default": Path(rf"{PERSISTENCE_PATH}\\certs\\FTS_CRL.json"), "type": str},
+        # set to None if you don't want a message sent
+        "ConnectionMessage": {
+            "default": f"Welcome to FreeTAKServer {FTS_VERSION}. The Parrot is not dead. It’s just resting",
+            "type": str,
+        },
+        "DataBaseType": {"default": "SQLite", "type": str},
+        # location to backup client packages
+        "ClientPackages": {
+            "default": Path(rf"{PERSISTENCE_PATH}\\certs\\clientPackages"),
+            "type": str,
+        },
+        "CoreComponentsPath": {
+            "default": Path(rf"{MAINPATH}\\core"),
+            "type": str,
+        },
+        "CoreComponentsImportRoot": {
+            "default": "FreeTAKServer.core",
+            "type": str,
+        },
+        "InternalComponentsPath": {
+            "default": Path(rf"{MAINPATH}\\components\\core"),
+            "type": str,
+        },
+        "InternalComponentsImportRoot": {
+            "default": "FreeTAKServer.components.core",
+            "type": str,
+        },
+        "ExternalComponentsPath": {
+            "default": Path(rf"{MAINPATH}\\components\\extended"),
+            "type": str,
+        },
+        "ExternalComponentsImportRoot": {
+            "default": "FreeTAKServer.components.extended",
+            "type": str,
+        },
+        # the number of routing workers to use
+        "NumRoutingWorkers": {"default": 3, "type": int},
+        # port to subscribe to requests by the routing proxy
+        "RoutingProxySubscriberPort": {"default": 19030, "type": int},
+        # port to publish responses by the routing proxy
+        "RoutingProxyPublisherPort": {"default": 19032, "type": int},
+        # port to send requests from the routing proxy to the routing workers
+        "RoutingProxyRequestServerPort": {"default": 19031, "type": int},
+        # ip to subscribe to requests by the routing proxy
+        "RoutingProxySubscriberIP": {"default": "127.0.0.1", "type": str},
+        # ip to publish responses by the routing proxy
+        "RoutingProxyPublisherIP": {"default": "127.0.0.1", "type": str},
+        # port to send requests from the routing proxy to the routing workers
+        "RoutingProxyRequestServerIP": {"default": "127.0.0.1", "type": str},
+        # port to receive worker responses by the integration manager
+        "IntegrationManagerPullerPort": {"default": 19033, "type": int},
+        # address to receive worker responses by the integration manager
+        "IntegrationManagerPullerAddress": {"default": "127.0.0.1", "type": str},
+        # port from which to publish messages by the integration manager
+        "IntegrationManagerPublisherPort": {"default": 19034, "type": int},
+        # address from which to publish messages by the integration manager
+        "IntegrationManagerPublisherAddress": {"default": "127.0.0.1", "type": str},
+        "yaml_path": {"default": f"{PERSISTENCE_PATH}\\FTSConfig.yaml", "type": str},
+        "ip": {"default": _ip, "type": str},
+        # radius of emergency within-which users will receive it
+        "EmergencyRadius": {"default": 10, "type": int},
+        # set the persistence path
+        "persistencePath": {"default": PERSISTENCE_PATH, "type": str}
+    }
 
+    # This structure maps environmental vars to config vars
+    _env_vars = {
+        "FTS_SECRET_KEY": "SecretKey",
+        "FTS_NODE_ID": "nodeID",
+        "FTS_OPTIMIZE_API": "OptimizeAPI",
+        "FTS_DATA_RECEPTION_BUFFER": "DataReceptionBuffer",
+        "FTS_MAX_RECEPTION_TIME": "MaxReceptionTime",
+        "FTS_MAINLOOP_DELAY": "MainLoopDelay",
+        "FTS_COT_PORT": "CoTServicePort",
+        "FTS_SSLCOT_PORT": "SSLCoTServicePort",
+        "FTS_DP_ADDRESS": "DataPackageServiceDefaultIP",
+        "FTS_USER_ADDRESS": "UserConnectionIP",
+        "FTS_API_PORT": "APIPort",
+        "FTS_CLI_WHITELIST": "AllowCLIIPs",
+        "FTS_FED_PORT": "FederationPort",
+        "FTS_API_ADDRESS": "APIIP",
+        "FTS_COT_TO_DB": "SaveCoTToDB",
+        "FTS_DB_PATH": "DBFilePath",
+        "FTS_MAINPATH": "MainPath",
+        "FTS_CERTS_PATH": "certsPath",
+        "FTS_EXCHECK_PATH": "ExCheckMainPath",
+        "FTS_EXCHECK_TEMPLATE_PATH": "ExCheckFilePath",
+        "FTS_EXCHECK_CHECKLIST_PATH": "ExCheckChecklistFilePath",
+        "FTS_DATAPACKAGE_PATH": "DataPackageFilePath",
+        "FTS_LOGFILE_PATH": "LogFilePath",
+        "FTS_FED_PASSWORD": "federationKeyPassword",
+        "FTS_SERVER_KEYDIR": "keyDir",
+        "FTS_SERVER_PEMDIR": "pemDir",
+        "FTS_TESTCLIENT_PEMDIR": "testPem",
+        "FTS_TESTCLIENT_KEYDIR": "testKey",
+        "FTS_UNENCRYPTED_KEYDIR": "unencryptedKey",
+        "FTS_SERVER_P12DIR": "p12Dir",
+        "FTS_CADIR": "CA",
+        "FTS_CAKEYDIR": "CAkey",
+        "FTS_FEDERATION_CERTDIR": "federationCert",
+        "FTS_FEDERATION_KEYDIR": "federationKey",
+        "FTS_FEDERATION_KEYPASS": "federationKeyPassword",
+        "FTS_CLIENT_CERT_PASSWORD": "password",
+        "FTS_WEBSOCKET_KEY": "websocketkey",
+        "FTS_CRLDIR": "CRLFile",
+        "FTS_CONNECTION_MESSAGE": "ConnectionMessage",
+        "FTS_DATABASE_TYPE": "DataBaseType",
+        "FTS_CLIENT_PACKAGES_PATH": "ClientPackages",
+        "FTS_NUM_ROUTING_WORKERS": "NumRoutingWorkers",
+        "FTS_ROUTING_PROXY_SUBSCRIBE_PORT": "RoutingProxySubscriberPort",
+        "FTS_ROUTING_PROXY_SUBSCRIBE_IP": "RoutingProxySubscriberIP",
+        "FTS_ROUTING_PROXY_PUBLISHER_PORT": "RoutingProxyPublisherPort",
+        "FTS_ROUTING_PROXY_PUBLISHER_IP": "RoutingProxyPublisherIP",
+        "FTS_ROUTING_PROXY_SERVER_PORT": "RoutingProxyRequestServerPort",
+        "FTS_ROUTING_PROXY_SERVER_IP": "RoutingProxyRequestServerIP",
+        "FTS_CORE_COMPONENTS_PATH": "CoreComponentsPath",
+        "FTS_CORE_COMPONENTS_IMPORT_ROOT": "CoreComponentsImportRoot",
+        "FTS_INTERNAL_COMPONENTS_PATH": "InternalComponentsPath",
+        "FTS_INTERNAL_COMPONENTS_IMPORT_ROOT": "InternalComponentsImportRoot",
+        "FTS_EXTERNAL_COMPONENTS_PATH": "ExternalComponentsPath",
+        "FTS_EXTERNAL_COMPONENTS_IMPORT_ROOT": "ExternalComponentsImportRoot",
+        # port to receive worker responses by the integration manager
+        "FTS_INTEGRATION_MANAGER_PULLER_PORT": "IntegrationManagerPullerPort",
+        # address to receive worker responses by the integration manager
+        "FTS_INTEGRATION_MANAGER_PULLER_ADDRESS": "IntegrationManagerPullerAddress",
+        # port from which to publish messages by the integration manager
+        "FTS_INTEGRATION_MANAGER_PUBLISHER_PORT": "IntegrationManagerPublisherPort",
+        # address from which to publish messages by the integration manager
+        "FTS_INTEGRATION_MANAGER_PUBLISHER_ADDRESS": "IntegrationManagerPublisherAddress",
+        # radius of emergency within-which users will receive it
+        "FTS_EMERGENCY_RADIUS": "EmergencyRadius",
+        "FTS_PERSISTENCE_PATH": "persistencePath"
+    }
+
+    # This is a simple representation of the YAML config schema with
+    # mappings to config var
+    _yaml_keys = {
+        "System": {
+            "FTS_NODE_ID": "nodeID",
+            "FTS_MAINLOOP_DELAY": "MainLoopDelay",
+            "FTS_CONNECTION_MESSAGE": "ConnectionMessage",
+            "FTS_DATABASE_TYPE": "DataBaseType",
+            "FTS_OPTIMIZE_API": "OptimizeAPI",
+            "FTS_SECRET_KEY": "SecretKey",
+            "FTS_DATA_RECEPTION_BUFFER": "DataReceptionBuffer",
+            "FTS_MAX_RECEPTION_TIME": "MaxReceptionTime",
+            "FTS_EMERGENCY_RADIUS": "EmergencyRadius"
+        },
+        "Addresses": {
+            "FTS_COT_PORT": "CoTServicePort",
+            "FTS_SSLCOT_PORT": "SSLCoTServicePort",
+            "FTS_DP_ADDRESS": "DataPackageServiceDefaultIP",
+            "FTS_USER_ADDRESS": "UserConnectionIP",
+            "FTS_API_PORT": "APIPort",
+            "FTS_FED_PORT": "FederationPort",
+            "FTS_API_ADDRESS": "APIIP",
+            "FTS_CLI_WHITELIST": "AllowCLIIPs",
+            # the number of routing workers to use
+            "NumRoutingWorkers": {"default": 3, "type": int},
+            # port to subscribe to requests by the routing proxy
+            "RoutingProxySubscriberPort": {"default": 19030, "type": int},
+            # port to publish responses by the routing proxy
+            "RoutingProxyPublisherPort": {"default": 19032, "type": int},
+            # port to send requests from the routing proxy to the routing workers
+            "RoutingProxyRequestServerPort": {"default": 19031, "type": int},
+            # ip to subscribe to requests by the routing proxy
+            "RoutingProxySubscriberIP": {"default": "127.0.0.1", "type": str},
+            # ip to publish responses by the routing proxy
+            "RoutingProxyPublisherIP": {"default": "127.0.0.1", "type": str},
+            # port to send requests from the routing proxy to the routing workers
+            "RoutingProxyRequestServerIP": {"default": "127.0.0.1", "type": str},
+            # port to receive worker responses by the integration manager
+            "FTS_INTEGRATION_MANAGER_PULLER_PORT": "IntegrationManagerPullerPort",
+            # address to receive worker responses by the integration manager
+            "FTS_INTEGRATION_MANAGER_PULLER_ADDRESS": "IntegrationManagerPullerAddress",
+            # port from which to publish messages by the integration manager
+            "FTS_INTEGRATION_MANAGER_PUBLISHER_PORT": "IntegrationManagerPublisherPort",
+            # address from which to publish messages by the integration manager
+            "FTS_INTEGRATION_MANAGER_PUBLISHER_ADDRESS": "IntegrationManagerPublisherAddress",
+
+        },
+        "Filesystem": {
+            "FTS_PERSISTENCE_PATH": "persistencePath",
+            "FTS_COT_TO_DB": "SaveCoTToDB",
+            "FTS_DB_PATH": "DBFilePath",
+            "FTS_MAINPATH": "MainPath",
+            "FTS_CERTS_PATH": "certsPath",
+            "FTS_EXCHECK_PATH": "ExCheckMainPath",
+            "FTS_EXCHECK_TEMPLATE_PATH": "ExCheckFilePath",
+            "FTS_EXCHECK_CHECKLIST_PATH": "ExCheckChecklistFilePath",
+            "FTS_DATAPACKAGE_PATH": "DataPackageFilePath",
+            "FTS_LOGFILE_PATH": "LogFilePath",
+            "FTS_CLIENT_PACKAGES_PATH": "ClientPackages",
+            "FTS_CORE_COMPONENTS_PATH": "CoreComponentsPath",
+            "FTS_CORE_COMPONENTS_IMPORT_ROOT": "CoreComponentsImportRoot",
+            "FTS_INTERNAL_COMPONENTS_PATH": "InternalComponentsPath",
+            "FTS_INTERNAL_COMPONENTS_IMPORT_ROOT": "InternalComponentsImportRoot",
+            "FTS_EXTERNAL_COMPONENTS_PATH": "ExternalComponentsPath",
+            "FTS_EXTERNAL_COMPONENTS_IMPORT_ROOT": "ExternalComponentsImportRoot",
+        },
+        "Certs": {
+            "FTS_SERVER_KEYDIR": "keyDir",
+            "FTS_SERVER_PEMDIR": "pemDir",
+            "FTS_TESTCLIENT_PEMDIR": "testPem",
+            "FTS_TESTCLIENT_KEYDIR": "testKey",
+            "FTS_UNENCRYPTED_KEYDIR": "unencryptedKey",
+            "FTS_SERVER_P12DIR": "p12Dir",
+            "FTS_CADIR": "CA",
+            "FTS_CAKEYDIR": "CAkey",
+            "FTS_FEDERATION_CERTDIR": "federationCert",
+            "FTS_FEDERATION_KEYDIR": "federationKey",
+            "FTS_FEDERATION_KEYPASS": "federationKeyPassword",
+            "FTS_CLIENT_CERT_PASSWORD": "password",
+            "FTS_WEBSOCKET_KEY": "websocketkey",
+            "FTS_CRLDIR": "CRLFile",
+        },
+    }
+
+    def __init__(self):
+        raise RuntimeError("Call instance() instead")
+
+    # instance() is the normal entry point to get access to config information.
+    #
+    # Generally it is called without arguments in the rest of the FTS code
+    # and the return value is a config object where the config vars can be
+    # read or written using the attribute syntax (e.g. config.var for read and
+    # config.var = value for write), the dictionary syntax (e.g. config['var']
+    # for read and config['var'] = value for write) or the get() and set() methods.
+    #
+    # The only time that instance() is called with a parameter is the first
+    # time it is accessed so that the YAML config file can be read in and
+    # parsed. Further calls to instance() with the YAML configuration param
+    # may reset values of current config vars to their start values.
+    @classmethod
+    def instance(cls, config_file=None):
+        if cls._instance is None:
+            cls._instance = cls.__new__(cls)
+            # Put any initialization here.
+
+            # preload the defaults into the _values table
+
+            for var_name, metadata in cls._defaults.items():
+                cls._instance.set(var_name, value=metadata["default"], override_ro=True)
+
+            # if config_file not specified, check env or use default location
+            if config_file == None:
+                config_file = str(os.environ.get('FTS_CONFIG_PATH', MainConfig._defaults["yaml_path"]))
+
+            # overlay the yaml config if found
+            if os.path.exists(config_file):
+                cls._instance.read_yaml_config(config_file)
+
+            # finally overlay any configuration specified in the env
+            cls._instance.import_env_config()
+
+        return cls._instance
+
+    # reset() is really only used for testing so that MainConfig can
+    # be reinitialized between tests. It normally should not be used
+    # by anything else.
+    @classmethod
+    def reset(cls):
+        # here we need to reinitialze all the private vars
+        cls._instance = None
+        cls._values = {}
+        cls._node_id = str(uuid4())
+
+    def set(self, name, value=None, override_ro=False):
+        # add the value to the values table using the correct type
+        if not self._readonly(name) or override_ro:
+            self._values[name] = self._var_type(name)(value)
+
+    def get(self, name):
+        if name in self._values:
+            return self._values[name]
         else:
-            MainLoopDelay = int(os.environ.get('FTS_MAINLOOP_DELAY',  1))
-            ConnectionMessage = str(os.environ.get("FTS_CONNECTION_MESSAGE", f'Welcome to FreeTAKServer {version}. The Parrot is not dead. It’s just resting'))
-            DataBaseType = str(os.environ.get("FTS_DATABASE_TYPE", "SQLite"))
-            OptimizeAPI = bool(os.environ.get("FTS_OPTIMIZE_API", True))
-
-        if yamlConfig.get("Addresses"):
-            # this is the port to which clients will connect
-            CoTServicePort = int(os.environ.get('FTS_COT_PORT', yamlConfig["Addresses"].get('FTS_COT_PORT', 8087)))
-
-            SSLCoTServicePort = int(os.environ.get('FTS_SSLCOT_PORT', yamlConfig["Addresses"].get('FTS_SSLCOT_PORT', 8089)))
-
-            # this needs to be changed for private data packages to work
-            DataPackageServiceDefaultIP = str(os.environ.get('FTS_DP_ADDRESS', yamlConfig["Addresses"].get('FTS_DP_ADDRESS', ip)))
-
-            # User Connection package IP needs to be set to the IP which is used when creating the connection in your tak device
-            UserConnectionIP = str(os.environ.get('FTS_USER_ADDRESS', yamlConfig["Addresses"].get("FTS_USER_ADDRESS", ip)))
-
-            # api port
-            APIPort = int(os.environ.get('FTS_API_PORT', yamlConfig["Addresses"].get("FTS_API_PORT", 19023)))
-
-            # Federation port
-            FederationPort = int(os.environ.get('FTS_FED_PORT', yamlConfig["Addresses"].get("FTS_FED_PORT", 9000)))
-
-            # api IP
-            APIIP = str(os.environ.get('FTS_API_ADDRESS', yamlConfig["Addresses"].get("FTS_API_ADDRESS", "0.0.0.0")))
-        else:
-
-            # this is the port to which clients will connect
-            CoTServicePort = int(os.environ.get('FTS_COT_PORT', 8087))
-
-            SSLCoTServicePort = int(os.environ.get('FTS_SSLCOT_PORT', 8089))
-
-            # this needs to be changed for private data packages to work
-            DataPackageServiceDefaultIP = str(os.environ.get('FTS_DP_ADDRESS', "0.0.0.0"))
-
-            # User Connection package IP needs to be set to the IP which is used when creating the connection in your tak device
-            UserConnectionIP = str(os.environ.get('FTS_USER_ADDRESS', "0.0.0.0"))
-
-            # api port
-            APIPort = os.environ.get('FTS_API_PORT', 19023)
-
-            # Federation port
-            FederationPort = os.environ.get('FTS_FED_PORT', 9000)
-
-            # api IP
-            APIIP = os.environ.get('FTS_API_ADDRESS', '0.0.0.0')
-
-        if yamlConfig.get("FileSystem"):
-
-            DBFilePath = str(os.environ.get('FTS_DB_PATH', yamlConfig["FileSystem"].get("FTS_DB_PATH", "</text>Lib\\site-packages\\FreeTAKServer\\FreeTAKServer.db")))
-
-            # whether or not to save CoT's to the DB
-            SaveCoTToDB = bool(os.environ.get('FTS_COT_TO_DB', yamlConfig["FileSystem"].get("FTS_COT_TO_DB")))
-
-            MainPath = str(os.environ.get("FTS_MAINPATH", yamlConfig["FileSystem"].get("FTS_MAINPATH", Path(fr'{userpath}\\site-packages\\FreeTAKServer'))))
-
-            certsPath = str(os.environ.get('FTS_CERTS_PATH', yamlConfig["FileSystem"].get("FTS_CERTS_PATH", fr'{MainPath}\\certs')))
-
-            ExCheckMainPath = str(os.environ.get('FTS_EXCHECK_PATH', yamlConfig["FileSystem"].get("FTS_EXCHECK_PATH",Path(fr'{MainPath}\\ExCheck'))))
-
-            ExCheckFilePath = str(os.environ.get('FTS_EXCHECK_TEMPLATE_PATH', yamlConfig["FileSystem"].get("FTS_EXCHECK_TEMPLATE_PATH", Path(fr'{MainPath}\\ExCheck\\template'))))
-
-            ExCheckChecklistFilePath = str(os.environ.get("FTS_EXCHECK_CHECKLIST_PATH", yamlConfig["FileSystem"].get("FTS_EXCHECK_CHECKLIST_PATH", Path(fr'{MainPath}\\ExCheck\\checklist'))))
-
-            DataPackageFilePath = str(os.environ.get("FTS_DATAPACKAGE_PATH", yamlConfig["FileSystem"].get("FTS_DATAPACKAGE_PATH", Path(fr'{MainPath}\\FreeTAKServerDataPackageFolder'))))
-
-            LogFilePath = str(os.environ.get("FTS_LOGFILE_PATH", yamlConfig["FileSystem"].get("FTS_LOGFILE_PATH", Path(fr"{MainPath}\\Logs"))))
-
-        else:
-            # whether or not to save CoT's to the DB
-            SaveCoTToDB = bool(os.environ.get('FTS_COT_TO_DB', True))
-
-            # this should be set before startup
-            DBFilePath = str(os.environ.get('FTS_DB_PATH', r'</text>Lib\\site-packages\\FreeTAKServer\\FTSDataBase.db'))
-
-            MainPath = str(
-                os.environ.get("FTS_MAINPATH", Path(fr'{userpath}\\site-packages\\FreeTAKServer')))
-
-            certsPath = str(os.environ.get('FTS_CERTS_PATH', fr'{MainPath}\\certs'))
-
-            ExCheckMainPath = str(os.environ.get('FTS_EXCHECK_PATH', Path(fr'{MainPath}\\ExCheck')))
-
-            ExCheckFilePath = str(os.environ.get('FTS_EXCHECK_TEMPLATE_PATH', Path(fr'{MainPath}\\ExCheck\\template')))
-
-            ExCheckChecklistFilePath = str(
-                os.environ.get("FTS_EXCHECK_CHECKLIST_PATH", Path(fr'{MainPath}\\ExCheck\\checklist')))
-
-            DataPackageFilePath = str(
-                os.environ.get("FTS_DATAPACKAGE_PATH", Path(fr'{MainPath}\\FreeTAKServerDataPackageFolder')))
-
-            LogFilePath = str(os.environ.get("FTS_LOGFILE_PATH", Path(fr"{MainPath}\\Logs")))
-
-
-        if yamlConfig.get("Certs"):
-            keyDir = str(os.environ.get("FTS_SERVER_KEYDIR", yamlConfig["Certs"].get("FTS_SERVER_KEYDIR", Path(fr'{certsPath}\\server.key'))))
-
-            pemDir = str(os.environ.get("FTS_SERVER_PEMDIR",yamlConfig["Certs"].get("FTS_SERVER_PEMDIR", Path(fr'{certsPath}\\server.pem')))) # or crt
-
-            testPem = str(os.environ.get("FTS_TESTCLIENT_PEMDIR",yamlConfig["Certs"].get("FTS_TESTCLIENT_PEMDIR", fr'{certsPath}\\Client.pem')))
-
-            testKey = str(os.environ.get("FTS_TESTCLIENT_KEYDIR",yamlConfig["Certs"].get("FTS_TESTCLIENT_KEYDIR", fr'{certsPath}\\Client.key')))
-
-            unencryptedKey = str(os.environ.get("FTS_UNENCRYPTED_KEYDIR", yamlConfig["Certs"].get("FTS_UNENCRYPTED_KEYDIR", Path(fr'{certsPath}\\server.key.unencrypted'))))
-
-            p12Dir = str(os.environ.get("FTS_SERVER_P12DIR", yamlConfig["Certs"].get("FTS_SERVER_P12DIR", Path(fr'{certsPath}\\server.p12'))))
-
-            CA = str(os.environ.get("FTS_CADIR", yamlConfig["Certs"].get("FTS_CADIR",Path(fr'{certsPath}\\ca.pem'))))
-
-            CAkey = str(os.environ.get("FTS_CAKEYDIR", yamlConfig["Certs"].get("FTS_CAKEYDIR",Path(fr'{certsPath}\\ca.key'))))
-
-            federationCert = str(os.environ.get("FTS_FEDERATION_CERTDIR", yamlConfig["Certs"].get("FTS_FEDERATION_CERTDIR", Path(fr'{certsPath}\\server.pem'))))
-
-            federationKey = str(os.environ.get("FTS_FEDERATION_KEYDIR", yamlConfig["Certs"].get("FTS_FEDERATION_KEYDIR", Path(fr'{certsPath}\\server.key'))))
-
-            federationKeyPassword = str(os.environ.get("FTS_FEDERATION_KEYPASS", yamlConfig["Certs"].get("FTS_FEDERATION_KEYPASS", None)))
-
-            password = str(os.environ.get('FTS_CLIENT_CERT_PASSWORD', yamlConfig["Certs"].get("FTS_CLIENT_CERT_PASSWORD", 'supersecret')))
-
-            websocketkey = str(os.environ.get('FTS_WEBSOCKET_KEY', yamlConfig["Certs"].get("FTS_WEBSOCKET_KEY", "YourWebsocketKey")))
-
-            CRLFile = str(os.environ.get('FTS_CRLDIR', yamlConfig["Certs"].get("FTS_CRLDIR", fr"{certsPath}\\FTS_CRL.json")))
-        else:
-            federationKeyPassword = str(os.environ.get('FTS_FED_PASSWORD', 'defaultpass'))
-
-            keyDir = str(os.environ.get("FTS_SERVER_KEYDIR", Path(fr'{certsPath}\\server.key')))
-
-            pemDir = str(os.environ.get("FTS_SERVER_PEMDIR", Path(fr'{certsPath}\\server.pem')))  # or crt
-
-            testPem = str(os.environ.get("FTS_TESTCLIENT_PEMDIR", pemDir))
-
-            testKey = str(os.environ.get("FTS_TESTCLIENT_KEYDIR", keyDir))
-
-            unencryptedKey = str(os.environ.get("FTS_UNENCRYPTED_KEYDIR", Path(fr'{certsPath}\\server.key.unencrypted')))
-
-            p12Dir = str(os.environ.get("FTS_SERVER_P12DIR", Path(fr'{certsPath}\\server.p12')))
-
-            CA = str(os.environ.get("FTS_CADIR", Path(fr'{certsPath}\\ca.pem')))
-
-            CAkey = str(os.environ.get("FTS_CAKEYDIR", Path(fr'{certsPath}\\ca.key')))
-
-            federationCert = str(os.environ.get("FTS_FEDERATION_CERTDIR", Path(fr'{certsPath}\\server.pem')))
-
-            federationKey = str(os.environ.get("FTS_FEDERATION_KEYDIR", Path(fr'{certsPath}\\server.key')))
-
-            federationKeyPassword = str(os.environ.get("FTS_FEDERATION_KEYPASS", 'defaultpass'))
-
-            password = str(os.environ.get('FTS_CLIENT_CERT_PASSWORD', 'supersecret'))
-
-            websocketkey = str(os.environ.get('FTS_WEBSOCKET_KEY', "YourWebsocketKey"))
-
-            CRLFile = str(os.environ.get('FTS_CRLDIR', fr"{certsPath}\\FTS_CRL.json"))
-
-
-
-    # allowed ip's to access CLI commands
-    AllowedCLIIPs = ['127.0.0.1']
-
-    # IP for CLI to access
-    CLIIP = '127.0.0.1'
-
-    APIVersion = "1.9.5"
-
-    # format of API message header should be {Authentication: Bearer 'TOKEN'}
-    from uuid import uuid4
-    id = str(uuid4())
-
-    nodeID = os.environ.get('FTS_NODE_ID', f"FreeTAKServer-{id}")
-
-    # location to backup client packages
-    clientPackages = str(Path(fr'{MainPath}\\certs\\ClientPackages'))
-
-    first_start = False
+            raise RuntimeError(f'MainConfig unknown setting name: {name}')
+
+    # read_yaml_config() will parse a YAML config and apply to the current
+    # config vars. This should only be called from instance() and only
+    # at the startup of the FTS server.
+    def read_yaml_config(self, yaml_path):
+        try:
+            content = open(yaml_path).read()
+            yamlConfig = yaml.safe_load(content)
+        except OSError as e:
+            raise e
+
+        # walk through the _yaml_keys struct looking for values in yamlConfig
+        for sect in MainConfig._yaml_keys:
+            if sect in yamlConfig:
+                for attr, var_name in MainConfig._yaml_keys[sect].items():
+                    if yamlConfig[sect] is not None and attr in yamlConfig[sect]:
+                        value = yamlConfig[sect][attr]
+                        if attr.endswith(('PATH', 'DIR')):
+                            value = self.validate_and_sanitize_path(value)
+                        # found a setting we can update the config
+                        self.set(var_name, value=value)
+
+    def validate_and_sanitize_path(self, path):
+        # sanitize and validate any path specified in config
+        sanitized_path = ROOTPATH + os.path.relpath(os.path.normpath(os.path.join(os.sep, path)), os.sep)
+
+        if not os.access(sanitized_path, os.F_OK) or not os.access(sanitized_path, os.W_OK):
+            raise ValueError
+
+        return sanitized_path
+
+    # import_env_config() will inspect the current environment and detect
+    # configuration values. Detected values will then be applied to the
+    # current config vars. This should only be called from instance() and
+    # only at the startup of the FTS server.
+    def import_env_config(self):
+        # Walk through all the registered env vars and check to see if the
+        # env var is defined in the environment
+        for env_var, config_var in self._env_vars.items():
+            if env_var in os.environ:
+                env_value = os.environ[env_var]
+
+                # Handle boolean types
+                if self._var_type(config_var) == bool:
+                    # bools are actually specified as a string
+                    if env_value.upper() in ('1', 'TRUE', 'YES', 'Y'):
+                        env_value = True
+                    else:
+                        env_value = False
+                # Handle lists and split the value apart
+                elif self._var_type(config_var) == list:
+                    env_value = re.split(r':|,', env_value)
+
+                self[config_var] = env_value
+
+    # dump_values() is used for debugging and inspecting the current
+    # settings of config vars
+    def dump_values(self):
+        for var_name, value in self._values.items():
+            print(f'{var_name} = {value}')
+
+    # test if the config var should allow being set
+    def _readonly(self, name):
+        if (
+            "readonly" in MainConfig._defaults[name]
+            and MainConfig._defaults[name]["readonly"]
+        ):
+            return True
+        return False
+
+    # helper function to return the type of a config var
+    def _var_type(self, name):
+        return MainConfig._defaults[name]['type']
+
+    # Attribute access magic methods
+    def __getattr__(self, name):
+        return self.get(name)
+
+    def __setattr__(self, name, value):
+        self.set(name, value)
+
+    # Dictionary access magic methods
+    def __getitem__(self, name):
+        return self.get(name)
+
+    def __setitem__(self, name, value):
+        self.set(name, value)
+
+    first_start = os.environ.get("FTS_FIRST_START", "true").lower() in ('true', 't', '1', 'yes', 'y') and not  os.path.exists(os.path.dirname(os.path.realpath(__file__))+os.sep+"installation.json")

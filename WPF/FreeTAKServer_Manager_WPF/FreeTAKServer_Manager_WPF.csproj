@@ -149,6 +149,7 @@
   <ItemGroup />
   <ItemGroup>
     <Resource Include="Classes\UpdateChecker\CurrentVersion.xml" />
+    <Resource Include="Forms\FTS_Logo.png" />
     <Content Include="Licenses\CPOL.htm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

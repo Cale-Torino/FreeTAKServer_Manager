@@ -1,6 +1,9 @@
 MainConfig
 C:\Software\python\Lib\site-packages\FreeTAKServer\controllers\configuration\MainConfig.py
 
+MainConfig 2.0
+C:\Software\python\Lib\site-packages\FreeTAKServer\core\configuration\MainConfig.py
+
 config
 C:\Software\python\Lib\site-packages\FreeTAKServer-UI\config.py
 

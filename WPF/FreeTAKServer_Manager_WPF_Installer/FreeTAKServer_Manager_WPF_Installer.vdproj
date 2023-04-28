@@ -88,12 +88,6 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_A971E083D9104DB7AE0EF1962347CD8E"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_9F452097411C9D8C8432CA13921CD281"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -525,15 +519,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:FreeTAKServer Manager WPF Installer"
-        "ProductCode" = "8:{37D79BB6-686B-4384-BDF9-7E2CF73C1B4B}"
-        "PackageCode" = "8:{C02C9109-B9C3-49F0-BFA3-6179D9C0B7D2}"
+        "ProductCode" = "8:{03398574-A895-4AE1-B364-4A2D039CCA00}"
+        "PackageCode" = "8:{F99023C2-5427-4BF9-A120-39F928CF4C67}"
         "UpgradeCode" = "8:{639D9906-B40D-4E6A-B026-B37B974242D5}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.6"
+        "ProductVersion" = "8:1.0.7"
         "Manufacturer" = "8:FreeTAKServer Manager WPF GitHub"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"

@@ -4,17 +4,17 @@ namespace FTSManagerCheckMD5Hashes
 {
     internal class Program
     {
-        protected private static readonly string FreeTAKServer_Manager = "2749a98a110eed158a90a2e03653356c";
+        protected private static readonly string FreeTAKServer_Manager = "3a5643fd77e37063a6cc358d58917cfd";
         protected private static readonly string CPOL = "e52b0358e338681f42115d3a850ec13b";
-        protected private static readonly string config = "263656db8384903ffe32b654b1fc6bdc";
-        protected private static readonly string MainConfig = "d419dea0cd177247eb5029fb8f58425a";
-        protected private static readonly string ReadMe = "ebae1907ccfa63733c7210fe7b37e89c";
+        protected private static readonly string config = "e2f408e9728448cc1f08ed8bdebbbe5c";
+        protected private static readonly string MainConfig = "62d20d89c0d0be45ee44f9ca20a1d678";
+        protected private static readonly string ReadMe = "6fd05949a8a8c6e4ce79168eeab361b6";
         protected private static readonly string requirements = "221c77e68241e4f4816bb3cdbdd7ebba";
         protected private static readonly string FTSConfig = "5cfcc29c0123102f4f011b9d3a91dc69";
         protected private static readonly string FTSManagerCheckMD5Hashes_bat = "b5e742a6684867c322c13a19c016c669";
         //protected private static readonly string FTSManagerCheckMD5Hashes_exe = "440028381e2c79898ab08c531bddbbf4";
 
-        protected private static readonly string FreeTAKServer_Manager_WPF = "13680891f7edcdbe14472ad2f2f308ad";
+        protected private static readonly string FreeTAKServer_Manager_WPF = "78ae0770210e359fc1737d6be928c91e";
         //protected private static readonly string GUPxmlWinForms = "4238c89b048797a24726df050f1eb86c";
         static void Main(string[] args)
         {

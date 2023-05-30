@@ -375,7 +375,7 @@ namespace FreeTAKServer_Manager_WPF
                 {
                     ForceCursor = true;
                     Cursor = Cursors.Wait;
-                    int _Install = CMD_Class.SendCMDCommandNormal("/c pip install -r TextFiles\\requirements.txt&&python -m pip install FreeTAKServer[ui]==2.0.21", AppDomain.CurrentDomain.BaseDirectory);
+                    int _Install = CMD_Class.SendCMDCommandNormal("/c pip install -r TextFiles\\requirements.txt&&python -m pip install FreeTAKServer[ui]==2.0.69", AppDomain.CurrentDomain.BaseDirectory);
                     File.Copy(AppDomain.CurrentDomain.BaseDirectory + @"\YamlScripts\FTSConfig.yaml", Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer\FTSConfig.yaml", true);
                     File.Copy(AppDomain.CurrentDomain.BaseDirectory + @"\PythonScripts\config.py", Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer-UI\config.py", true);
                     File.Copy(AppDomain.CurrentDomain.BaseDirectory + @"\PythonScripts\MainConfig.py", Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer\core\configuration\MainConfig.py", true);

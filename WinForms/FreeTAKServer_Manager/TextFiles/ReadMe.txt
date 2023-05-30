@@ -1,6 +1,6 @@
 ### FreeTAKServer Manager
 
-The FreeTAKServer Manager  specific for FTS version `2.0.21`
+The FreeTAKServer Manager  specific for FTS version `2.0.69`
 
 Make sure you have a clean Python install.
 
@@ -33,7 +33,7 @@ C# Winforms
 
 * Added new FTS logo.
 * Changed path to MainConfig.py.
-* Added 2.0.21 download.
+* Added 2.0.69 download.
 
 
 

@@ -2,34 +2,34 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="FreeTAKServer_Manager.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="Pythondir" Type="System.String" Scope="User">
+    <Setting Name="PythonDir" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="email_checkstate" Type="System.Boolean" Scope="User">
+    <Setting Name="EmailCheckState" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="StartupServer_checkstate" Type="System.Boolean" Scope="User">
+    <Setting Name="StartupServerCheckState" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="emailPass" Type="System.String" Scope="User">
+    <Setting Name="EmailPass" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="emailSmtp" Type="System.String" Scope="User">
+    <Setting Name="EmailSmtp" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="emailFrom" Type="System.String" Scope="User">
+    <Setting Name="EmailFrom" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="emailTo" Type="System.String" Scope="User">
+    <Setting Name="EmailTo" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="emailSubject" Type="System.String" Scope="User">
+    <Setting Name="EmailSubject" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="emailBody" Type="System.String" Scope="User">
+    <Setting Name="EmailBody" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="emailUsername" Type="System.String" Scope="User">
+    <Setting Name="EmailUsername" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
   </Settings>

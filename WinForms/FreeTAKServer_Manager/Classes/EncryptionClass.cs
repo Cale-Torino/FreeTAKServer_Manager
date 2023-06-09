@@ -7,20 +7,20 @@ namespace FreeTAKServer_Manager
 {
     public static class EncryptionClass
     {
-        static byte[] entropy = Encoding.Unicode.GetBytes("15021375505qpwoeirutyalskdjfhgmznxbcv");//salt
+        static byte[] Entropy = Encoding.Unicode.GetBytes("15021375505qpwoeirutyalskdjfhgmznxbcv");//salt
 
-        public static string EncryptString(SecureString input)
+        public static string EncryptString(SecureString Input)
         {
-            byte[] encryptedData = ProtectedData.Protect(Encoding.Unicode.GetBytes(ToInsecureString(input)), entropy, DataProtectionScope.CurrentUser);
-            return Convert.ToBase64String(encryptedData);
+            byte[] EncryptedData = ProtectedData.Protect(Encoding.Unicode.GetBytes(ToInsecureString(Input)), Entropy, DataProtectionScope.CurrentUser);
+            return Convert.ToBase64String(EncryptedData);
         }
 
-        public static SecureString DecryptString(string encryptedData)
+        public static SecureString DecryptString(string EncryptedData)
         {
             try
             {
-                byte[] decryptedData = ProtectedData.Unprotect(Convert.FromBase64String(encryptedData), entropy, DataProtectionScope.CurrentUser);
-                return ToSecureString(Encoding.Unicode.GetString(decryptedData));
+                byte[] DecryptedData = ProtectedData.Unprotect(Convert.FromBase64String(EncryptedData), Entropy, DataProtectionScope.CurrentUser);
+                return ToSecureString(Encoding.Unicode.GetString(DecryptedData));
             }
             catch
             {
@@ -28,30 +28,30 @@ namespace FreeTAKServer_Manager
             }
         }
 
-        public static SecureString ToSecureString(string input)
+        public static SecureString ToSecureString(string Input)
         {
-            SecureString secure = new SecureString();
-            foreach (char c in input)
+            SecureString Secure = new SecureString();
+            foreach (char Char in Input)
             {
-                secure.AppendChar(c);
+                Secure.AppendChar(Char);
             }
-            secure.MakeReadOnly();
-            return secure;
+            Secure.MakeReadOnly();
+            return Secure;
         }
 
-        public static string ToInsecureString(SecureString input)
+        public static string ToInsecureString(SecureString Input)
         {
-            string returnValue = string.Empty;
-            IntPtr ptr = System.Runtime.InteropServices.Marshal.SecureStringToBSTR(input);
+            string ReturnValue = string.Empty;
+            IntPtr Pointer = System.Runtime.InteropServices.Marshal.SecureStringToBSTR(Input);
             try
             {
-                returnValue = System.Runtime.InteropServices.Marshal.PtrToStringBSTR(ptr);
+                ReturnValue = System.Runtime.InteropServices.Marshal.PtrToStringBSTR(Pointer);
             }
             finally
             {
-                System.Runtime.InteropServices.Marshal.ZeroFreeBSTR(ptr);
+                System.Runtime.InteropServices.Marshal.ZeroFreeBSTR(Pointer);
             }
-            return returnValue;
+            return ReturnValue;
         }
     }
 }

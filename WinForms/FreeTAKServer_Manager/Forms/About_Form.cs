@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Net.Http;
 using System.Windows.Forms;
 
 namespace FreeTAKServer_Manager
@@ -25,24 +24,24 @@ namespace FreeTAKServer_Manager
 
         private void About_Form_Load(object sender, EventArgs e)
         {
-            label2.Text = "Version " + Application.ProductVersion;
+            label2.Text = $"Version {Application.ProductVersion}";
         }
 
         private void Checkforupdate_button_Click(object sender, EventArgs e)
         {
            try
            {
-                using (Form f = new UpdateForm())
+                using (Form Form = new UpdateForm())
                 {
-                    f.ShowDialog();
-                    f.Activate();
+                    Form.ShowDialog();
+                    Form.Activate();
                 }
-                LoggerClass.WriteLine(" *** Ran Update:" + Environment.NewLine + " [About_Form] ***");
+                LoggerClass.WriteLine(" *** Ran Update [About_Form] ***");
            }
-           catch (Exception ex)
+           catch (Exception Exception)
            {
-             MessageBox.Show(ex.Message, "Could not check for update", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                LoggerClass.WriteLine(" *** Error:" + ex.Message + " [About_Form] ***");
+             MessageBox.Show(Exception.Message, "Could not check for update", MessageBoxButtons.OK, MessageBoxIcon.Error);
+             LoggerClass.WriteLine($" *** Error:{Exception.Message} [About_Form] ***");
              return;
            }
         }

@@ -16,37 +16,37 @@ namespace FreeTAKServer_Manager
             // 1726488859:AAGy13koBigjBU0h_MSxzglmaAAbPzqH8DI
             //https://api.telegram.org/bot1726488859:AAGy13koBigjBU0h_MSxzglmaAAbPzqH8DI/sendMessage?chat_id=-4321432&parse_mode=HTML&text=%F0%9F%9A%A8+<b>Alert</b>%0A<i>+IQ-Blue</i><u>+getMessage</u>%0AMessage+details+go+here
             //Set Textbox text
-            Customtest_textBox.Text = "https://api.telegram.org/bot1726488859:AAGy13koBigjBU0h_MSxzglmaAAbPzqH8DI/sendMessage?chat_id=-268086624&text=Hello+World%0ATwo";
-            Token_textBox.Text = "1726488859:AAGy13koBigjBU0h_MSxzglmaAAbPzqH8DI";
-            Chat_id_textBox.Text = "268086624";
+            CustomTestTextBox.Text = "https://api.telegram.org/bot1726488859:AAGy13koBigjBU0h_MSxzglmaAAbPzqH8DI/sendMessage?chat_id=-268086624&text=Hello+World%0ATwo";
+            TokenTextBox.Text = "1726488859:AAGy13koBigjBU0h_MSxzglmaAAbPzqH8DI";
+            ChatIDTextBox.Text = "268086624";
 
         }
 
         private async void Test_button_Click(object sender, EventArgs e)
         {
-            Memo_richTextBox.Clear();
-            using (HttpClient client = new HttpClient())
+            MemoRichTextBox.Clear();
+            using (HttpClient Client = new HttpClient())
             {
                 //Add Default Request Headers
                 //client.DefaultRequestHeaders.Add("Authorization", "Bearer token");
                 try
                 {
-                    using (HttpResponseMessage response = await client.GetAsync(new Uri("https://api.telegram.org/bot" + Token_textBox.Text + "/sendMessage?chat_id=-" + Chat_id_textBox.Text + "&parse_mode=HTML&text=%F0%9F%9A%A8+<b>Alert</b>%0A<i>+IQ-Blue</i><u>+getMessage</u>%0AMessage+details+go+here")))
+                    using (HttpResponseMessage Response = await Client.GetAsync(new Uri("https://api.telegram.org/bot" + TokenTextBox.Text + "/sendMessage?chat_id=-" + ChatIDTextBox.Text + "&parse_mode=HTML&text=%F0%9F%9A%A8+<b>Alert</b>%0A<i>+IQ-Blue</i><u>+getMessage</u>%0AMessage+details+go+here")))
                     {
-                        using (HttpContent content = response.Content)
+                        using (HttpContent Content = Response.Content)
                         {
                             //Read the result and display in Textbox
-                            string result = await content.ReadAsStringAsync();//Result string JSON
-                            string reasonPhrase = response.ReasonPhrase;//Reason OK, FAIL etc.
-                            Memo_richTextBox.AppendText(result + Environment.NewLine);
-                            Memo_richTextBox.AppendText(reasonPhrase + Environment.NewLine);
+                            string Result = await Content.ReadAsStringAsync();//Result string JSON
+                            string ReasonPhrase = Response.ReasonPhrase;//Reason OK, FAIL etc.
+                            MemoRichTextBox.AppendText(Result + Environment.NewLine);
+                            MemoRichTextBox.AppendText(ReasonPhrase + Environment.NewLine);
                         }
                     }
                 }
-                catch (Exception ex)
+                catch (Exception Exception)
                 {
-                    MessageBox.Show(ex.Message, "Could not test Telegram API", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    LoggerClass.WriteLine(" *** Error:" + ex.Message + " [TelegramAPIForm] ***");
+                    MessageBox.Show(Exception.Message, "Could not test Telegram API", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    LoggerClass.WriteLine($" *** Error:{Exception.Message} [TelegramAPIForm] ***");
                     return;
                 }
             }
@@ -54,29 +54,29 @@ namespace FreeTAKServer_Manager
 
         private async void Custom_Test_button_Click(object sender, EventArgs e)
         {
-            Memo_richTextBox.Clear();
-            using (HttpClient client = new HttpClient())
+            MemoRichTextBox.Clear();
+            using (HttpClient Client = new HttpClient())
             {
                 //Add Default Request Headers
                 //client.DefaultRequestHeaders.Add("Authorization", "Bearer token");
                 try
                 {
-                    using (HttpResponseMessage response = await client.GetAsync(new Uri(Customtest_textBox.Text)))
+                    using (HttpResponseMessage Response = await Client.GetAsync(new Uri(CustomTestTextBox.Text)))
                     {
-                        using (HttpContent content = response.Content)
+                        using (HttpContent Content = Response.Content)
                         {
                             //Read the result and display in Textbox
-                            string result = await content.ReadAsStringAsync();//Result string JSON
-                            string reasonPhrase = response.ReasonPhrase;//Reason OK, FAIL etc.
-                            Memo_richTextBox.AppendText(result + Environment.NewLine);
-                            Memo_richTextBox.AppendText(reasonPhrase + Environment.NewLine);
+                            string Result = await Content.ReadAsStringAsync();//Result string JSON
+                            string ReasonPhrase = Response.ReasonPhrase;//Reason OK, FAIL etc.
+                            MemoRichTextBox.AppendText(Result + Environment.NewLine);
+                            MemoRichTextBox.AppendText(ReasonPhrase + Environment.NewLine);
                         }
                     }
                 }
-                catch (Exception ex)
+                catch (Exception Exception)
                 {
-                    MessageBox.Show(ex.Message, "Could not test Telegram API", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    LoggerClass.WriteLine(" *** Error:" + ex.Message + " [TelegramAPIForm] ***");
+                    MessageBox.Show(Exception.Message, "Could not test Telegram API", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    LoggerClass.WriteLine($" *** Error:{Exception.Message} [TelegramAPIForm] ***");
                     return;
                 }
             }

@@ -32,31 +32,31 @@ namespace FreeTAKServer_Manager
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.Logs_richTextBox = new System.Windows.Forms.RichTextBox();
+            this.LogsRichTextBox = new System.Windows.Forms.RichTextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.Startserver_checkBox = new System.Windows.Forms.CheckBox();
-            this.Email_checkBox = new System.Windows.Forms.CheckBox();
-            this.Setdir_button = new System.Windows.Forms.Button();
+            this.StartServerCheckBox = new System.Windows.Forms.CheckBox();
+            this.EmailCheckBox = new System.Windows.Forms.CheckBox();
+            this.SetDirButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.Pythondir_textBox = new System.Windows.Forms.TextBox();
-            this.Installserver_button = new System.Windows.Forms.Button();
-            this.Checkports_button = new System.Windows.Forms.Button();
-            this.Editconfig_button = new System.Windows.Forms.Button();
-            this.Editmainconfig_button = new System.Windows.Forms.Button();
-            this.Uninstallserver_button = new System.Windows.Forms.Button();
-            this.Restartserver_button = new System.Windows.Forms.Button();
-            this.Stopserver_button = new System.Windows.Forms.Button();
-            this.Startserver_button = new System.Windows.Forms.Button();
+            this.PythonDirTextBox = new System.Windows.Forms.TextBox();
+            this.InstallServerButton = new System.Windows.Forms.Button();
+            this.CheckPortsButton = new System.Windows.Forms.Button();
+            this.EditConfigButton = new System.Windows.Forms.Button();
+            this.EditMainConfigButton = new System.Windows.Forms.Button();
+            this.UninstallServerButton = new System.Windows.Forms.Button();
+            this.RestartServerButton = new System.Windows.Forms.Button();
+            this.StopServerButton = new System.Windows.Forms.Button();
+            this.StartServerButton = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.emailSetupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.readMeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.testAPIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.freeTAKServerAPIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.telegramAPIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.EmailSetupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ReadMeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TestAPIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.FreeTAKServerAPIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TelegramAPIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.ProgressBar = new System.Windows.Forms.ToolStripProgressBar();
+            this.StatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -75,7 +75,7 @@ namespace FreeTAKServer_Manager
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.Logs_richTextBox);
+            this.groupBox2.Controls.Add(this.LogsRichTextBox);
             this.groupBox2.ForeColor = System.Drawing.Color.White;
             this.groupBox2.Location = new System.Drawing.Point(18, 257);
             this.groupBox2.Name = "groupBox2";
@@ -84,33 +84,33 @@ namespace FreeTAKServer_Manager
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Logs";
             // 
-            // Logs_richTextBox
+            // LogsRichTextBox
             // 
-            this.Logs_richTextBox.BackColor = System.Drawing.Color.Black;
-            this.Logs_richTextBox.ForeColor = System.Drawing.Color.White;
-            this.Logs_richTextBox.HideSelection = false;
-            this.Logs_richTextBox.Location = new System.Drawing.Point(6, 25);
-            this.Logs_richTextBox.Name = "Logs_richTextBox";
-            this.Logs_richTextBox.ReadOnly = true;
-            this.Logs_richTextBox.Size = new System.Drawing.Size(674, 213);
-            this.Logs_richTextBox.TabIndex = 0;
-            this.Logs_richTextBox.Text = "";
+            this.LogsRichTextBox.BackColor = System.Drawing.Color.Black;
+            this.LogsRichTextBox.ForeColor = System.Drawing.Color.White;
+            this.LogsRichTextBox.HideSelection = false;
+            this.LogsRichTextBox.Location = new System.Drawing.Point(6, 25);
+            this.LogsRichTextBox.Name = "LogsRichTextBox";
+            this.LogsRichTextBox.ReadOnly = true;
+            this.LogsRichTextBox.Size = new System.Drawing.Size(674, 213);
+            this.LogsRichTextBox.TabIndex = 0;
+            this.LogsRichTextBox.Text = "";
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.Startserver_checkBox);
-            this.groupBox1.Controls.Add(this.Email_checkBox);
-            this.groupBox1.Controls.Add(this.Setdir_button);
+            this.groupBox1.Controls.Add(this.StartServerCheckBox);
+            this.groupBox1.Controls.Add(this.EmailCheckBox);
+            this.groupBox1.Controls.Add(this.SetDirButton);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.Pythondir_textBox);
-            this.groupBox1.Controls.Add(this.Installserver_button);
-            this.groupBox1.Controls.Add(this.Checkports_button);
-            this.groupBox1.Controls.Add(this.Editconfig_button);
-            this.groupBox1.Controls.Add(this.Editmainconfig_button);
-            this.groupBox1.Controls.Add(this.Uninstallserver_button);
-            this.groupBox1.Controls.Add(this.Restartserver_button);
-            this.groupBox1.Controls.Add(this.Stopserver_button);
-            this.groupBox1.Controls.Add(this.Startserver_button);
+            this.groupBox1.Controls.Add(this.PythonDirTextBox);
+            this.groupBox1.Controls.Add(this.InstallServerButton);
+            this.groupBox1.Controls.Add(this.CheckPortsButton);
+            this.groupBox1.Controls.Add(this.EditConfigButton);
+            this.groupBox1.Controls.Add(this.EditMainConfigButton);
+            this.groupBox1.Controls.Add(this.UninstallServerButton);
+            this.groupBox1.Controls.Add(this.RestartServerButton);
+            this.groupBox1.Controls.Add(this.StopServerButton);
+            this.groupBox1.Controls.Add(this.StartServerButton);
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(18, 14);
             this.groupBox1.Name = "groupBox1";
@@ -119,43 +119,43 @@ namespace FreeTAKServer_Manager
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Controls";
             // 
-            // Startserver_checkBox
+            // StartServerCheckBox
             // 
-            this.Startserver_checkBox.AutoSize = true;
-            this.Startserver_checkBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Startserver_checkBox.Location = new System.Drawing.Point(158, 194);
-            this.Startserver_checkBox.Name = "Startserver_checkBox";
-            this.Startserver_checkBox.Size = new System.Drawing.Size(276, 24);
-            this.Startserver_checkBox.TabIndex = 27;
-            this.Startserver_checkBox.Text = "Start Server On Computer Startup";
-            this.Startserver_checkBox.UseVisualStyleBackColor = true;
-            this.Startserver_checkBox.Click += new System.EventHandler(this.Startserver_checkBox_Click);
+            this.StartServerCheckBox.AutoSize = true;
+            this.StartServerCheckBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.StartServerCheckBox.Location = new System.Drawing.Point(158, 194);
+            this.StartServerCheckBox.Name = "StartServerCheckBox";
+            this.StartServerCheckBox.Size = new System.Drawing.Size(276, 24);
+            this.StartServerCheckBox.TabIndex = 27;
+            this.StartServerCheckBox.Text = "Start Server On Computer Startup";
+            this.StartServerCheckBox.UseVisualStyleBackColor = true;
+            this.StartServerCheckBox.Click += new System.EventHandler(this.Startserver_checkBox_Click);
             // 
-            // Email_checkBox
+            // EmailCheckBox
             // 
-            this.Email_checkBox.AutoSize = true;
-            this.Email_checkBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Email_checkBox.Location = new System.Drawing.Point(158, 162);
-            this.Email_checkBox.Name = "Email_checkBox";
-            this.Email_checkBox.Size = new System.Drawing.Size(325, 24);
-            this.Email_checkBox.TabIndex = 26;
-            this.Email_checkBox.Text = "Send Email Alert If Server Is not Running";
-            this.Email_checkBox.UseVisualStyleBackColor = true;
-            this.Email_checkBox.Click += new System.EventHandler(this.Email_checkBox_Click);
+            this.EmailCheckBox.AutoSize = true;
+            this.EmailCheckBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.EmailCheckBox.Location = new System.Drawing.Point(158, 162);
+            this.EmailCheckBox.Name = "EmailCheckBox";
+            this.EmailCheckBox.Size = new System.Drawing.Size(325, 24);
+            this.EmailCheckBox.TabIndex = 26;
+            this.EmailCheckBox.Text = "Send Email Alert If Server Is not Running";
+            this.EmailCheckBox.UseVisualStyleBackColor = true;
+            this.EmailCheckBox.Click += new System.EventHandler(this.Email_checkBox_Click);
             // 
-            // Setdir_button
+            // SetDirButton
             // 
-            this.Setdir_button.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Setdir_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(41)))), ((int)(((byte)(61)))));
-            this.Setdir_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Setdir_button.ForeColor = System.Drawing.Color.White;
-            this.Setdir_button.Location = new System.Drawing.Point(512, 120);
-            this.Setdir_button.Name = "Setdir_button";
-            this.Setdir_button.Size = new System.Drawing.Size(158, 34);
-            this.Setdir_button.TabIndex = 11;
-            this.Setdir_button.Text = "Get Dir";
-            this.Setdir_button.UseVisualStyleBackColor = true;
-            this.Setdir_button.Click += new System.EventHandler(this.Setdir_button_Click);
+            this.SetDirButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SetDirButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(41)))), ((int)(((byte)(61)))));
+            this.SetDirButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SetDirButton.ForeColor = System.Drawing.Color.White;
+            this.SetDirButton.Location = new System.Drawing.Point(512, 120);
+            this.SetDirButton.Name = "SetDirButton";
+            this.SetDirButton.Size = new System.Drawing.Size(158, 34);
+            this.SetDirButton.TabIndex = 11;
+            this.SetDirButton.Text = "Get Dir";
+            this.SetDirButton.UseVisualStyleBackColor = true;
+            this.SetDirButton.Click += new System.EventHandler(this.Setdir_button_Click);
             // 
             // label1
             // 
@@ -166,124 +166,124 @@ namespace FreeTAKServer_Manager
             this.label1.TabIndex = 10;
             this.label1.Text = "Python Install dir :";
             // 
-            // Pythondir_textBox
+            // PythonDirTextBox
             // 
-            this.Pythondir_textBox.Location = new System.Drawing.Point(158, 125);
-            this.Pythondir_textBox.Name = "Pythondir_textBox";
-            this.Pythondir_textBox.Size = new System.Drawing.Size(346, 26);
-            this.Pythondir_textBox.TabIndex = 9;
+            this.PythonDirTextBox.Location = new System.Drawing.Point(158, 125);
+            this.PythonDirTextBox.Name = "PythonDirTextBox";
+            this.PythonDirTextBox.Size = new System.Drawing.Size(346, 26);
+            this.PythonDirTextBox.TabIndex = 9;
             // 
-            // Installserver_button
+            // InstallServerButton
             // 
-            this.Installserver_button.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Installserver_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(41)))), ((int)(((byte)(61)))));
-            this.Installserver_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Installserver_button.ForeColor = System.Drawing.Color.White;
-            this.Installserver_button.Location = new System.Drawing.Point(512, 65);
-            this.Installserver_button.Name = "Installserver_button";
-            this.Installserver_button.Size = new System.Drawing.Size(158, 34);
-            this.Installserver_button.TabIndex = 8;
-            this.Installserver_button.Text = "Install Server";
-            this.Installserver_button.UseVisualStyleBackColor = true;
-            this.Installserver_button.Click += new System.EventHandler(this.Installserver_button_Click);
+            this.InstallServerButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.InstallServerButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(41)))), ((int)(((byte)(61)))));
+            this.InstallServerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.InstallServerButton.ForeColor = System.Drawing.Color.White;
+            this.InstallServerButton.Location = new System.Drawing.Point(512, 65);
+            this.InstallServerButton.Name = "InstallServerButton";
+            this.InstallServerButton.Size = new System.Drawing.Size(158, 34);
+            this.InstallServerButton.TabIndex = 8;
+            this.InstallServerButton.Text = "Install Server";
+            this.InstallServerButton.UseVisualStyleBackColor = true;
+            this.InstallServerButton.Click += new System.EventHandler(this.Installserver_button_Click);
             // 
-            // Checkports_button
+            // CheckPortsButton
             // 
-            this.Checkports_button.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Checkports_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(41)))), ((int)(((byte)(61)))));
-            this.Checkports_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Checkports_button.ForeColor = System.Drawing.Color.White;
-            this.Checkports_button.Location = new System.Drawing.Point(348, 65);
-            this.Checkports_button.Name = "Checkports_button";
-            this.Checkports_button.Size = new System.Drawing.Size(158, 34);
-            this.Checkports_button.TabIndex = 7;
-            this.Checkports_button.Text = "Check Ports";
-            this.Checkports_button.UseVisualStyleBackColor = true;
-            this.Checkports_button.Click += new System.EventHandler(this.Checkports_button_Click);
+            this.CheckPortsButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CheckPortsButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(41)))), ((int)(((byte)(61)))));
+            this.CheckPortsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CheckPortsButton.ForeColor = System.Drawing.Color.White;
+            this.CheckPortsButton.Location = new System.Drawing.Point(348, 65);
+            this.CheckPortsButton.Name = "CheckPortsButton";
+            this.CheckPortsButton.Size = new System.Drawing.Size(158, 34);
+            this.CheckPortsButton.TabIndex = 7;
+            this.CheckPortsButton.Text = "Check Ports";
+            this.CheckPortsButton.UseVisualStyleBackColor = true;
+            this.CheckPortsButton.Click += new System.EventHandler(this.Checkports_button_Click);
             // 
-            // Editconfig_button
+            // EditConfigButton
             // 
-            this.Editconfig_button.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Editconfig_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(41)))), ((int)(((byte)(61)))));
-            this.Editconfig_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Editconfig_button.ForeColor = System.Drawing.Color.White;
-            this.Editconfig_button.Location = new System.Drawing.Point(184, 65);
-            this.Editconfig_button.Name = "Editconfig_button";
-            this.Editconfig_button.Size = new System.Drawing.Size(158, 34);
-            this.Editconfig_button.TabIndex = 6;
-            this.Editconfig_button.Text = "Edit Config.py";
-            this.Editconfig_button.UseVisualStyleBackColor = true;
-            this.Editconfig_button.Click += new System.EventHandler(this.Editconfig_button_Click);
+            this.EditConfigButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.EditConfigButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(41)))), ((int)(((byte)(61)))));
+            this.EditConfigButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EditConfigButton.ForeColor = System.Drawing.Color.White;
+            this.EditConfigButton.Location = new System.Drawing.Point(184, 65);
+            this.EditConfigButton.Name = "EditConfigButton";
+            this.EditConfigButton.Size = new System.Drawing.Size(158, 34);
+            this.EditConfigButton.TabIndex = 6;
+            this.EditConfigButton.Text = "Edit Config.py";
+            this.EditConfigButton.UseVisualStyleBackColor = true;
+            this.EditConfigButton.Click += new System.EventHandler(this.Editconfig_button_Click);
             // 
-            // Editmainconfig_button
+            // EditMainConfigButton
             // 
-            this.Editmainconfig_button.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Editmainconfig_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(41)))), ((int)(((byte)(61)))));
-            this.Editmainconfig_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Editmainconfig_button.ForeColor = System.Drawing.Color.White;
-            this.Editmainconfig_button.Location = new System.Drawing.Point(22, 65);
-            this.Editmainconfig_button.Name = "Editmainconfig_button";
-            this.Editmainconfig_button.Size = new System.Drawing.Size(158, 34);
-            this.Editmainconfig_button.TabIndex = 5;
-            this.Editmainconfig_button.Text = "Edit MainConfig.py";
-            this.Editmainconfig_button.UseVisualStyleBackColor = true;
-            this.Editmainconfig_button.Click += new System.EventHandler(this.Editmainconfig_button_Click);
+            this.EditMainConfigButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.EditMainConfigButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(41)))), ((int)(((byte)(61)))));
+            this.EditMainConfigButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EditMainConfigButton.ForeColor = System.Drawing.Color.White;
+            this.EditMainConfigButton.Location = new System.Drawing.Point(22, 65);
+            this.EditMainConfigButton.Name = "EditMainConfigButton";
+            this.EditMainConfigButton.Size = new System.Drawing.Size(158, 34);
+            this.EditMainConfigButton.TabIndex = 5;
+            this.EditMainConfigButton.Text = "Edit MainConfig.py";
+            this.EditMainConfigButton.UseVisualStyleBackColor = true;
+            this.EditMainConfigButton.Click += new System.EventHandler(this.Editmainconfig_button_Click);
             // 
-            // Uninstallserver_button
+            // UninstallServerButton
             // 
-            this.Uninstallserver_button.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Uninstallserver_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(41)))), ((int)(((byte)(61)))));
-            this.Uninstallserver_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Uninstallserver_button.ForeColor = System.Drawing.Color.White;
-            this.Uninstallserver_button.Location = new System.Drawing.Point(512, 25);
-            this.Uninstallserver_button.Name = "Uninstallserver_button";
-            this.Uninstallserver_button.Size = new System.Drawing.Size(158, 34);
-            this.Uninstallserver_button.TabIndex = 4;
-            this.Uninstallserver_button.Text = "Uninstall Server";
-            this.Uninstallserver_button.UseVisualStyleBackColor = true;
-            this.Uninstallserver_button.Click += new System.EventHandler(this.Uninstallserver_button_Click);
+            this.UninstallServerButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.UninstallServerButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(41)))), ((int)(((byte)(61)))));
+            this.UninstallServerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.UninstallServerButton.ForeColor = System.Drawing.Color.White;
+            this.UninstallServerButton.Location = new System.Drawing.Point(512, 25);
+            this.UninstallServerButton.Name = "UninstallServerButton";
+            this.UninstallServerButton.Size = new System.Drawing.Size(158, 34);
+            this.UninstallServerButton.TabIndex = 4;
+            this.UninstallServerButton.Text = "Uninstall Server";
+            this.UninstallServerButton.UseVisualStyleBackColor = true;
+            this.UninstallServerButton.Click += new System.EventHandler(this.Uninstallserver_button_Click);
             // 
-            // Restartserver_button
+            // RestartServerButton
             // 
-            this.Restartserver_button.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Restartserver_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(41)))), ((int)(((byte)(61)))));
-            this.Restartserver_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Restartserver_button.ForeColor = System.Drawing.Color.White;
-            this.Restartserver_button.Location = new System.Drawing.Point(348, 25);
-            this.Restartserver_button.Name = "Restartserver_button";
-            this.Restartserver_button.Size = new System.Drawing.Size(158, 34);
-            this.Restartserver_button.TabIndex = 3;
-            this.Restartserver_button.Text = "Restart Server";
-            this.Restartserver_button.UseVisualStyleBackColor = true;
-            this.Restartserver_button.Click += new System.EventHandler(this.Restartserver_button_Click);
+            this.RestartServerButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RestartServerButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(41)))), ((int)(((byte)(61)))));
+            this.RestartServerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RestartServerButton.ForeColor = System.Drawing.Color.White;
+            this.RestartServerButton.Location = new System.Drawing.Point(348, 25);
+            this.RestartServerButton.Name = "RestartServerButton";
+            this.RestartServerButton.Size = new System.Drawing.Size(158, 34);
+            this.RestartServerButton.TabIndex = 3;
+            this.RestartServerButton.Text = "Restart Server";
+            this.RestartServerButton.UseVisualStyleBackColor = true;
+            this.RestartServerButton.Click += new System.EventHandler(this.Restartserver_button_Click);
             // 
-            // Stopserver_button
+            // StopServerButton
             // 
-            this.Stopserver_button.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Stopserver_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(41)))), ((int)(((byte)(61)))));
-            this.Stopserver_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Stopserver_button.ForeColor = System.Drawing.Color.White;
-            this.Stopserver_button.Location = new System.Drawing.Point(184, 25);
-            this.Stopserver_button.Name = "Stopserver_button";
-            this.Stopserver_button.Size = new System.Drawing.Size(158, 34);
-            this.Stopserver_button.TabIndex = 2;
-            this.Stopserver_button.Text = "Stop Server";
-            this.Stopserver_button.UseVisualStyleBackColor = true;
-            this.Stopserver_button.Click += new System.EventHandler(this.Stopserver_button_Click);
+            this.StopServerButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.StopServerButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(41)))), ((int)(((byte)(61)))));
+            this.StopServerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.StopServerButton.ForeColor = System.Drawing.Color.White;
+            this.StopServerButton.Location = new System.Drawing.Point(184, 25);
+            this.StopServerButton.Name = "StopServerButton";
+            this.StopServerButton.Size = new System.Drawing.Size(158, 34);
+            this.StopServerButton.TabIndex = 2;
+            this.StopServerButton.Text = "Stop Server";
+            this.StopServerButton.UseVisualStyleBackColor = true;
+            this.StopServerButton.Click += new System.EventHandler(this.Stopserver_button_Click);
             // 
-            // Startserver_button
+            // StartServerButton
             // 
-            this.Startserver_button.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Startserver_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(41)))), ((int)(((byte)(61)))));
-            this.Startserver_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Startserver_button.ForeColor = System.Drawing.Color.White;
-            this.Startserver_button.Location = new System.Drawing.Point(22, 25);
-            this.Startserver_button.Name = "Startserver_button";
-            this.Startserver_button.Size = new System.Drawing.Size(158, 34);
-            this.Startserver_button.TabIndex = 1;
-            this.Startserver_button.Text = "Start Server";
-            this.Startserver_button.UseVisualStyleBackColor = true;
-            this.Startserver_button.Click += new System.EventHandler(this.Startserver_button_Click);
+            this.StartServerButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.StartServerButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(41)))), ((int)(((byte)(61)))));
+            this.StartServerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.StartServerButton.ForeColor = System.Drawing.Color.White;
+            this.StartServerButton.Location = new System.Drawing.Point(22, 25);
+            this.StartServerButton.Name = "StartServerButton";
+            this.StartServerButton.Size = new System.Drawing.Size(158, 34);
+            this.StartServerButton.TabIndex = 1;
+            this.StartServerButton.Text = "Start Server";
+            this.StartServerButton.UseVisualStyleBackColor = true;
+            this.StartServerButton.Click += new System.EventHandler(this.Startserver_button_Click);
             // 
             // menuStrip1
             // 
@@ -291,10 +291,10 @@ namespace FreeTAKServer_Manager
             this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem,
-            this.emailSetupToolStripMenuItem,
-            this.readMeToolStripMenuItem,
-            this.testAPIToolStripMenuItem});
+            this.AboutToolStripMenuItem,
+            this.EmailSetupToolStripMenuItem,
+            this.ReadMeToolStripMenuItem,
+            this.TestAPIToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
@@ -302,67 +302,67 @@ namespace FreeTAKServer_Manager
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // aboutToolStripMenuItem
+            // AboutToolStripMenuItem
             // 
-            this.aboutToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
-            this.aboutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("aboutToolStripMenuItem.Image")));
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(102, 29);
-            this.aboutToolStripMenuItem.Text = "About";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            this.AboutToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
+            this.AboutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("AboutToolStripMenuItem.Image")));
+            this.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem";
+            this.AboutToolStripMenuItem.Size = new System.Drawing.Size(102, 29);
+            this.AboutToolStripMenuItem.Text = "About";
+            this.AboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
-            // emailSetupToolStripMenuItem
+            // EmailSetupToolStripMenuItem
             // 
-            this.emailSetupToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
-            this.emailSetupToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("emailSetupToolStripMenuItem.Image")));
-            this.emailSetupToolStripMenuItem.Name = "emailSetupToolStripMenuItem";
-            this.emailSetupToolStripMenuItem.Size = new System.Drawing.Size(145, 29);
-            this.emailSetupToolStripMenuItem.Text = "Email Setup";
-            this.emailSetupToolStripMenuItem.Click += new System.EventHandler(this.emailSetupToolStripMenuItem_Click);
+            this.EmailSetupToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
+            this.EmailSetupToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("EmailSetupToolStripMenuItem.Image")));
+            this.EmailSetupToolStripMenuItem.Name = "EmailSetupToolStripMenuItem";
+            this.EmailSetupToolStripMenuItem.Size = new System.Drawing.Size(145, 29);
+            this.EmailSetupToolStripMenuItem.Text = "Email Setup";
+            this.EmailSetupToolStripMenuItem.Click += new System.EventHandler(this.emailSetupToolStripMenuItem_Click);
             // 
-            // readMeToolStripMenuItem
+            // ReadMeToolStripMenuItem
             // 
-            this.readMeToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
-            this.readMeToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("readMeToolStripMenuItem.Image")));
-            this.readMeToolStripMenuItem.Name = "readMeToolStripMenuItem";
-            this.readMeToolStripMenuItem.Size = new System.Drawing.Size(116, 29);
-            this.readMeToolStripMenuItem.Text = "ReadMe";
-            this.readMeToolStripMenuItem.Click += new System.EventHandler(this.readMeToolStripMenuItem_Click);
+            this.ReadMeToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
+            this.ReadMeToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("ReadMeToolStripMenuItem.Image")));
+            this.ReadMeToolStripMenuItem.Name = "ReadMeToolStripMenuItem";
+            this.ReadMeToolStripMenuItem.Size = new System.Drawing.Size(116, 29);
+            this.ReadMeToolStripMenuItem.Text = "ReadMe";
+            this.ReadMeToolStripMenuItem.Click += new System.EventHandler(this.readMeToolStripMenuItem_Click);
             // 
-            // testAPIToolStripMenuItem
+            // TestAPIToolStripMenuItem
             // 
-            this.testAPIToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.freeTAKServerAPIToolStripMenuItem,
-            this.telegramAPIToolStripMenuItem});
-            this.testAPIToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
-            this.testAPIToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("testAPIToolStripMenuItem.Image")));
-            this.testAPIToolStripMenuItem.Name = "testAPIToolStripMenuItem";
-            this.testAPIToolStripMenuItem.Size = new System.Drawing.Size(114, 29);
-            this.testAPIToolStripMenuItem.Text = "Test API";
+            this.TestAPIToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.FreeTAKServerAPIToolStripMenuItem,
+            this.TelegramAPIToolStripMenuItem});
+            this.TestAPIToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
+            this.TestAPIToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("TestAPIToolStripMenuItem.Image")));
+            this.TestAPIToolStripMenuItem.Name = "TestAPIToolStripMenuItem";
+            this.TestAPIToolStripMenuItem.Size = new System.Drawing.Size(114, 29);
+            this.TestAPIToolStripMenuItem.Text = "Test API";
             // 
-            // freeTAKServerAPIToolStripMenuItem
+            // FreeTAKServerAPIToolStripMenuItem
             // 
-            this.freeTAKServerAPIToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("freeTAKServerAPIToolStripMenuItem.Image")));
-            this.freeTAKServerAPIToolStripMenuItem.Name = "freeTAKServerAPIToolStripMenuItem";
-            this.freeTAKServerAPIToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
-            this.freeTAKServerAPIToolStripMenuItem.Text = "FreeTAKServer API";
-            this.freeTAKServerAPIToolStripMenuItem.Click += new System.EventHandler(this.freeTAKServerAPIToolStripMenuItem_Click);
+            this.FreeTAKServerAPIToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("FreeTAKServerAPIToolStripMenuItem.Image")));
+            this.FreeTAKServerAPIToolStripMenuItem.Name = "FreeTAKServerAPIToolStripMenuItem";
+            this.FreeTAKServerAPIToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.FreeTAKServerAPIToolStripMenuItem.Text = "FreeTAKServer API";
+            this.FreeTAKServerAPIToolStripMenuItem.Click += new System.EventHandler(this.freeTAKServerAPIToolStripMenuItem_Click);
             // 
-            // telegramAPIToolStripMenuItem
+            // TelegramAPIToolStripMenuItem
             // 
-            this.telegramAPIToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("telegramAPIToolStripMenuItem.Image")));
-            this.telegramAPIToolStripMenuItem.Name = "telegramAPIToolStripMenuItem";
-            this.telegramAPIToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
-            this.telegramAPIToolStripMenuItem.Text = "Telegram API";
-            this.telegramAPIToolStripMenuItem.Click += new System.EventHandler(this.telegramAPIToolStripMenuItem_Click);
+            this.TelegramAPIToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("TelegramAPIToolStripMenuItem.Image")));
+            this.TelegramAPIToolStripMenuItem.Name = "TelegramAPIToolStripMenuItem";
+            this.TelegramAPIToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.TelegramAPIToolStripMenuItem.Text = "Telegram API";
+            this.TelegramAPIToolStripMenuItem.Click += new System.EventHandler(this.telegramAPIToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
             this.statusStrip1.BackColor = System.Drawing.Color.Gainsboro;
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripProgressBar1,
-            this.toolStripStatusLabel1});
+            this.ProgressBar,
+            this.StatusLabel});
             this.statusStrip1.Location = new System.Drawing.Point(0, 574);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Padding = new System.Windows.Forms.Padding(2, 0, 14, 0);
@@ -370,17 +370,17 @@ namespace FreeTAKServer_Manager
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // toolStripProgressBar1
+            // ProgressBar
             // 
-            this.toolStripProgressBar1.Name = "toolStripProgressBar1";
-            this.toolStripProgressBar1.Size = new System.Drawing.Size(100, 24);
+            this.ProgressBar.Name = "ProgressBar";
+            this.ProgressBar.Size = new System.Drawing.Size(100, 24);
             // 
-            // toolStripStatusLabel1
+            // StatusLabel
             // 
-            this.toolStripStatusLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(60, 25);
-            this.toolStripStatusLabel1.Text = "Ready";
+            this.StatusLabel.BackColor = System.Drawing.Color.Transparent;
+            this.StatusLabel.Name = "StatusLabel";
+            this.StatusLabel.Size = new System.Drawing.Size(60, 25);
+            this.StatusLabel.Text = "Ready";
             // 
             // MainForm
             // 
@@ -420,31 +420,31 @@ namespace FreeTAKServer_Manager
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RichTextBox Logs_richTextBox;
+        private System.Windows.Forms.RichTextBox LogsRichTextBox;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button Installserver_button;
-        private System.Windows.Forms.Button Checkports_button;
-        private System.Windows.Forms.Button Editconfig_button;
-        private System.Windows.Forms.Button Editmainconfig_button;
-        private System.Windows.Forms.Button Uninstallserver_button;
-        private System.Windows.Forms.Button Restartserver_button;
-        private System.Windows.Forms.Button Stopserver_button;
-        private System.Windows.Forms.Button Startserver_button;
+        private System.Windows.Forms.Button InstallServerButton;
+        private System.Windows.Forms.Button CheckPortsButton;
+        private System.Windows.Forms.Button EditConfigButton;
+        private System.Windows.Forms.Button EditMainConfigButton;
+        private System.Windows.Forms.Button UninstallServerButton;
+        private System.Windows.Forms.Button RestartServerButton;
+        private System.Windows.Forms.Button StopServerButton;
+        private System.Windows.Forms.Button StartServerButton;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem emailSetupToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem AboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem EmailSetupToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private System.Windows.Forms.ToolStripMenuItem readMeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripProgressBar ProgressBar;
+        private System.Windows.Forms.ToolStripStatusLabel StatusLabel;
+        private System.Windows.Forms.ToolStripMenuItem ReadMeToolStripMenuItem;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox Pythondir_textBox;
-        private System.Windows.Forms.Button Setdir_button;
-        private System.Windows.Forms.ToolStripMenuItem testAPIToolStripMenuItem;
-        private System.Windows.Forms.CheckBox Email_checkBox;
-        private System.Windows.Forms.CheckBox Startserver_checkBox;
-        private System.Windows.Forms.ToolStripMenuItem freeTAKServerAPIToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem telegramAPIToolStripMenuItem;
+        private System.Windows.Forms.TextBox PythonDirTextBox;
+        private System.Windows.Forms.Button SetDirButton;
+        private System.Windows.Forms.ToolStripMenuItem TestAPIToolStripMenuItem;
+        private System.Windows.Forms.CheckBox EmailCheckBox;
+        private System.Windows.Forms.CheckBox StartServerCheckBox;
+        private System.Windows.Forms.ToolStripMenuItem FreeTAKServerAPIToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem TelegramAPIToolStripMenuItem;
     }
 }
 

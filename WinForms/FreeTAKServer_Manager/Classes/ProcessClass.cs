@@ -4,16 +4,16 @@ namespace FreeTAKServer_Manager
 {
     internal class ProcessClass
     {
-        internal static void RunProcess(string path)
+        internal static void RunProcess(string Path)
         {
-            using (Process p = new Process())
+            using (Process Process = new Process())
             {
-                p.StartInfo = new ProcessStartInfo()
+                Process.StartInfo = new ProcessStartInfo()
                 {
                     UseShellExecute = true,
-                    FileName = path
+                    FileName = Path
                 };
-                p.Start();
+                Process.Start();
             }
         }
     }

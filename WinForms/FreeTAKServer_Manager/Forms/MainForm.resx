@@ -121,7 +121,7 @@
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="aboutToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="AboutToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAKoSURBVDhPpZPtT1JRHMf9W/RP6N7etDZ90VybDZK0
@@ -139,7 +139,7 @@
         AABJRU5ErkJggg==
 </value>
   </data>
-  <data name="emailSetupToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="EmailSetupToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAfRJREFUWEft
         VjtLHUEY3WhAfJB0ghaCZSpBtAg2aYKIWOpPuG3KEBu3FUHI3Z2VbXfnsY524m2vDwJJitRCsLGwVBIR
@@ -153,7 +153,7 @@
         yj8pD7SrUOE5wDAeAFAmAjS1UMKgAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="readMeToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="ReadMeToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAIVSURBVDhPjZJNa5NREIVnW9x1UVcuCo2LIrhwYXBh
@@ -168,10 +168,10 @@
         eDpe6hZOdfX2jh3r73/8P0ALDxF17wOwhXlTIsPi6QAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="freeTAKServerAPIToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="FreeTAKServerAPIToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAAsSAAALEgHS3X78AAAHsElE
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAAsRAAALEQF/ZF+RAAAHsElE
         QVR4Xu2cB4xUVRSGWRAsCKKiBHvvYsGCRpTYG2rURMXYYzT2lmjQRIONqLEn9th7jb2EYCW22EXF3hUL
         9gICfh/wzLq5M/tm5k1ZOH/yZWCYvTvvlnPPOfdcuoVCoVAoFAqFQqFQKBQKhUKhUCgUCoVCoVAoFAqF
         QrnVE3rM/GOoEZoL+sFSsDZsBytBTZoHloZVZr0uCvNDd5jTZR/0gcVhDdgeToRb4BV4D46B3lC11oSr
@@ -208,7 +208,7 @@
         TkSuQmCC
 </value>
   </data>
-  <data name="telegramAPIToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="TelegramAPIToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAABBVJREFUWEft
         1ttTG1UAx3EedaAod1qkBEgpKqEkjpU6o0+OFMdH65N/gVMf7Izjk9qL0wJlQgnGmlgoplJS25JWS6GY
@@ -231,7 +231,7 @@
         g27Obaeb+bVddHl92pplZf0LkdKAuVXQPccAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="testAPIToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="TestAPIToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAeNJREFUWEft
         VrtKA0EUTacoFvoBNvoHVnHuQBqjcXaCICLY6yf4AltRrCRY2Fj77OxE8ANELQQFCSGou5sIIkhETaH3

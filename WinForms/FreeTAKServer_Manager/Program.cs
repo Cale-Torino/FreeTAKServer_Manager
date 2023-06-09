@@ -12,24 +12,25 @@ namespace FreeTAKServer_Manager
         /// </summary>
         [STAThread]
 
-        private static void TrySetCursorsDotHandToSystemHandCursor()
+        private static void SetCursor()
         {
             try
             {
-                typeof(Cursors).GetField("hand", BindingFlags.Static | BindingFlags.NonPublic)
-                               .SetValue(null, SystemHandCursor);
+                typeof(Cursors).GetField("hand", BindingFlags.Static | BindingFlags.NonPublic).SetValue(null, SystemHandCursor);
             }
-            catch { }
+            catch {
+                    //do nothing
+                  }
         }
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
-        private static extern IntPtr LoadCursor(IntPtr hInstance, int lpCursorName);
+        private static extern IntPtr LoadCursor(IntPtr Instance, int CursorName);
 
         private static readonly Cursor SystemHandCursor = new Cursor(LoadCursor(IntPtr.Zero, 32649 /*IDC_HAND*/));
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            TrySetCursorsDotHandToSystemHandCursor();
+            SetCursor();
             Application.Run(new MainForm());
         }
     }

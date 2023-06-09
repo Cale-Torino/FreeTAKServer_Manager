@@ -1,16 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
-using System.IO.Compression;
-using System.Linq;
 using System.Net;
 using System.Reflection;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FreeTAKServer_Manager
@@ -36,31 +29,31 @@ namespace FreeTAKServer_Manager
         {
             try
             {
-                UpdateCheckerClass oCheckClient = new UpdateCheckerClass("https://raw.githubusercontent.com/Cale-Torino/FreeTAKServer_Manager/main/WinForms/FreeTAKServer_Manager/Classes/UpdateChecker/CurrentVersion.xml");
-                int nMajor = oCheckClient.GetVersion(enVerion.EMajor);
-                int nMinor = oCheckClient.GetVersion(enVerion.EMinor);
-                int nBuild = oCheckClient.GetVersion(enVerion.EBuild);
+                UpdateCheckerClass CheckClient = new UpdateCheckerClass("https://raw.githubusercontent.com/Cale-Torino/FreeTAKServer_Manager/main/WinForms/FreeTAKServer_Manager/Classes/UpdateChecker/CurrentVersion.xml");
+                int Major = CheckClient.GetVersion(VersionNumber.Major);
+                int Minor = CheckClient.GetVersion(VersionNumber.Minor);
+                int Build = CheckClient.GetVersion(VersionNumber.Build);
 
-                string strPath = oCheckClient.GetNewVersionPath();
+                string StringPath = CheckClient.GetNewVersionPath();
 
                 // Get my own version's numbers
                 Assembly assembly = Assembly.GetExecutingAssembly();
                 FileVersionInfo fileVersionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);
 
-                int nAppMajor = fileVersionInfo.FileMajorPart;
-                int nAppMinor = fileVersionInfo.FileMinorPart;
-                int nAppBuild = fileVersionInfo.FileBuildPart;
+                int AppMajor = fileVersionInfo.FileMajorPart;
+                int AppMinor = fileVersionInfo.FileMinorPart;
+                int AppBuild = fileVersionInfo.FileBuildPart;
 
-                if (nMajor > nAppMajor || nMinor > nAppMinor || nBuild > nAppBuild)
+                if (Major > AppMajor || Minor > AppMinor || Build > AppBuild)
                 {
                     //|| nMinor > nAppMinor
-                    DialogResult result = MessageBox.Show($"Found update:\nversion: {nMajor}.{nMinor}.{nBuild}\nWould you like to download the update?", "Update Checker", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
-                    if (result == DialogResult.Yes)
+                    DialogResult Result = MessageBox.Show($"Found update:\nversion: {Major}.{Minor}.{Build}\nWould you like to download the update?", "Update Checker", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                    if (Result == DialogResult.Yes)
                     {
                         //code for Yes
-                        UpdateApp(strPath);
+                        UpdateApp(StringPath);
                     }
-                    else if (result == DialogResult.No)
+                    else if (Result == DialogResult.No)
                     {
                         //code for No
                         Close();
@@ -69,7 +62,7 @@ namespace FreeTAKServer_Manager
                 else 
                 {
                     //|| nMinor > nAppMinor
-                    DialogResult result = MessageBox.Show($"You already have the latest version.\nversion: {nMajor}.{nMinor}.{nBuild}\n", "Update Checker", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    DialogResult result = MessageBox.Show($"You already have the latest version.\nversion: {Major}.{Minor}.{Build}\n", "Update Checker", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     if (result == DialogResult.OK)
                     {
                         //code for ok
@@ -77,25 +70,25 @@ namespace FreeTAKServer_Manager
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception Exception)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(Exception.Message);
                 return;
             }
 
         }
 
-        private void UpdateApp(string strPath)
+        private void UpdateApp(string StringPath)
         {
             try
             {
-                Thread thread = new Thread(() => {
-                    WebClient wc = new WebClient();
-                    wc.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressChanged);
-                    wc.DownloadFileCompleted += new AsyncCompletedEventHandler(DownloadFileCallback);
-                    wc.DownloadFileAsync(new Uri(strPath), @"Updates\FreeTAKServer_Manager_Installer.msi");
+                Thread Thread = new Thread(() => {
+                    WebClient WC = new WebClient();
+                    WC.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressChanged);
+                    WC.DownloadFileCompleted += new AsyncCompletedEventHandler(DownloadFileCallback);
+                    WC.DownloadFileAsync(new Uri(StringPath), @"Updates\FreeTAKServer_Manager_Installer.msi");
                 });
-                thread.Start();
+                Thread.Start();
             }
             catch (Exception ex)
             {
@@ -108,11 +101,11 @@ namespace FreeTAKServer_Manager
         void DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
             BeginInvoke((MethodInvoker)delegate {
-                double bytesIn = double.Parse(e.BytesReceived.ToString());
-                double totalBytes = double.Parse(e.TotalBytesToReceive.ToString());
-                double percentage = bytesIn / totalBytes * 100;
-                label.Text = $"Downloaded {Math.Round(e.BytesReceived / 1024.0 / 1024.0, 2)} MB of {Math.Round(e.TotalBytesToReceive / 1024.0 / 1024.0, 2)} MB";
-                progressBar.Value = int.Parse(Math.Truncate(percentage).ToString());
+                double BytesIn = double.Parse(e.BytesReceived.ToString());
+                double TotalBytes = double.Parse(e.TotalBytesToReceive.ToString());
+                double Percentage = BytesIn / TotalBytes * 100;
+                Label.Text = $"Downloaded {Math.Round(e.BytesReceived / 1024.0 / 1024.0, 2)} MB of {Math.Round(e.TotalBytesToReceive / 1024.0 / 1024.0, 2)} MB";
+                progressBar.Value = int.Parse(Math.Truncate(Percentage).ToString());
             });
         }
 
@@ -136,7 +129,7 @@ namespace FreeTAKServer_Manager
             {
                 //code for No
                 BeginInvoke((MethodInvoker)delegate {
-                    label.Text = "Download Completed";
+                    Label.Text = "Download Completed";
                 });
                 //Close();
             }

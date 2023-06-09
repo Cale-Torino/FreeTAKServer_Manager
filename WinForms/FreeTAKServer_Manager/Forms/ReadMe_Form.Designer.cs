@@ -30,19 +30,19 @@ namespace FreeTAKServer_Manager
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReadMe_Form));
-            this.ReadMe_richTextBox = new System.Windows.Forms.RichTextBox();
+            this.ReadMeRichTextBox = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
-            // ReadMe_richTextBox
+            // ReadMeRichTextBox
             // 
-            this.ReadMe_richTextBox.BackColor = System.Drawing.Color.Black;
-            this.ReadMe_richTextBox.ForeColor = System.Drawing.Color.White;
-            this.ReadMe_richTextBox.Location = new System.Drawing.Point(12, 12);
-            this.ReadMe_richTextBox.Name = "ReadMe_richTextBox";
-            this.ReadMe_richTextBox.ReadOnly = true;
-            this.ReadMe_richTextBox.Size = new System.Drawing.Size(742, 473);
-            this.ReadMe_richTextBox.TabIndex = 0;
-            this.ReadMe_richTextBox.Text = "";
+            this.ReadMeRichTextBox.BackColor = System.Drawing.Color.Black;
+            this.ReadMeRichTextBox.ForeColor = System.Drawing.Color.White;
+            this.ReadMeRichTextBox.Location = new System.Drawing.Point(12, 12);
+            this.ReadMeRichTextBox.Name = "ReadMeRichTextBox";
+            this.ReadMeRichTextBox.ReadOnly = true;
+            this.ReadMeRichTextBox.Size = new System.Drawing.Size(742, 473);
+            this.ReadMeRichTextBox.TabIndex = 0;
+            this.ReadMeRichTextBox.Text = "";
             // 
             // ReadMe_Form
             // 
@@ -50,7 +50,7 @@ namespace FreeTAKServer_Manager
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(41)))), ((int)(((byte)(61)))));
             this.ClientSize = new System.Drawing.Size(766, 497);
-            this.Controls.Add(this.ReadMe_richTextBox);
+            this.Controls.Add(this.ReadMeRichTextBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ReadMe_Form";
@@ -63,6 +63,6 @@ namespace FreeTAKServer_Manager
 
         #endregion
 
-        private System.Windows.Forms.RichTextBox ReadMe_richTextBox;
+        private System.Windows.Forms.RichTextBox ReadMeRichTextBox;
     }
 }

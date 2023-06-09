@@ -13,29 +13,29 @@ namespace FreeTAKServer_Manager
 
         private async void Test_button_Click(object sender, EventArgs e)
         {
-            Memo_richTextBox.Clear();
-            using (HttpClient client = new HttpClient())
+            MemoRichTextBox.Clear();
+            using (HttpClient Client = new HttpClient())
             {
                 //Add Default Request Headers
-                client.DefaultRequestHeaders.Add("Authorization", "Bearer token");
+                Client.DefaultRequestHeaders.Add("Authorization", "Bearer token");
                 try
                 {
-                    using (HttpResponseMessage response = await client.GetAsync(new Uri("http://127.0.0.1:19023/manageAPI/getHelp")))
+                    using (HttpResponseMessage Response = await Client.GetAsync(new Uri("http://127.0.0.1:19023/manageAPI/getHelp")))
                     {
-                        using (HttpContent content = response.Content)
+                        using (HttpContent content = Response.Content)
                         {
                             //Read the result and display in Textbox
-                            string result = await content.ReadAsStringAsync();//Result string JSON
-                            string reasonPhrase = response.ReasonPhrase;//Reason OK, FAIL etc.
-                            Memo_richTextBox.AppendText(result + Environment.NewLine);
-                            Memo_richTextBox.AppendText(reasonPhrase + Environment.NewLine);
+                            string Result = await content.ReadAsStringAsync();//Result string JSON
+                            string ReasonPhrase = Response.ReasonPhrase;//Reason OK, FAIL etc.
+                            MemoRichTextBox.AppendText(Result + Environment.NewLine);
+                            MemoRichTextBox.AppendText(ReasonPhrase + Environment.NewLine);
                         }
                     }
                 }
-                catch (Exception ex)
+                catch (Exception Exception)
                 {
-                    MessageBox.Show(ex.Message, "Could not test API", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    LoggerClass.WriteLine(" *** Error:" + ex.Message + " [MainForm] ***");
+                    MessageBox.Show(Exception.Message, "Could not test API", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    LoggerClass.WriteLine($" *** Error:{Exception.Message} [MainForm] ***");
                     return;
                 }
             }
@@ -43,29 +43,29 @@ namespace FreeTAKServer_Manager
 
         private async void Custom_button_Click(object sender, EventArgs e)
         {
-            Memo_richTextBox.Clear();
-            using (HttpClient client = new HttpClient())
+            MemoRichTextBox.Clear();
+            using (HttpClient Client = new HttpClient())
             {
                 //Add Default Request Headers
-                client.DefaultRequestHeaders.Add("Authorization", "Bearer " + Token_textBox.Text);
+                Client.DefaultRequestHeaders.Add("Authorization", "Bearer " + TokenTextBox.Text);
                 try
                 {
-                    using (HttpResponseMessage response = await client.GetAsync(new Uri(Customtest_textBox.Text)))
+                    using (HttpResponseMessage Response = await Client.GetAsync(new Uri(CustomTestTextBox.Text)))
                     {
-                        using (HttpContent content = response.Content)
+                        using (HttpContent Content = Response.Content)
                         {
                             //Read the result and display in Textbox
-                            string result = await content.ReadAsStringAsync();//Result string JSON
-                            string reasonPhrase = response.ReasonPhrase;//Reason OK, FAIL etc.
-                            Memo_richTextBox.AppendText(result + Environment.NewLine);
-                            Memo_richTextBox.AppendText(reasonPhrase + Environment.NewLine);
+                            string Result = await Content.ReadAsStringAsync();//Result string JSON
+                            string ReasonPhrase = Response.ReasonPhrase;//Reason OK, FAIL etc.
+                            MemoRichTextBox.AppendText(Result + Environment.NewLine);
+                            MemoRichTextBox.AppendText(ReasonPhrase + Environment.NewLine);
                         }
                     }
                 }
-                catch (Exception ex)
+                catch (Exception Exception)
                 {
-                    MessageBox.Show(ex.Message, "Could not custom test API", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    LoggerClass.WriteLine(" *** Error:" + ex.Message + " [MainForm] ***");
+                    MessageBox.Show(Exception.Message, "Could not custom test API", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    LoggerClass.WriteLine($" *** Error:{Exception.Message} [MainForm] ***");
                     return;
                 }
             }
@@ -74,8 +74,8 @@ namespace FreeTAKServer_Manager
         private void FreeTAKServer_API_Form_Load(object sender, EventArgs e)
         {
             //Set Textbox text
-            Customtest_textBox.Text = "http://127.0.0.1:19023/manageAPI/getHelp";
-            Token_textBox.Text = "token";
+            CustomTestTextBox.Text = "http://127.0.0.1:19023/manageAPI/getHelp";
+            TokenTextBox.Text = "token";
         }
     }
 }

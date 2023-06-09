@@ -29,22 +29,22 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateForm));
-            this.label = new System.Windows.Forms.Label();
+            this.Label = new System.Windows.Forms.Label();
             this.groupBox = new System.Windows.Forms.GroupBox();
-            this.Close_button = new System.Windows.Forms.Button();
             this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.CloseButton = new System.Windows.Forms.Button();
             this.groupBox.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label
+            // Label
             // 
-            this.label.AutoSize = true;
-            this.label.ForeColor = System.Drawing.Color.White;
-            this.label.Location = new System.Drawing.Point(12, 9);
-            this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(180, 20);
-            this.label.TabIndex = 0;
-            this.label.Text = "Checking For Updates...";
+            this.Label.AutoSize = true;
+            this.Label.ForeColor = System.Drawing.Color.White;
+            this.Label.Location = new System.Drawing.Point(12, 9);
+            this.Label.Name = "Label";
+            this.Label.Size = new System.Drawing.Size(180, 20);
+            this.Label.TabIndex = 0;
+            this.Label.Text = "Checking For Updates...";
             // 
             // groupBox
             // 
@@ -55,20 +55,6 @@
             this.groupBox.TabIndex = 1;
             this.groupBox.TabStop = false;
             // 
-            // Close_button
-            // 
-            this.Close_button.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Close_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(41)))), ((int)(((byte)(61)))));
-            this.Close_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Close_button.ForeColor = System.Drawing.Color.White;
-            this.Close_button.Location = new System.Drawing.Point(414, 126);
-            this.Close_button.Name = "Close_button";
-            this.Close_button.Size = new System.Drawing.Size(158, 34);
-            this.Close_button.TabIndex = 2;
-            this.Close_button.Text = "Close";
-            this.Close_button.UseVisualStyleBackColor = true;
-            this.Close_button.Click += new System.EventHandler(this.Close_button_Click);
-            // 
             // progressBar
             // 
             this.progressBar.Location = new System.Drawing.Point(6, 25);
@@ -76,15 +62,29 @@
             this.progressBar.Size = new System.Drawing.Size(548, 33);
             this.progressBar.TabIndex = 0;
             // 
+            // CloseButton
+            // 
+            this.CloseButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CloseButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(41)))), ((int)(((byte)(61)))));
+            this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CloseButton.ForeColor = System.Drawing.Color.White;
+            this.CloseButton.Location = new System.Drawing.Point(414, 126);
+            this.CloseButton.Name = "CloseButton";
+            this.CloseButton.Size = new System.Drawing.Size(158, 34);
+            this.CloseButton.TabIndex = 2;
+            this.CloseButton.Text = "Close";
+            this.CloseButton.UseVisualStyleBackColor = true;
+            this.CloseButton.Click += new System.EventHandler(this.Close_button_Click);
+            // 
             // UpdateForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(41)))), ((int)(((byte)(61)))));
             this.ClientSize = new System.Drawing.Size(584, 172);
-            this.Controls.Add(this.Close_button);
+            this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.groupBox);
-            this.Controls.Add(this.label);
+            this.Controls.Add(this.Label);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -101,9 +101,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label;
+        private System.Windows.Forms.Label Label;
         private System.Windows.Forms.GroupBox groupBox;
-        private System.Windows.Forms.Button Close_button;
+        private System.Windows.Forms.Button CloseButton;
         private System.Windows.Forms.ProgressBar progressBar;
     }
 }

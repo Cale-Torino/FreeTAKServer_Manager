@@ -1,58 +1,56 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 
 namespace FreeTAKServer_Manager
 {
-    public enum enVerion
+    public enum VersionNumber
     {
-        EUnknown = -1,
-        EMajor,
-        EMinor,
-        EBuild
+        Unknown = -1,
+        Major,
+        Minor,
+        Build
     }
     internal class UpdateCheckerClass
     {
-        private int _nMajor, _nMinor, _nBuild;
+        private int Major, Minor, Build;
 
-        private string _sXmlConfig, _sNewVersionPath;
+        private string XmlConfig, NewVersionPath;
 
-        public UpdateCheckerClass(string sPath = null)
+        public UpdateCheckerClass(string Path = null)
         {
-            if (sPath != null)
-                _sXmlConfig = sPath;
+            if (Path != null)
+            {
+                XmlConfig = Path;
+            }
 
-            _nMajor = (int)enVerion.EUnknown;
-            _nMinor = (int)enVerion.EUnknown;
-            _nBuild = (int)enVerion.EUnknown;
+            Major = (int)VersionNumber.Unknown;
+            Minor = (int)VersionNumber.Unknown;
+            Build = (int)VersionNumber.Unknown;
 
-            _sNewVersionPath = string.Empty;
+            NewVersionPath = string.Empty;
 
-            Check4Update();
+            CheckUpdate();
         }
 
-        internal void Check4Update()
+        internal void CheckUpdate()
         {
             try
             {
-                if (_sXmlConfig != null && !string.IsNullOrEmpty(_sXmlConfig))
+                if (XmlConfig != null && !string.IsNullOrEmpty(XmlConfig))
                 {
-                    XmlDocument oDom = new XmlDocument();
+                    XmlDocument Doc = new XmlDocument();
 
-                    oDom.Load(_sXmlConfig);
-                    string str = oDom.SelectSingleNode("//currentVersion/major").InnerText;
-                    if (int.TryParse(str, out _nMajor))
+                    Doc.Load(XmlConfig);
+                    string DocString = Doc.SelectSingleNode("//currentVersion/major").InnerText;
+                    if (int.TryParse(DocString, out Major))
                     {
-                        str = oDom.SelectSingleNode("//currentVersion/minor").InnerText;
-                        int.TryParse(str, out _nMinor);
+                        DocString = Doc.SelectSingleNode("//currentVersion/minor").InnerText;
+                        int.TryParse(DocString, out Minor);
 
-                        str = oDom.SelectSingleNode("//currentVersion/build").InnerText;
-                        int.TryParse(str, out _nBuild);
+                        DocString = Doc.SelectSingleNode("//currentVersion/build").InnerText;
+                        int.TryParse(DocString, out Build);
 
-                        _sNewVersionPath = oDom.SelectSingleNode("//path").InnerText;
+                        NewVersionPath = Doc.SelectSingleNode("//path").InnerText;
                     }
                 }
             }
@@ -64,24 +62,24 @@ namespace FreeTAKServer_Manager
 
         public string GetNewVersionPath()
         {
-            return _sNewVersionPath;
+            return NewVersionPath;
         }
 
-        public int GetVersion(enVerion en)
+        public int GetVersion(VersionNumber en)
         {
             switch (en)
             {
-                case enVerion.EMajor:
-                    return _nMajor;
+                case VersionNumber.Major:
+                    return Major;
 
-                case enVerion.EMinor:
-                    return _nMinor;
+                case VersionNumber.Minor:
+                    return Minor;
 
-                case enVerion.EBuild:
-                    return _nBuild;
+                case VersionNumber.Build:
+                    return Build;
 
                 default:
-                    return (int)enVerion.EUnknown;
+                    return (int)VersionNumber.Unknown;
             }
         }
     }

@@ -9,16 +9,16 @@ namespace FreeTAKServer_Manager
         //Create logfile log. file
         internal static string LogFile { get; set; } = $@"{AppDomain.CurrentDomain.BaseDirectory}Logs\{AppDomain.CurrentDomain.FriendlyName}_{DateTime.Now:yyyy-dd-M--HH-mm-ss}.log";
 
-        internal static void WriteLine(string txt)
+        internal static void WriteLine(string Text)
         {
             try
             {
                 //Write to the logfile
-                File.AppendAllText(LogFile, $"[{DateTime.Now}] : {txt}\n");
+                File.AppendAllText(LogFile, $"[{DateTime.Now}] : {Text}\n");
             }
-            catch (Exception ex)
+            catch (Exception Exception)
             {
-                MessageBox.Show(ex.Message, "Could Not Append Text To Log File", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Exception.Message, "Could Not Append Text To Log File", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
         }
@@ -30,9 +30,9 @@ namespace FreeTAKServer_Manager
                 //Delete the log file
                 File.Delete(LogFile);
             }
-            catch (Exception ex)
+            catch (Exception Exception)
             {
-                MessageBox.Show(ex.Message, "Could Not Delete Log File", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Exception.Message, "Could Not Delete Log File", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
         }

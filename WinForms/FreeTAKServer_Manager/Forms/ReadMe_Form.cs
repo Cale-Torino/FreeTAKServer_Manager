@@ -17,16 +17,16 @@ namespace FreeTAKServer_Manager
             try
             {
                 //Clear Richtextbox and add the content of ReadMe.txt
-                ReadMe_richTextBox.Clear();
-                using (var sr = new StreamReader("TextFiles\\ReadMe.txt"))
+                ReadMeRichTextBox.Clear();
+                using (var Stream = new StreamReader(@"TextFiles\ReadMe.txt"))
                 {
-                    ReadMe_richTextBox.Text = sr.ReadToEnd();
+                    ReadMeRichTextBox.Text = Stream.ReadToEnd();
                 }
 
             }
-            catch (Exception ex)
+            catch (Exception Exception)
             {
-                MessageBox.Show(ex.Message, "Read Me Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Exception.Message, "Read Me Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
         }

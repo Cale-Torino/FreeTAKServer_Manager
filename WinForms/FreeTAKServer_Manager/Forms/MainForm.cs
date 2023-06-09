@@ -122,12 +122,12 @@ namespace FreeTAKServer_Manager
             {
                 //Create the folders used by the app
                 string Path = Application.StartupPath;
-                Directory.CreateDirectory(Path + @"\Logs");
-                Directory.CreateDirectory(Path + @"\Updates");
+                Directory.CreateDirectory($@"{Path}\Logs");
+                Directory.CreateDirectory($@"{Path}\Updates");
                 LoggerClass.WriteLine(" *** Application Start [MainForm] ***");
-                LogsRichTextBox.AppendText($"[{DateTime.Now}] : Application Start" + Environment.NewLine);
+                LogsRichTextBox.AppendText($"[{DateTime.Now}] : Application Start\n");
                 LoggerClass.WriteLine(" *** CreateDirectory Success [MainForm] ***");
-                LogsRichTextBox.AppendText($"[{DateTime.Now}] : Logs Create Directory Success" + Environment.NewLine);
+                LogsRichTextBox.AppendText($"[{DateTime.Now}] : Logs Create Directory Success\n");
             }
             catch (Exception Exception)
             {
@@ -142,36 +142,36 @@ namespace FreeTAKServer_Manager
         {
             try
             {
-                string YamlConfigfile = Properties.Settings.Default.PythonDir + @"Lib\site-packages\FreeTAKServer\FTSConfig.yaml";
-                string ConfigFile = Properties.Settings.Default.PythonDir + @"Lib\site-packages\FreeTAKServer-UI\config.py";
-                string MainConfigfile = Properties.Settings.Default.PythonDir + @"Lib\site-packages\FreeTAKServer\core\configuration\MainConfig.py";
+                string YamlConfigfile = $@"{Properties.Settings.Default.PythonDir}Lib\site-packages\FreeTAKServer\FTSConfig.yaml";
+                string ConfigFile = $@"{Properties.Settings.Default.PythonDir}Lib\site-packages\FreeTAKServer-UI\config.py";
+                string MainConfigfile = $@"{Properties.Settings.Default.PythonDir}Lib\site-packages\FreeTAKServer\core\configuration\MainConfig.py";
                 //If the files exist replace `</text>`
-                if (Directory.Exists(Path.GetDirectoryName(configfile)) && Directory.Exists(Path.GetDirectoryName(MainConfigfile)) && Directory.Exists(Path.GetDirectoryName(YamlConfigfile))) 
+                if (Directory.Exists(Path.GetDirectoryName(ConfigFile)) && Directory.Exists(Path.GetDirectoryName(MainConfigfile)) && Directory.Exists(Path.GetDirectoryName(YamlConfigfile))) 
                 {
-                    string _configfile = File.ReadAllText(configfile, Encoding.UTF8);//Read config.py file text
-                    string _MainConfigfile = File.ReadAllText(MainConfigfile, Encoding.UTF8);//Read MainConfig.py file text
-                    string _YamlConfigfile = File.ReadAllText(YamlConfigfile, Encoding.UTF8);//Read FTSConfig.yaml file text
+                    string ConFigFile = File.ReadAllText(ConfigFile, Encoding.UTF8);//Read config.py file text
+                    string MainCF = File.ReadAllText(MainConfigfile, Encoding.UTF8);//Read MainConfig.py file text
+                    string YamlCF = File.ReadAllText(YamlConfigfile, Encoding.UTF8);//Read FTSConfig.yaml file text
                     string PythonPath = Properties.Settings.Default.PythonDir.Replace(@"\", @"\\");//Replace directory `\` with `\\`
 
-                    _YamlConfigfile = _YamlConfigfile.Replace("</text>", PythonPath);// Replace `</text>` with the directory
-                    _YamlConfigfile = Regex.Replace(_YamlConfigfile, @"\<ref.*?\</ref\>", "");
-                    File.WriteAllText(YamlConfigfile, _YamlConfigfile);//Write all to file
+                    YamlCF = YamlCF.Replace("</text>", PythonPath);// Replace `</text>` with the directory
+                    YamlCF = Regex.Replace(YamlCF, @"\<ref.*?\</ref\>", "");
+                    File.WriteAllText(YamlConfigfile, YamlCF);//Write all to file
 
-                    _MainConfigfile = _MainConfigfile.Replace("</text>", PythonPath);// Replace `</text>` with the directory
-                    _MainConfigfile = Regex.Replace(_MainConfigfile, @"\<ref.*?\</ref\>", "");
-                    File.WriteAllText(MainConfigfile, _MainConfigfile);//Write all to file
+                    MainCF = MainCF.Replace("</text>", PythonPath);// Replace `</text>` with the directory
+                    MainCF = Regex.Replace(MainCF, @"\<ref.*?\</ref\>", "");
+                    File.WriteAllText(MainConfigfile, MainCF);//Write all to file
 
-                    _configfile = _configfile.Replace("</text>", PythonPath);// Replace `</text>` with the directory
-                    _configfile = Regex.Replace(_configfile, @"\<ref.*?\</ref\>", "");
-                    File.WriteAllText(configfile, _configfile);//Write all to file
+                    ConFigFile = ConFigFile.Replace("</text>", PythonPath);// Replace `</text>` with the directory
+                    ConFigFile = Regex.Replace(ConFigFile, @"\<ref.*?\</ref\>", "");
+                    File.WriteAllText(ConfigFile, ConFigFile);//Write all to file
                 }
 
             }
-            catch (Exception ex)
+            catch (Exception Exception)
             {
-                MessageBox.Show(ex.Message, "Create Folder Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                LoggerClass.WriteLine(" *** Error:" + ex.Message + " [MainForm] ***");
-                LogsRichTextBox.AppendText("[" + DateTime.Now.ToString() + "] : Error:" + ex.Message + Environment.NewLine);
+                MessageBox.Show(Exception.Message, "Create Folder Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LoggerClass.WriteLine($" *** Error:{Exception.Message} [MainForm] ***");
+                LogsRichTextBox.AppendText($"[{DateTime.Now}] : Error:{Exception.Message}\n");
                 return;
             }
         }
@@ -183,17 +183,20 @@ namespace FreeTAKServer_Manager
             Focus();//Focus on the Main form
         }
 
-        public static bool IsFileEmpty(string fileName)
+        public static bool IsFileEmpty(string FileName)
         {
-            var info = new FileInfo(fileName);
-            if (info.Length == 0)
+            var Info = new FileInfo(FileName);
+            if (Info.Length == 0)
+            {
                 return true;
+            }
+                
 
             // only if your use case can involve files with 1 or a few bytes of content.
-            if (info.Length < 6)
+            if (Info.Length < 6)
             {
-                var content = File.ReadAllText(fileName);
-                return content.Length == 0;
+                var Content = File.ReadAllText(FileName);
+                return Content.Length == 0;
             }
             return false;
         }
@@ -201,17 +204,17 @@ namespace FreeTAKServer_Manager
         private void DirChecks()
         {
             //create logs folder, no need to check if it exists
-            Directory.CreateDirectory(Properties.Settings.Default.PythonDir + @"Lib\site-packages\FreeTAKServer\controllers\logs");
-            string nullkb_init = Properties.Settings.Default.PythonDir + @"Lib\site-packages\FreeTAKServer-UI\__init__.py";
+            Directory.CreateDirectory($@"{Properties.Settings.Default.PythonDir}Lib\site-packages\FreeTAKServer\controllers\logs");
+            string NullkbInit = $@"{Properties.Settings.Default.PythonDir}Lib\site-packages\FreeTAKServer-UI\__init__.py";
             //del 0kb file if it exists
-            FileInfo file = new FileInfo(nullkb_init);
-            if (Directory.Exists(Path.GetDirectoryName(nullkb_init)))
+            FileInfo FileInf = new FileInfo(NullkbInit);
+            if (Directory.Exists(Path.GetDirectoryName(NullkbInit)))
             {
                 try
                 {
-                    if (file.Length <= 0)
+                    if (FileInf.Length <= 0)
                     {
-                        File.Delete(nullkb_init);
+                        File.Delete(NullkbInit);
                     }
                 }
                 catch (Exception)
@@ -223,27 +226,27 @@ namespace FreeTAKServer_Manager
 
         private void StartServer()
         {
-            string configfile = Properties.Settings.Default.PythonDir + @"Lib\site-packages\FreeTAKServer-UI\config.py";
-            string MainConfigfile = Properties.Settings.Default.PythonDir + @"Lib\site-packages\FreeTAKServer\core\configuration\MainConfig.py";
-            if (Directory.Exists(Path.GetDirectoryName(configfile)) && Directory.Exists(Path.GetDirectoryName(MainConfigfile)))
+            string Configfile = $@"{Properties.Settings.Default.PythonDir}Lib\site-packages\FreeTAKServer-UI\config.py";
+            string MainConfigfile = $@"{Properties.Settings.Default.PythonDir}Lib\site-packages\FreeTAKServer\core\configuration\MainConfig.py";
+            if (Directory.Exists(Path.GetDirectoryName(Configfile)) && Directory.Exists(Path.GetDirectoryName(MainConfigfile)))
             {
                 DirChecks();
                 //Start the server via sending a cmd command
-                int _ServerPID = CMD_Instance.CMDStartServer("/k python -m FreeTAKServer.controllers.services.FTS", @"C:\Windows\System32");//Start server
+                int ServerPID = CMDInstance.CMDStartServer("/k python -m FreeTAKServer.controllers.services.FTS", @"C:\Windows\System32");//Start server
                 System.Threading.Thread.Sleep(1000);
-                int _UIPID = CMD_Instance.CMDStartServer("/k cd " + Properties.Settings.Default.PythonDir + @"Lib\site-packages\FreeTAKServer-UI&&set FLASK_APP=run.py&&Flask run --host=0.0.0.0", Properties.Settings.Default.PythonDir + @"Lib\site-packages\FreeTAKServer-UI");//Start UI
-                CMD_PID_Class._ServerPIDVar = _ServerPID;
-                CMD_PID_Class._UIPIDVar = _UIPID;
+                int UIPID = CMDInstance.CMDStartServer($@"/k cd {Properties.Settings.Default.PythonDir}Lib\site-packages\FreeTAKServer-UI&&set FLASK_APP=run.py&&Flask run --host=0.0.0.0", $@"{Properties.Settings.Default.PythonDir}Lib\site-packages\FreeTAKServer-UI");//Start UI
+                CMDPIDClass.ServerPIDVar = ServerPID;
+                CMDPIDClass.UIPIDVar = UIPID;
                 Process.Start("http://127.0.0.1:5000");// Open this page in the default browser
-                LoggerClass.WriteLine(" *** Start Server PID=" + _ServerPID + ", Start UI PID=" + _UIPID + " [MainForm] ***");
-                LogsRichTextBox.AppendText("[" + DateTime.Now.ToString() + "] : Start Server PID=" + _ServerPID + ", Start UI PID=" + _UIPID + Environment.NewLine);
+                LoggerClass.WriteLine($" *** Start Server PID={ServerPID}, Start UI PID={UIPID} [MainForm] ***");
+                LogsRichTextBox.AppendText($"[{DateTime.Now}] : Start Server PID={ServerPID}, Start UI PID={UIPID}\n");
 
             }
             else
             {
                 MessageBox.Show("Server is not installed", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoggerClass.WriteLine(" *** Server is not installed  [MainForm] ***");
-                LogsRichTextBox.AppendText("[" + DateTime.Now.ToString() + "] : Server is not installed" + Environment.NewLine);
+                LogsRichTextBox.AppendText($"[{DateTime.Now}] : Server is not installed\n");
             }
         }
 
@@ -254,17 +257,17 @@ namespace FreeTAKServer_Manager
         }
         private void StopServer()
         {
-            string configfile = Properties.Settings.Default.PythonDir + @"Lib\site-packages\FreeTAKServer-UI\config.py";
-            string MainConfigfile = Properties.Settings.Default.PythonDir + @"Lib\site-packages\FreeTAKServer\core\configuration\MainConfig.py";
+            string Configfile = $@"{Properties.Settings.Default.PythonDir}Lib\site-packages\FreeTAKServer-UI\config.py";
+            string MainConfigfile = $@"{Properties.Settings.Default.PythonDir}Lib\site-packages\FreeTAKServer\core\configuration\MainConfig.py";
             //Stop the server via sending a cmd command to kill the process
-            if (Directory.Exists(Path.GetDirectoryName(configfile)) && Directory.Exists(Path.GetDirectoryName(MainConfigfile)))
+            if (Directory.Exists(Path.GetDirectoryName(Configfile)) && Directory.Exists(Path.GetDirectoryName(MainConfigfile)))
             {
-                if (CMD_PID_Class._ServerPIDVar != 0)
+                if (CMDPIDClass.ServerPIDVar != 0)
                 {
-                    CMD_Instance.PIDkill(CMD_PID_Class._ServerPIDVar);//Kill the server
-                    CMD_Instance.PIDkill(CMD_PID_Class._UIPIDVar);//Kill the UI
-                    LoggerClass.WriteLine(" *** Kill Server PID=" + CMD_PID_Class._ServerPIDVar + ",  Kill UI PID=" + CMD_PID_Class._UIPIDVar + "[MainForm] ***");
-                    LogsRichTextBox.AppendText("[" + DateTime.Now.ToString() + "] : Kill Server PID=" + CMD_PID_Class._ServerPIDVar + ", Kill UI PID=" + CMD_PID_Class._UIPIDVar + Environment.NewLine);
+                    CMDInstance.PIDkill(CMDPIDClass.ServerPIDVar);//Kill the server
+                    CMDInstance.PIDkill(CMDPIDClass.UIPIDVar);//Kill the UI
+                    LoggerClass.WriteLine($" *** Kill Server PID={CMDPIDClass.ServerPIDVar},  Kill UI PID={CMDPIDClass.UIPIDVar}[MainForm] ***");
+                    LogsRichTextBox.AppendText($"[{DateTime.Now}] : Kill Server PID={CMDPIDClass.ServerPIDVar}, Kill UI PID={CMDPIDClass.UIPIDVar}\n");
                 }
                 else
                 {
@@ -276,7 +279,7 @@ namespace FreeTAKServer_Manager
             {
                 MessageBox.Show("Server is not installed", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoggerClass.WriteLine(" *** Server is not installed  [MainForm] ***");
-                LogsRichTextBox.AppendText("[" + DateTime.Now.ToString() + "] : Server is not installed" + Environment.NewLine);
+                LogsRichTextBox.AppendText($"[{DateTime.Now}] : Server is not installed\n");
             }
         }
         private void Stopserver_button_Click(object sender, EventArgs e)
@@ -287,22 +290,22 @@ namespace FreeTAKServer_Manager
 
         private void Restartserver_button_Click(object sender, EventArgs e)
         {
-            string configfile = Properties.Settings.Default.PythonDir + @"Lib\site-packages\FreeTAKServer-UI\config.py";
+            string Configfile = Properties.Settings.Default.PythonDir + @"Lib\site-packages\FreeTAKServer-UI\config.py";
             string MainConfigfile = Properties.Settings.Default.PythonDir + @"Lib\site-packages\FreeTAKServer\core\configuration\MainConfig.py";
             //Stop the server and UI by killing the process, then start the server again by calling the cmd methods
-            if (Directory.Exists(Path.GetDirectoryName(configfile)) && Directory.Exists(Path.GetDirectoryName(MainConfigfile)))
+            if (Directory.Exists(Path.GetDirectoryName(Configfile)) && Directory.Exists(Path.GetDirectoryName(MainConfigfile)))
             {
-                if (CMD_PID_Class._ServerPIDVar != 0)
+                if (CMDPIDClass.ServerPIDVar != 0)
                 {
-                    CMD_Instance.PIDkill(CMD_PID_Class._ServerPIDVar);
-                    CMD_Instance.PIDkill(CMD_PID_Class._UIPIDVar);
-                    int _ServerPID = CMD_Instance.CMDStartServer("/k python -m FreeTAKServer.controllers.services.FTS", @"C:\Windows\System32");
+                    CMDInstance.PIDkill(CMDPIDClass.ServerPIDVar);
+                    CMDInstance.PIDkill(CMDPIDClass.UIPIDVar);
+                    int ServerPID = CMDInstance.CMDStartServer("/k python -m FreeTAKServer.controllers.services.FTS", @"C:\Windows\System32");
                     System.Threading.Thread.Sleep(1000);
-                    int _UIPID = CMD_Instance.CMDStartServer("/k cd " + Properties.Settings.Default.PythonDir + @"Lib\site-packages\FreeTAKServer-UI&&set FLASK_APP=run.py&&Flask run --host=0.0.0.0", Properties.Settings.Default.PythonDir + @"Lib\site-packages\FreeTAKServer-UI");
-                    CMD_PID_Class._ServerPIDVar = _ServerPID;
-                    CMD_PID_Class._UIPIDVar = _UIPID;
-                    LoggerClass.WriteLine(" *** Restart Server PID=" + _ServerPID + ", Restart UI PID=" + _UIPID + " [MainForm] ***");
-                    LogsRichTextBox.AppendText("[" + DateTime.Now.ToString() + "] : Restart Server PID=" + _ServerPID + ", Restart UI PID=" + _UIPID + Environment.NewLine);
+                    int UIPID = CMDInstance.CMDStartServer("/k cd " + Properties.Settings.Default.PythonDir + @"Lib\site-packages\FreeTAKServer-UI&&set FLASK_APP=run.py&&Flask run --host=0.0.0.0", Properties.Settings.Default.PythonDir + @"Lib\site-packages\FreeTAKServer-UI");
+                    CMDPIDClass.ServerPIDVar = ServerPID;
+                    CMDPIDClass.UIPIDVar = UIPID;
+                    LoggerClass.WriteLine(" *** Restart Server PID=" + ServerPID + ", Restart UI PID=" + UIPID + " [MainForm] ***");
+                    LogsRichTextBox.AppendText($"[{DateTime.Now}] : Restart Server PID=" + ServerPID + ", Restart UI PID=" + UIPID + Environment.NewLine);
                 }
                 else
                 {
@@ -315,7 +318,7 @@ namespace FreeTAKServer_Manager
             {
                 MessageBox.Show("Server is not installed", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoggerClass.WriteLine(" *** Server is not installed  [MainForm] ***");
-                LogsRichTextBox.AppendText("[" + DateTime.Now.ToString() + "] : Server is not installed" + Environment.NewLine);
+                LogsRichTextBox.AppendText($"[{DateTime.Now}] : Server is not installed" + Environment.NewLine);
             }
 
         }
@@ -323,16 +326,16 @@ namespace FreeTAKServer_Manager
         private void Uninstallserver_button_Click(object sender, EventArgs e)
         {
             StopServer();//Stop the server
-            string configfile = Properties.Settings.Default.PythonDir + @"Lib\site-packages\FreeTAKServer-UI\config.py";
+            string Configfile = Properties.Settings.Default.PythonDir + @"Lib\site-packages\FreeTAKServer-UI\config.py";
             string MainConfigfile = Properties.Settings.Default.PythonDir + @"Lib\site-packages\FreeTAKServer\core\configuration\MainConfig.py";
             //Uninstall the server bu sending the pip uninstall command to the cmd.
-            if (Directory.Exists(Path.GetDirectoryName(configfile)) && Directory.Exists(Path.GetDirectoryName(MainConfigfile)))
+            if (Directory.Exists(Path.GetDirectoryName(Configfile)) && Directory.Exists(Path.GetDirectoryName(MainConfigfile)))
             {
                 string Pythonpath = Properties.Settings.Default.PythonDir;
                 try
                 {
                     Cursor.Current = Cursors.WaitCursor;
-                    int _Uninstall = CMD_Instance.SendCMDCommandNormal("/c pip uninstall --yes FreeTAKServer&&pip uninstall --yes FreeTAKServer-UI", @"C:\Windows\System32");
+                    int Uninstall = CMDInstance.SendCMDCommandNormal("/c pip uninstall --yes FreeTAKServer&&pip uninstall --yes FreeTAKServer-UI", @"C:\Windows\System32");
 
                     string DataBasefile = Pythonpath + @"Lib\site-packages\FreeTAKServer\FTSDataBase.db";
                     if (Directory.Exists(Path.GetDirectoryName(DataBasefile)))
@@ -343,21 +346,21 @@ namespace FreeTAKServer_Manager
                         Directory.Delete(Pythonpath + @"Lib\site-packages\FreeTAKServer-UI", true);
 
                         LoggerClass.WriteLine(" *** Deleting Dir=" + Pythonpath + @"Lib\site-packages\FreeTAKServer  [MainForm] ***");
-                        LogsRichTextBox.AppendText("[" + DateTime.Now.ToString() + "] : Deleting Dir=" + Pythonpath + @"Lib\site-packages\FreeTAKServer" + Environment.NewLine);
+                        LogsRichTextBox.AppendText($"[{DateTime.Now}] : Deleting Dir=" + Pythonpath + @"Lib\site-packages\FreeTAKServer" + Environment.NewLine);
                         LoggerClass.WriteLine(" *** Deleting Dir=" + Pythonpath + @"Lib\site-packages\FreeTAKServer-UI  [MainForm] ***");
-                        LogsRichTextBox.AppendText("[" + DateTime.Now.ToString() + "] : Deleting Dir=" + Pythonpath + @"Lib\site-packages\FreeTAKServer-UI" + Environment.NewLine);
+                        LogsRichTextBox.AppendText($"[{DateTime.Now}] : Deleting Dir=" + Pythonpath + @"Lib\site-packages\FreeTAKServer-UI" + Environment.NewLine);
                     }
-                    LoggerClass.WriteLine(" *** Uninstall Server PID=" + _Uninstall + " [MainForm] ***");
-                    LogsRichTextBox.AppendText("[" + DateTime.Now.ToString() + "] : Uninstall Server PID=" + _Uninstall + Environment.NewLine);
+                    LoggerClass.WriteLine(" *** Uninstall Server PID=" + Uninstall + " [MainForm] ***");
+                    LogsRichTextBox.AppendText($"[{DateTime.Now}] : Uninstall Server PID=" + Uninstall + Environment.NewLine);
                     Cursor.Current = Cursors.Default;
                     MessageBox.Show("Server has been uninstalled", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                catch (Exception ex)
+                catch (Exception Exception)
                 {
                     Cursor.Current = Cursors.Default;
-                    MessageBox.Show(ex.Message, "Could not uninstall FreeTAKServer & FreeTAKServer-UI", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    LoggerClass.WriteLine(" *** Error:" + ex.Message + " [MainForm] ***");
-                    LogsRichTextBox.AppendText("[" + DateTime.Now.ToString() + "] : Error:" + ex.Message + Environment.NewLine);
+                    MessageBox.Show(Exception.Message, "Could not uninstall FreeTAKServer & FreeTAKServer-UI", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    LoggerClass.WriteLine($" *** Error:{Exception.Message} [MainForm] ***");
+                    LogsRichTextBox.AppendText($"[{DateTime.Now}] : Error:{Exception.Message}\n");
                     return;
                 }
             }
@@ -365,7 +368,7 @@ namespace FreeTAKServer_Manager
             {
                 MessageBox.Show("Server is already uninstalled", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoggerClass.WriteLine(" *** Server is already uninstalled  [MainForm] ***");
-                LogsRichTextBox.AppendText("[" + DateTime.Now.ToString() + "] : Server is already uninstalled" + Environment.NewLine);
+                LogsRichTextBox.AppendText($"[{DateTime.Now}] : Server is already uninstalled" + Environment.NewLine);
             }
 
         }
@@ -375,24 +378,24 @@ namespace FreeTAKServer_Manager
             try
             {
                 //Open the MainConfig.py in the default editor for that file type
-                var f = Properties.Settings.Default.PythonDir+ @"Lib\site-packages\FreeTAKServer\core\configuration\MainConfig.py";
-                var p = new Process();
-                p.StartInfo = new ProcessStartInfo()
+                var FileName = Properties.Settings.Default.PythonDir+ @"Lib\site-packages\FreeTAKServer\core\configuration\MainConfig.py";
+                var Process = new Process();
+                Process.StartInfo = new ProcessStartInfo()
                 {
                     UseShellExecute = true,
-                    FileName = f
+                    FileName = FileName
                 };
 
-                p.Start();
+                Process.Start();
                 //p.WaitForExit();
                 LoggerClass.WriteLine(" *** Edit MainConfig.py [MainForm] ***");
-                LogsRichTextBox.AppendText("[" + DateTime.Now.ToString() + "] : Edit MainConfig.py" + Environment.NewLine);
+                LogsRichTextBox.AppendText($"[{DateTime.Now}] : Edit MainConfig.py" + Environment.NewLine);
             }
-            catch (Exception ex)
+            catch (Exception Exception)
             {
-                MessageBox.Show(ex.Message, "Could edit MainConfig.py", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                LoggerClass.WriteLine(" *** Error:" + ex.Message + " [MainForm] ***");
-                LogsRichTextBox.AppendText("[" + DateTime.Now.ToString() + "] : Error:" + ex.Message + Environment.NewLine);
+                MessageBox.Show(Exception.Message, "Could edit MainConfig.py", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LoggerClass.WriteLine($" *** Error:{Exception.Message} [MainForm] ***");
+                LogsRichTextBox.AppendText($"[{DateTime.Now}] : Error:{Exception.Message}\n");
                 return;
             }
         }
@@ -402,24 +405,24 @@ namespace FreeTAKServer_Manager
             try
             {
                 //Open the config.py in the default editor for that file type
-                var f = Properties.Settings.Default.PythonDir+ @"Lib\site-packages\FreeTAKServer-UI\config.py";
-                var p = new Process();
-                p.StartInfo = new ProcessStartInfo()
+                var FileName = Properties.Settings.Default.PythonDir+ @"Lib\site-packages\FreeTAKServer-UI\config.py";
+                var Process = new Process();
+                Process.StartInfo = new ProcessStartInfo()
                 {
                     UseShellExecute = true,
-                    FileName = f
+                    FileName = FileName
                 };
 
-                p.Start();
+                Process.Start();
                 //p.WaitForExit();
                 LoggerClass.WriteLine(" *** Edit config.py [MainForm] ***");
-                LogsRichTextBox.AppendText("[" + DateTime.Now.ToString() + "] : Edit config.py" + Environment.NewLine);
+                LogsRichTextBox.AppendText($"[{DateTime.Now}] : Edit config.py" + Environment.NewLine);
             }
-            catch (Exception ex)
+            catch (Exception Exception)
             {
-                MessageBox.Show(ex.Message, "Could edit config.py", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                LoggerClass.WriteLine(" *** Error:" + ex.Message + " [MainForm] ***");
-                LogsRichTextBox.AppendText("[" + DateTime.Now.ToString() + "] : Error:" + ex.Message + Environment.NewLine);
+                MessageBox.Show(Exception.Message, "Could edit config.py", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LoggerClass.WriteLine($" *** Error:{Exception.Message} [MainForm] ***");
+                LogsRichTextBox.AppendText($"[{DateTime.Now}] : Error:{Exception.Message}\n");
                 return;
             }
         }
@@ -429,19 +432,19 @@ namespace FreeTAKServer_Manager
             //Open www.yougetsignal.com in the default browser 
             Process.Start("https://www.yougetsignal.com/tools/open-ports/");
             LoggerClass.WriteLine(" *** Check ports https://www.yougetsignal.com/tools/open-ports/ [MainForm] ***");
-            LogsRichTextBox.AppendText("[" + DateTime.Now.ToString() + "] : Check ports https://www.yougetsignal.com/tools/open-ports/" + Environment.NewLine);
+            LogsRichTextBox.AppendText($"[{DateTime.Now}] : Check ports https://www.yougetsignal.com/tools/open-ports/" + Environment.NewLine);
         }
         private void Installserver_button_Click(object sender, EventArgs e)
         {
-            string configfile = Properties.Settings.Default.PythonDir + @"Lib\site-packages\FreeTAKServer-UI\config.py";
+            string Configfile = Properties.Settings.Default.PythonDir + @"Lib\site-packages\FreeTAKServer-UI\config.py";
             string MainConfigfile = Properties.Settings.Default.PythonDir + @"Lib\site-packages\FreeTAKServer\core\configuration\MainConfig.py";
             string YamlConfigfile = Properties.Settings.Default.PythonDir + @"Lib\site-packages\FreeTAKServer\FTSConfig.yaml";
             //Install the requirements file, the server and the UI
-            if (Directory.Exists(Path.GetDirectoryName(configfile)) && Directory.Exists(Path.GetDirectoryName(MainConfigfile)) && Directory.Exists(Path.GetDirectoryName(YamlConfigfile)))
+            if (Directory.Exists(Path.GetDirectoryName(Configfile)) && Directory.Exists(Path.GetDirectoryName(MainConfigfile)) && Directory.Exists(Path.GetDirectoryName(YamlConfigfile)))
             {
                 MessageBox.Show("Server is already installed", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoggerClass.WriteLine(" *** Server is already installed  [MainForm] ***");
-                LogsRichTextBox.AppendText("[" + DateTime.Now.ToString() + "] : Server is already installed" + Environment.NewLine);
+                LogsRichTextBox.AppendText($"[{DateTime.Now}] : Server is already installed" + Environment.NewLine);
             }
             else
             {
@@ -452,22 +455,22 @@ namespace FreeTAKServer_Manager
                     // /c pip install -r requirements.txt&&python -m pip install FreeTAKServer[ui]
                     // /c pip install -r requirements.txt&&python -m pip install FreeTAKServer[ui]==1.8.1
                     // /c pip python -m pip install FreeTAKServer[ui]==1.7.5
-                    int _Install = CMD_Instance.SendCMDCommandNormal("/c pip install -r TextFiles\\requirements.txt&&python -m pip install FreeTAKServer[ui]==2.0.69", Application.StartupPath);
+                    int Install = CMDInstance.SendCMDCommandNormal("/c pip install -r TextFiles\\requirements.txt&&python -m pip install FreeTAKServer[ui]==2.0.69", Application.StartupPath);
                     File.Copy(Application.StartupPath + @"\YamlScripts\FTSConfig.yaml", Properties.Settings.Default.PythonDir + @"Lib\site-packages\FreeTAKServer\FTSConfig.yaml", true);
                     File.Copy(Application.StartupPath+ @"\PythonScripts\config.py", Properties.Settings.Default.PythonDir + @"Lib\site-packages\FreeTAKServer-UI\config.py", true);
                     File.Copy(Application.StartupPath+ @"\PythonScripts\MainConfig.py", Properties.Settings.Default.PythonDir + @"Lib\site-packages\FreeTAKServer\core\configuration\MainConfig.py", true);
                     replaceText();
-                    LoggerClass.WriteLine(" *** Install Server PID=" + _Install + " [MainForm] ***");
-                    LogsRichTextBox.AppendText("[" + DateTime.Now.ToString() + "] : Install Server PID=" + _Install + Environment.NewLine);
+                    LoggerClass.WriteLine(" *** Install Server PID=" + Install + " [MainForm] ***");
+                    LogsRichTextBox.AppendText($"[{DateTime.Now}] : Install Server PID=" + Install + Environment.NewLine);
                     Cursor.Current = Cursors.Default;
                     MessageBox.Show("Server has been installed", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                catch (Exception ex)
+                catch (Exception Exception)
                 {
                     Cursor.Current = Cursors.Default;
-                    MessageBox.Show(ex.Message, "Could not install FreeTAKServer[ui]", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    LoggerClass.WriteLine(" *** Error:" + ex.Message + " [MainForm] ***");
-                    LogsRichTextBox.AppendText("[" + DateTime.Now.ToString() + "] : Error:" + ex.Message + Environment.NewLine);
+                    MessageBox.Show(Exception.Message, "Could not install FreeTAKServer[ui]", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    LoggerClass.WriteLine($" *** Error:{Exception.Message} [MainForm] ***");
+                    LogsRichTextBox.AppendText($"[{DateTime.Now}] : Error:{Exception.Message}\n");
                     return;
                 }
             }
@@ -477,36 +480,36 @@ namespace FreeTAKServer_Manager
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //Open the about form
-            using (Form f = new About_Form())
+            using (Form Form = new About_Form())
             {
-                f.ShowDialog();
-                f.Activate();
+                Form.ShowDialog();
+                Form.Activate();
             }
         }
 
         private void emailSetupToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //Open the email setup form
-            using (Form f = new EmailSetup_Form())
+            using (Form Form = new EmailSetup_Form())
             {
-                f.ShowDialog();
-                f.Activate();
+                Form.ShowDialog();
+                Form.Activate();
             }
         }
 
         private void readMeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //Open the read me form
-            using (Form f = new ReadMe_Form())
+            using (Form Form = new ReadMe_Form())
             {
-                f.ShowDialog();
-                f.Activate();
+                Form.ShowDialog();
+                Form.Activate();
             }
         }
         private string CheckPythonVersion()
         {
             //string result = "";
-            ProcessStartInfo pycheck = new ProcessStartInfo
+            ProcessStartInfo PyCheck = new ProcessStartInfo
             {
                 FileName = @"python.exe",
                 Arguments = "--version",
@@ -514,12 +517,12 @@ namespace FreeTAKServer_Manager
                 RedirectStandardOutput = true,
                 CreateNoWindow = true
             };
-            using (Process process = Process.Start(pycheck))
+            using (Process Process = Process.Start(PyCheck))
             {
-                using (StreamReader reader = process.StandardOutput)
+                using (StreamReader Reader = Process.StandardOutput)
                 {
-                    string result = reader.ReadToEnd();
-                    return result;
+                    string Result = Reader.ReadToEnd();
+                    return Result;
                 }
             }
         }
@@ -529,28 +532,28 @@ namespace FreeTAKServer_Manager
             try
             {
                 //get python path from environtment variable [set when python was installed]
-                IDictionary environmentVariables = Environment.GetEnvironmentVariables();
-                string pathVariable = environmentVariables["Path"] as string;
-                string pythonPathFromEnv = "";
-                if (pathVariable != null)
+                IDictionary EnvironmentVariables = Environment.GetEnvironmentVariables();
+                string PathVariable = EnvironmentVariables["Path"] as string;
+                string PythonPathFromEnv = "";
+                if (PathVariable != null)
                 {
-                    string[] allPaths = pathVariable.Split(';');
-                    foreach (var path in allPaths)
+                    string[] AllPaths = PathVariable.Split(';');
+                    foreach (var Path in AllPaths)
                     {
-                        pythonPathFromEnv = path + @"\python.exe";
-                        if (File.Exists(pythonPathFromEnv))
+                        PythonPathFromEnv = Path + @"\python.exe";
+                        if (File.Exists(PythonPathFromEnv))
                         {
-                            return pythonPathFromEnv = path;
+                            return PythonPathFromEnv = Path;
                         }
                     }
                 }
-                return pythonPathFromEnv;
+                return PythonPathFromEnv;
             }
-            catch (Exception ex)
+            catch (Exception Exception)
             {
-                MessageBox.Show(ex.Message, "Get Python Path Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                LoggerClass.WriteLine(" *** Error:" + ex.Message + " [MainForm] ***");
-                LogsRichTextBox.AppendText("[" + DateTime.Now.ToString() + "] : Error:" + ex.Message + Environment.NewLine);
+                MessageBox.Show(Exception.Message, "Get Python Path Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LoggerClass.WriteLine($" *** Error:{Exception.Message} [MainForm] ***");
+                LogsRichTextBox.AppendText($"[{DateTime.Now}] : Error:{Exception.Message}\n");
                 return "Get Python Path Error";
             }
 
@@ -568,18 +571,18 @@ namespace FreeTAKServer_Manager
                     PythonDirTextBox.ReadOnly = false;
                     SetDirButton.Text = "Save Dir";
                     LoggerClass.WriteLine(" *** Auto Get Python Path Success [MainForm] ***");
-                    LogsRichTextBox.AppendText("[" + DateTime.Now.ToString() + "] : Auto Get Python Path Success" + Environment.NewLine);
+                    LogsRichTextBox.AppendText($"[{DateTime.Now}] : Auto Get Python Path Success" + Environment.NewLine);
                 }
-                catch (Exception ex)
+                catch (Exception Exception)
                 {
-                    MessageBox.Show(ex.Message, "Auto Get Python Path Error! Please enter path manually.", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    LoggerClass.WriteLine(" *** Error:" + ex.Message + " [MainForm] ***");
-                    LogsRichTextBox.AppendText("[" + DateTime.Now.ToString() + "] : Error:" + ex.Message + Environment.NewLine);
+                    MessageBox.Show(Exception.Message, "Auto Get Python Path Error! Please enter path manually.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    LoggerClass.WriteLine($" *** Error:{Exception.Message} [MainForm] ***");
+                    LogsRichTextBox.AppendText($"[{DateTime.Now}] : Error:{Exception.Message}\n");
                     PythonDirTextBox.Enabled = true;
                     PythonDirTextBox.ReadOnly = false;
                     SetDirButton.Text = "Save Dir";
                     LoggerClass.WriteLine(" *** Auto Get Python Path Error. Attempting Manual Path Entry [MainForm] ***");
-                    LogsRichTextBox.AppendText("[" + DateTime.Now.ToString() + "] : Auto Get Python Path Error. Attempting Manual Path Entry" + Environment.NewLine);
+                    LogsRichTextBox.AppendText($"[{DateTime.Now}] : Auto Get Python Path Error. Attempting Manual Path Entry" + Environment.NewLine);
                     return;
                 }
             }
@@ -605,19 +608,19 @@ namespace FreeTAKServer_Manager
                 InstallServerButton.Enabled = true;
                 MessageBox.Show("Dir : \' " + PythonDirTextBox.Text + " \' has been saved ", "");
                 LoggerClass.WriteLine(" *** Python Path Save Success. Path=" + PythonDirTextBox.Text + " [MainForm] ***");
-                LogsRichTextBox.AppendText("[" + DateTime.Now.ToString() + "] : Python Path Save Success" + Environment.NewLine);
+                LogsRichTextBox.AppendText($"[{DateTime.Now}] : Python Path Save Success" + Environment.NewLine);
             }
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (CMD_PID_Class._ServerPIDVar != 0)
+            if (CMDPIDClass.ServerPIDVar != 0)
             {
                 //On form closing stop the server and UI
-                CMD_Instance.PIDkill(CMD_PID_Class._ServerPIDVar);
-                CMD_Instance.PIDkill(CMD_PID_Class._UIPIDVar);
-                LoggerClass.WriteLine(" *** Kill Server PID=" + CMD_PID_Class._ServerPIDVar + ",  Kill UI PID=" + CMD_PID_Class._UIPIDVar + "[MainForm] ***");
-                LogsRichTextBox.AppendText("[" + DateTime.Now.ToString() + "] : Kill Server PID=" + CMD_PID_Class._ServerPIDVar + ", Kill UI PID=" + CMD_PID_Class._UIPIDVar + Environment.NewLine);
+                CMDInstance.PIDkill(CMDPIDClass.ServerPIDVar);
+                CMDInstance.PIDkill(CMDPIDClass.UIPIDVar);
+                LoggerClass.WriteLine(" *** Kill Server PID=" + CMDPIDClass.ServerPIDVar + ",  Kill UI PID=" + CMDPIDClass.UIPIDVar + "[MainForm] ***");
+                LogsRichTextBox.AppendText($"[{DateTime.Now}] : Kill Server PID=" + CMDPIDClass.ServerPIDVar + ", Kill UI PID=" + CMDPIDClass.UIPIDVar + Environment.NewLine);
                 LoggerClass.WriteLine(" *** Application Closed [MainForm] ***");
             }
             else
@@ -626,45 +629,45 @@ namespace FreeTAKServer_Manager
                 //do nothing
             }
         }
-        public static bool PingHost(string hostUri, int portNumber)
+        public static bool PingHost(string HostUri, int PortNumber)
         {
             //Ping the server to see if it is running
             try
             {
-                using (var client = new TcpClient(hostUri, portNumber))
+                using (var Client = new TcpClient(HostUri, PortNumber))
                     return true;
             }
-            catch (SocketException ex)
+            catch (SocketException Exception)
             {
                 //MessageBox.Show("Error pinging host:'" + hostUri + ":" + portNumber.ToString() + "'");
-                LoggerClass.WriteLine(" *** Error:" + ex.Message + " [MainForm] ***");
-                //Logs_richTextBox.AppendText("[" + DateTime.Now.ToString() + "] : Error:" + ex.Message + Environment.NewLine);
+                LoggerClass.WriteLine($" *** Error:{Exception.Message} [MainForm] ***");
+                //Logs_richTextBox.AppendText($"[{DateTime.Now}] : Error:" + ex.Message + Environment.NewLine);
                 return false;
             }
         }
 
-        private DispatcherTimer dispatcherTimer = new DispatcherTimer();
+        private DispatcherTimer DispatcherTimer = new DispatcherTimer();
         private void TimerStart()
         {
             try
             {
                 //Start the watchdog timer to check that the server is running
-                if (dispatcherTimer.IsEnabled)
+                if (DispatcherTimer.IsEnabled)
                 {
                     LoggerClass.WriteLine(" *** DispatcherTimer Already Running, No Need To Start [MainForm] ***");
                 }
                 else
                 {
                     LoggerClass.WriteLine(" *** Started dispatcherTimer [MainForm] ***");
-                    dispatcherTimer = new DispatcherTimer();
-                    dispatcherTimer.Tick += dispatcherTimer_Tick;
-                    dispatcherTimer.Interval = new TimeSpan(0, 0, 30);//60 seconds
-                    dispatcherTimer.Start();
+                    DispatcherTimer = new DispatcherTimer();
+                    DispatcherTimer.Tick += DispatcherTimer_Tick;
+                    DispatcherTimer.Interval = new TimeSpan(0, 0, 30);//60 seconds
+                    DispatcherTimer.Start();
                 }
             }
-            catch (Exception ex)
+            catch (Exception Exception)
             {
-                LoggerClass.WriteLine(" *** Error:" + ex.Message + " [MainForm] ***");
+                LoggerClass.WriteLine($" *** Error:{Exception.Message}[MainForm] ***");
                 //MessageBox.Show(ex.ToString(), "TimerStart Error!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
@@ -674,24 +677,24 @@ namespace FreeTAKServer_Manager
             try
             {
                 //Stop the watchdog timer
-                if (dispatcherTimer.IsEnabled)
+                if (DispatcherTimer.IsEnabled)
                 {
                     LoggerClass.WriteLine(" *** Stopped dispatcherTimer [MainForm] *** ");
-                    dispatcherTimer.Stop();
+                    DispatcherTimer.Stop();
                 }
                 else
                 {
                     LoggerClass.WriteLine(" *** DispatcherTimer Already Stopped, No Need To Stop [MainForm] *** ");
                 }
             }
-            catch (Exception ex)
+            catch (Exception Exception)
             {
-                LoggerClass.WriteLine(" *** Error:" + ex.Message + " [MainForm] ***");
+                LoggerClass.WriteLine($" *** Error:{Exception.Message} [MainForm] ***");
                 //MessageBox.Show(ex.ToString(), "TimerStop Error!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
-        private void dispatcherTimer_Tick(object sender, EventArgs e)
+        private void DispatcherTimer_Tick(object sender, EventArgs e)
         {
             //If pings are false send an email loop again forever
             if (PingHost("127.0.0.1", 5000) == false || PingHost("127.0.0.1", 8080) == false || PingHost("127.0.0.1", 8443) == false)
@@ -700,28 +703,28 @@ namespace FreeTAKServer_Manager
                 {
 
                     //Decrypt
-                    SecureString password = EncryptionClass.DecryptString(Properties.Settings.Default.EmailPass);
-                    string _pass = EncryptionClass.ToInsecureString(password);
+                    SecureString Password = EncryptionClass.DecryptString(Properties.Settings.Default.EmailPass);
+                    string Pass = EncryptionClass.ToInsecureString(Password);
 
-                    MailMessage mail = new MailMessage();
+                    MailMessage Mail = new MailMessage();
                     SmtpClient SmtpServer = new SmtpClient(Properties.Settings.Default.EmailSmtp);//smtp.example.com
 
-                    mail.From = new MailAddress(Properties.Settings.Default.EmailFrom);//from
-                    mail.To.Add(Properties.Settings.Default.EmailTo);//to
-                    mail.Subject = Properties.Settings.Default.EmailSubject;//subject
-                    mail.Body = Properties.Settings.Default.EmailBody;//body
+                    Mail.From = new MailAddress(Properties.Settings.Default.EmailFrom);//from
+                    Mail.To.Add(Properties.Settings.Default.EmailTo);//to
+                    Mail.Subject = Properties.Settings.Default.EmailSubject;//subject
+                    Mail.Body = Properties.Settings.Default.EmailBody;//body
 
                     SmtpServer.Port = 587;//port
-                    SmtpServer.Credentials = new NetworkCredential(Properties.Settings.Default.EmailUsername, _pass);//details
+                    SmtpServer.Credentials = new NetworkCredential(Properties.Settings.Default.EmailUsername, Pass);//details
                     SmtpServer.EnableSsl = true;//ssl
 
-                    SmtpServer.Send(mail);
+                    SmtpServer.Send(Mail);
                     LoggerClass.WriteLine(" *** ALERT!! Mail sent! [MainForm] ***");
                 }
-                catch (Exception ex)
+                catch (Exception Exception)
                 {
                     //MessageBox.Show(ex.Message, "Email could not be tested", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    LoggerClass.WriteLine(" *** Error:" + ex.Message + " [EmailSetup_Form] ***");
+                    LoggerClass.WriteLine($" *** Error:{Exception.Message} [EmailSetup_Form] ***");
                 }
             }
         }
@@ -746,11 +749,11 @@ namespace FreeTAKServer_Manager
                     TimerStop(); 
                 }
             }
-            catch (Exception ex)
+            catch (Exception Exception)
             {
-                LoggerClass.WriteLine(" *** Error:" + ex.Message + " [MainForm] ***");
-                LogsRichTextBox.AppendText("[" + DateTime.Now.ToString() + "] : Error:" + ex.Message + Environment.NewLine);
-                MessageBox.Show(ex.Message, "Send email alert error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LoggerClass.WriteLine($" *** Error:{Exception.Message} [MainForm] ***");
+                LogsRichTextBox.AppendText($"[{DateTime.Now}] : Error:{Exception.Message}\n");
+                MessageBox.Show(Exception.Message, "Send email alert error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
         }
@@ -760,28 +763,28 @@ namespace FreeTAKServer_Manager
             try
             {
                 //Set the registry to run the app on start or remove the registry entry
-                RegistryKey rk = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", true);
+                RegistryKey Reg = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", true);
                 string AppName = "FreeTAKServer_Manager";
                 if (StartServerCheckBox.Checked)
                 {
-                    rk.SetValue(AppName, Application.ExecutablePath);
+                    Reg.SetValue(AppName, Application.ExecutablePath);
                     Properties.Settings.Default.StartupServerCheckState = true;
                     Properties.Settings.Default.Save();
                     MessageBox.Show("Server will START at startup", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    rk.DeleteValue(AppName, false);
+                    Reg.DeleteValue(AppName, false);
                     Properties.Settings.Default.StartupServerCheckState = false;
                     Properties.Settings.Default.Save();
                     MessageBox.Show("Server will NOT START at startup", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            catch (Exception ex)
+            catch (Exception Exception)
             {
-                LoggerClass.WriteLine(" *** Error:" + ex.Message + " [MainForm] ***");
-                LogsRichTextBox.AppendText("[" + DateTime.Now.ToString() + "] : Error:" + ex.Message + Environment.NewLine);
-                MessageBox.Show(ex.Message, "Send email alert error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LoggerClass.WriteLine($" *** Error:{Exception.Message} [MainForm] ***");
+                LogsRichTextBox.AppendText($"[{DateTime.Now}] : Error:{Exception.Message}\n");
+                MessageBox.Show(Exception.Message, "Send email alert error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
         }
@@ -789,20 +792,20 @@ namespace FreeTAKServer_Manager
         private void freeTAKServerAPIToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //Open the test API form
-            using (Form f = new FreeTAKServer_API_Form())
+            using (Form Form = new FreeTAKServer_API_Form())
             {
-                f.ShowDialog();
-                f.Activate();
+                Form.ShowDialog();
+                Form.Activate();
             }
         }
 
         private void telegramAPIToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //Open the test API form
-            using (Form f = new TelegramAPIForm())
+            using (Form Form = new TelegramAPIForm())
             {
-                f.ShowDialog();
-                f.Activate();
+                Form.ShowDialog();
+                Form.Activate();
             }
         }
     }

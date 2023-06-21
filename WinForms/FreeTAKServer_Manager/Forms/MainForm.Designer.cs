@@ -309,7 +309,7 @@ namespace FreeTAKServer_Manager
             this.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem";
             this.AboutToolStripMenuItem.Size = new System.Drawing.Size(102, 29);
             this.AboutToolStripMenuItem.Text = "About";
-            this.AboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            this.AboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
             // 
             // EmailSetupToolStripMenuItem
             // 
@@ -318,7 +318,7 @@ namespace FreeTAKServer_Manager
             this.EmailSetupToolStripMenuItem.Name = "EmailSetupToolStripMenuItem";
             this.EmailSetupToolStripMenuItem.Size = new System.Drawing.Size(145, 29);
             this.EmailSetupToolStripMenuItem.Text = "Email Setup";
-            this.EmailSetupToolStripMenuItem.Click += new System.EventHandler(this.emailSetupToolStripMenuItem_Click);
+            this.EmailSetupToolStripMenuItem.Click += new System.EventHandler(this.EmailSetupToolStripMenuItem_Click);
             // 
             // ReadMeToolStripMenuItem
             // 
@@ -327,7 +327,7 @@ namespace FreeTAKServer_Manager
             this.ReadMeToolStripMenuItem.Name = "ReadMeToolStripMenuItem";
             this.ReadMeToolStripMenuItem.Size = new System.Drawing.Size(116, 29);
             this.ReadMeToolStripMenuItem.Text = "ReadMe";
-            this.ReadMeToolStripMenuItem.Click += new System.EventHandler(this.readMeToolStripMenuItem_Click);
+            this.ReadMeToolStripMenuItem.Click += new System.EventHandler(this.ReadMeToolStripMenuItem_Click);
             // 
             // TestAPIToolStripMenuItem
             // 
@@ -346,7 +346,7 @@ namespace FreeTAKServer_Manager
             this.FreeTAKServerAPIToolStripMenuItem.Name = "FreeTAKServerAPIToolStripMenuItem";
             this.FreeTAKServerAPIToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.FreeTAKServerAPIToolStripMenuItem.Text = "FreeTAKServer API";
-            this.FreeTAKServerAPIToolStripMenuItem.Click += new System.EventHandler(this.freeTAKServerAPIToolStripMenuItem_Click);
+            this.FreeTAKServerAPIToolStripMenuItem.Click += new System.EventHandler(this.FreeTAKServerAPIToolStripMenuItem_Click);
             // 
             // TelegramAPIToolStripMenuItem
             // 
@@ -354,7 +354,7 @@ namespace FreeTAKServer_Manager
             this.TelegramAPIToolStripMenuItem.Name = "TelegramAPIToolStripMenuItem";
             this.TelegramAPIToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.TelegramAPIToolStripMenuItem.Text = "Telegram API";
-            this.TelegramAPIToolStripMenuItem.Click += new System.EventHandler(this.telegramAPIToolStripMenuItem_Click);
+            this.TelegramAPIToolStripMenuItem.Click += new System.EventHandler(this.TelegramAPIToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 

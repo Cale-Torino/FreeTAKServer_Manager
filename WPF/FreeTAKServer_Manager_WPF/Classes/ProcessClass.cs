@@ -6,14 +6,14 @@ namespace FreeTAKServer_Manager_WPF
     {
         internal static void RunProcess(string path)
         {
-            using (Process p = new Process())
+            using (Process Process = new Process())
             {
-                p.StartInfo = new ProcessStartInfo()
+                Process.StartInfo = new ProcessStartInfo()
                 {
                     UseShellExecute = true,
                     FileName = path
                 };
-                p.Start();
+                Process.Start();
             }
         }
     }

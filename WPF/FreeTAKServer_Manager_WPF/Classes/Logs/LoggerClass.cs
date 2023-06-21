@@ -4,20 +4,20 @@ using System.Windows;
 
 namespace FreeTAKServer_Manager_WPF
 {
-    public static class LoggerClass
+    internal class LoggerClass
     {
-            //Create logfile log. file
-            private static readonly string LogFile = AppDomain.CurrentDomain.BaseDirectory + @"Logs\" + AppDomain.CurrentDomain.FriendlyName + "_" + DateTime.Now.ToString("yyyy-dd-M--HH-mm-ss") + ".log";
-            public static void WriteLine(string txt)
+        //Create logfile log. file
+        internal static string LogFile { get; set; } = $@"{AppDomain.CurrentDomain.BaseDirectory}Logs\{AppDomain.CurrentDomain.FriendlyName}_{DateTime.Now:yyyy-dd-M--HH-mm-ss}.log";
+        public static void WriteLine(string Text)
             {
                 try
                 {
                     //Write to the logfile
-                    File.AppendAllText(LogFile, "[" + DateTime.Now.ToString() + "] : " + txt + "\n");
-                }
-                catch (Exception ex)
+                    File.AppendAllText(LogFile, $"[{DateTime.Now}] : {Text}\n");
+                 }
+                catch (Exception Exception)
                 {
-                    MessageBox.Show(ex.ToString(), "Could Not Append Text To Log File", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(Exception.ToString(), "Could Not Append Text To Log File", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
             }
@@ -29,9 +29,9 @@ namespace FreeTAKServer_Manager_WPF
                     //Delete the log file
                     File.Delete(LogFile);
                 }
-                catch (Exception ex)
+                catch (Exception Exception)
                 {
-                    MessageBox.Show(ex.ToString(), "Could Not Delete Log File", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(Exception.ToString(), "Could Not Delete Log File", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
             }

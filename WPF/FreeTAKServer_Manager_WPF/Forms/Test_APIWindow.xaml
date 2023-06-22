@@ -67,10 +67,10 @@
     <Grid>
         <GroupBox Header="Controls" HorizontalAlignment="Left" Height="143" Margin="10,10,0,0" VerticalAlignment="Top" Width="491" Foreground="White">
             <Canvas>
-                <TextBox x:Name="Customtest_textBox" HorizontalAlignment="Left" Height="26" TextWrapping="Wrap" VerticalAlignment="Top" Width="367" Canvas.Left="102" Canvas.Top="42" Cursor="IBeam"/>
-                <TextBox x:Name="Token_textBox" HorizontalAlignment="Left" Height="26" TextWrapping="Wrap" VerticalAlignment="Top" Width="367" Canvas.Left="102" Canvas.Top="73" Cursor="IBeam"/>
-                <Button x:Name="LocalTest_button" Style="{StaticResource ButtonStyle}" BorderBrush="White" Background="Transparent" Foreground="White" BorderThickness="2" Content="Local Test" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" Canvas.Left="10" Canvas.Top="10" Height="27" Click="LocalTest_button_Click" Cursor="Hand"/>
-                <Button x:Name="Customtest_button" Style="{StaticResource ButtonStyle}" BorderBrush="White" Background="Transparent" Foreground="White" BorderThickness="2" Content="Custom Test" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" Canvas.Left="138" Canvas.Top="10" Height="27" Click="Customtest_button_Click" Cursor="Hand"/>
+                <TextBox x:Name="CustomTest_TextBox" HorizontalAlignment="Left" Height="26" TextWrapping="Wrap" VerticalAlignment="Top" Width="367" Canvas.Left="102" Canvas.Top="42" Cursor="IBeam"/>
+                <TextBox x:Name="Token_TextBox" HorizontalAlignment="Left" Height="26" TextWrapping="Wrap" VerticalAlignment="Top" Width="367" Canvas.Left="102" Canvas.Top="73" Cursor="IBeam"/>
+                <Button x:Name="LocalTest_Button" Style="{StaticResource ButtonStyle}" BorderBrush="White" Background="Transparent" Foreground="White" BorderThickness="2" Content="Local Test" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" Canvas.Left="10" Canvas.Top="10" Height="27" Click="LocalTest_button_Click" Cursor="Hand"/>
+                <Button x:Name="CustomTest_Button" Style="{StaticResource ButtonStyle}" BorderBrush="White" Background="Transparent" Foreground="White" BorderThickness="2" Content="Custom Test" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" Canvas.Left="138" Canvas.Top="10" Height="27" Click="Customtest_button_Click" Cursor="Hand"/>
                 <Label Content="Custom Url :" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="22" Canvas.Top="42" Foreground="White">
                 </Label>
                 <Label Content="Token :" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="50" Canvas.Top="73" Foreground="White">

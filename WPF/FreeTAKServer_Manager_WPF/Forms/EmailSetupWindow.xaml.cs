@@ -19,51 +19,51 @@ namespace FreeTAKServer_Manager_WPF
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             //Set textboxes to IsEnabled = false
-            Smtp_textBox.IsEnabled = false;
-            From_textBox.IsEnabled = false;
-            To_textBox.IsEnabled = false;
-            Subject_textBox.IsEnabled = false;
-            Body_textBox.IsEnabled = false;
-            Username_textBox.IsEnabled = false;
-            Password_textBox.IsEnabled = false;
+            Smtp_TextBox.IsEnabled = false;
+            From_TextBox.IsEnabled = false;
+            To_TextBox.IsEnabled = false;
+            Subject_TextBox.IsEnabled = false;
+            Body_TextBox.IsEnabled = false;
+            Username_TextBox.IsEnabled = false;
+            Password_TextBox.IsEnabled = false;
             if (Properties.Settings.Default.emailPass != string.Empty)
             {
                 //Decrypt email password stored in config file
                 SecureString password = EncryptionClass.DecryptString(Properties.Settings.Default.emailPass);
-                Password_textBox.Text = EncryptionClass.ToInsecureString(password);
+                Password_TextBox.Text = EncryptionClass.ToInsecureString(password);
             }
             //Write saved propertie vars to textboxes
-            Smtp_textBox.Text = Properties.Settings.Default.emailSmtp;
-            From_textBox.Text = Properties.Settings.Default.emailFrom;
-            To_textBox.Text = Properties.Settings.Default.emailTo;
-            Subject_textBox.Text = Properties.Settings.Default.emailSubject;
-            Body_textBox.Text = Properties.Settings.Default.emailBody;
-            Username_textBox.Text = Properties.Settings.Default.emailUsername;
+            Smtp_TextBox.Text = Properties.Settings.Default.emailSmtp;
+            From_TextBox.Text = Properties.Settings.Default.emailFrom;
+            To_TextBox.Text = Properties.Settings.Default.emailTo;
+            Subject_TextBox.Text = Properties.Settings.Default.emailSubject;
+            Body_TextBox.Text = Properties.Settings.Default.emailBody;
+            Username_TextBox.Text = Properties.Settings.Default.emailUsername;
         }
         private void SendEmail()
         {
             try
             {
-                MailMessage mail = new MailMessage();
-                SmtpClient SmtpServer = new SmtpClient(Smtp_textBox.Text);
+                MailMessage Mail = new MailMessage();
+                SmtpClient SmtpServer = new SmtpClient(Smtp_TextBox.Text);
 
-                mail.From = new MailAddress(From_textBox.Text);//From address
-                mail.To.Add(To_textBox.Text);//To address
-                mail.Subject = Subject_textBox.Text;//Subject
-                mail.Body = Body_textBox.Text;//Body of email
+                Mail.From = new MailAddress(From_TextBox.Text);//From address
+                Mail.To.Add(To_TextBox.Text);//To address
+                Mail.Subject = Subject_TextBox.Text;//Subject
+                Mail.Body = Body_TextBox.Text;//Body of email
 
                 SmtpServer.Port = 587;//SMTP port
-                SmtpServer.Credentials = new NetworkCredential(Username_textBox.Text, Password_textBox.Text);//Credentials, password and username
+                SmtpServer.Credentials = new NetworkCredential(Username_TextBox.Text, Password_TextBox.Text);//Credentials, password and username
                 SmtpServer.EnableSsl = true;//SSL
 
-                SmtpServer.Send(mail);
+                SmtpServer.Send(Mail);
                 MessageBox.Show("Normal mail Sent", "Mail Status", MessageBoxButton.OK, MessageBoxImage.Information);
                 LoggerClass.WriteLine(" *** Auto Get Python Path Error. Attempting Manual Path Entry [MainForm] ***");
             }
-            catch (Exception ex)
+            catch (Exception Exception)
             {
-                MessageBox.Show(ex.Message, "Email could not be tested", MessageBoxButton.OK, MessageBoxImage.Error);
-                LoggerClass.WriteLine(" *** Error:" + ex.Message + " [EmailSetup_Form] ***");
+                MessageBox.Show(Exception.Message, "Email could not be tested", MessageBoxButton.OK, MessageBoxImage.Error);
+                LoggerClass.WriteLine($" *** Error:{Exception.Message} [EmailSetup_Form] ***");
             }
         }
         private void Test_button_click(object sender, RoutedEventArgs e)
@@ -80,30 +80,30 @@ namespace FreeTAKServer_Manager_WPF
                 {
                     //Set textboxes to IsEnabled = true
                     clickedOnce = false;
-                    Smtp_textBox.IsEnabled = true;
-                    From_textBox.IsEnabled = true;
-                    To_textBox.IsEnabled = true;
-                    Subject_textBox.IsEnabled = true;
-                    Body_textBox.IsEnabled = true;
-                    Username_textBox.IsEnabled = true;
-                    Password_textBox.IsEnabled = true;
-                    Savesettings_button.Content = "Save Settings";//Change button text
+                    Smtp_TextBox.IsEnabled = true;
+                    From_TextBox.IsEnabled = true;
+                    To_TextBox.IsEnabled = true;
+                    Subject_TextBox.IsEnabled = true;
+                    Body_TextBox.IsEnabled = true;
+                    Username_TextBox.IsEnabled = true;
+                    Password_TextBox.IsEnabled = true;
+                    Savesettings_Button.Content = "Save Settings";//Change button text
                     LoggerClass.WriteLine(" *** Editing email settings [EmailSetup_Form] ***");
                 }
-                catch (Exception ex)
+                catch (Exception Exception)
                 {
                     //Set textboxes to IsEnabled = false
                     clickedOnce = true;
-                    Smtp_textBox.IsEnabled = false;
-                    From_textBox.IsEnabled = false;
-                    To_textBox.IsEnabled = false;
-                    Subject_textBox.IsEnabled = false;
-                    Body_textBox.IsEnabled = false;
-                    Username_textBox.IsEnabled = false;
-                    Password_textBox.IsEnabled = false;
-                    MessageBox.Show(ex.Message, "", MessageBoxButton.OK, MessageBoxImage.Error);
-                    LoggerClass.WriteLine(" *** Error:" + ex.Message + " [EmailSetup_Form] ***");
-                    Savesettings_button.Content = "Edit Settings";//Change button text
+                    Smtp_TextBox.IsEnabled = false;
+                    From_TextBox.IsEnabled = false;
+                    To_TextBox.IsEnabled = false;
+                    Subject_TextBox.IsEnabled = false;
+                    Body_TextBox.IsEnabled = false;
+                    Username_TextBox.IsEnabled = false;
+                    Password_TextBox.IsEnabled = false;
+                    MessageBox.Show(Exception.Message, "", MessageBoxButton.OK, MessageBoxImage.Error);
+                    LoggerClass.WriteLine($" *** Error:{Exception.Message} [EmailSetup_Form] ***");
+                    Savesettings_Button.Content = "Edit Settings";//Change button text
                     return;
                 }
             }
@@ -111,24 +111,24 @@ namespace FreeTAKServer_Manager_WPF
             {
                 clickedOnce = true;
                 //Encrypt password for storage
-                Properties.Settings.Default.emailPass = EncryptionClass.EncryptString(EncryptionClass.ToSecureString(Password_textBox.Text));
+                Properties.Settings.Default.emailPass = EncryptionClass.EncryptString(EncryptionClass.ToSecureString(Password_TextBox.Text));
                 //Set property vars and save them to config file
-                Properties.Settings.Default.emailSmtp = Smtp_textBox.Text;
-                Properties.Settings.Default.emailFrom = From_textBox.Text;
-                Properties.Settings.Default.emailTo = To_textBox.Text;
-                Properties.Settings.Default.emailSubject = Subject_textBox.Text;
-                Properties.Settings.Default.emailBody = Body_textBox.Text;
-                Properties.Settings.Default.emailUsername = Username_textBox.Text;
+                Properties.Settings.Default.emailSmtp = Smtp_TextBox.Text;
+                Properties.Settings.Default.emailFrom = From_TextBox.Text;
+                Properties.Settings.Default.emailTo = To_TextBox.Text;
+                Properties.Settings.Default.emailSubject = Subject_TextBox.Text;
+                Properties.Settings.Default.emailBody = Body_TextBox.Text;
+                Properties.Settings.Default.emailUsername = Username_TextBox.Text;
                 Properties.Settings.Default.Save();//Set properties
                 //Set textboxes to IsEnabled = false
-                Smtp_textBox.IsEnabled = false;
-                From_textBox.IsEnabled = false;
-                To_textBox.IsEnabled = false;
-                Subject_textBox.IsEnabled = false;
-                Body_textBox.IsEnabled = false;
-                Username_textBox.IsEnabled = false;
-                Password_textBox.IsEnabled = false;
-                Savesettings_button.Content = "Edit Settings";//Change button text
+                Smtp_TextBox.IsEnabled = false;
+                From_TextBox.IsEnabled = false;
+                To_TextBox.IsEnabled = false;
+                Subject_TextBox.IsEnabled = false;
+                Body_TextBox.IsEnabled = false;
+                Username_TextBox.IsEnabled = false;
+                Password_TextBox.IsEnabled = false;
+                Savesettings_Button.Content = "Edit Settings";//Change button text
                 LoggerClass.WriteLine(" *** Saved email settings [EmailSetup_Form] ***");
             }
         }

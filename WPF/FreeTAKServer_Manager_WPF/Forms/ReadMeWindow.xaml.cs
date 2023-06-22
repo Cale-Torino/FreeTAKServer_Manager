@@ -21,18 +21,13 @@ namespace FreeTAKServer_Manager_WPF
             {
                 //Clear Richtextbox and add the content of ReadMe.txt
                 Richtextbox.Document.Blocks.Clear();
-                Richtextbox.AppendText(File.ReadAllText("TextFiles\\ReadMe.txt"));
+                Richtextbox.AppendText(File.ReadAllText(@"TextFiles\ReadMe.txt"));
             }
-            catch (Exception ex)
+            catch (Exception Exception)
             {
-                MessageBox.Show(ex.Message, "Read Me Error!", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(Exception.Message, "Read Me Error!", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-        }
-
-        private void Richtextbox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
-        {
-
         }
     }
 }

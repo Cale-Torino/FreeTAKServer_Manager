@@ -1,21 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Linq;
 using System.Net;
 using System.Reflection;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace FreeTAKServer_Manager_WPF
 {
@@ -53,31 +42,31 @@ namespace FreeTAKServer_Manager_WPF
         {
             try
             {
-                UpdateCheckerClass oCheckClient = new UpdateCheckerClass("https://raw.githubusercontent.com/Cale-Torino/FreeTAKServer_Manager/main/WPF/FreeTAKServer_Manager_WPF/Classes/UpdateChecker/CurrentVersion.xml");
-                int nMajor = oCheckClient.GetVersion(enVerion.EMajor);
-                int nMinor = oCheckClient.GetVersion(enVerion.EMinor);
-                int nBuild = oCheckClient.GetVersion(enVerion.EBuild);
+                UpdateCheckerClass CheckClient = new UpdateCheckerClass("https://raw.githubusercontent.com/Cale-Torino/FreeTAKServer_Manager/main/WPF/FreeTAKServer_Manager_WPF/Classes/UpdateChecker/CurrentVersion.xml");
+                int Major = CheckClient.GetVersion(VersionNumber.Major);
+                int Minor = CheckClient.GetVersion(VersionNumber.Minor);
+                int Build = CheckClient.GetVersion(VersionNumber.Build);
 
-                string strPath = oCheckClient.GetNewVersionPath();
+                string StrPath = CheckClient.GetNewVersionPath();
 
                 // Get my own version's numbers
-                Assembly assembly = Assembly.GetExecutingAssembly();
-                FileVersionInfo fileVersionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);
+                Assembly Assembly = Assembly.GetExecutingAssembly();
+                FileVersionInfo FVI = FileVersionInfo.GetVersionInfo(Assembly.Location);
 
-                int nAppMajor = fileVersionInfo.FileMajorPart;
-                int nAppMinor = fileVersionInfo.FileMinorPart;
-                int nAppBuild = fileVersionInfo.FileBuildPart;
+                int AppMajor = FVI.FileMajorPart;
+                int AppMinor = FVI.FileMinorPart;
+                int AppBuild = FVI.FileBuildPart;
 
-                if (nMajor > nAppMajor || nMinor > nAppMinor || nBuild > nAppBuild)
+                if (Major > AppMajor || Minor > AppMinor || Build > AppBuild)
                 {
                     //|| nMinor > nAppMinor
-                    MessageBoxResult result = MessageBox.Show($"Found update:\nversion: {nMajor}.{nMinor}.{nBuild}\nWould you like to download the update?", "Update Checker", MessageBoxButton.YesNo, MessageBoxImage.Exclamation, MessageBoxResult.None, MessageBoxOptions.DefaultDesktopOnly);
-                    if (result == MessageBoxResult.Yes)
+                    MessageBoxResult Result = MessageBox.Show($"Found update:\nversion: {Major}.{Minor}.{Build}\nWould you like to download the update?", "Update Checker", MessageBoxButton.YesNo, MessageBoxImage.Exclamation, MessageBoxResult.None, MessageBoxOptions.DefaultDesktopOnly);
+                    if (Result == MessageBoxResult.Yes)
                     {
                         //code for Yes
-                        UpdateApp(strPath);
+                        UpdateApp(StrPath);
                     }
-                    else if (result == MessageBoxResult.No)
+                    else if (Result == MessageBoxResult.No)
                     {
                         //code for No
                         Close();
@@ -85,37 +74,37 @@ namespace FreeTAKServer_Manager_WPF
                 }
                 else
                 {
-                    MessageBoxResult result = MessageBox.Show($"You already have the latest version.\nversion: {nMajor}.{nMinor}.{nBuild}\n", "Update Checker", MessageBoxButton.OK, MessageBoxImage.Exclamation, MessageBoxResult.None, MessageBoxOptions.DefaultDesktopOnly);
-                    if (result == MessageBoxResult.OK)
+                    MessageBoxResult Result = MessageBox.Show($"You already have the latest version.\nversion: {Major}.{Minor}.{Build}\n", "Update Checker", MessageBoxButton.OK, MessageBoxImage.Exclamation, MessageBoxResult.None, MessageBoxOptions.DefaultDesktopOnly);
+                    if (Result == MessageBoxResult.OK)
                     {
                         //code for ok
                         Close();
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception Exception)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(Exception.Message);
                 return;
             }
 
         }
 
-        private void UpdateApp(string strPath)
+        private void UpdateApp(string StrPath)
         {
             try
             {
-                Thread thread = new Thread(() => {
-                    WebClient wc = new WebClient();
-                    wc.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressChanged);
-                    wc.DownloadFileCompleted += new AsyncCompletedEventHandler(DownloadFileCallback);
-                    wc.DownloadFileAsync(new Uri(strPath), @"Updates\FreeTAKServer_Manager_Installer.msi");
+                Thread Thread = new Thread(() => {
+                    WebClient WC = new WebClient();
+                    WC.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressChanged);
+                    WC.DownloadFileCompleted += new AsyncCompletedEventHandler(DownloadFileCallback);
+                    WC.DownloadFileAsync(new Uri(StrPath), @"Updates\FreeTAKServer_Manager_Installer.msi");
                 });
-                thread.Start();
+                Thread.Start();
             }
-            catch (Exception ex)
+            catch (Exception Exception)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(Exception.Message);
                 return;
             }
 
@@ -125,11 +114,11 @@ namespace FreeTAKServer_Manager_WPF
         {
             Dispatcher.Invoke(new Action(delegate
             {
-                double bytesIn = double.Parse(e.BytesReceived.ToString());
-                double totalBytes = double.Parse(e.TotalBytesToReceive.ToString());
-                double percentage = bytesIn / totalBytes * 100;
+                double BytesIn = double.Parse(e.BytesReceived.ToString());
+                double TotalBytes = double.Parse(e.TotalBytesToReceive.ToString());
+                double Percentage = BytesIn / TotalBytes * 100;
                 label.Content = $"Downloaded {Math.Round(e.BytesReceived / 1024.0 / 1024.0, 2)} MB of {Math.Round(e.TotalBytesToReceive / 1024.0 / 1024.0, 2)} MB";
-                progressBar.Value = int.Parse(Math.Truncate(percentage).ToString());
+                progressBar.Value = int.Parse(Math.Truncate(Percentage).ToString());
             }));
         }
 
@@ -139,8 +128,8 @@ namespace FreeTAKServer_Manager_WPF
             //extract files to dir oly no folder
             //might be easier to run zps.msi updater rather than extracting files from zip
             //|| nMinor > nAppMinor
-            MessageBoxResult result = MessageBox.Show($"Update Successfully downloaded\nWould you like to close the app and install the update?", "Update Runner", MessageBoxButton.YesNo, MessageBoxImage.Exclamation, MessageBoxResult.None, MessageBoxOptions.DefaultDesktopOnly);
-            if (result == MessageBoxResult.Yes)
+            MessageBoxResult Result = MessageBox.Show($"Update Successfully downloaded\nWould you like to close the app and install the update?", "Update Runner", MessageBoxButton.YesNo, MessageBoxImage.Exclamation, MessageBoxResult.None, MessageBoxOptions.DefaultDesktopOnly);
+            if (Result == MessageBoxResult.Yes)
             {
                 //code for Yes
                 //Run bat file in temp folder [deletes old app and installs newly downloaded app]
@@ -150,7 +139,7 @@ namespace FreeTAKServer_Manager_WPF
                 Application.Current.Shutdown();
                 //Environment.Exit(0);
             }
-            else if (result == MessageBoxResult.No)
+            else if (Result == MessageBoxResult.No)
             {
                 Dispatcher.Invoke(new Action(delegate
                 {

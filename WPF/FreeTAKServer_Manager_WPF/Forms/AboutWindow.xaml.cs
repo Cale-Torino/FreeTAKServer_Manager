@@ -2,9 +2,7 @@
 using System.Reflection;
 using System.Windows;
 using System.Windows.Navigation;
-using System.ComponentModel;
 using System;
-using System.Net.Http;
 
 namespace FreeTAKServer_Manager_WPF
 {
@@ -20,7 +18,7 @@ namespace FreeTAKServer_Manager_WPF
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {            
-            labelversion.Content = "Version " + Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            labelversion.Content = $"Version {Assembly.GetExecutingAssembly().GetName().Version}";
         }
         private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
         {
@@ -34,18 +32,18 @@ namespace FreeTAKServer_Manager_WPF
             //Checks for a new version of the app via GUP
             try
             {
-                UpdateWindow w = new UpdateWindow
+                UpdateWindow W = new UpdateWindow
                 {
                     Topmost = true
                 };
-                w.ShowDialog();
-                w.Activate();
-                LoggerClass.WriteLine(" *** Ran Update:" + Environment.NewLine + " [About_Form] ***");
+                W.ShowDialog();
+                W.Activate();
+                LoggerClass.WriteLine(" *** Ran Update:\n[About_Form] ***");
             }
-            catch (Exception ex)
+            catch (Exception Exception)
             {
-                MessageBox.Show(ex.Message, "Could not check for update", MessageBoxButton.OK, MessageBoxImage.Error);
-                LoggerClass.WriteLine(" *** Error:" + ex.Message + " [About_Form] ***");
+                MessageBox.Show(Exception.Message, "Could not check for update", MessageBoxButton.OK, MessageBoxImage.Error);
+                LoggerClass.WriteLine($" *** Error:{Exception.Message} [About_Form] ***");
                 return;
             }
         }

@@ -71,7 +71,7 @@
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
         <Menu x:Name="menu_strip" IsMainMenu="True" Height="20" VerticalAlignment="Top" Margin="0,0,1,0" AllowDrop="True">
-            <MenuItem x:Name="about_menuitem" Header="_About" Click="about_menuitem_Click">
+            <MenuItem x:Name="About_MenuItem" Header="_About" Click="About_menuitem_Click">
                 <MenuItem.Icon>
                     <Image Height="12">
                         <Image.Source>
@@ -80,7 +80,7 @@
                     </Image>
                 </MenuItem.Icon>
             </MenuItem>
-            <MenuItem x:Name="email_menuitem" Header="_Email Setup" Click="email_setup_menuitem_Click">
+            <MenuItem x:Name="Email_MenuItem" Header="_Email Setup" Click="Email_setup_menuitem_Click">
                 <MenuItem.Icon>
                     <Image Height="12">
                         <Image.Source>
@@ -89,7 +89,7 @@
                     </Image>
                 </MenuItem.Icon>
             </MenuItem>
-            <MenuItem x:Name="email_settings_menuitem" Header="_Read Me" Click="read_me_menuitem_Click">
+            <MenuItem x:Name="ReadMe_MenuItem" Header="_Read Me" Click="Read_me_menuitem_Click">
                 <MenuItem.Icon>
                     <Image Height="12">
                         <Image.Source>
@@ -98,7 +98,7 @@
                     </Image>
                 </MenuItem.Icon>
             </MenuItem>
-            <MenuItem x:Name="exit_menuitem" Header="_Test API" Click="Test_API_menuitem_Click">
+            <MenuItem x:Name="TestAPI_MenuItem" Header="_Test API" Click="Test_API_menuitem_Click">
                 <MenuItem.Icon>
                     <Image Height="12">
                         <Image.Source>
@@ -128,20 +128,20 @@
         </GroupBox>
         <GroupBox Header="Controls" HorizontalAlignment="Left" Height="175" Margin="26,40,0,0" VerticalAlignment="Top" Width="538" Foreground="White">
             <Canvas>
-                <TextBox x:Name="Pythondir_textBox" Height="26" MaxLines="1" TextWrapping="NoWrap" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Width="276" Canvas.Left="113" Canvas.Top="74" Cursor="IBeam"/>
-                <CheckBox x:Name="Email_checkBox" Content="Send Email Alert If Server Is not Running" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" Click="Email_checkBox_click" Canvas.Left="113" Canvas.Top="105" Cursor="Hand"/>
+                <TextBox x:Name="PythonDir_TextBox" Height="26" MaxLines="1" TextWrapping="NoWrap" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Width="276" Canvas.Left="113" Canvas.Top="74" Cursor="IBeam"/>
+                <CheckBox x:Name="Email_CheckBox" Content="Send Email Alert If Server Is not Running" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" Click="Email_checkBox_click" Canvas.Left="113" Canvas.Top="105" Cursor="Hand"/>
                 <Label Content="Python Install dir :" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="10" Canvas.Top="74" Foreground="White">
                 </Label>
-                <Button x:Name="Startserver_button" Style="{StaticResource ButtonStyle}" BorderBrush="White" Background="Transparent" Foreground="White" BorderThickness="2" Content="Start Server" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" Canvas.Left="10" Canvas.Top="10" Height="27" Click="Startserver_button_Click" Cursor="Hand"/>
-                <Button x:Name="Stopserver_button" Style="{StaticResource ButtonStyle}" BorderBrush="White" Background="Transparent" Foreground="White" BorderThickness="2" Content="Stop Server" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" Canvas.Left="138" Canvas.Top="10" Height="27" Click="Stopserver_button_Click" Cursor="Hand"/>
-                <Button x:Name="Restartserver_button" Style="{StaticResource ButtonStyle}" BorderBrush="White" Background="Transparent" Foreground="White" BorderThickness="2" Content="Restart Server" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" Canvas.Left="266" Canvas.Top="10" Height="27" Click="Restartserver_button_Click" Cursor="Hand"/>
-                <Button x:Name="Uninstallserver_button" Style="{StaticResource ButtonStyle}" BorderBrush="White" Background="Transparent" Foreground="White" BorderThickness="2" Content="Uninstall Server" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" Canvas.Left="394" Canvas.Top="10" Height="27" Click="Uninstallserver_button_Click" Cursor="Hand"/>
-                <Button x:Name="Editmainconfigserver_button" Style="{StaticResource ButtonStyle}" BorderBrush="White" Background="Transparent" Foreground="White" BorderThickness="2" Content="Edit MainConfig.py" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" Canvas.Left="10" Canvas.Top="42" Height="27" Click="Editmainconfigserver_button_Click" Cursor="Hand"/>
-                <Button x:Name="Editconfigserver_button" Style="{StaticResource ButtonStyle}" BorderBrush="White" Background="Transparent" Foreground="White" BorderThickness="2" Content="Edit config.py" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" Canvas.Left="138" Canvas.Top="42" Height="27" Click="Editconfigserver_button_Click" Cursor="Hand"/>
-                <Button x:Name="Checkportsserver_button" Style="{StaticResource ButtonStyle}" BorderBrush="White" Background="Transparent" Foreground="White" BorderThickness="2" Content="Check Ports" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" Canvas.Left="266" Canvas.Top="42" Height="27" Click="Checkportsserver_button_Click" Cursor="Hand"/>
-                <Button x:Name="Installserver_button" Style="{StaticResource ButtonStyle}" BorderBrush="White" Background="Transparent" Foreground="White" BorderThickness="2" Content="Install Server" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" Canvas.Left="394" Canvas.Top="42" Height="27" Click="Installserver_button_Click" Cursor="Hand"/>
-                <Button x:Name="Setdirserver_button" Style="{StaticResource ButtonStyle}" BorderBrush="White" Background="Transparent" Foreground="White" BorderThickness="2" Content="Get Dir" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" Canvas.Left="394" Canvas.Top="73" Height="27" Click="Setdirserver_button_Click" Cursor="Hand"/>
-                <CheckBox x:Name="Startserver_checkBox" Content="Start Server On Computer Startup" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" Click="Startserver_Checkbox_Click" Canvas.Left="113" Canvas.Top="126" Cursor="Hand"/>
+                <Button x:Name="StartServer_Button" Style="{StaticResource ButtonStyle}" BorderBrush="White" Background="Transparent" Foreground="White" BorderThickness="2" Content="Start Server" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" Canvas.Left="10" Canvas.Top="10" Height="27" Click="Startserver_button_Click" Cursor="Hand"/>
+                <Button x:Name="StopServer_Button" Style="{StaticResource ButtonStyle}" BorderBrush="White" Background="Transparent" Foreground="White" BorderThickness="2" Content="Stop Server" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" Canvas.Left="138" Canvas.Top="10" Height="27" Click="Stopserver_button_Click" Cursor="Hand"/>
+                <Button x:Name="RestartServer_Button" Style="{StaticResource ButtonStyle}" BorderBrush="White" Background="Transparent" Foreground="White" BorderThickness="2" Content="Restart Server" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" Canvas.Left="266" Canvas.Top="10" Height="27" Click="Restartserver_button_Click" Cursor="Hand"/>
+                <Button x:Name="UninstallServer_Button" Style="{StaticResource ButtonStyle}" BorderBrush="White" Background="Transparent" Foreground="White" BorderThickness="2" Content="Uninstall Server" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" Canvas.Left="394" Canvas.Top="10" Height="27" Click="Uninstallserver_button_Click" Cursor="Hand"/>
+                <Button x:Name="EditMainConfigServer_Button" Style="{StaticResource ButtonStyle}" BorderBrush="White" Background="Transparent" Foreground="White" BorderThickness="2" Content="Edit MainConfig.py" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" Canvas.Left="10" Canvas.Top="42" Height="27" Click="Editmainconfigserver_button_Click" Cursor="Hand"/>
+                <Button x:Name="EditConfigServer_Button" Style="{StaticResource ButtonStyle}" BorderBrush="White" Background="Transparent" Foreground="White" BorderThickness="2" Content="Edit config.py" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" Canvas.Left="138" Canvas.Top="42" Height="27" Click="Editconfigserver_button_Click" Cursor="Hand"/>
+                <Button x:Name="CheckPortsServer_Button" Style="{StaticResource ButtonStyle}" BorderBrush="White" Background="Transparent" Foreground="White" BorderThickness="2" Content="Check Ports" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" Canvas.Left="266" Canvas.Top="42" Height="27" Click="Checkportsserver_button_Click" Cursor="Hand"/>
+                <Button x:Name="InstallServer_Button" Style="{StaticResource ButtonStyle}" BorderBrush="White" Background="Transparent" Foreground="White" BorderThickness="2" Content="Install Server" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" Canvas.Left="394" Canvas.Top="42" Height="27" Click="Installserver_button_Click" Cursor="Hand"/>
+                <Button x:Name="SetDirServer_Button" Style="{StaticResource ButtonStyle}" BorderBrush="White" Background="Transparent" Foreground="White" BorderThickness="2" Content="Get Dir" HorizontalAlignment="Left" VerticalAlignment="Top" Width="123" Canvas.Left="394" Canvas.Top="73" Height="27" Click="Setdirserver_button_Click" Cursor="Hand"/>
+                <CheckBox x:Name="Startserver_CheckBox" Content="Start Server On Computer Startup" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" Click="Startserver_Checkbox_Click" Canvas.Left="113" Canvas.Top="126" Cursor="Hand"/>
             </Canvas>
         </GroupBox>
 

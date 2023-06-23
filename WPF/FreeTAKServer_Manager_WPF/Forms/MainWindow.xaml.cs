@@ -3,7 +3,6 @@ using System;
 using System.Collections;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Net.Mail;
 using System.Net.Sockets;
@@ -38,18 +37,17 @@ namespace FreeTAKServer_Manager_WPF
             try
             {
                 //Create the Logs folder for the application
-                string path = AppDomain.CurrentDomain.BaseDirectory;
-                Directory.CreateDirectory(path + @"\Logs");
+                Directory.CreateDirectory($@"{AppDomain.CurrentDomain.BaseDirectory}\Logs");
                 LoggerClass.WriteLine(" *** Application Start [MainForm] ***");
-                Richtextbox.AppendText("[" + DateTime.Now.ToString() + "] : Application Start" + "\r");
+                Richtextbox.AppendText($"[{DateTime.Now}] : Application Start" + "\r");
                 LoggerClass.WriteLine(" *** CreateDirectory Success [MainForm] ***");
-                Richtextbox.AppendText("[" + DateTime.Now.ToString() + "] : Logs Create Directory Success" + "\r");
+                Richtextbox.AppendText($"[{DateTime.Now}] : Logs Create Directory Success" + "\r");
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Create Folder Error!", MessageBoxButton.OK, MessageBoxImage.Error);
-                LoggerClass.WriteLine(" *** Error:" + ex.Message + " [MainForm] ***");
-                Richtextbox.AppendText("[" + DateTime.Now.ToString() + "] : Error:" + ex.Message + "\r");
+                LoggerClass.WriteLine($" *** Error:{ex.Message} [MainForm] ***");
+                Richtextbox.AppendText($"[{DateTime.Now}] : Error:{ex.Message}\r");
                 return;
             }
         }
@@ -58,25 +56,25 @@ namespace FreeTAKServer_Manager_WPF
             try
             {
                 //Initiate the application: call methods
-                Startserver_button.IsEnabled = false;
-                Stopserver_button.IsEnabled = false;
-                Restartserver_button.IsEnabled = false;
-                Uninstallserver_button.IsEnabled = false;
-                Editconfigserver_button.IsEnabled = false;
-                Editmainconfigserver_button.IsEnabled = false;
-                Checkportsserver_button.IsEnabled = false;
-                Installserver_button.IsEnabled = false;
+                StartServer_Button.IsEnabled = false;
+                StopServer_Button.IsEnabled = false;
+                RestartServer_Button.IsEnabled = false;
+                UninstallServer_Button.IsEnabled = false;
+                EditConfigServer_Button.IsEnabled = false;
+                EditMainConfigServer_Button.IsEnabled = false;
+                CheckPortsServer_Button.IsEnabled = false;
+                InstallServer_Button.IsEnabled = false;
                 CreateFolder();
                 PythonInstalled();
                 LoadPropertys();
                 LoggerClass.WriteLine(" *** Ini Complete [MainForm] ***");
-                Richtextbox.AppendText("[" + DateTime.Now.ToString() + "] : Ini Complete" + "\r");
+                Richtextbox.AppendText($"[{DateTime.Now}] : Ini Complete" + "\r");
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Ini Error!", MessageBoxButton.OK, MessageBoxImage.Error);
-                LoggerClass.WriteLine(" *** Error:" + ex.Message + " [MainForm] ***");
-                Richtextbox.AppendText("[" + DateTime.Now.ToString() + "] : Error:" + ex.Message + "\r");
+                LoggerClass.WriteLine($" *** Error:{ex.Message} [MainForm] ***");
+                Richtextbox.AppendText($"[{DateTime.Now}] : Error:{ex.Message}\r");
                 return;
             }
         }
@@ -89,13 +87,13 @@ namespace FreeTAKServer_Manager_WPF
                 //bool isinstalled = IsSoftwareInstalled("Python");//Call the method
                 string pythonversion = PythonVersion();
                 LoggerClass.WriteLine($" *** Python check result: {pythonversion} [MainForm] ***");
-                Richtextbox.AppendText("[" + DateTime.Now.ToString() + $"] : Python check result: {pythonversion}");
+                Richtextbox.AppendText($"[{DateTime.Now}] : Python check result: {pythonversion}");
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "PythonInstalled check error", MessageBoxButton.OK, MessageBoxImage.Error);
-                LoggerClass.WriteLine(" *** Error:" + ex.Message + " [MainForm] ***");
-                Richtextbox.AppendText("[" + DateTime.Now.ToString() + "] : Error:" + ex.Message + Environment.NewLine);
+                LoggerClass.WriteLine($" *** Error:{ex.Message} [MainForm] ***");
+                Richtextbox.AppendText($"[{DateTime.Now}] : Error:{ex.Message}\n");
                 return;
             }
         }
@@ -106,30 +104,30 @@ namespace FreeTAKServer_Manager_WPF
                 //Load all the path setting and set button propertys
                 if (!string.IsNullOrWhiteSpace(Properties.Settings.Default.Pythondir))
                 {
-                    Pythondir_textBox.IsEnabled = false;
-                    Pythondir_textBox.Text = Properties.Settings.Default.Pythondir;
+                    PythonDir_TextBox.IsEnabled = false;
+                    PythonDir_TextBox.Text = Properties.Settings.Default.Pythondir;
 
-                    Startserver_button.IsEnabled = true;
-                    Stopserver_button.IsEnabled = true;
-                    Restartserver_button.IsEnabled = true;
-                    Uninstallserver_button.IsEnabled = true;
-                    Editconfigserver_button.IsEnabled = true;
-                    Editmainconfigserver_button.IsEnabled = true;
-                    Checkportsserver_button.IsEnabled = true;
-                    Installserver_button.IsEnabled = true;
+                    StartServer_Button.IsEnabled = true;
+                    StopServer_Button.IsEnabled = true;
+                    RestartServer_Button.IsEnabled = true;
+                    UninstallServer_Button.IsEnabled = true;
+                    EditConfigServer_Button.IsEnabled = true;
+                    EditMainConfigServer_Button.IsEnabled = true;
+                    CheckPortsServer_Button.IsEnabled = true;
+                    InstallServer_Button.IsEnabled = true;
                 }
                 if (Properties.Settings.Default.email_checkstate)
                 {
-                    Email_checkBox.IsChecked = Properties.Settings.Default.email_checkstate;
-                    if (Email_checkBox.IsChecked == true)
+                    Email_CheckBox.IsChecked = Properties.Settings.Default.email_checkstate;
+                    if (Email_CheckBox.IsChecked == true)
                     {
                         TimerStart();
                     }
                 }
                 if (Properties.Settings.Default.StartupServer_checkstate)
                 {
-                    Startserver_checkBox.IsChecked = Properties.Settings.Default.StartupServer_checkstate;
-                    if (Startserver_checkBox.IsChecked == true)
+                    Startserver_CheckBox.IsChecked = Properties.Settings.Default.StartupServer_checkstate;
+                    if (Startserver_CheckBox.IsChecked == true)
                     {
                         StartServer();
                     }
@@ -139,13 +137,13 @@ namespace FreeTAKServer_Manager_WPF
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Could not get Pythondir Property", MessageBoxButton.OK, MessageBoxImage.Error);
-                LoggerClass.WriteLine(" *** Error:" + ex.Message + " [MainForm] ***");
-                Richtextbox.AppendText("[" + DateTime.Now.ToString() + "] : Error:" + ex.Message + Environment.NewLine);
+                LoggerClass.WriteLine($" *** Error:{ex.Message} [MainForm] ***");
+                Richtextbox.AppendText($"[{DateTime.Now}] : Error:{ex.Message}\n");
                 return;
             }
         }
 
-        private void replaceText()
+        private void ReplaceText()
         {
             try
             {
@@ -177,8 +175,8 @@ namespace FreeTAKServer_Manager_WPF
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Create Folder Error!", MessageBoxButton.OK, MessageBoxImage.Error);
-                LoggerClass.WriteLine(" *** Error:" + ex.Message + " [MainForm] ***");
-                Richtextbox.AppendText("[" + DateTime.Now.ToString() + "] : Error:" + ex.Message + Environment.NewLine);
+                LoggerClass.WriteLine($" *** Error:{ex.Message} [MainForm] ***");
+                Richtextbox.AppendText($"[{DateTime.Now}] : Error:{ex.Message}\r");
                 return;
             }
         }
@@ -218,18 +216,18 @@ namespace FreeTAKServer_Manager_WPF
                 int _ServerPID = CMD_Class.CMDStartServer("/k python -m FreeTAKServer.controllers.services.FTS", @"C:\Windows\System32");
                 System.Threading.Thread.Sleep(1000);
                 int _UIPID = CMD_Class.CMDStartServer("/k cd " + Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer-UI&&set FLASK_APP=run.py&&Flask run --host=0.0.0.0", Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer-UI");
-                CMD_PID_Class._ServerPIDVar = _ServerPID;
-                CMD_PID_Class._UIPIDVar = _UIPID;
+                CMD_PID_Class.ServerPIDVar = _ServerPID;
+                CMD_PID_Class.UIPIDVar = _UIPID;
                 Process.Start("http://127.0.0.1:5000");
                 LoggerClass.WriteLine(" *** Start Server PID=" + _ServerPID + ", Start UI PID=" + _UIPID + " [MainForm] ***");
-                Richtextbox.AppendText("[" + DateTime.Now.ToString() + "] : Start Server PID=" + _ServerPID + ", Start UI PID=" + _UIPID + Environment.NewLine);
+                Richtextbox.AppendText($"[{DateTime.Now}] : Start Server PID=" + _ServerPID + ", Start UI PID=" + _UIPID + Environment.NewLine);
 
             }
             else
             {
                 MessageBox.Show("Server is not installed", "", MessageBoxButton.OK, MessageBoxImage.Information);
                 LoggerClass.WriteLine(" *** Server is not installed  [MainForm] ***");
-                Richtextbox.AppendText("[" + DateTime.Now.ToString() + "] : Server is not installed" + Environment.NewLine);
+                Richtextbox.AppendText($"[{DateTime.Now}] : Server is not installed" + Environment.NewLine);
             }
         }
 
@@ -240,12 +238,12 @@ namespace FreeTAKServer_Manager_WPF
             string MainConfigfile = Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer\core\configuration\MainConfig.py";
             if (Directory.Exists(Path.GetDirectoryName(configfile)) && Directory.Exists(Path.GetDirectoryName(MainConfigfile)))
             {
-                if (CMD_PID_Class._ServerPIDVar != 0)
+                if (CMD_PID_Class.ServerPIDVar != 0)
                 {
-                    CMD_Class.PIDkill(CMD_PID_Class._ServerPIDVar);
-                    CMD_Class.PIDkill(CMD_PID_Class._UIPIDVar);
-                    LoggerClass.WriteLine(" *** Kill Server PID=" + CMD_PID_Class._ServerPIDVar + ",  Kill UI PID=" + CMD_PID_Class._UIPIDVar + "[MainForm] ***");
-                    Richtextbox.AppendText("[" + DateTime.Now.ToString() + "] : Kill Server PID=" + CMD_PID_Class._ServerPIDVar + ", Kill UI PID=" + CMD_PID_Class._UIPIDVar + Environment.NewLine);
+                    CMD_Class.PIDKill(CMD_PID_Class.ServerPIDVar);
+                    CMD_Class.PIDKill(CMD_PID_Class.UIPIDVar);
+                    LoggerClass.WriteLine(" *** Kill Server PID=" + CMD_PID_Class.ServerPIDVar + ",  Kill UI PID=" + CMD_PID_Class.UIPIDVar + "[MainForm] ***");
+                    Richtextbox.AppendText($"[{DateTime.Now}] : Kill Server PID=" + CMD_PID_Class.ServerPIDVar + ", Kill UI PID=" + CMD_PID_Class.UIPIDVar + Environment.NewLine);
                 }
                 else
                 {
@@ -257,10 +255,10 @@ namespace FreeTAKServer_Manager_WPF
             {
                 MessageBox.Show("Server is not installed", "", MessageBoxButton.OK, MessageBoxImage.Information);
                 LoggerClass.WriteLine(" *** Server is not installed  [MainForm] ***");
-                Richtextbox.AppendText("[" + DateTime.Now.ToString() + "] : Server is not installed" + Environment.NewLine);
+                Richtextbox.AppendText($"[{DateTime.Now}] : Server is not installed" + Environment.NewLine);
             }
         }
-        private void about_menuitem_Click(object sender, RoutedEventArgs e)
+        private void About_menuitem_Click(object sender, RoutedEventArgs e)
         {
             //About window open
             AboutWindow w = new AboutWindow();
@@ -268,7 +266,7 @@ namespace FreeTAKServer_Manager_WPF
             w.Activate();
         }
 
-        private void email_setup_menuitem_Click(object sender, RoutedEventArgs e)
+        private void Email_setup_menuitem_Click(object sender, RoutedEventArgs e)
         {
             //Email setup window open
             EmailSetupWindow w = new EmailSetupWindow();
@@ -277,7 +275,7 @@ namespace FreeTAKServer_Manager_WPF
             w.Activate();
         }
 
-        private void read_me_menuitem_Click(object sender, RoutedEventArgs e)
+        private void Read_me_menuitem_Click(object sender, RoutedEventArgs e)
         {
             //Readme window open
             ReadMeWindow w = new ReadMeWindow();
@@ -310,50 +308,50 @@ namespace FreeTAKServer_Manager_WPF
                 try
                 {
                     clicked = false;
-                    Pythondir_textBox.Text = GetPythonPath();
-                    Pythondir_textBox.IsEnabled = true;
-                    Pythondir_textBox.IsReadOnly = false;
-                    Setdirserver_button.Content = "Save Dir";
+                    PythonDir_TextBox.Text = GetPythonPath();
+                    PythonDir_TextBox.IsEnabled = true;
+                    PythonDir_TextBox.IsReadOnly = false;
+                    SetDirServer_Button.Content = "Save Dir";
                     LoggerClass.WriteLine(" *** Auto Get Python Path Success [MainForm] ***");
-                    Richtextbox.AppendText("[" + DateTime.Now.ToString() + "] : Auto Get Python Path Success" + Environment.NewLine);
+                    Richtextbox.AppendText($"[{DateTime.Now}] : Auto Get Python Path Success" + Environment.NewLine);
                 }
                 catch (Exception ex)
                 {
                     clicked = false;
                     MessageBox.Show(ex.Message, "Auto Get Python Path Error! Please enter path manually.", MessageBoxButton.OK, MessageBoxImage.Error);
-                    LoggerClass.WriteLine(" *** Error:" + ex.Message + " [MainForm] ***");
-                    Richtextbox.AppendText("[" + DateTime.Now.ToString() + "] : Error:" + ex.Message + Environment.NewLine);
-                    Pythondir_textBox.IsEnabled = true;
-                    Pythondir_textBox.IsReadOnly = false;
-                    Setdirserver_button.Content = "Save Dir";
+                    LoggerClass.WriteLine($" *** Error:{ex.Message} [MainForm] ***");
+                    Richtextbox.AppendText($"[{DateTime.Now}] : Error:{ex.Message}\r");
+                    PythonDir_TextBox.IsEnabled = true;
+                    PythonDir_TextBox.IsReadOnly = false;
+                    SetDirServer_Button.Content = "Save Dir";
                     LoggerClass.WriteLine(" *** Auto Get Python Path Error. Attempting Manual Path Entry [MainForm] ***");
-                    Richtextbox.AppendText("[" + DateTime.Now.ToString() + "] : Auto Get Python Path Error. Attempting Manual Path Entry" + Environment.NewLine);
+                    Richtextbox.AppendText($"[{DateTime.Now}] : Auto Get Python Path Error. Attempting Manual Path Entry" + Environment.NewLine);
                     return;
                 }
             }
             else
             {
-                if (string.IsNullOrWhiteSpace(Pythondir_textBox.Text))
+                if (string.IsNullOrWhiteSpace(PythonDir_TextBox.Text))
                 {
                     MessageBox.Show("Python directory not entered!", "", MessageBoxButton.OK, MessageBoxImage.Exclamation); return;
                 }
                 clicked = true;
-                Properties.Settings.Default.Pythondir = Pythondir_textBox.Text;
+                Properties.Settings.Default.Pythondir = PythonDir_TextBox.Text;
                 Properties.Settings.Default.Save();
-                Setdirserver_button.Content = "Get Dir";
-                Pythondir_textBox.IsEnabled = false;
-                Pythondir_textBox.IsReadOnly = true;
-                Startserver_button.IsEnabled = true;
-                Stopserver_button.IsEnabled = true;
-                Restartserver_button.IsEnabled = true;
-                Uninstallserver_button.IsEnabled = true;
-                Editconfigserver_button.IsEnabled = true;
-                Editmainconfigserver_button.IsEnabled = true;
-                Checkportsserver_button.IsEnabled = true;
-                Installserver_button.IsEnabled = true;
-                MessageBox.Show("Dir : \' " + Pythondir_textBox.Text + " \' has been saved ", "");
-                LoggerClass.WriteLine(" *** Python Path Save Success. Path=" + Pythondir_textBox.Text + " [MainForm] ***");
-                Richtextbox.AppendText("[" + DateTime.Now.ToString() + "] : Python Path Save Success" + Environment.NewLine);
+                SetDirServer_Button.Content = "Get Dir";
+                PythonDir_TextBox.IsEnabled = false;
+                PythonDir_TextBox.IsReadOnly = true;
+                StartServer_Button.IsEnabled = true;
+                StopServer_Button.IsEnabled = true;
+                RestartServer_Button.IsEnabled = true;
+                UninstallServer_Button.IsEnabled = true;
+                EditConfigServer_Button.IsEnabled = true;
+                EditMainConfigServer_Button.IsEnabled = true;
+                CheckPortsServer_Button.IsEnabled = true;
+                InstallServer_Button.IsEnabled = true;
+                MessageBox.Show("Dir : \' " + PythonDir_TextBox.Text + " \' has been saved ", "");
+                LoggerClass.WriteLine(" *** Python Path Save Success. Path=" + PythonDir_TextBox.Text + " [MainForm] ***");
+                Richtextbox.AppendText($"[{DateTime.Now}] : Python Path Save Success" + Environment.NewLine);
             }
         }
 
@@ -367,7 +365,7 @@ namespace FreeTAKServer_Manager_WPF
             {
                 MessageBox.Show("Server is already installed", "", MessageBoxButton.OK, MessageBoxImage.Information);
                 LoggerClass.WriteLine(" *** Server is already installed  [MainForm] ***");
-                Richtextbox.AppendText("[" + DateTime.Now.ToString() + "] : Server is already installed" + Environment.NewLine);
+                Richtextbox.AppendText($"[{DateTime.Now}] : Server is already installed" + Environment.NewLine);
             }
             else
             {
@@ -379,9 +377,9 @@ namespace FreeTAKServer_Manager_WPF
                     File.Copy(AppDomain.CurrentDomain.BaseDirectory + @"\YamlScripts\FTSConfig.yaml", Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer\FTSConfig.yaml", true);
                     File.Copy(AppDomain.CurrentDomain.BaseDirectory + @"\PythonScripts\config.py", Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer-UI\config.py", true);
                     File.Copy(AppDomain.CurrentDomain.BaseDirectory + @"\PythonScripts\MainConfig.py", Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer\core\configuration\MainConfig.py", true);
-                    replaceText();
+                    ReplaceText();
                     LoggerClass.WriteLine(" *** Install Server PID=" + _Install + " [MainForm] ***");
-                    Richtextbox.AppendText("[" + DateTime.Now.ToString() + "] : Install Server PID=" + _Install + Environment.NewLine);
+                    Richtextbox.AppendText($"[{DateTime.Now}] : Install Server PID=" + _Install + Environment.NewLine);
                     ForceCursor = true;
                     Cursor = Cursors.Arrow;
                     PythonInstalled();
@@ -392,8 +390,8 @@ namespace FreeTAKServer_Manager_WPF
                     ForceCursor = true;
                     Cursor = Cursors.Arrow;
                     MessageBox.Show(ex.Message, "Could not install FreeTAKServer[ui]", MessageBoxButton.OK, MessageBoxImage.Error);
-                    LoggerClass.WriteLine(" *** Error:" + ex.Message + " [MainForm] ***");
-                    Richtextbox.AppendText("[" + DateTime.Now.ToString() + "] : Error:" + ex.Message + Environment.NewLine);
+                    LoggerClass.WriteLine($" *** Error:{ex.Message} [MainForm] ***");
+                    Richtextbox.AppendText($"[{DateTime.Now}] : Error:{ex.Message}\r");
                     return;
                 }
             }
@@ -445,8 +443,8 @@ namespace FreeTAKServer_Manager_WPF
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Get Python Path Error!", MessageBoxButton.OK, MessageBoxImage.Error);
-                LoggerClass.WriteLine(" *** Error:" + ex.Message + " [MainForm] ***");
-                Richtextbox.AppendText("[" + DateTime.Now.ToString() + "] : Error:" + ex.Message + Environment.NewLine);
+                LoggerClass.WriteLine($" *** Error:{ex.Message} [MainForm] ***");
+                Richtextbox.AppendText($"[{DateTime.Now}] : Error:{ex.Message}\r");
                 return "Get Python Path Error";
             }
 
@@ -475,12 +473,12 @@ namespace FreeTAKServer_Manager_WPF
                         Directory.Delete(Pythonpath + @"Lib\site-packages\FreeTAKServer-UI", true);
 
                         LoggerClass.WriteLine(" *** Deleting Dir=" + Pythonpath + @"Lib\site-packages\FreeTAKServer  [MainForm] ***");
-                        Richtextbox.AppendText("[" + DateTime.Now.ToString() + "] : Deleting Dir=" + Pythonpath + @"Lib\site-packages\FreeTAKServer" + Environment.NewLine);
+                        Richtextbox.AppendText($"[{DateTime.Now}] : Deleting Dir=" + Pythonpath + @"Lib\site-packages\FreeTAKServer" + Environment.NewLine);
                         LoggerClass.WriteLine(" *** Deleting Dir=" + Pythonpath + @"Lib\site-packages\FreeTAKServer-UI  [MainForm] ***");
-                        Richtextbox.AppendText("[" + DateTime.Now.ToString() + "] : Deleting Dir=" + Pythonpath + @"Lib\site-packages\FreeTAKServer-UI" + Environment.NewLine);
+                        Richtextbox.AppendText($"[{DateTime.Now}] : Deleting Dir=" + Pythonpath + @"Lib\site-packages\FreeTAKServer-UI" + Environment.NewLine);
                     }
                     LoggerClass.WriteLine(" *** Uninstall Server PID=" + _Uninstall + " [MainForm] ***");
-                    Richtextbox.AppendText("[" + DateTime.Now.ToString() + "] : Uninstall Server PID=" + _Uninstall + Environment.NewLine);
+                    Richtextbox.AppendText($"[{DateTime.Now}] : Uninstall Server PID=" + _Uninstall + Environment.NewLine);
                     ForceCursor = true;
                     Cursor = Cursors.Arrow;
                     MessageBox.Show("Server has been uninstalled", "", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -490,8 +488,8 @@ namespace FreeTAKServer_Manager_WPF
                     ForceCursor = true;
                     Cursor = Cursors.Arrow;
                     MessageBox.Show(ex.Message, "Could not uninstall FreeTAKServer & FreeTAKServer-UI", MessageBoxButton.OK, MessageBoxImage.Error);
-                    LoggerClass.WriteLine(" *** Error:" + ex.Message + " [MainForm] ***");
-                    Richtextbox.AppendText("[" + DateTime.Now.ToString() + "] : Error:" + ex.Message + Environment.NewLine);
+                    LoggerClass.WriteLine($" *** Error:{ex.Message} [MainForm] ***");
+                    Richtextbox.AppendText($"[{DateTime.Now}] : Error:{ex.Message}\r");
                     return;
                 }
             }
@@ -499,7 +497,7 @@ namespace FreeTAKServer_Manager_WPF
             {
                 MessageBox.Show("Server is already uninstalled", "", MessageBoxButton.OK, MessageBoxImage.Information);
                 LoggerClass.WriteLine(" *** Server is already uninstalled  [MainForm] ***");
-                Richtextbox.AppendText("[" + DateTime.Now.ToString() + "] : Server is already uninstalled" + Environment.NewLine);
+                Richtextbox.AppendText($"[{DateTime.Now}] : Server is already uninstalled" + Environment.NewLine);
             }
         }
 
@@ -508,7 +506,7 @@ namespace FreeTAKServer_Manager_WPF
             //Open the default browser to a port checking website
             Process.Start("https://www.yougetsignal.com/tools/open-ports/");
             LoggerClass.WriteLine(" *** Check ports https://www.yougetsignal.com/tools/open-ports/ [MainForm] ***");
-            Richtextbox.AppendText("[" + DateTime.Now.ToString() + "] : Check ports https://www.yougetsignal.com/tools/open-ports/" + Environment.NewLine);
+            Richtextbox.AppendText($"[{DateTime.Now}] : Check ports https://www.yougetsignal.com/tools/open-ports/" + Environment.NewLine);
         }
 
         private void Restartserver_button_Click(object sender, RoutedEventArgs e)
@@ -518,17 +516,17 @@ namespace FreeTAKServer_Manager_WPF
             string MainConfigfile = Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer\core\configuration\MainConfig.py";
             if (Directory.Exists(Path.GetDirectoryName(configfile)) && Directory.Exists(Path.GetDirectoryName(MainConfigfile)))
             {
-                if (CMD_PID_Class._ServerPIDVar != 0)
+                if (CMD_PID_Class.ServerPIDVar != 0)
                 {
-                    CMD_Class.PIDkill(CMD_PID_Class._ServerPIDVar);
-                    CMD_Class.PIDkill(CMD_PID_Class._UIPIDVar);
+                    CMD_Class.PIDKill(CMD_PID_Class.ServerPIDVar);
+                    CMD_Class.PIDKill(CMD_PID_Class.UIPIDVar);
                     int _ServerPID = CMD_Class.CMDStartServer("/k python -m FreeTAKServer.controllers.services.FTS", @"C:\Windows\System32");
                     System.Threading.Thread.Sleep(1000);
                     int _UIPID = CMD_Class.CMDStartServer("/k cd " + Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer-UI&&set FLASK_APP=run.py&&Flask run --host=0.0.0.0", Properties.Settings.Default.Pythondir + @"Lib\site-packages\FreeTAKServer-UI");
-                    CMD_PID_Class._ServerPIDVar = _ServerPID;
-                    CMD_PID_Class._UIPIDVar = _UIPID;
+                    CMD_PID_Class.ServerPIDVar = _ServerPID;
+                    CMD_PID_Class.UIPIDVar = _UIPID;
                     LoggerClass.WriteLine(" *** Restart Server PID=" + _ServerPID + ", Restart UI PID=" + _UIPID + " [MainForm] ***");
-                    Richtextbox.AppendText("[" + DateTime.Now.ToString() + "] : Restart Server PID=" + _ServerPID + ", Restart UI PID=" + _UIPID + Environment.NewLine);
+                    Richtextbox.AppendText($"[{DateTime.Now}] : Restart Server PID=" + _ServerPID + ", Restart UI PID=" + _UIPID + Environment.NewLine);
                 }
                 else
                 {
@@ -541,7 +539,7 @@ namespace FreeTAKServer_Manager_WPF
             {
                 MessageBox.Show("Server is not installed", "", MessageBoxButton.OK, MessageBoxImage.Information);
                 LoggerClass.WriteLine(" *** Server is not installed  [MainForm] ***");
-                Richtextbox.AppendText("[" + DateTime.Now.ToString() + "] : Server is not installed" + Environment.NewLine);
+                Richtextbox.AppendText($"[{DateTime.Now}] : Server is not installed" + Environment.NewLine);
             }
         }
 
@@ -567,13 +565,13 @@ namespace FreeTAKServer_Manager_WPF
                 p.Start();
                 //p.WaitForExit();
                 LoggerClass.WriteLine(" *** Edit config.py [MainForm] ***");
-                Richtextbox.AppendText("[" + DateTime.Now.ToString() + "] : Edit config.py" + Environment.NewLine);
+                Richtextbox.AppendText($"[{DateTime.Now}] : Edit config.py" + Environment.NewLine);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Could edit config.py", MessageBoxButton.OK, MessageBoxImage.Error);
-                LoggerClass.WriteLine(" *** Error:" + ex.Message + " [MainForm] ***");
-                Richtextbox.AppendText("[" + DateTime.Now.ToString() + "] : Error:" + ex.Message + Environment.NewLine);
+                LoggerClass.WriteLine($" *** Error:{ex.Message} [MainForm] ***");
+                Richtextbox.AppendText($"[{DateTime.Now}] : Error:{ex.Message}\r");
                 return;
             }
         }
@@ -594,13 +592,13 @@ namespace FreeTAKServer_Manager_WPF
                 p.Start();
                 //p.WaitForExit();
                 LoggerClass.WriteLine(" *** Edit MainConfig.py [MainForm] ***");
-                Richtextbox.AppendText("[" + DateTime.Now.ToString() + "] : Edit MainConfig.py" + Environment.NewLine);
+                Richtextbox.AppendText($"[{DateTime.Now}] : Edit MainConfig.py" + Environment.NewLine);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Could edit MainConfig.py", MessageBoxButton.OK, MessageBoxImage.Error);
-                LoggerClass.WriteLine(" *** Error:" + ex.Message + " [MainForm] ***");
-                Richtextbox.AppendText("[" + DateTime.Now.ToString() + "] : Error:" + ex.Message + Environment.NewLine);
+                LoggerClass.WriteLine($" *** Error:{ex.Message} [MainForm] ***");
+                Richtextbox.AppendText($"[{DateTime.Now}] : Error:{ex.Message}\r");
                 return;
             }
         }
@@ -615,33 +613,33 @@ namespace FreeTAKServer_Manager_WPF
             }
             catch (SocketException ex)
             {
-                LoggerClass.WriteLine(" *** Error:" + ex.Message + " [MainForm] ***");
+                LoggerClass.WriteLine($" *** Error:{ex.Message} [MainForm] ***");
                 return false;
             }
         }
 
-        private DispatcherTimer dispatcherTimer = new DispatcherTimer();
+        private DispatcherTimer DT = new DispatcherTimer();
         private void TimerStart()
         {
             //Start the dispatcherTimer watchdog (check that ip and port can be pinged every 30s)
             try
             {
-                if (dispatcherTimer.IsEnabled)
+                if (DT.IsEnabled)
                 {
                     LoggerClass.WriteLine(" *** DispatcherTimer Already Running, No Need To Start [MainForm] ***");
                 }
                 else
                 {
                     LoggerClass.WriteLine(" *** Started dispatcherTimer [MainForm] ***");
-                    dispatcherTimer = new DispatcherTimer();
-                    dispatcherTimer.Tick += dispatcherTimer_Tick;
-                    dispatcherTimer.Interval = new TimeSpan(0, 0, 30);//60 seconds
-                    dispatcherTimer.Start();
+                    DT = new DispatcherTimer();
+                    DT.Tick += DispatcherTimer_Tick;
+                    DT.Interval = new TimeSpan(0, 0, 30);//60 seconds
+                    DT.Start();
                 }
             }
             catch (Exception ex)
             {
-                LoggerClass.WriteLine(" *** Error:" + ex.Message + " [MainForm] ***");
+                LoggerClass.WriteLine($" *** Error:{ex.Message} [MainForm] ***");
             }
         }
 
@@ -650,10 +648,10 @@ namespace FreeTAKServer_Manager_WPF
             //Stop the dispatcherTimer watchdog
             try
             {
-                if (dispatcherTimer.IsEnabled)
+                if (DT.IsEnabled)
                 {
                     LoggerClass.WriteLine(" *** Stopped dispatcherTimer [MainForm] *** ");
-                    dispatcherTimer.Stop();
+                    DT.Stop();
                 }
                 else
                 {
@@ -662,11 +660,11 @@ namespace FreeTAKServer_Manager_WPF
             }
             catch (Exception ex)
             {
-                LoggerClass.WriteLine(" *** Error:" + ex.Message + " [MainForm] ***");
+                LoggerClass.WriteLine($" *** Error:{ex.Message} [MainForm] ***");
             }
         }
 
-        private void dispatcherTimer_Tick(object sender, EventArgs e)
+        private void DispatcherTimer_Tick(object sender, EventArgs e)
         {
             //Do what is contained within this method every 30 seconds
             if (PingHost("127.0.0.1", 5000) == false || PingHost("127.0.0.1", 8080) == false || PingHost("127.0.0.1", 8443) == false)
@@ -696,7 +694,7 @@ namespace FreeTAKServer_Manager_WPF
                 catch (Exception ex)
                 {
                     //MessageBox.Show(ex.Message, "Email could not be tested", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    LoggerClass.WriteLine(" *** Error:" + ex.Message + " [EmailSetup_Form] ***");
+                    LoggerClass.WriteLine($" *** Error:{ex.Message} [EmailSetup_Form] ***");
                 }
             }
         }
@@ -704,12 +702,12 @@ namespace FreeTAKServer_Manager_WPF
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             //On closing the application kill the server and UI PIDs
-            if (CMD_PID_Class._ServerPIDVar != 0)
+            if (CMD_PID_Class.ServerPIDVar != 0)
             {
-                CMD_Class.PIDkill(CMD_PID_Class._ServerPIDVar);
-                CMD_Class.PIDkill(CMD_PID_Class._UIPIDVar);
-                LoggerClass.WriteLine(" *** Kill Server PID=" + CMD_PID_Class._ServerPIDVar + ",  Kill UI PID=" + CMD_PID_Class._UIPIDVar + "[MainForm] ***");
-                Richtextbox.AppendText("[" + DateTime.Now.ToString() + "] : Kill Server PID=" + CMD_PID_Class._ServerPIDVar + ", Kill UI PID=" + CMD_PID_Class._UIPIDVar + Environment.NewLine);
+                CMD_Class.PIDKill(CMD_PID_Class.ServerPIDVar);
+                CMD_Class.PIDKill(CMD_PID_Class.UIPIDVar);
+                LoggerClass.WriteLine(" *** Kill Server PID=" + CMD_PID_Class.ServerPIDVar + ",  Kill UI PID=" + CMD_PID_Class.UIPIDVar + "[MainForm] ***");
+                Richtextbox.AppendText($"[{DateTime.Now}] : Kill Server PID=" + CMD_PID_Class.ServerPIDVar + ", Kill UI PID=" + CMD_PID_Class.UIPIDVar + Environment.NewLine);
                 LoggerClass.WriteLine(" *** Application Closed [MainForm] ***");
             }
             else
@@ -724,7 +722,7 @@ namespace FreeTAKServer_Manager_WPF
             //Emails will be sent if the watchdog ping fails when the checkbox is checked
             try
             {
-                if (Email_checkBox.IsChecked == true)
+                if (Email_CheckBox.IsChecked == true)
                 {
                     Properties.Settings.Default.email_checkstate = true;
                     Properties.Settings.Default.Save();
@@ -741,8 +739,8 @@ namespace FreeTAKServer_Manager_WPF
             }
             catch (Exception ex)
             {
-                LoggerClass.WriteLine(" *** Error:" + ex.Message + " [MainForm] ***");
-                Richtextbox.AppendText("[" + DateTime.Now.ToString() + "] : Error:" + ex.Message + Environment.NewLine);
+                LoggerClass.WriteLine($" *** Error:{ex.Message} [MainForm] ***");
+                Richtextbox.AppendText($"[{DateTime.Now}] : Error:{ex.Message}\r");
                 MessageBox.Show(ex.Message, "Send email alert error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
@@ -756,7 +754,7 @@ namespace FreeTAKServer_Manager_WPF
             {
                 RegistryKey rk = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", true);
                 string AppName = "FreeTAKServer_Manager";
-                if (Startserver_checkBox.IsChecked == true)
+                if (Startserver_CheckBox.IsChecked == true)
                 {
                     rk.SetValue(AppName, AppDomain.CurrentDomain.BaseDirectory);
                     Properties.Settings.Default.StartupServer_checkstate = true;
@@ -773,8 +771,8 @@ namespace FreeTAKServer_Manager_WPF
             }
             catch (Exception ex)
             {
-                LoggerClass.WriteLine(" *** Error:" + ex.Message + " [MainForm] ***");
-                Richtextbox.AppendText("[" + DateTime.Now.ToString() + "] : Error:" + ex.Message + Environment.NewLine);
+                LoggerClass.WriteLine($" *** Error:{ex.Message} [MainForm] ***");
+                Richtextbox.AppendText($"[{DateTime.Now}] : Error:{ex.Message}\r");
                 MessageBox.Show(ex.Message, "Send email alert error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }

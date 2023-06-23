@@ -12,7 +12,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <RichTextBox x:Name="Richtextbox" IsReadOnly="True" HorizontalAlignment="Left" Height="391" Margin="10,10,0,0" VerticalAlignment="Top" Width="506" Cursor="IBeam" AutomationProperties.HelpText="Read Me" IsInactiveSelectionHighlightEnabled="True" Block.LineHeight="2" Background="Black" Foreground="White" TextChanged="Richtextbox_TextChanged"/>
+        <RichTextBox x:Name="Richtextbox" IsReadOnly="True" HorizontalAlignment="Left" Height="391" Margin="10,10,0,0" VerticalAlignment="Top" Width="506" Cursor="IBeam" AutomationProperties.HelpText="Read Me" IsInactiveSelectionHighlightEnabled="True" Block.LineHeight="2" Background="Black" Foreground="White"/>
 
     </Grid>
 </Window>

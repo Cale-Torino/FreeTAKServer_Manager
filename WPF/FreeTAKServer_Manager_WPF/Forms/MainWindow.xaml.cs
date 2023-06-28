@@ -43,11 +43,11 @@ namespace FreeTAKServer_Manager_WPF
                 LoggerClass.WriteLine(" *** CreateDirectory Success [MainForm] ***");
                 Richtextbox.AppendText($"[{DateTime.Now}] : Logs Create Directory Success" + "\r");
             }
-            catch (Exception ex)
+            catch (Exception Exception)
             {
-                MessageBox.Show(ex.Message, "Create Folder Error!", MessageBoxButton.OK, MessageBoxImage.Error);
-                LoggerClass.WriteLine($" *** Error:{ex.Message} [MainForm] ***");
-                Richtextbox.AppendText($"[{DateTime.Now}] : Error:{ex.Message}\r");
+                MessageBox.Show(Exception.Message, "Create Folder Error!", MessageBoxButton.OK, MessageBoxImage.Error);
+                LoggerClass.WriteLine($" *** Error:{Exception.Message} [MainForm] ***");
+                Richtextbox.AppendText($"[{DateTime.Now}] : Error:{Exception.Message}\r");
                 return;
             }
         }
@@ -70,11 +70,11 @@ namespace FreeTAKServer_Manager_WPF
                 LoggerClass.WriteLine(" *** Ini Complete [MainForm] ***");
                 Richtextbox.AppendText($"[{DateTime.Now}] : Ini Complete" + "\r");
             }
-            catch (Exception ex)
+            catch (Exception Exception)
             {
-                MessageBox.Show(ex.Message, "Ini Error!", MessageBoxButton.OK, MessageBoxImage.Error);
-                LoggerClass.WriteLine($" *** Error:{ex.Message} [MainForm] ***");
-                Richtextbox.AppendText($"[{DateTime.Now}] : Error:{ex.Message}\r");
+                MessageBox.Show(Exception.Message, "Ini Error!", MessageBoxButton.OK, MessageBoxImage.Error);
+                LoggerClass.WriteLine($" *** Error:{Exception.Message} [MainForm] ***");
+                Richtextbox.AppendText($"[{DateTime.Now}] : Error:{Exception.Message}\r");
                 return;
             }
         }
@@ -89,11 +89,11 @@ namespace FreeTAKServer_Manager_WPF
                 LoggerClass.WriteLine($" *** Python check result: {pythonversion} [MainForm] ***");
                 Richtextbox.AppendText($"[{DateTime.Now}] : Python check result: {pythonversion}");
             }
-            catch (Exception ex)
+            catch (Exception Exception)
             {
-                MessageBox.Show(ex.Message, "PythonInstalled check error", MessageBoxButton.OK, MessageBoxImage.Error);
-                LoggerClass.WriteLine($" *** Error:{ex.Message} [MainForm] ***");
-                Richtextbox.AppendText($"[{DateTime.Now}] : Error:{ex.Message}\n");
+                MessageBox.Show(Exception.Message, "PythonInstalled check error", MessageBoxButton.OK, MessageBoxImage.Error);
+                LoggerClass.WriteLine($" *** Error:{Exception.Message} [MainForm] ***");
+                Richtextbox.AppendText($"[{DateTime.Now}] : Error:{Exception.Message}\n");
                 return;
             }
         }
@@ -134,11 +134,11 @@ namespace FreeTAKServer_Manager_WPF
                 }
 
             }
-            catch (Exception ex)
+            catch (Exception Exception)
             {
-                MessageBox.Show(ex.Message, "Could not get Pythondir Property", MessageBoxButton.OK, MessageBoxImage.Error);
-                LoggerClass.WriteLine($" *** Error:{ex.Message} [MainForm] ***");
-                Richtextbox.AppendText($"[{DateTime.Now}] : Error:{ex.Message}\n");
+                MessageBox.Show(Exception.Message, "Could not get Pythondir Property", MessageBoxButton.OK, MessageBoxImage.Error);
+                LoggerClass.WriteLine($" *** Error:{Exception.Message} [MainForm] ***");
+                Richtextbox.AppendText($"[{DateTime.Now}] : Error:{Exception.Message}\n");
                 return;
             }
         }
@@ -172,11 +172,11 @@ namespace FreeTAKServer_Manager_WPF
                 }
 
             }
-            catch (Exception ex)
+            catch (Exception Exception)
             {
-                MessageBox.Show(ex.Message, "Create Folder Error!", MessageBoxButton.OK, MessageBoxImage.Error);
-                LoggerClass.WriteLine($" *** Error:{ex.Message} [MainForm] ***");
-                Richtextbox.AppendText($"[{DateTime.Now}] : Error:{ex.Message}\r");
+                MessageBox.Show(Exception.Message, "Create Folder Error!", MessageBoxButton.OK, MessageBoxImage.Error);
+                LoggerClass.WriteLine($" *** Error:{Exception.Message} [MainForm] ***");
+                Richtextbox.AppendText($"[{DateTime.Now}] : Error:{Exception.Message}\r");
                 return;
             }
         }
@@ -315,12 +315,12 @@ namespace FreeTAKServer_Manager_WPF
                     LoggerClass.WriteLine(" *** Auto Get Python Path Success [MainForm] ***");
                     Richtextbox.AppendText($"[{DateTime.Now}] : Auto Get Python Path Success" + Environment.NewLine);
                 }
-                catch (Exception ex)
+                catch (Exception Exception)
                 {
                     clicked = false;
-                    MessageBox.Show(ex.Message, "Auto Get Python Path Error! Please enter path manually.", MessageBoxButton.OK, MessageBoxImage.Error);
-                    LoggerClass.WriteLine($" *** Error:{ex.Message} [MainForm] ***");
-                    Richtextbox.AppendText($"[{DateTime.Now}] : Error:{ex.Message}\r");
+                    MessageBox.Show(Exception.Message, "Auto Get Python Path Error! Please enter path manually.", MessageBoxButton.OK, MessageBoxImage.Error);
+                    LoggerClass.WriteLine($" *** Error:{Exception.Message} [MainForm] ***");
+                    Richtextbox.AppendText($"[{DateTime.Now}] : Error:{Exception.Message}\r");
                     PythonDir_TextBox.IsEnabled = true;
                     PythonDir_TextBox.IsReadOnly = false;
                     SetDirServer_Button.Content = "Save Dir";
@@ -385,13 +385,13 @@ namespace FreeTAKServer_Manager_WPF
                     PythonInstalled();
                     MessageBox.Show("Server has been installed", "", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
-                catch (Exception ex)
+                catch (Exception Exception)
                 {
                     ForceCursor = true;
                     Cursor = Cursors.Arrow;
-                    MessageBox.Show(ex.Message, "Could not install FreeTAKServer[ui]", MessageBoxButton.OK, MessageBoxImage.Error);
-                    LoggerClass.WriteLine($" *** Error:{ex.Message} [MainForm] ***");
-                    Richtextbox.AppendText($"[{DateTime.Now}] : Error:{ex.Message}\r");
+                    MessageBox.Show(Exception.Message, "Could not install FreeTAKServer[ui]", MessageBoxButton.OK, MessageBoxImage.Error);
+                    LoggerClass.WriteLine($" *** Error:{Exception.Message} [MainForm] ***");
+                    Richtextbox.AppendText($"[{DateTime.Now}] : Error:{Exception.Message}\r");
                     return;
                 }
             }
@@ -440,11 +440,11 @@ namespace FreeTAKServer_Manager_WPF
                 }
                 return pythonPathFromEnv;
             }
-            catch (Exception ex)
+            catch (Exception Exception)
             {
-                MessageBox.Show(ex.Message, "Get Python Path Error!", MessageBoxButton.OK, MessageBoxImage.Error);
-                LoggerClass.WriteLine($" *** Error:{ex.Message} [MainForm] ***");
-                Richtextbox.AppendText($"[{DateTime.Now}] : Error:{ex.Message}\r");
+                MessageBox.Show(Exception.Message, "Get Python Path Error!", MessageBoxButton.OK, MessageBoxImage.Error);
+                LoggerClass.WriteLine($" *** Error:{Exception.Message} [MainForm] ***");
+                Richtextbox.AppendText($"[{DateTime.Now}] : Error:{Exception.Message}\r");
                 return "Get Python Path Error";
             }
 
@@ -483,13 +483,13 @@ namespace FreeTAKServer_Manager_WPF
                     Cursor = Cursors.Arrow;
                     MessageBox.Show("Server has been uninstalled", "", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
-                catch (Exception ex)
+                catch (Exception Exception)
                 {
                     ForceCursor = true;
                     Cursor = Cursors.Arrow;
-                    MessageBox.Show(ex.Message, "Could not uninstall FreeTAKServer & FreeTAKServer-UI", MessageBoxButton.OK, MessageBoxImage.Error);
-                    LoggerClass.WriteLine($" *** Error:{ex.Message} [MainForm] ***");
-                    Richtextbox.AppendText($"[{DateTime.Now}] : Error:{ex.Message}\r");
+                    MessageBox.Show(Exception.Message, "Could not uninstall FreeTAKServer & FreeTAKServer-UI", MessageBoxButton.OK, MessageBoxImage.Error);
+                    LoggerClass.WriteLine($" *** Error:{Exception.Message} [MainForm] ***");
+                    Richtextbox.AppendText($"[{DateTime.Now}] : Error:{Exception.Message}\r");
                     return;
                 }
             }
@@ -567,11 +567,11 @@ namespace FreeTAKServer_Manager_WPF
                 LoggerClass.WriteLine(" *** Edit config.py [MainForm] ***");
                 Richtextbox.AppendText($"[{DateTime.Now}] : Edit config.py" + Environment.NewLine);
             }
-            catch (Exception ex)
+            catch (Exception Exception)
             {
-                MessageBox.Show(ex.Message, "Could edit config.py", MessageBoxButton.OK, MessageBoxImage.Error);
-                LoggerClass.WriteLine($" *** Error:{ex.Message} [MainForm] ***");
-                Richtextbox.AppendText($"[{DateTime.Now}] : Error:{ex.Message}\r");
+                MessageBox.Show(Exception.Message, "Could edit config.py", MessageBoxButton.OK, MessageBoxImage.Error);
+                LoggerClass.WriteLine($" *** Error:{Exception.Message} [MainForm] ***");
+                Richtextbox.AppendText($"[{DateTime.Now}] : Error:{Exception.Message}\r");
                 return;
             }
         }
@@ -594,11 +594,11 @@ namespace FreeTAKServer_Manager_WPF
                 LoggerClass.WriteLine(" *** Edit MainConfig.py [MainForm] ***");
                 Richtextbox.AppendText($"[{DateTime.Now}] : Edit MainConfig.py" + Environment.NewLine);
             }
-            catch (Exception ex)
+            catch (Exception Exception)
             {
-                MessageBox.Show(ex.Message, "Could edit MainConfig.py", MessageBoxButton.OK, MessageBoxImage.Error);
-                LoggerClass.WriteLine($" *** Error:{ex.Message} [MainForm] ***");
-                Richtextbox.AppendText($"[{DateTime.Now}] : Error:{ex.Message}\r");
+                MessageBox.Show(Exception.Message, "Could edit MainConfig.py", MessageBoxButton.OK, MessageBoxImage.Error);
+                LoggerClass.WriteLine($" *** Error:{Exception.Message} [MainForm] ***");
+                Richtextbox.AppendText($"[{DateTime.Now}] : Error:{Exception.Message}\r");
                 return;
             }
         }
@@ -611,9 +611,9 @@ namespace FreeTAKServer_Manager_WPF
                 using (var client = new TcpClient(hostUri, portNumber))
                     return true;
             }
-            catch (SocketException ex)
+            catch (SocketException Exception)
             {
-                LoggerClass.WriteLine($" *** Error:{ex.Message} [MainForm] ***");
+                LoggerClass.WriteLine($" *** Error:{Exception.Message} [MainForm] ***");
                 return false;
             }
         }
@@ -637,9 +637,9 @@ namespace FreeTAKServer_Manager_WPF
                     DT.Start();
                 }
             }
-            catch (Exception ex)
+            catch (Exception Exception)
             {
-                LoggerClass.WriteLine($" *** Error:{ex.Message} [MainForm] ***");
+                LoggerClass.WriteLine($" *** Error:{Exception.Message} [MainForm] ***");
             }
         }
 
@@ -658,9 +658,9 @@ namespace FreeTAKServer_Manager_WPF
                     LoggerClass.WriteLine(" *** DispatcherTimer Already Stopped, No Need To Stop [MainForm] *** ");
                 }
             }
-            catch (Exception ex)
+            catch (Exception Exception)
             {
-                LoggerClass.WriteLine($" *** Error:{ex.Message} [MainForm] ***");
+                LoggerClass.WriteLine($" *** Error:{Exception.Message} [MainForm] ***");
             }
         }
 
@@ -691,10 +691,10 @@ namespace FreeTAKServer_Manager_WPF
                     SmtpServer.Send(mail);
                     LoggerClass.WriteLine(" *** ALERT!! Mail sent! [MainForm] ***");
                 }
-                catch (Exception ex)
+                catch (Exception Exception)
                 {
-                    //MessageBox.Show(ex.Message, "Email could not be tested", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    LoggerClass.WriteLine($" *** Error:{ex.Message} [EmailSetup_Form] ***");
+                    //MessageBox.Show(Exception.Message, "Email could not be tested", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    LoggerClass.WriteLine($" *** Error:{Exception.Message} [EmailSetup_Form] ***");
                 }
             }
         }
@@ -737,11 +737,11 @@ namespace FreeTAKServer_Manager_WPF
                     TimerStop();
                 }
             }
-            catch (Exception ex)
+            catch (Exception Exception)
             {
-                LoggerClass.WriteLine($" *** Error:{ex.Message} [MainForm] ***");
-                Richtextbox.AppendText($"[{DateTime.Now}] : Error:{ex.Message}\r");
-                MessageBox.Show(ex.Message, "Send email alert error", MessageBoxButton.OK, MessageBoxImage.Error);
+                LoggerClass.WriteLine($" *** Error:{Exception.Message} [MainForm] ***");
+                Richtextbox.AppendText($"[{DateTime.Now}] : Error:{Exception.Message}\r");
+                MessageBox.Show(Exception.Message, "Send email alert error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
         }
@@ -769,11 +769,11 @@ namespace FreeTAKServer_Manager_WPF
                     MessageBox.Show("Server will NOT START at startup", "", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
-            catch (Exception ex)
+            catch (Exception Exception)
             {
-                LoggerClass.WriteLine($" *** Error:{ex.Message} [MainForm] ***");
-                Richtextbox.AppendText($"[{DateTime.Now}] : Error:{ex.Message}\r");
-                MessageBox.Show(ex.Message, "Send email alert error", MessageBoxButton.OK, MessageBoxImage.Error);
+                LoggerClass.WriteLine($" *** Error:{Exception.Message} [MainForm] ***");
+                Richtextbox.AppendText($"[{DateTime.Now}] : Error:{Exception.Message}\r");
+                MessageBox.Show(Exception.Message, "Send email alert error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
         }

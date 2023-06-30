@@ -26,19 +26,19 @@ namespace FreeTAKServer_Manager_WPF
             Body_TextBox.IsEnabled = false;
             Username_TextBox.IsEnabled = false;
             Password_TextBox.IsEnabled = false;
-            if (Properties.Settings.Default.emailPass != string.Empty)
+            if (Properties.Settings.Default.EmailPass != string.Empty)
             {
                 //Decrypt email password stored in config file
-                SecureString password = EncryptionClass.DecryptString(Properties.Settings.Default.emailPass);
+                SecureString password = EncryptionClass.DecryptString(Properties.Settings.Default.EmailPass);
                 Password_TextBox.Text = EncryptionClass.ToInsecureString(password);
             }
             //Write saved propertie vars to textboxes
-            Smtp_TextBox.Text = Properties.Settings.Default.emailSmtp;
-            From_TextBox.Text = Properties.Settings.Default.emailFrom;
-            To_TextBox.Text = Properties.Settings.Default.emailTo;
-            Subject_TextBox.Text = Properties.Settings.Default.emailSubject;
-            Body_TextBox.Text = Properties.Settings.Default.emailBody;
-            Username_TextBox.Text = Properties.Settings.Default.emailUsername;
+            Smtp_TextBox.Text = Properties.Settings.Default.EmailSmtp;
+            From_TextBox.Text = Properties.Settings.Default.EmailFrom;
+            To_TextBox.Text = Properties.Settings.Default.EmailTo;
+            Subject_TextBox.Text = Properties.Settings.Default.EmailSubject;
+            Body_TextBox.Text = Properties.Settings.Default.EmailBody;
+            Username_TextBox.Text = Properties.Settings.Default.EmailUsername;
         }
         private void SendEmail()
         {
@@ -111,14 +111,14 @@ namespace FreeTAKServer_Manager_WPF
             {
                 clickedOnce = true;
                 //Encrypt password for storage
-                Properties.Settings.Default.emailPass = EncryptionClass.EncryptString(EncryptionClass.ToSecureString(Password_TextBox.Text));
+                Properties.Settings.Default.EmailPass = EncryptionClass.EncryptString(EncryptionClass.ToSecureString(Password_TextBox.Text));
                 //Set property vars and save them to config file
-                Properties.Settings.Default.emailSmtp = Smtp_TextBox.Text;
-                Properties.Settings.Default.emailFrom = From_TextBox.Text;
-                Properties.Settings.Default.emailTo = To_TextBox.Text;
-                Properties.Settings.Default.emailSubject = Subject_TextBox.Text;
-                Properties.Settings.Default.emailBody = Body_TextBox.Text;
-                Properties.Settings.Default.emailUsername = Username_TextBox.Text;
+                Properties.Settings.Default.EmailSmtp = Smtp_TextBox.Text;
+                Properties.Settings.Default.EmailFrom = From_TextBox.Text;
+                Properties.Settings.Default.EmailTo = To_TextBox.Text;
+                Properties.Settings.Default.EmailSubject = Subject_TextBox.Text;
+                Properties.Settings.Default.EmailBody = Body_TextBox.Text;
+                Properties.Settings.Default.EmailUsername = Username_TextBox.Text;
                 Properties.Settings.Default.Save();//Set properties
                 //Set textboxes to IsEnabled = false
                 Smtp_TextBox.IsEnabled = false;

@@ -12,7 +12,7 @@ namespace FreeTAKServer_Manager_WPF.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.8.1.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.6.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -26,120 +26,120 @@ namespace FreeTAKServer_Manager_WPF.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string Pythondir {
+        public string PythonDir {
             get {
-                return ((string)(this["Pythondir"]));
+                return ((string)(this["PythonDir"]));
             }
             set {
-                this["Pythondir"] = value;
+                this["PythonDir"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool email_checkstate {
+        public bool EmailCheckState {
             get {
-                return ((bool)(this["email_checkstate"]));
+                return ((bool)(this["EmailCheckState"]));
             }
             set {
-                this["email_checkstate"] = value;
+                this["EmailCheckState"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool StartupServer_checkstate {
+        public bool StartupServer_CheckState {
             get {
-                return ((bool)(this["StartupServer_checkstate"]));
+                return ((bool)(this["StartupServer_CheckState"]));
             }
             set {
-                this["StartupServer_checkstate"] = value;
+                this["StartupServer_CheckState"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string emailPass {
+        public string EmailPass {
             get {
-                return ((string)(this["emailPass"]));
+                return ((string)(this["EmailPass"]));
             }
             set {
-                this["emailPass"] = value;
+                this["EmailPass"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string emailSmtp {
+        public string EmailSmtp {
             get {
-                return ((string)(this["emailSmtp"]));
+                return ((string)(this["EmailSmtp"]));
             }
             set {
-                this["emailSmtp"] = value;
+                this["EmailSmtp"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string emailFrom {
+        public string EmailFrom {
             get {
-                return ((string)(this["emailFrom"]));
+                return ((string)(this["EmailFrom"]));
             }
             set {
-                this["emailFrom"] = value;
+                this["EmailFrom"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string emailTo {
+        public string EmailTo {
             get {
-                return ((string)(this["emailTo"]));
+                return ((string)(this["EmailTo"]));
             }
             set {
-                this["emailTo"] = value;
+                this["EmailTo"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string emailSubject {
+        public string EmailSubject {
             get {
-                return ((string)(this["emailSubject"]));
+                return ((string)(this["EmailSubject"]));
             }
             set {
-                this["emailSubject"] = value;
+                this["EmailSubject"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string emailBody {
+        public string EmailBody {
             get {
-                return ((string)(this["emailBody"]));
+                return ((string)(this["EmailBody"]));
             }
             set {
-                this["emailBody"] = value;
+                this["EmailBody"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string emailUsername {
+        public string EmailUsername {
             get {
-                return ((string)(this["emailUsername"]));
+                return ((string)(this["EmailUsername"]));
             }
             set {
-                this["emailUsername"] = value;
+                this["EmailUsername"] = value;
             }
         }
     }

@@ -706,8 +706,8 @@ namespace FreeTAKServer_Manager_WPF
             {
                 CMD_Class.PIDKill(CMD_PID_Class.ServerPIDVar);
                 CMD_Class.PIDKill(CMD_PID_Class.UIPIDVar);
-                LoggerClass.WriteLine(" *** Kill Server PID=" + CMD_PID_Class.ServerPIDVar + ",  Kill UI PID=" + CMD_PID_Class.UIPIDVar + "[MainForm] ***");
-                Richtextbox.AppendText($"[{DateTime.Now}] : Kill Server PID=" + CMD_PID_Class.ServerPIDVar + ", Kill UI PID=" + CMD_PID_Class.UIPIDVar + Environment.NewLine);
+                LoggerClass.WriteLine($" *** Kill Server PID={CMD_PID_Class.ServerPIDVar},  Kill UI PID={CMD_PID_Class.UIPIDVar}[MainForm] ***");
+                Richtextbox.AppendText($"[{DateTime.Now}] : Kill Server PID={CMD_PID_Class.ServerPIDVar}, Kill UI PID={CMD_PID_Class.UIPIDVar}\n");
                 LoggerClass.WriteLine(" *** Application Closed [MainForm] ***");
             }
             else

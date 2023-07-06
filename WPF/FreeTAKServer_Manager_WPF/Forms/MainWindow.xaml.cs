@@ -148,27 +148,27 @@ namespace FreeTAKServer_Manager_WPF
             try
             {
                 //Replace the text `</text>` with the formatted Python path for windows in both config files
-                string YamlConfigFile = $@"{Properties.Settings.Default.PythonDir}Lib\site-packages\FreeTAKServer\FTSConfig.yaml";
-                string ConfigFile = $@"{Properties.Settings.Default.PythonDir}Lib\site-packages\FreeTAKServer-UI\config.py";
-                string MainConfigFile = $@"{Properties.Settings.Default.PythonDir}Lib\site-packages\FreeTAKServer\core\configuration\MainConfig.py";
-                if (Directory.Exists(Path.GetDirectoryName(ConfigFile)) && Directory.Exists(Path.GetDirectoryName(MainConfigFile)) && Directory.Exists(Path.GetDirectoryName(YamlConfigFile)))
+                string YamlConfigFilePath = $@"{Properties.Settings.Default.PythonDir}Lib\site-packages\FreeTAKServer\FTSConfig.yaml";
+                string ConfigFilePath = $@"{Properties.Settings.Default.PythonDir}Lib\site-packages\FreeTAKServer-UI\config.py";
+                string MainConfigFilePath = $@"{Properties.Settings.Default.PythonDir}Lib\site-packages\FreeTAKServer\core\configuration\MainConfig.py";
+                if (Directory.Exists(Path.GetDirectoryName(ConfigFilePath)) && Directory.Exists(Path.GetDirectoryName(MainConfigFilePath)) && Directory.Exists(Path.GetDirectoryName(YamlConfigFilePath)))
                 {
-                    string ConfigFile = File.ReadAllText(ConfigFile, Encoding.UTF8);//Read config.py file text
-                    string MainConfigFile = File.ReadAllText(MainConfigFile, Encoding.UTF8);//Read MainConfig.py file text
-                    string YamlConfigFile = File.ReadAllText(YamlConfigFile, Encoding.UTF8);//Read FTSConfig.yaml file text
+                    string ConFigFile = File.ReadAllText(ConfigFilePath, Encoding.UTF8);//Read config.py file text
+                    string MainCF = File.ReadAllText(MainConfigFilePath, Encoding.UTF8);//Read MainConfig.py file text
+                    string YamlCF = File.ReadAllText(YamlConfigFilePath, Encoding.UTF8);//Read FTSConfig.yaml file text
                     string PythonPath = Properties.Settings.Default.PythonDir.Replace(@"\", @"\\");//Replace directory `\` with `\\`
 
-                    MainConfigFile = MainConfigFile.Replace("</text>", PythonPath);// Replace `</text>` with the directory
-                    MainConfigFile = Regex.Replace(MainConfigFile, @"\<ref.*?\</ref\>", "");
-                    File.WriteAllText(MainConfigFile, MainConfigFile);//Write all to file
+                    YamlCF = YamlCF.Replace("</text>", PythonPath);// Replace `</text>` with the directory
+                    YamlCF = Regex.Replace(YamlCF, @"\<ref.*?\</ref\>", "");
+                    File.WriteAllText(MainConfigFilePath, YamlCF);//Write all to file
 
-                    ConfigFile = ConfigFile.Replace("</text>", PythonPath);// Replace `</text>` with the directory
-                    ConfigFile = Regex.Replace(ConfigFile, @"\<ref.*?\</ref\>", "");
-                    File.WriteAllText(ConfigFile, ConfigFile);//Write all to file
+                    MainCF = MainCF.Replace("</text>", PythonPath);// Replace `</text>` with the directory
+                    MainCF = Regex.Replace(MainCF, @"\<ref.*?\</ref\>", "");
+                    File.WriteAllText(ConfigFilePath, MainCF);//Write all to file
 
-                    YamlConfigFile = YamlConfigFile.Replace("</text>", PythonPath);// Replace `</text>` with the directory
-                    YamlConfigFile = Regex.Replace(YamlConfigFile, @"\<ref.*?\</ref\>", "");
-                    File.WriteAllText(YamlConfigFile, YamlConfigFile);//Write all to file
+                    ConFigFile = ConFigFile.Replace("</text>", PythonPath);// Replace `</text>` with the directory
+                    ConFigFile = Regex.Replace(ConFigFile, @"\<ref.*?\</ref\>", "");
+                    File.WriteAllText(YamlConfigFilePath, ConFigFile);//Write all to file
                 }
 
             }

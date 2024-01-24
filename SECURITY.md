@@ -17,3 +17,5 @@ We appreciate your efforts to make server-status more secure and will try to do 
 keep you informed of the progress towards a fix.
 
 Thanks for your understanding.
+
+[Back to ReadMe](README.md)

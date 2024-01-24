@@ -6,6 +6,8 @@ More features (*such as: FTS API testing, easy config file access and Telegram B
 
 C# WinForms & WPF versions are supported.
 
+[View the Security Policy](SECURITY.md)
+
 ---
 
 The FreeTAKServer Manager C# application was created to make using the current `v1.x.x` of FreeTAKServer more user friendly.

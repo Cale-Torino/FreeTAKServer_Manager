@@ -4,6 +4,8 @@
 
 Project archived unless there's a good reason to open it up again.
 
+---
+
 **FreeTAKServer Manager** an application for the `Windows OS` which allows the *installation*, *start*, *stop* and *uninstallation* of the FreeTAKServer all in a dedicated GUI.
 
 More features (*such as: FTS API testing, easy config file access and Telegram BOT API testing etc.*) will be added to improve the FTS windows experience.
